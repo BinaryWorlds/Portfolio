@@ -21,10 +21,12 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "jsx-a11y", "react-hooks"],
   "rules": {
+    "allowForLoopAfterthoughts": true,
+    "import/prefer-default-export": "off",
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "max-len": ["error", { "code": 100 }],
+    "max-len": ["error", { "code": 120 }],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
     "react/jsx-closing-bracket-location": [1, "tag-aligned"],
