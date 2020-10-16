@@ -6,6 +6,10 @@ export const StyledImage = styled.div`
   width: 347px;
   height: 430px;
 `;
+export const StyledText = styled.div`
+  padding: 3vh 0;
+  font: inherit;
+`;
 
 export const StyledHello = styled.div`
   font-size: ${({ theme }) => theme.fonts.size.l};
@@ -15,7 +19,7 @@ export const StyledHello = styled.div`
 `;
 
 export const StyledWrapper = styled.div`
-  padding: 0 10%;
+  padding: 0 10vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -26,6 +30,6 @@ export const StyledWrapper = styled.div`
     background: ${({ theme }) => theme.colors.blue};
     z-index: -1;
     width: 100vw;
-    height: 30vh;
+    height: 37vh;
   }
 `;

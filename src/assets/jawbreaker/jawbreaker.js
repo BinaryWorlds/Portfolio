@@ -382,5 +382,6 @@ function checkItIsOver() {
 }
 
 export function resetGame() {
+  g.lastSelectedChain = [];
   newGame(g.rowsInit, g.columnsInit, g.colorsInit, g.ballSize);
 }

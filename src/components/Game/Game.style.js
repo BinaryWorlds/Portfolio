@@ -1,1 +1,36 @@
 import styled from 'styled-components';
+
+export const StyledButton = styled.button`
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  font-size: ${({ theme }) => theme.fonts.size.s};
+  font-weight: ${({ theme }) => theme.fonts.weight.bold};
+  margin-bottom: 4vh;
+
+  :before {
+    content: '';
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: ${({ theme }) => theme.colors.blue};
+    transition: all 0.4s;
+  }
+  :hover:before {
+    width: 50%;
+    height: 50%;
+    top: -10px;
+    left: -10px;
+  }
+`;
+export const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  user-select: none;
+`;

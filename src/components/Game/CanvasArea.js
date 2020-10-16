@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { g } from '../../assets/jawbreaker/jawbreaker';
-
+import { StyledWrapper, StyledCanvas } from './CanvasArea.style';
 function CanvasArea() {
   let canvasRef = useRef();
 
@@ -10,7 +10,12 @@ function CanvasArea() {
   }, []);
 
   return (
-    <canvas ref={canvasRef} style={{ width: g.width, height: g.height }} />
+    <StyledWrapper>
+      <StyledCanvas
+        ref={canvasRef}
+        style={{ width: g.width, height: g.height }}
+      />
+    </StyledWrapper>
   );
 }
 
