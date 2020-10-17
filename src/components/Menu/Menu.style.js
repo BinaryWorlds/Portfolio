@@ -53,7 +53,7 @@ export const StyledElement = styled.li`
 
   ::after {
     position: absolute;
-    content: '${({ text }) => (text ? text : '')}';
+    content: '${({ text }) => text}';
     transform: rotate(-30deg) translate3d(0, 0, 0);
     width: 100%;
     height: 100%;

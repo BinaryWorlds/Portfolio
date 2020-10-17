@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { g } from '../../assets/jawbreaker/jawbreaker';
 import { StyledWrapper, StyledCanvas } from './CanvasArea.style';
+
 function CanvasArea() {
-  let canvasRef = useRef();
+  const canvasRef = useRef();
 
   useEffect(() => {
     g.canvas = canvasRef.current;

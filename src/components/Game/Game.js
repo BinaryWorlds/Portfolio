@@ -12,6 +12,9 @@ function Game() {
   useEffect(() => {
     newGame(9, 12, 5, 40);
     startSymulate();
+    return () => {
+      stopSymulate();
+    };
   }, []);
 
   const [gameMode, setGameMode] = useState(false);

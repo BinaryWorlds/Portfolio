@@ -28,7 +28,6 @@ function Menu({ sectionID }) {
       <StyledMenu onClick={toggleMenu}>
         <Hamburger isOpen={isOpen} />
       </StyledMenu>
-
       {isOpen ? <ul>{menuItems}</ul> : currentPage}
     </StyledWrapper>
   );

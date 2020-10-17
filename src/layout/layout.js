@@ -1,10 +1,10 @@
 import React from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import theme from './theme';
 import SEO from '../components/SEO';
 
 const GlobalStyle = createGlobalStyle`
-  
+
   html {
     font-size: 62.5%;
   }
@@ -27,20 +27,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const StyledWrapper = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-`;
-
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <>
       <SEO />
       <GlobalStyle />
-      <StyledWrapper>{children}</StyledWrapper>
+      {children}
     </>
   </ThemeProvider>
 );
