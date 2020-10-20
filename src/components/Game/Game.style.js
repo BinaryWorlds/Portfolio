@@ -1,6 +1,15 @@
 import styled from 'styled-components';
+import shakeEffect from '../../animations/shakeEffect';
+
+export const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  user-select: none;
+`;
 
 export const StyledButton = styled.button`
+  ${({ animate }) => animate && shakeEffect}
   background: transparent;
   position: relative;
   cursor: pointer;
@@ -9,7 +18,6 @@ export const StyledButton = styled.button`
   font-size: ${({ theme }) => theme.fonts.size.s};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   margin-bottom: 4vh;
-
   :before {
     content: '';
     z-index: -1;
@@ -27,10 +35,4 @@ export const StyledButton = styled.button`
     top: -10px;
     left: -10px;
   }
-`;
-export const StyledWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  user-select: none;
 `;

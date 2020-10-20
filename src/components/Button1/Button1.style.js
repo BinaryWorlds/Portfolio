@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import shakeEffect from '../../animations/shakeEffect';
 
 const black = '#282936';
 const transitionRules = 'transition: all 0.45s cubic-bezier(0.65, 0, .076, 1)';
 
 export const StyledButton = styled.button`
+  ${({ animate }) => animate && shakeEffect};
   position: relative;
   display: inline-block;
   background: transparent;

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import fadeIn from '../../animations/fadeIn';
+import fadeOut from '../../animations/fadeOut';
 
 export const StyledImage = styled.div`
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
@@ -19,6 +21,7 @@ export const StyledHello = styled.div`
 `;
 
 export const StyledWrapper = styled.div`
+  ${({ isMount }) => (isMount ? fadeOut : fadeIn)};
   padding: 0 10vw;
   display: flex;
   align-items: center;

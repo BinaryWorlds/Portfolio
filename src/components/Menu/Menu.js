@@ -4,20 +4,18 @@ import Hamburger from '../Hamburger/Hamburger';
 
 const menuTexts = ['start', 'o mnie', 'projekty', 'kontakt'];
 
-function Menu({ sectionID }) {
+function Menu({ section }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  function toggleMenu() {
-    setIsOpen(!isOpen);
-  }
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const currentPage = <StyledElement text={menuTexts[sectionID]} />;
+  const currentPage = <StyledElement text={menuTexts[section]} />;
 
   const menuItems = menuTexts.map((item, i, arr) => {
-    if (i === sectionID) return null;
+    if (i === section) return null;
     if (
       i === arr.length - 1 ||
-      (i + 1 === sectionID && sectionID === arr.length - 1)
+      (i + 1 === section && section === arr.length - 1)
     )
       return <StyledElement last text={item} key={item} />;
     return <StyledElement active text={item} key={item} />;

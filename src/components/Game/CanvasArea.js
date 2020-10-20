@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { g } from '../../assets/jawbreaker/jawbreaker';
 import { StyledWrapper, StyledCanvas } from './CanvasArea.style';
 
-function CanvasArea() {
+function CanvasArea({ handleAnimateButton }) {
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -12,10 +12,7 @@ function CanvasArea() {
 
   return (
     <StyledWrapper>
-      <StyledCanvas
-        ref={canvasRef}
-        style={{ width: g.width, height: g.height }}
-      />
+      <StyledCanvas ref={canvasRef} onClick={handleAnimateButton} />
     </StyledWrapper>
   );
 }

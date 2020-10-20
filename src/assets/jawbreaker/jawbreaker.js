@@ -376,6 +376,10 @@ function checkItIsOver() {
     document.addEventListener('mousedown', resetGame);
 
     g.ctx.clearRect(0, 0, g.width, g.scoreHeight);
+    g.ctx.fillStyle = '#f0f0f0';
+
+    g.ctx.fillRect(0, 0, g.width, g.scoreHeight);
+
     g.ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
     g.ctx.fillRect(0, 0, g.width, g.height);
     const txtSize = Math.floor(g.width / 8);

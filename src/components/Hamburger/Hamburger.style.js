@@ -27,7 +27,7 @@ export const InnerHamburger = styled.div`
     width: 38px;
     height: 1px;
     background-color: black;
-    transition: background-color 0.25s ease-in;
+    transition: background-color 0.25s ease-in, transform 0.2s ease-in;
   }
   ::before {
     top: -10px;

@@ -9,6 +9,9 @@ import {
 } from '../../assets/jawbreaker/jawbreaker';
 
 function Game() {
+  const [gameMode, setGameMode] = useState(false);
+  const [animateButton, setAnimateButton] = useState(false);
+
   useEffect(() => {
     newGame(9, 12, 5, 40);
     startSymulate();
@@ -17,20 +20,27 @@ function Game() {
     };
   }, []);
 
-  const [gameMode, setGameMode] = useState(false);
-  const [buttonText, setButtonText] = useState('Zagraj!');
-
-  function onButtonClick() {
+  const onButtonClick = () => {
     if (gameMode === false) stopSymulate();
     resetGame();
     setGameMode(true);
-    setButtonText('Reset!');
-  }
+  };
+
+  const handleAnimateButton = () => {
+    if (animateButton || gameMode) return;
+    setAnimateButton(true);
+  };
 
   return (
     <StyledWrapper>
-      <StyledButton onClick={onButtonClick}>{buttonText}</StyledButton>
-      <CanvasArea />
+      <StyledButton
+        onClick={onButtonClick}
+        animate={animateButton}
+        onAnimationEnd={() => setAnimateButton(false)}
+      >
+        {gameMode ? 'Reset!' : 'Zagraj!'}
+      </StyledButton>
+      <CanvasArea handleAnimateButton={handleAnimateButton} />
     </StyledWrapper>
   );
 }
