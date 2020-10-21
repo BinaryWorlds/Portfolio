@@ -1,4 +1,9 @@
-import { ANIMATE_MEET_ME, SET_PAGE, SET_PAGE_UNMOUNTED } from './actionTypes';
+import {
+  ANIMATE_MEET_ME,
+  SET_PAGE,
+  SET_PAGE_UNMOUNTED,
+  SET_LANG,
+} from './actionTypes';
 
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -8,7 +13,8 @@ const reducer = (state = [], action) => {
       return { ...state, pageId: action.payload, isPageMounted: true };
     case SET_PAGE_UNMOUNTED:
       return { ...state, isPageMounted: false };
-
+    case SET_LANG:
+      return { ...state, lang: action.payload };
     default:
       return state;
   }

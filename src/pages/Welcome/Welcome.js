@@ -15,8 +15,10 @@ import {
 } from '../../globalState/actionTypes';
 
 function Welcome() {
-  const { state, dispatch } = useStore();
-  const { isPageMounted } = state;
+  const {
+    state: { isPageMounted, animateMeetMe, lang },
+    dispatch,
+  } = useStore();
 
   const onAnimationEnd = () =>
     dispatch({ type: ANIMATE_MEET_ME, payload: false });
@@ -36,10 +38,9 @@ function Welcome() {
         <Button1
           onClick={handleClick}
           onAnimationEnd={onAnimationEnd}
-          animate={state.animateMeetMe}
-        >
-          Poznaj mnie
-        </Button1>
+          animate={animateMeetMe}
+          text={lang === 'pl' ? 'Poznaj mnie' : 'Meet me'}
+        />
       </StyledHello>
       <Game />
     </StyledWrapper>

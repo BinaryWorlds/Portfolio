@@ -6,7 +6,7 @@ import {
   StyledText,
 } from './Button1.style';
 
-function Button1({ onClick, onAnimationEnd, animate, children }) {
+function Button1({ onClick, onAnimationEnd, animate, text }) {
   return (
     <StyledButton
       onClick={onClick}
@@ -16,7 +16,7 @@ function Button1({ onClick, onAnimationEnd, animate, children }) {
       <StyledCircle className="button1-circle">
         <StyledIcon className="button1-icon" />
       </StyledCircle>
-      <StyledText className="button1-text">{children}</StyledText>
+      <StyledText className="button1-text">{text}</StyledText>
     </StyledButton>
   );
 }

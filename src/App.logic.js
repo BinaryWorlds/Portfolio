@@ -5,12 +5,14 @@ import {
   SET_PAGE,
   SET_PAGE_UNMOUNTED,
 } from './globalState/actionTypes';
-import pageStructure from './pages/pageStructure';
+import { lastPage } from './pages/pageStructure';
 import constrainVal from './utils/constrainVal';
 
 export default function useAppLogic() {
-  const { state, dispatch } = useStore();
-  const { pageId, isPageMounted } = state;
+  const {
+    state: { pageId, isPageMounted },
+    dispatch,
+  } = useStore();
   const [timerIdWheel, setTimerIdWheel] = useState();
   const [lastPageId, setLastPageId] = useState(0);
   const [timerIdForce, setTimerIdForce] = useState();
@@ -22,7 +24,7 @@ export default function useAppLogic() {
       return;
     }
     if (!timerIdForce) {
-      // force page update if error or page is without correct animation(time exceeded)
+      // force page update if error or page is without correct animation(time exceeded) //only for dev
       const id = setTimeout(() => {
         dispatch({ type: SET_PAGE_UNMOUNTED });
         setTimerIdForce(null);
@@ -47,20 +49,21 @@ export default function useAppLogic() {
       if (pageId !== 8) newPageId -= 1;
       else newPageId = 4;
     }
-    newPageId = constrainVal(newPageId, 0, pageStructure.last);
+    newPageId = constrainVal(newPageId, 0, lastPage);
 
     dispatch({ type: SET_PAGE, payload: newPageId });
   };
 
   const throttleHandleWheel = (e) => {
-    if (e.ctrlKey || timerIdWheel || (e.deltaY < 0 && pageId === 0)) return;
-
-    e.persist();
-    handleWheel(e.deltaY);
+    if (e.ctrlKey || (e.deltaY <= 0 && pageId === 0)) return;
 
     const timerIdTask = setTimeout(() => {
       setTimerIdWheel(null);
-    }, 1000);
+    }, 750);
+
+    if (timerIdWheel) clearTimeout(timerIdWheel);
+    else handleWheel(e.deltaY);
+
     setTimerIdWheel(timerIdTask);
   };
 

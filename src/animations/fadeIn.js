@@ -8,7 +8,8 @@ const fadeIn = keyframes`
         opacity: 1;
     }
 }`;
+
 const fadeInEffect = css`
-  animation: ${fadeIn} 0.5s ease-in;
+  animation: ${fadeIn} 0.5s ease-out;
 `;
 export default fadeInEffect;

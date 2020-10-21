@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useStore } from '../../globalState/store';
 import { StyledWrapper, StyledButton } from './Game.style';
 import CanvasArea from './CanvasArea';
 import {
+  changeLang,
   newGame,
   resetGame,
   startSymulate,
@@ -11,6 +13,13 @@ import {
 function Game() {
   const [gameMode, setGameMode] = useState(false);
   const [animateButton, setAnimateButton] = useState(false);
+  const {
+    state: { lang },
+  } = useStore();
+
+  useEffect(() => {
+    changeLang(lang);
+  }, [lang]);
 
   useEffect(() => {
     newGame(9, 12, 5, 40);
@@ -31,6 +40,8 @@ function Game() {
     setAnimateButton(true);
   };
 
+  const playTxt = lang === 'pl' ? 'Zagraj!' : 'Play!';
+
   return (
     <StyledWrapper>
       <StyledButton
@@ -38,7 +49,7 @@ function Game() {
         animate={animateButton}
         onAnimationEnd={() => setAnimateButton(false)}
       >
-        {gameMode ? 'Reset!' : 'Zagraj!'}
+        {gameMode ? 'Reset!' : playTxt}
       </StyledButton>
       <CanvasArea handleAnimateButton={handleAnimateButton} />
     </StyledWrapper>

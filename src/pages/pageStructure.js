@@ -22,8 +22,7 @@ const pageStructure = {
   7: { page: <BudgetApp />, section: 2 },
   8: { page: <MyProduct />, section: 2 },
   9: { page: <Contact />, section: 3 },
-
-  last: 9,
 };
-
 export default pageStructure;
+
+export const lastPage = pageStructure.length;

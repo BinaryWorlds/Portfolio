@@ -4,9 +4,6 @@ export const StyledHamburger = styled.button`
   position: relative;
   top: 14px;
   padding: 15px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
   border: none;
   background: none;
   outline: none;
@@ -18,6 +15,7 @@ export const InnerHamburger = styled.div`
   width: 38px;
   height: 1px;
   background-color: ${({ isOpen }) => (isOpen ? 'transparent' : 'black')};
+  transition: background-color 0.25s ease-in;
 
   ::before,
   ::after {
@@ -27,7 +25,7 @@ export const InnerHamburger = styled.div`
     width: 38px;
     height: 1px;
     background-color: black;
-    transition: background-color 0.25s ease-in, transform 0.2s ease-in;
+    transition: transform 0.25s ease-in-out;
   }
   ::before {
     top: -10px;

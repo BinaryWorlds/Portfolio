@@ -4,12 +4,7 @@ const heightTrapeze = 60;
 const opposite = Math.floor(heightTrapeze / Math.sqrt(3));
 const hypotenuse = Math.floor((heightTrapeze / Math.sqrt(3)) * 2);
 
-export const StyledWrapper = styled.nav`
-  position: absolute;
-  z-index: 100;
-  top: 4vh;
-  right: 2vw;
-`;
+export const StyledWrapper = styled.nav``;
 
 export const StyledMenu = styled.div`
   z-index: 99;
@@ -20,6 +15,8 @@ export const StyledMenu = styled.div`
   border-bottom: ${heightTrapeze}px solid ${({ theme }) => theme.colors.blue};
   filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledElement = styled.li`
@@ -34,9 +31,11 @@ export const StyledElement = styled.li`
   transform-origin: bottom left;
   background: ${({ theme }) => theme.colors.pink};
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   ${({ active, last }) =>
-    (active || last) &&
+    active &&
     css`
       ::before {
         content: '';
@@ -61,6 +60,19 @@ export const StyledElement = styled.li`
     display: flex;
     align-items: center;
     justify-content: end;
-    padding: 30px 0 0 100px;
+    padding: 30px 0 0 95px;
   }
+`;
+
+export const StyledMenuButton = styled.button`
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  position: relative;
+  right: 10px;
+  bottom: 5px;
+  height: 70%;
+  width: 50%;
+  transform: rotate(-30deg) translateZ(1px);
 `;

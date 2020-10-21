@@ -18,12 +18,29 @@ export const g = {
   lastSelectedChain: [],
   board: [],
   symulateMode: false,
+  lang: 'pl',
+  txt: {
+    en: {
+      score: 'Score',
+      gameOver: 'Game over!',
+      clickToReset: 'click to reset',
+    },
+    pl: {
+      score: 'Wynik',
+      gameOver: 'Koniec gry!',
+      clickToReset: 'kliknij aby zresetować',
+    },
+  },
 };
 
 function imageSrc(nr) {
   return `./jawbreaker_images/${nr}.png`;
 }
-
+export function changeLang(lang) {
+  if (lang !== 'en' && lang !== 'pl') return;
+  g.lang = lang;
+  if (g.ctx) ctxDraw();
+}
 export function newGame(rows, columns, colors, ballSize = 60) {
   g.score = 0;
   g.rowsInit = g.rows = rows;
@@ -256,7 +273,11 @@ function ctxDraw() {
   g.ctx.fillRect(0, g.scoreHeight, g.width, g.height - g.scoreHeight);
   g.ctx.font = `${g.scoreHeight * 0.8}px Comic Sans MS`;
   g.ctx.fillStyle = 'black';
-  g.ctx.fillText(`Score : ${g.score}`, g.scoreHeight, g.scoreHeight * 0.8);
+  g.ctx.fillText(
+    `${g.txt[g.lang].score}: ${g.score}`,
+    g.scoreHeight,
+    g.scoreHeight * 0.8,
+  );
 
   highlightSelected();
   loadBalls();
@@ -375,21 +396,26 @@ function checkItIsOver() {
     document.removeEventListener('mousedown', mouseHandler);
     document.addEventListener('mousedown', resetGame);
 
-    g.ctx.clearRect(0, 0, g.width, g.scoreHeight);
     g.ctx.fillStyle = '#f0f0f0';
-
-    g.ctx.fillRect(0, 0, g.width, g.scoreHeight);
-
+    g.ctx.fillRect(0, 0, g.width, g.scoreHeight + 1);
     g.ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
     g.ctx.fillRect(0, 0, g.width, g.height);
     const txtSize = Math.floor(g.width / 8);
     g.ctx.font = `${txtSize}px Comic Sans MS`;
     g.ctx.fillStyle = 'black';
     g.ctx.textAlign = 'center';
-    g.ctx.fillText('Game over!', g.width / 2, g.height / 3);
+    g.ctx.fillText(`${g.txt[g.lang].gameOver}`, g.width / 2, g.height / 3);
     g.ctx.font = `${txtSize / 2}px Comic Sans MS`;
-    g.ctx.fillText(`Score: ${g.score}`, g.width / 2, g.height / 2);
-    g.ctx.fillText('click to reset', g.width / 2, (g.height * 2) / 3);
+    g.ctx.fillText(
+      `${g.txt[g.lang].score}: ${g.score}`,
+      g.width / 2,
+      g.height / 2,
+    );
+    g.ctx.fillText(
+      `${g.txt[g.lang].clickToReset}`,
+      g.width / 2,
+      (g.height * 2) / 3,
+    );
   }
 }
 
