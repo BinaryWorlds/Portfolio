@@ -8,7 +8,7 @@ function Menu({ section }) {
 
   return (
     <StyledWrapper>
-      <StyledMenu onClick={toggleMenu}>
+      <StyledMenu isOpen={isOpen} onClick={toggleMenu}>
         <Hamburger isOpen={isOpen} />
       </StyledMenu>
       {list}

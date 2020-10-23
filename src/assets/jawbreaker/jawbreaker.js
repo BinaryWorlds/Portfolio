@@ -394,7 +394,7 @@ function checkItIsOver() {
   const chain = findChains(1); // find one
   if (chain.length === 0) {
     document.removeEventListener('mousedown', mouseHandler);
-    document.addEventListener('mousedown', resetGame);
+    if(!g.symulateMode)document.addEventListener('mousedown', resetGame);
 
     g.ctx.fillStyle = '#f0f0f0';
     g.ctx.fillRect(0, 0, g.width, g.scoreHeight + 1);

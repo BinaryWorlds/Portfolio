@@ -1,11 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.div``;
 
 export const StyledButton = styled.button`
+  position: relative;
   background: transparent;
-  position: absolute;
-  top: 20px;
   cursor: pointer;
   outline: none;
   border: 0;
@@ -14,10 +13,16 @@ export const StyledButton = styled.button`
   :before {
     content: '';
     position: absolute;
+    left: -5%;
     z-index: -1;
-    width: 50%;
+    width: 55%;
     height: 100%;
     background: ${({ theme }) => theme.colors.blue};
+    ${({ isPl }) =>
+      isPl &&
+      css`
+        left: 55%;
+      `};
     transition: all 0.4s;
   }
   :hover:before {

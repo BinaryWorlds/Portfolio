@@ -6,10 +6,11 @@ const initialState = {
   pageId: 0,
   lang: 'pl',
   isPageMounted: false,
+  isMenuOpen: false,
 };
 const StoreContext = createContext();
 
-export const StoreProvider = ({ children }) => {
+const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
@@ -19,3 +20,4 @@ export const StoreProvider = ({ children }) => {
 };
 
 export const useStore = () => useContext(StoreContext);
+export default StoreProvider;

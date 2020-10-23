@@ -12,8 +12,10 @@ function App() {
 
   return (
     <Layout>
-      <Header section={section} />
-      <StyledWrapper onWheel={throttleHandleWheel}>{page}</StyledWrapper>
+      <StyledWrapper onWheel={throttleHandleWheel}>
+        <Header section={section} />
+        {page}
+      </StyledWrapper>
     </Layout>
   );
 }

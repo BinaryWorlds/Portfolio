@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import loadEffect from './Menu.animations';
 
 const heightTrapeze = 60;
 const opposite = Math.floor(heightTrapeze / Math.sqrt(3));
@@ -34,6 +35,10 @@ export const StyledElement = styled.li`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  ${({ isOpen, last, orderNr }) =>
+    isOpen && loadEffect(last, orderNr, opposite)};
+
   ${({ active, last }) =>
     active &&
     css`
@@ -42,14 +47,14 @@ export const StyledElement = styled.li`
         position: absolute;
         right: 0px;
         bottom: 9px;
-        width: ${last ? 180 : 200 - opposite}px;
         height: ${heightTrapeze}px;
+        width: ${last ? 180 : 200 - opposite};
         transform: rotate(-30deg) skewX(-30deg) translateZ(-1px);
         transform-origin: top right;
         background: ${({ theme }) => theme.colors.blue};
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
       }
-    `}
+    `};
 
   ::after {
     position: absolute;

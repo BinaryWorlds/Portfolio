@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { StoreProvider } from './globalState/store';
+import StoreProvider from './globalState/store';
 
 ReactDOM.render(
   <StoreProvider>

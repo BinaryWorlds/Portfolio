@@ -19,6 +19,7 @@ export default function useAppLogic() {
 
   const updatePage = () => {
     if (lastPageId === pageId) return;
+
     if (isPageMounted === false) {
       setLastPageId(pageId);
       return;
