@@ -21,7 +21,7 @@ export const StyledButton = styled.button`
     ${({ isPl }) =>
       isPl &&
       css`
-        left: 55%;
+        transform: translateX(105%);
       `};
     transition: all 0.4s;
   }

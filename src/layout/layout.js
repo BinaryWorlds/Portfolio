@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: ${theme.fonts.family.notoSans};
+    min-width:320px;
   }
 `;
 

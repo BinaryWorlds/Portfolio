@@ -7,12 +7,12 @@ import pageStructure from './pages/pageStructure';
 import useAppLogic from './App.logic';
 
 function App() {
-  const { pageId, throttleHandleWheel } = useAppLogic();
+  const { pageId, handleWheel } = useAppLogic();
   const { page, section } = pageStructure[pageId];
 
   return (
     <Layout>
-      <StyledWrapper onWheel={throttleHandleWheel}>
+      <StyledWrapper onWheel={handleWheel}>
         <Header section={section} />
         {page}
       </StyledWrapper>

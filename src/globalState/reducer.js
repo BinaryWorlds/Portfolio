@@ -13,7 +13,7 @@ const reducer = (state = [], action) => {
     case SET_PAGE:
       return {
         ...state,
-        pageId: action.payload,
+        pageId: +action.payload,
         isPageMounted: true,
         isMenuOpen: false,
       };

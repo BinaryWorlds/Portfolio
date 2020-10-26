@@ -4,12 +4,12 @@ import Hamburger from '../Hamburger/Hamburger';
 import useMenuLogic from './Menu.logic';
 
 function Menu({ section }) {
-  const { isOpen, toggleMenu, list } = useMenuLogic(section);
+  const { isMenuOpen, toggleMenu, list } = useMenuLogic(section);
 
   return (
     <StyledWrapper>
-      <StyledMenu isOpen={isOpen} onClick={toggleMenu}>
-        <Hamburger isOpen={isOpen} />
+      <StyledMenu onClick={toggleMenu}>
+        <Hamburger isOpen={isMenuOpen} />
       </StyledMenu>
       {list}
     </StyledWrapper>

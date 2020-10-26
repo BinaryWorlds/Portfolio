@@ -28,16 +28,12 @@ export const StyledElement = styled.li`
   width: 192px;
   height: ${hypotenuse}px;
   transform-style: preserve-3d;
-  transform: rotate(30deg);
   transform-origin: bottom left;
   background: ${({ theme }) => theme.colors.pink};
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
-  ${({ isOpen, last, orderNr }) =>
-    isOpen && loadEffect(last, orderNr, opposite)};
 
   ${({ active, last }) =>
     active &&
@@ -48,25 +44,30 @@ export const StyledElement = styled.li`
         right: 0px;
         bottom: 9px;
         height: ${heightTrapeze}px;
-        width: ${last ? 180 : 200 - opposite};
-        transform: rotate(-30deg) skewX(-30deg) translateZ(-1px);
-        transform-origin: top right;
+        width: ${last ? 180 : 200 - opposite}px;
         background: ${({ theme }) => theme.colors.blue};
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
       }
     `};
 
   ::after {
-    position: absolute;
     content: '${({ text }) => text}';
-    transform: rotate(-30deg) translate3d(0, 0, 0);
+    position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: end;
     padding: 30px 0 0 95px;
+    transform: rotate(-30deg) translate3d(0, 0, 0);
   }
+
+  ${({ isOpen, orderNr }) => isOpen && loadEffect(orderNr)};
+  ${({ isOpen }) =>
+    !isOpen &&
+    css`
+      transform: rotate(30deg);
+    `};
 `;
 
 export const StyledMenuButton = styled.button`

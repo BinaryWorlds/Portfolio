@@ -19,6 +19,7 @@ export const StyledButton = styled.button`
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   margin-bottom: 4vh;
   :before {
+    transform-origin: top left;
     content: '';
     z-index: -1;
     width: 100%;
@@ -30,9 +31,6 @@ export const StyledButton = styled.button`
     transition: all 0.4s;
   }
   :hover:before {
-    width: 50%;
-    height: 50%;
-    top: -10px;
-    left: -10px;
+    transform: scale(0.5, 0.5) translate(-60px, -40px);
   }
 `;
