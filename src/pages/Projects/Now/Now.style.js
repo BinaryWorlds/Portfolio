@@ -13,7 +13,7 @@ export const StyledTitle = styled.h1`
   margin-top: 11rem;
   display: flex;
   justify-content: center;
-  font-size: ${({ theme }) => theme.fonts.size.m};
+  font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
 `;
 
@@ -54,19 +54,21 @@ export const StyledImage = styled.img`
 export const StyledText = styled.div`
   width: 45%;
   max-width: 48rem;
-  margin-left: 5rem;
+  margin-left: 5%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   position: relative;
+  top: -12%;
   & span {
     padding-top: 2rem;
     padding-right: 10rem;
+    font-size: ${({ theme }) => theme.fonts.size.s};
   }
   span:first-of-type {
     position: relative;
     left: -10rem;
-    padding-top: 8vh;
+    /* padding-top: 5%; */
     padding-right: 0;
   }
 `;

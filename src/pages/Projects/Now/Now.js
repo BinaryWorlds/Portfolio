@@ -2,6 +2,7 @@ import React from 'react';
 import { useStore } from '../../../globalState/store';
 import image from '../../../assets/images/now.png';
 import { title, description } from './Now.text';
+import generateList from '../../../utils/generateSpanList';
 import {
   StyledImage,
   StyledImageContainer,
@@ -14,9 +15,6 @@ function Now() {
   const {
     state: { lang },
   } = useStore();
-
-  const generateList = (object) =>
-    object.map((item) => <span key={item}>{item}</span>);
 
   return (
     <StyledWrapper>

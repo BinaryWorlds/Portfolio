@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStore } from '../../globalState/store';
+import generateList from '../../utils/generateSpanList';
 import {
   StyledWrapper,
   StyledTitle,
@@ -19,9 +20,6 @@ function AboutMe() {
   const {
     state: { lang },
   } = useStore();
-
-  const generateList = (object) =>
-    object.map((item) => <span key={item}>{item}</span>);
 
   return (
     <StyledWrapper>

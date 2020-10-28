@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div`
 
 export const StyledTitle = styled.h1`
   position: relative;
-  font-size: ${({ theme }) => theme.fonts.size.m};
+  font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
 
   :before {
@@ -28,9 +28,11 @@ export const StyledTitle = styled.h1`
 export const StyledText = styled.div`
   position: relative;
   z-index: 2;
-  width: 50%;
-  max-width: 500px;
+  width: 40%;
+  min-width: 600px;
   margin: 8% 0;
+  font-size: ${({ theme }) => theme.fonts.size.s};
+
   ::before {
     content: '';
     z-index: -1;
@@ -45,8 +47,8 @@ export const StyledText = styled.div`
 `;
 
 export const StyledTable = styled.ul`
-  width: 100%;
-  padding: 0 10%;
+  width: 100vw;
+  padding: 0 5%;
   display: flex;
   flex: wrap;
   justify-content: space-around;
@@ -55,12 +57,15 @@ export const StyledTable = styled.ul`
 `;
 
 export const StyledColumn = styled.li`
-  width: 18rem;
-  height: 20rem;
+  width: 24rem;
+  height: 26rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  span {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+  }
 
   span:first-of-type {
     font-weight: ${({ theme }) => theme.fonts.weight.bold};
@@ -80,16 +85,11 @@ export const StyledColumn = styled.li`
       let top = 0;
       let left = 0;
       if (val === 1) {
-        top = '1rem';
-        left = '-5.5rem';
+        top = '1.5rem';
+        left = '-7rem';
       }
-      if (val === 2) {
-        top = '3rem';
-      }
-
-      if (val === 3) {
-        top = '-9rem';
-      }
+      if (val === 2) top = '4rem';
+      if (val === 3) top = '-9rem';
 
       return css`
         top: ${top};
