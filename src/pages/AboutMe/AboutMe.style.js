@@ -50,7 +50,7 @@ export const StyledTable = styled.ul`
   width: 100vw;
   padding: 0 5%;
   display: flex;
-  flex: wrap;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
   list-style: none;

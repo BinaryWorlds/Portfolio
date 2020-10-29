@@ -5,6 +5,7 @@ const colors = {
   pinkA: 'rgb(223, 151, 151, 0.5)',
   pinkB: 'rgb(247, 219, 200)',
   orange: 'rgb(243, 222, 176)',
+  sand: 'rgba(240, 211, 150, 0.75)',
   text: 'rgb(112, 112, 112)',
 };
 export default colors;

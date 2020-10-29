@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStore } from '../../../globalState/store';
+import { SET_PAGE } from '../../../globalState/actionTypes';
 import {
   StyledWrapper,
   StyledImage,
@@ -17,18 +18,27 @@ import Button2 from '../../../components/Button2/Button2';
 function Course() {
   const {
     state: { lang },
+    dispatch,
   } = useStore();
 
+  const handleClickMore = () => dispatch({ type: SET_PAGE, payload: 5 });
+  const courseLink = 'https://coderscamp.edu.pl/';
   return (
     <StyledWrapper>
       <StyledImage src={image} />
       <StyledTitle>
         {title[lang]}
-        <Button1 text={lang === 'pl' ? 'Więcej' : 'See more'} />
+        <Button1
+          onClick={handleClickMore}
+          text={lang === 'pl' ? 'Więcej' : 'See more'}
+        />
       </StyledTitle>
       <StyledWrapper2>
         <StyledVisitButton>
-          <Button2 text={lang === 'pl' ? 'Odwiedź' : 'Visit'} />
+          <Button2
+            text={lang === 'pl' ? 'Odwiedź' : 'Visit'}
+            link={courseLink}
+          />
         </StyledVisitButton>
         <StyledDescription>{generateList(description[lang])}</StyledDescription>
       </StyledWrapper2>

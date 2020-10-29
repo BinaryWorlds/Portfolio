@@ -3,7 +3,7 @@ import reducer from './reducer';
 
 const initialState = {
   animateMeetMe: false,
-  pageId: 0,
+  pageId: 8,
   lang: 'pl',
   isPageMounted: false,
   isMenuOpen: false,

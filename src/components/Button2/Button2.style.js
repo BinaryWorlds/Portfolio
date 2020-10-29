@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.a`
   background-color: transparent;
   cursor: pointer;
-  outline: none;
+  text-decoration: inherit;
   box-sizing: border-box;
   height: 50px;
   width: 100px;
