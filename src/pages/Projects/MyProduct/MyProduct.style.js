@@ -72,8 +72,8 @@ export const StyledDescription = styled.div`
     position: absolute;
     bottom: -3.5rem;
     left: -3.5rem;
-    width: 64rem;
-    height: 64rem;
+    width: 63.9rem;
+    height: 63.9rem;
     border-left: 1px solid ${({ theme }) => theme.colors.text};
     border-bottom: 1px solid ${({ theme }) => theme.colors.text};
   }

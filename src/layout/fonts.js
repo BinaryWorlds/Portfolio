@@ -2,11 +2,11 @@ const fonts = {
   size: {
     xxxs: '.9rem',
     xxs: '1.2rem',
-    xs: '1.4rem',
+    xs: '1.6rem',
     s: '1.8rem',
     m: '2.2rem',
     l: '2.8rem',
-    xl: '3.2rem',
+    xl: '3.4rem',
     xxl: '7.2rem',
   },
   weight: {
