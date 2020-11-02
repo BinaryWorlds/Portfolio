@@ -11,7 +11,7 @@ import {
 } from './Course.style';
 import { title, description } from './Course.text';
 import generateList from '../../../utils/generateSpanList';
-import image from '../../../assets/images/coderscamp.png';
+import image from '../../../assets/images/coderscamp.webp';
 import Button1 from '../../../components/Button1/Button1';
 import Button2 from '../../../components/Button2/Button2';
 

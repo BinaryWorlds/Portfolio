@@ -4,9 +4,9 @@ import { questions } from './Contact.text';
 import { StyledWrapper, StyledSection, StyledButtons } from './Contact.style';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ButtonIcon from '../../components/ButtonIcon/ButtonIcon';
-import messengerIcon from '../../assets/icons/messenger.png';
-import emailIcon from '../../assets/icons/email.png';
-import githubIcon from '../../assets/icons/github.png';
+import messengerIcon from '../../assets/icons/messenger.webp';
+import emailIcon from '../../assets/icons/email.webp';
+import githubIcon from '../../assets/icons/github.webp';
 
 function Contact() {
   const {
@@ -17,6 +17,11 @@ function Contact() {
   const fbProfile = 'https://m.me/dawid.szymkowiak.10';
   const mailToMe = 'mailto:szymkowiak.dawid93@gmail.com';
   const ghProfile = 'https://github.com/BinaryWorlds';
+  const addressTitle = (
+    <>
+      To: <span>szymkowiak.dawid93[at]gmail.com</span>
+    </>
+  );
 
   const desc = questions[lang].map((item, index, array) => {
     if (index % 2) return null;
@@ -28,6 +33,7 @@ function Contact() {
       </span>
     );
   });
+
   return (
     <StyledWrapper>
       <StyledSection>
@@ -38,10 +44,7 @@ function Contact() {
           <ButtonIcon size={41} link={ghProfile} iconSrc={githubIcon} />
         </StyledButtons>
       </StyledSection>
-      <ContactForm
-        onSubmit={handleSubmit}
-        addressTitle="To: szymkowiak.dawid93[at]gmail.com"
-      />
+      <ContactForm onSubmit={handleSubmit} addressTitle={addressTitle} />
     </StyledWrapper>
   );
 }

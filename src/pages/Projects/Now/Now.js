@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from '../../../globalState/store';
-import image from '../../../assets/images/now.png';
+import image from '../../../assets/images/now.webp';
 import { title, description } from './Now.text';
 import generateList from '../../../utils/generateSpanList';
 import {

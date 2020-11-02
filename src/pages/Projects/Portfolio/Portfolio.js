@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from '../../../globalState/store';
-import image from '../../../assets/images/mockup.png';
+import image from '../../../assets/images/mockup.webp';
 import { title, description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
 

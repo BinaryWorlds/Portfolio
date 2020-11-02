@@ -11,4 +11,8 @@ export const StyledIcon = styled.i`
   background-image: ${({ iconSrc }) => `url(${iconSrc})`};
   background-size: contain;
   background-repeat: no-repeat;
+  transition: transform 0.75s ease-in-out;
+  :hover {
+    transform: scale(1.25) translate(0, -1.5rem);
+  }
 `;

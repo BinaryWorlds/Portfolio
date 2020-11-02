@@ -18,6 +18,10 @@ export const StyledForm = styled.form`
 export const StyledTitle = styled.div`
   font-size: ${({ theme }) => theme.fonts.size.m};
   align-self: center;
+  span {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.text};
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -34,7 +38,13 @@ export const StyledArea = styled.textarea`
 
 export const StyledButton = styled.button`
   ${commonStyles};
+  height: 5.6rem;
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   cursor: pointer;
   background-color: white;
+  transition: all 0.15s linear;
+  :hover {
+    background-color: black;
+    color: white;
+  }
 `;
