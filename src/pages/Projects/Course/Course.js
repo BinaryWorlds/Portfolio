@@ -3,6 +3,7 @@ import { useStore } from '../../../globalState/store';
 import { SET_PAGE } from '../../../globalState/actionTypes';
 import {
   StyledWrapper,
+  StyledImageWrapper,
   StyledImage,
   StyledTitle,
   StyledWrapper2,
@@ -25,7 +26,9 @@ function Course() {
   const courseLink = 'https://coderscamp.edu.pl/';
   return (
     <StyledWrapper>
-      <StyledImage src={image} />
+      <StyledImageWrapper>
+        <StyledImage src={image} />
+      </StyledImageWrapper>
       <StyledTitle>
         {title[lang]}
         <Button1

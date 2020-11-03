@@ -17,6 +17,7 @@ export const StyledImageWrapper = styled.div`
   right: -10%;
   transform: rotate(50deg);
   width: 48%;
+  padding-top: 30.5%;
   :before {
     content: 'Mockup Adobe Xd';
     transform: translate3d(0, 0, 0);
@@ -39,7 +40,9 @@ export const StyledImageWrapper = styled.div`
 
 export const StyledImage = styled.img`
   width: 100%;
-  object-fit: contain;
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
 export const StyledTitle = styled.h1`

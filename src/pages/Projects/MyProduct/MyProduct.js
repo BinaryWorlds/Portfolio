@@ -6,6 +6,7 @@ import {
   StyledSection,
   StyledTitle,
   StyledDescription,
+  StyledImageWrapper,
   StyledImage,
 } from './MyProduct.style';
 import { title, description } from './MyProduct.text';
@@ -28,7 +29,9 @@ function MyProduct() {
           </StyledDescription>
           <Button2 text="Live" />
         </StyledSection>
-        <StyledImage src={image} />
+        <StyledImageWrapper>
+          <StyledImage src={image} />
+        </StyledImageWrapper>
       </StyledWrapper2>
     </StyledWrapper>
   );

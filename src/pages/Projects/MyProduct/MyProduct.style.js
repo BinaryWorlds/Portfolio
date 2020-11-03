@@ -14,6 +14,7 @@ export const StyledWrapper2 = styled.div`
   justify-content: space-between;
   width: calc(48% + 45rem);
   position: relative;
+
   :before {
     content: '';
     z-index: -4;
@@ -36,6 +37,7 @@ export const StyledSection = styled.div`
     margin-top: auto;
     margin-bottom: auto;
   }
+
   :before {
     content: '';
     z-index: -3;
@@ -57,6 +59,7 @@ export const StyledDescription = styled.div`
   flex-direction: column;
   padding-left: 2rem;
   position: relative;
+
   :before {
     z-index: -1;
     content: '';
@@ -66,6 +69,7 @@ export const StyledDescription = styled.div`
     border-right: 64rem solid transparent;
     border-bottom: 64rem solid ${({ theme }) => theme.colors.sand};
   }
+
   :after {
     z-index: -2;
     content: '';
@@ -82,15 +86,20 @@ export const StyledDescription = styled.div`
     font-size: ${({ theme }) => theme.fonts.size.s};
     margin-bottom: 2rem;
   }
+
   span :last-of-type {
     margin-bottom: 0;
   }
 `;
 
-export const StyledImage = styled.img`
+export const StyledImageWrapper = styled.div`
   position: relative;
+  padding-bottom: 36.36%;
   width: 48%;
-  min-width: 500px;
-  object-fit: contain;
   margin: 10% 0 4.5% 0;
+`;
+
+export const StyledImage = styled.img`
+  position: absolute;
+  width: 100%;
 `;

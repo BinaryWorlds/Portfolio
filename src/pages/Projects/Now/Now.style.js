@@ -7,10 +7,12 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 `;
+
 export const StyledTitle = styled.h1`
-  flex-basis: 100%;
-  margin-top: 11rem;
+  position: absolute;
+  top: 11.5%;
   display: flex;
   justify-content: center;
   font-size: ${({ theme }) => theme.fonts.size.l};
@@ -22,7 +24,7 @@ const backgroundStyle = css`
   position: absolute;
   left: 0;
   width: 125vh;
-  height: 44%;
+  height: 64%;
   background-color: ${({ theme }) => theme.colors.orange};
   border: 1px solid rgb(112, 112, 112, 0.5);
 `;
@@ -30,16 +32,19 @@ const backgroundStyle = css`
 export const StyledImageContainer = styled.div`
   width: 50%;
   position: relative;
+  padding-bottom: 31.44%;
+
   :before {
     z-index: -1;
-    top: 25%;
+    top: 32%;
     transform: rotate(-45deg);
     transform-origin: top left;
     ${backgroundStyle}
   }
+
   :after {
     z-index: -2;
-    top: -19%;
+    top: -32%;
     transform: rotate(45deg);
     transform-origin: bottom left;
     ${backgroundStyle};
@@ -47,8 +52,8 @@ export const StyledImageContainer = styled.div`
 `;
 
 export const StyledImage = styled.img`
+  position: absolute;
   width: 100%;
-  object-fit: contain;
 `;
 
 export const StyledText = styled.div`
@@ -59,16 +64,16 @@ export const StyledText = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
-  top: -12%;
+
   & span {
     padding-top: 2rem;
     padding-right: 10rem;
     font-size: ${({ theme }) => theme.fonts.size.s};
   }
+
   span:first-of-type {
     position: relative;
     left: -10rem;
-    /* padding-top: 5%; */
     padding-right: 0;
   }
 `;
