@@ -1,23 +1,25 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import Layout from './layout/layout';
-import Header from './components/Header/Header';
-import { StyledWrapper } from './App.style';
-import pageStructure from './pages/pageStructure';
-import useAppLogic from './App.logic';
+import Desktop from './View/Desktop/Desktop';
+import Mobile from './View/Mobile/Mobile';
+
+const mobileTreshold = 768;
 
 function App() {
-  const { pageId, handleWheel } = useAppLogic();
-  const { page, section } = pageStructure[pageId];
+  const [isMobile, setIsMobile] = useState(false);
 
-  return (
-    <Layout>
-      <StyledWrapper onWheel={handleWheel}>
-        <Header section={section} />
-        {page}
-      </StyledWrapper>
-    </Layout>
-  );
+  const handleResize = () => {
+    const check = !!(window.innerWidth < mobileTreshold);
+    setIsMobile(check);
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return <Layout>{isMobile ? <Mobile /> : <Desktop />}</Layout>;
 }
 
 export default App;

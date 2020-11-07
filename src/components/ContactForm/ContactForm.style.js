@@ -15,9 +15,11 @@ export const StyledForm = styled.form`
   flex-direction: column;
   width: 50.6rem;
 `;
+
 export const StyledTitle = styled.div`
   font-size: ${({ theme }) => theme.fonts.size.m};
   align-self: center;
+
   span {
     font-size: ${({ theme }) => theme.fonts.size.m};
     border-bottom: 2px solid ${({ theme }) => theme.colors.text};
@@ -43,6 +45,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   background-color: white;
   transition: all 0.15s linear;
+
   :hover {
     background-color: black;
     color: white;

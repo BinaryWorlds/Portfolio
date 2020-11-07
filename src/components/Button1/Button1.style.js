@@ -19,6 +19,7 @@ export const StyledButton = styled.button`
     .button1-circle {
       width: 100%;
     }
+
     .button1-icon {
       background: white;
       transform: translate(1.6rem, 0);
@@ -50,6 +51,7 @@ export const StyledIcon = styled.span`
   height: 0.2rem;
   background: none;
   margin: auto;
+
   &::before {
     position: absolute;
     content: '';

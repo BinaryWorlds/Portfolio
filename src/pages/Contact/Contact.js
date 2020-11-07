@@ -23,7 +23,7 @@ function Contact() {
     </>
   );
 
-  const desc = questions[lang].map((item, index, array) => {
+  const questionsList = questions[lang].map((item, index, array) => {
     if (index % 2) return null;
     return (
       <span key={item}>
@@ -37,7 +37,7 @@ function Contact() {
   return (
     <StyledWrapper>
       <StyledSection>
-        {desc}
+        {questionsList}
         <StyledButtons>
           <ButtonIcon size={41} link={fbProfile} iconSrc={messengerIcon} />
           <ButtonIcon size={41} link={mailToMe} iconSrc={emailIcon} />

@@ -8,4 +8,5 @@ const colors = {
   sand: 'rgba(240, 211, 150, 0.75)',
   text: 'rgb(112, 112, 112)',
 };
+
 export default colors;

@@ -8,7 +8,9 @@ const fadeOut = keyframes`
         opacity: 0;
     }
 }`;
+
 const fadeOutEffect = css`
   animation: ${fadeOut} 0.5s ease-in;
 `;
+
 export default fadeOutEffect;

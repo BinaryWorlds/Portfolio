@@ -27,11 +27,13 @@ export const InnerHamburger = styled.div`
     background-color: black;
     transition: transform 0.25s ease-in-out;
   }
+
   ::before {
     top: -10px;
     transform: translateY(${({ isOpen }) => (isOpen ? '10px' : '0px')})
       rotate(${({ isOpen }) => (isOpen ? '45deg' : '0')});
   }
+
   ::after {
     top: 10px;
     transform: translateY(${({ isOpen }) => (isOpen ? '-10px' : '0px')})

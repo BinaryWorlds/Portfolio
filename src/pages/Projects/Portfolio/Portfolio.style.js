@@ -18,6 +18,7 @@ export const StyledImageWrapper = styled.div`
   transform: rotate(50deg);
   width: 48%;
   padding-top: 30.5%;
+
   :before {
     content: 'Mockup Adobe Xd';
     transform: translate3d(0, 0, 0);
@@ -28,6 +29,7 @@ export const StyledImageWrapper = styled.div`
     text-align: center;
     font-size: ${({ theme }) => theme.fonts.size.s};
   }
+
   :after {
     content: '';
     position: absolute;
@@ -55,6 +57,7 @@ export const StyledTitle = styled.h1`
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   white-space: pre-wrap;
   letter-spacing: 0.5px;
+
   :after {
     content: '';
     position: absolute;
@@ -77,6 +80,7 @@ export const StyledBackground = styled.div`
   border-color: rgba(112, 112, 112);
   border-bottom: 1px solid;
   border-right: 1px solid;
+
   :before,
   :after {
     content: '';
@@ -86,11 +90,13 @@ export const StyledBackground = styled.div`
     background: ${({ theme }) => theme.colors.pinkA};
     border: 1px solid rgba(112, 112, 112, 0.5);
   }
+
   :before {
     width: 24vw;
     height: 14.85vw;
     left: 3vw;
   }
+
   :after {
     width: 14.85vw;
     height: 24vw;
@@ -106,6 +112,7 @@ export const StyledDescription = styled.div`
   max-width: 450px;
   display: flex;
   flex-direction: column;
+
   & span {
     font-size: ${({ theme }) => theme.fonts.size.s};
     padding-top: 2rem;

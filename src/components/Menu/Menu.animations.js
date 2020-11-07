@@ -41,6 +41,7 @@ const loadEffect = (orderNr) => {
       transform-origin: top right;
       animation-fill-mode: both;
     }
+
     ::after {
       animation: ${loadOpacity} ${BASE_TIME}s ease-in-out;
       animation-delay: ${BASE_TIME * orderBefore}s;
@@ -48,4 +49,5 @@ const loadEffect = (orderNr) => {
     }
   `;
 };
+
 export default loadEffect;

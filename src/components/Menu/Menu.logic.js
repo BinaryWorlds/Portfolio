@@ -47,4 +47,5 @@ function useMenuLogic(section) {
   const list = isMenuOpen ? <ul>{menuItems}</ul> : currentPage;
   return { isMenuOpen, toggleMenu, list };
 }
+
 export default useMenuLogic;

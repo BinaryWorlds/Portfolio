@@ -32,4 +32,5 @@ function ContactForm({ addressTitle, onSubmit }) {
     </StyledForm>
   );
 }
+
 export default ContactForm;

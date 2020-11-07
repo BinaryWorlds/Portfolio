@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useStore } from './globalState/store';
+import { useStore } from '../../globalState/store';
 import {
   ANIMATE_MEET_ME,
   SET_PAGE,
   SET_PAGE_UNMOUNTED,
-} from './globalState/actionTypes';
-import { lastPage } from './pages/pageStructure';
-import constrainVal from './utils/constrainVal';
+} from '../../globalState/actionTypes';
+import { lastPage } from '../../pages/pageStructure';
+import constrainVal from '../../utils/constrainVal';
 
-export default function useAppLogic() {
+export default function useDesktopLogic() {
   const {
     state: { pageId, isPageMounted },
     dispatch,

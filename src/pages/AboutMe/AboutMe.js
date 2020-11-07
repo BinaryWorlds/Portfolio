@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStore } from '../../globalState/store';
+import useHandleAnimations from '../../hooks/useHandleAnimations';
 import generateList from '../../utils/generateSpanList';
 import {
   StyledWrapper,
@@ -17,9 +17,7 @@ import {
 } from './AboutMe.text';
 
 function AboutMe() {
-  const {
-    state: { lang },
-  } = useStore();
+  const { lang } = useHandleAnimations();
 
   return (
     <StyledWrapper>

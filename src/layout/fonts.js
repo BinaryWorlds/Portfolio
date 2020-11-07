@@ -18,4 +18,5 @@ const fonts = {
     notoSans: '"Noto Sans", sans-serif',
   },
 };
+
 export default fonts;

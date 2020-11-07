@@ -63,6 +63,7 @@ export const StyledColumn = styled.li`
   flex-direction: column;
   align-items: center;
   position: relative;
+
   span {
     font-size: ${({ theme }) => theme.fonts.size.m};
   }

@@ -8,6 +8,7 @@ export const StyledImage = styled.div`
   width: 347px;
   height: 430px;
 `;
+
 export const StyledText = styled.div`
   padding: 3% 0;
   font: inherit;
@@ -21,12 +22,13 @@ export const StyledHello = styled.div`
 `;
 
 export const StyledWrapper = styled.div`
-  ${({ isMount }) => (isMount ? fadeOut : fadeIn)};
+  ${({ isMounted }) => (isMounted ? fadeOut : fadeIn)};
   width: 100%;
   padding: 0 10%;
   display: flex;
   align-items: center;
   justify-content: space-around;
+
   ::after {
     position: absolute;
     bottom: 0;

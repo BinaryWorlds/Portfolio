@@ -8,4 +8,5 @@ function ButtonIcon({ iconSrc, link, size }) {
     </StyledButton>
   );
 }
+
 export default ButtonIcon;

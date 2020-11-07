@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
   align-items: flex-start;
   width: 440px;
 `;
+
 export const StyledSection = styled.div`
   position: relative;
   top: 10px;

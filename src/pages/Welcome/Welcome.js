@@ -8,15 +8,12 @@ import {
 import Button1 from '../../components/Button1/Button1';
 import Game from '../../components/Game/Game';
 import { useStore } from '../../globalState/store';
-import {
-  ANIMATE_MEET_ME,
-  SET_PAGE,
-  SET_PAGE_UNMOUNTED,
-} from '../../globalState/actionTypes';
+import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
+import useHandleAnimations from '../../hooks/useHandleAnimations';
 
 function Welcome() {
   const {
-    state: { isPageMounted, animateMeetMe, lang },
+    state: { animateMeetMe, lang },
     dispatch,
   } = useStore();
 
@@ -24,12 +21,11 @@ function Welcome() {
     dispatch({ type: ANIMATE_MEET_ME, payload: false });
 
   const handleClick = () => dispatch({ type: SET_PAGE, payload: 1 });
-  const handleUnmount = () => {
-    if (isPageMounted) dispatch({ type: SET_PAGE_UNMOUNTED });
-  };
+
+  const { isPageMounted, handleUnmount } = useHandleAnimations();
 
   return (
-    <StyledWrapper onAnimationEnd={handleUnmount} isMount={isPageMounted}>
+    <StyledWrapper onAnimationEnd={handleUnmount} isMounted={isPageMounted}>
       <StyledHello>
         <StyledImage />
         <StyledText>

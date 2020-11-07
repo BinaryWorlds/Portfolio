@@ -31,6 +31,7 @@ export const StyledSection = styled.div`
     margin-top: 2rem;
     font-size: ${({ theme }) => theme.fonts.size.m};
     text-align: center;
+    white-space: pre-wrap;
   }
 
   span:first-of-type {

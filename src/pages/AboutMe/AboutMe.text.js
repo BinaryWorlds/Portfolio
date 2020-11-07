@@ -4,7 +4,7 @@ export const description = {
     `Lubię zgłębić temat i dostrzec jego sedno. ` +
     `Przyjaciele nazywają mnie przekornie „kowalski”. ` +
     `Jestem pingwinem i nie rozumiem słów: „nie da się” albo „to za trudne”, ` +
-    `choć czasem, jest to okupione sporym uporem. ` +
+    `choć czasem jest to okupione sporym uporem. ` +
     `Cieszy mnie, gdy widzę efekty swojej pracy. ` +
     `Napędza mnie jak dobra muzyka. ` +
     `Interesuję się też dietetyką i kalisteniką. ` +

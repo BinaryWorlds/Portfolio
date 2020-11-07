@@ -25,6 +25,4 @@ export const StyledButton = styled.button`
       `};
     transition: all 0.4s;
   }
-  :hover:before {
-  }
 `;
