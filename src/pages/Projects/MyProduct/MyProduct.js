@@ -18,6 +18,8 @@ function MyProduct() {
   const {
     state: { lang },
   } = useStore();
+  const isPl = lang === 'pl';
+  const myProductLink = 'https://climbingtimers.com/';
 
   return (
     <StyledWrapper>
@@ -27,10 +29,13 @@ function MyProduct() {
           <StyledDescription>
             {generateList(description[lang])}
           </StyledDescription>
-          <Button2 text="Live" />
+          <Button2 text="Live" link={myProductLink} />
         </StyledSection>
         <StyledImageWrapper>
-          <StyledImage src={image} />
+          <StyledImage
+            src={image}
+            alt={isPl ? 'Zegary Wspinaczkowe' : 'Climbing Timers'}
+          />
         </StyledImageWrapper>
       </StyledWrapper2>
     </StyledWrapper>

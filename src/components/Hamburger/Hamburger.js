@@ -3,7 +3,7 @@ import { StyledHamburger, InnerHamburger } from './Hamburger.style';
 
 function Hamburger({ isOpen }) {
   return (
-    <StyledHamburger>
+    <StyledHamburger aria-label="menu">
       <InnerHamburger isOpen={isOpen} />
     </StyledHamburger>
   );

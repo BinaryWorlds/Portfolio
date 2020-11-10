@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStore } from '../../../globalState/store';
+import useHandleAnimations from '../../../hooks/useHandleAnimations';
 import image from '../../../assets/images/mockup.webp';
 import { title, description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
@@ -14,18 +14,22 @@ import {
 } from './Portfolio.style';
 
 function Portfolio() {
-  const {
-    state: { lang },
-  } = useStore();
+  const { isPageMounted, handleUnmount, lang } = useHandleAnimations();
+  const isPl = lang === 'pl';
 
   return (
-    <StyledWrapper>
+    <StyledWrapper isMounted={isPageMounted} onAnimationEnd={handleUnmount}>
       <StyledImageWrapper>
-        <StyledImage src={image} />
+        <StyledImage
+          src={image}
+          alt={isPl ? 'Mockup w AdobeXd' : 'Mockup from AdobeXd'}
+        />
         <StyledTitle>{title[lang]}</StyledTitle>
       </StyledImageWrapper>
-      <StyledDescription>{generateList(description[lang])}</StyledDescription>
-      <StyledBackground />
+      <StyledDescription isMounted={isPageMounted}>
+        {generateList(description[lang])}
+      </StyledDescription>
+      <StyledBackground isMounted={isPageMounted} />
     </StyledWrapper>
   );
 }

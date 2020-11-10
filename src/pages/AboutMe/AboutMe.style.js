@@ -1,10 +1,13 @@
 import styled, { css } from 'styled-components';
+import spinEffect from '../../animations/spinEffect';
+import fadeOut from '../../animations/fadeOut';
 
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 10%;
+  ${({ isMounted }) => (isMounted ? fadeOut : spinEffect)};
 `;
 
 export const StyledTitle = styled.h1`

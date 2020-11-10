@@ -39,9 +39,24 @@ function Contact() {
       <StyledSection>
         {questionsList}
         <StyledButtons>
-          <ButtonIcon size={41} link={fbProfile} iconSrc={messengerIcon} />
-          <ButtonIcon size={41} link={mailToMe} iconSrc={emailIcon} />
-          <ButtonIcon size={41} link={ghProfile} iconSrc={githubIcon} />
+          <ButtonIcon
+            size={41}
+            link={fbProfile}
+            iconSrc={messengerIcon}
+            ariaLabel="facebook"
+          />
+          <ButtonIcon
+            size={41}
+            link={mailToMe}
+            iconSrc={emailIcon}
+            ariaLabel="email"
+          />
+          <ButtonIcon
+            size={41}
+            link={ghProfile}
+            iconSrc={githubIcon}
+            ariaLabel="github"
+          />
         </StyledButtons>
       </StyledSection>
       <ContactForm onSubmit={handleSubmit} addressTitle={addressTitle} />

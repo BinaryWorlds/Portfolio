@@ -17,10 +17,10 @@ import {
 } from './AboutMe.text';
 
 function AboutMe() {
-  const { lang } = useHandleAnimations();
+  const { isPageMounted, handleUnmount, lang } = useHandleAnimations();
 
   return (
-    <StyledWrapper>
+    <StyledWrapper onAnimationEnd={handleUnmount} isMounted={isPageMounted}>
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledText>{description[lang]}</StyledText>
       <StyledTable>

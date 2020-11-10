@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import fadeOut from '../../../animations/fadeOut';
+import slideEffect from '../../../animations/slideEffect';
 
 export const StyledWrapper = styled.div`
   overflow: hidden;
@@ -8,6 +10,7 @@ export const StyledWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  ${({ isMounted }) => (isMounted ? fadeOut : slideEffect)}
 `;
 
 export const StyledTitle = styled.h1`

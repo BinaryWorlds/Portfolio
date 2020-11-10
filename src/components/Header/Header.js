@@ -10,7 +10,12 @@ function Header({ section }) {
   return (
     <StyledHeader>
       <StyledSection>
-        <ButtonIcon size={41} link={ghProfile} iconSrc={githubIcon} />
+        <ButtonIcon
+          size={41}
+          link={ghProfile}
+          iconSrc={githubIcon}
+          ariaLabel="github"
+        />
         <ButtonLang />
       </StyledSection>
       <Menu section={section} />

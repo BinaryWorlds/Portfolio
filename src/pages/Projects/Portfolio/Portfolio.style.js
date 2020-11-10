@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import fadeIn from '../../../animations/fadeIn';
+import fadeOut from '../../../animations/fadeOut';
+import growingEffect from './Portfolio.animations';
 
 export const StyledWrapper = styled.div`
   overflow: hidden;
@@ -8,6 +11,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  ${({ isMounted }) => isMounted && fadeOut}
 `;
 
 export const StyledImageWrapper = styled.div`
@@ -102,6 +106,7 @@ export const StyledBackground = styled.div`
     height: 24vw;
     right: -1px;
   }
+  ${({ isMounted }) => !isMounted && growingEffect}
 `;
 
 export const StyledDescription = styled.div`
@@ -117,4 +122,5 @@ export const StyledDescription = styled.div`
     font-size: ${({ theme }) => theme.fonts.size.s};
     padding-top: 2rem;
   }
+  ${({ isMounted }) => !isMounted && fadeIn}
 `;

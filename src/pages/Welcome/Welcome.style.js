@@ -9,7 +9,7 @@ export const StyledImage = styled.div`
   height: 430px;
 `;
 
-export const StyledText = styled.div`
+export const StyledText = styled.h1`
   padding: 3% 0;
   font: inherit;
 `;

@@ -22,7 +22,9 @@ function useMenuLogic(section) {
   const handleClick = (e) =>
     dispatch({ type: SET_PAGE, payload: e.target.value });
 
-  const currentPage = <StyledElement text={menuSections[section][lang]} />;
+  const currentPage = (
+    <StyledElement as="div" text={menuSections[section][lang]} />
+  );
 
   let counter = 1;
   const menuItems = menuSections.map((item, i, arr) => {
@@ -39,7 +41,11 @@ function useMenuLogic(section) {
         key={item.val}
         orderNr={counter++}
       >
-        <StyledMenuButton value={item.val} onClick={handleClick} />
+        <StyledMenuButton
+          aria-label={item[lang]}
+          value={item.val}
+          onClick={handleClick}
+        />
       </StyledElement>
     );
   });
