@@ -11,7 +11,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  ${({ isMounted }) => isMounted && fadeOut}
+  ${({ isUnmounted }) => !isUnmounted && fadeOut}
 `;
 
 export const StyledImageWrapper = styled.div`
@@ -106,7 +106,7 @@ export const StyledBackground = styled.div`
     height: 24vw;
     right: -1px;
   }
-  ${({ isMounted }) => !isMounted && growingEffect}
+  ${({ isUnmounted }) => isUnmounted && growingEffect}
 `;
 
 export const StyledDescription = styled.div`
@@ -122,5 +122,5 @@ export const StyledDescription = styled.div`
     font-size: ${({ theme }) => theme.fonts.size.s};
     padding-top: 2rem;
   }
-  ${({ isMounted }) => !isMounted && fadeIn}
+  ${({ isUnmounted }) => isUnmounted && fadeIn}
 `;

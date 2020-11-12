@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import fadeOut from '../../../animations/fadeOut';
 
 export const StyledWrapper = styled.div`
   height: 100%;
@@ -7,6 +8,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${({ isUnmounted }) => !isUnmounted && fadeOut};
 `;
 
 export const StyledWrapper2 = styled.div`

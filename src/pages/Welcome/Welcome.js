@@ -9,7 +9,7 @@ import Button1 from '../../components/Button1/Button1';
 import Game from '../../components/Game/Game';
 import { useStore } from '../../globalState/store';
 import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
-import useHandleAnimations from '../../hooks/useHandleAnimations';
+import useUnmountAnimations from '../../hooks/useHandleAnimations';
 
 function Welcome() {
   const {
@@ -22,10 +22,10 @@ function Welcome() {
 
   const handleClick = () => dispatch({ type: SET_PAGE, payload: 1 });
 
-  const { isPageMounted, handleUnmount } = useHandleAnimations();
+  const { isPageUnmounted, setUnmounted } = useUnmountAnimations();
 
   return (
-    <StyledWrapper onAnimationEnd={handleUnmount} isMounted={isPageMounted}>
+    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
       <StyledHello>
         <StyledImage />
         <StyledText>

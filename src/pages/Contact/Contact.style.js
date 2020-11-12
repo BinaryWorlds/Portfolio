@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import fadeOut from '../../animations/fadeOut';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ export const StyledWrapper = styled.div`
   form {
     margin-top: auto;
   }
+  ${({ isUnmounted }) => !isUnmounted && fadeOut};
 `;
 
 const eyeStyle = css`

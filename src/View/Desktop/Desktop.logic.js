@@ -1,38 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect, useRef } from 'react';
 import { useStore } from '../../globalState/store';
-import {
-  ANIMATE_MEET_ME,
-  SET_PAGE,
-  SET_PAGE_UNMOUNTED,
-} from '../../globalState/actionTypes';
+import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
 import { lastPage } from '../../pages/pageStructure';
 import constrainVal from '../../utils/constrainVal';
 
 export default function useDesktopLogic() {
   const {
-    state: { pageId, isPageMounted },
+    state: { pageId, isPageUnmounted },
     dispatch,
   } = useStore();
-  const [timerIdWheel, setTimerIdWheel] = useState();
   const [lastPageId, setLastPageId] = useState(0);
-  const [timerIdForce, setTimerIdForce] = useState();
 
   function updatePage() {
     if (lastPageId === pageId) return;
-    if (isPageMounted === false) {
-      setLastPageId(pageId);
-      return;
-    }
-    if (!timerIdForce) {
-      // force page update if error or page is without correct animation(time exceeded) //only for dev
-      const id = setTimeout(() => {
-        dispatch({ type: SET_PAGE_UNMOUNTED });
-        setTimerIdForce(null);
-      }, 500);
-      setTimerIdForce(id);
-    }
+    if (isPageUnmounted === true) setLastPageId(pageId);
   }
-  useEffect(updatePage, [isPageMounted, pageId]);
+  useLayoutEffect(updatePage, [isPageUnmounted, pageId]);
+
+  const timerIdWheel = useRef();
+
+  const setTimerIdWheel = (id) => {
+    clearTimeout(timerIdWheel.current);
+    timerIdWheel.current = id;
+  };
 
   const changePage = (deltaY) => {
     if (pageId === 0) {
@@ -54,15 +44,19 @@ export default function useDesktopLogic() {
     dispatch({ type: SET_PAGE, payload: newPageId });
   };
 
-  const handleWheel = (e) => {
-    if (e.ctrlKey || (e.deltaY <= 0 && pageId === 0)) return;
+  const handleWheel = ({ ctrlKey, deltaY }) => {
+    if (
+      ctrlKey ||
+      (deltaY <= 0 && pageId === 0) ||
+      (deltaY >= 0 && pageId === lastPage)
+    )
+      return;
 
     const timerIdTask = setTimeout(() => {
       setTimerIdWheel(null);
     }, 250);
 
-    if (timerIdWheel) clearTimeout(timerIdWheel);
-    else changePage(e.deltaY);
+    if (!timerIdWheel.current) changePage(deltaY);
 
     setTimerIdWheel(timerIdTask);
   };

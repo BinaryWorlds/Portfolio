@@ -5,7 +5,7 @@ const initialState = {
   animateMeetMe: false,
   pageId: 0,
   lang: 'pl',
-  isPageMounted: false,
+  isPageUnmounted: true,
   isMenuOpen: false,
 };
 const StoreContext = createContext();

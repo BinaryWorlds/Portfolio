@@ -1,17 +1,17 @@
 import { useStore } from '../globalState/store';
 import { SET_PAGE_UNMOUNTED } from '../globalState/actionTypes';
 
-function useHandleAnimations() {
+function useUnmountAnimations() {
   const {
-    state: { isPageMounted, lang },
+    state: { isPageUnmounted, lang },
     dispatch,
   } = useStore();
 
-  const handleUnmount = () => {
-    if (isPageMounted) dispatch({ type: SET_PAGE_UNMOUNTED });
+  const setUnmounted = () => {
+    if (!isPageUnmounted) dispatch({ type: SET_PAGE_UNMOUNTED });
   };
 
-  return { isPageMounted, handleUnmount, lang };
+  return { isPageUnmounted, setUnmounted, lang };
 }
 
-export default useHandleAnimations;
+export default useUnmountAnimations;

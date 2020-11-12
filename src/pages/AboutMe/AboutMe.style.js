@@ -7,7 +7,7 @@ export const StyledWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 10%;
-  ${({ isMounted }) => (isMounted ? fadeOut : spinEffect)};
+  ${({ isUnmounted }) => (isUnmounted ? spinEffect : fadeOut)};
 `;
 
 export const StyledTitle = styled.h1`

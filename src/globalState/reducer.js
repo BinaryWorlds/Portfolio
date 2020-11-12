@@ -14,11 +14,11 @@ const reducer = (state = [], action) => {
       return {
         ...state,
         pageId: +action.payload,
-        isPageMounted: true,
+        isPageUnmounted: false,
         isMenuOpen: false,
       };
     case SET_PAGE_UNMOUNTED:
-      return { ...state, isPageMounted: false };
+      return { ...state, isPageUnmounted: true };
     case SET_LANG:
       return { ...state, lang: action.payload };
     case TOGGLE_MENU:

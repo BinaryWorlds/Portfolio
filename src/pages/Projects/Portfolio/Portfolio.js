@@ -1,5 +1,5 @@
 import React from 'react';
-import useHandleAnimations from '../../../hooks/useHandleAnimations';
+import useUnmountAnimations from '../../../hooks/useHandleAnimations';
 import image from '../../../assets/images/mockup.webp';
 import { title, description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
@@ -14,11 +14,11 @@ import {
 } from './Portfolio.style';
 
 function Portfolio() {
-  const { isPageMounted, handleUnmount, lang } = useHandleAnimations();
+  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
   const isPl = lang === 'pl';
 
   return (
-    <StyledWrapper isMounted={isPageMounted} onAnimationEnd={handleUnmount}>
+    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
       <StyledImageWrapper>
         <StyledImage
           src={image}
@@ -26,10 +26,10 @@ function Portfolio() {
         />
         <StyledTitle>{title[lang]}</StyledTitle>
       </StyledImageWrapper>
-      <StyledDescription isMounted={isPageMounted}>
+      <StyledDescription isUnmounted={isPageUnmounted}>
         {generateList(description[lang])}
       </StyledDescription>
-      <StyledBackground isMounted={isPageMounted} />
+      <StyledBackground isUnmounted={isPageUnmounted} />
     </StyledWrapper>
   );
 }

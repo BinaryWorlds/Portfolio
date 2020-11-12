@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStore } from '../../../globalState/store';
+import useUnmountAnimations from '../../../hooks/useHandleAnimations';
 import {
   StyledWrapper,
   StyledWrapper2,
@@ -15,14 +15,13 @@ import Button2 from '../../../components/Button2/Button2';
 import image from '../../../assets/images/myProduct.webp';
 
 function MyProduct() {
-  const {
-    state: { lang },
-  } = useStore();
+  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
+
   const isPl = lang === 'pl';
   const myProductLink = 'https://climbingtimers.com/';
 
   return (
-    <StyledWrapper>
+    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
       <StyledWrapper2>
         <StyledSection>
           <StyledTitle>{title[lang]}</StyledTitle>

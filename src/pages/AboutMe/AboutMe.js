@@ -1,5 +1,5 @@
 import React from 'react';
-import useHandleAnimations from '../../hooks/useHandleAnimations';
+import useUnmountAnimations from '../../hooks/useHandleAnimations';
 import generateList from '../../utils/generateSpanList';
 import {
   StyledWrapper,
@@ -17,10 +17,10 @@ import {
 } from './AboutMe.text';
 
 function AboutMe() {
-  const { isPageMounted, handleUnmount, lang } = useHandleAnimations();
+  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
 
   return (
-    <StyledWrapper onAnimationEnd={handleUnmount} isMounted={isPageMounted}>
+    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledText>{description[lang]}</StyledText>
       <StyledTable>

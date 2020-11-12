@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div`
   align-content: center;
   flex-wrap: wrap;
   position: relative;
-  ${({ isMounted }) => isMounted && fadeOut};
+  ${({ isUnmounted }) => !isUnmounted && fadeOut};
 
   :before,
   :after {

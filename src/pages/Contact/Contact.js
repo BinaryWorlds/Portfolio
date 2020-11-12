@@ -1,5 +1,6 @@
 import React from 'react';
-import { useStore } from '../../globalState/store';
+import useUnmountAnimations from '../../hooks/useHandleAnimations';
+
 import { questions } from './Contact.text';
 import { StyledWrapper, StyledSection, StyledButtons } from './Contact.style';
 import ContactForm from '../../components/ContactForm/ContactForm';
@@ -9,9 +10,7 @@ import emailIcon from '../../assets/icons/email.webp';
 import githubIcon from '../../assets/icons/github.webp';
 
 function Contact() {
-  const {
-    state: { lang },
-  } = useStore();
+  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
 
   const handleSubmit = (e) => e.preventDefault();
   const fbProfile = 'https://m.me/dawid.szymkowiak.10';
@@ -35,7 +34,7 @@ function Contact() {
   });
 
   return (
-    <StyledWrapper>
+    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
       <StyledSection>
         {questionsList}
         <StyledButtons>

@@ -1,4 +1,11 @@
 /* eslint-disable */
+import ball0 from './0.png';
+import ball1 from './1.png';
+import ball2 from './2.png';
+import ball3 from './3.png';
+import ball4 from './4.png';
+
+const ballList = [ball0, ball1, ball2, ball3, ball4];
 export const g = {
   rows: null,
   rowsInit: null,
@@ -33,9 +40,6 @@ export const g = {
   },
 };
 
-function imageSrc(nr) {
-  return `./jawbreaker_images/${nr}.png`;
-}
 export function changeLang(lang) {
   if (lang !== 'en' && lang !== 'pl') return;
   g.lang = lang;
@@ -263,7 +267,7 @@ function preloadImages() {
     g.img[i].onload = () => {
       if (++g.img.loaded >= g.colorsInit) ctxDraw();
     };
-    g.img[i].src = imageSrc(i);
+    g.img[i].src = ballList[i];
   }
 }
 
@@ -394,7 +398,7 @@ function checkItIsOver() {
   const chain = findChains(1); // find one
   if (chain.length === 0) {
     document.removeEventListener('mousedown', mouseHandler);
-    if(!g.symulateMode)document.addEventListener('mousedown', resetGame);
+    if (!g.symulateMode) document.addEventListener('mousedown', resetGame);
 
     g.ctx.fillStyle = '#f0f0f0';
     g.ctx.fillRect(0, 0, g.width, g.scoreHeight + 1);

@@ -1,5 +1,5 @@
 import React from 'react';
-import useHandleAnimations from '../../../hooks/useHandleAnimations';
+import useUnmountAnimations from '../../../hooks/useHandleAnimations';
 import image from '../../../assets/images/now.webp';
 import { title, description } from './Now.text';
 import generateList from '../../../utils/generateSpanList';
@@ -12,11 +12,11 @@ import {
 } from './Now.style';
 
 function Now() {
-  const { isPageMounted, handleUnmount, lang } = useHandleAnimations();
+  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
   const isPl = lang === 'pl';
 
   return (
-    <StyledWrapper isMounted={isPageMounted} onAnimationEnd={handleUnmount}>
+    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledImageContainer>
         <StyledImage

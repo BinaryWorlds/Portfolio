@@ -10,7 +10,7 @@ export const StyledWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  ${({ isMounted }) => (isMounted ? fadeOut : slideEffect)}
+  ${({ isUnmounted }) => (isUnmounted ? slideEffect : fadeOut)}
 `;
 
 export const StyledTitle = styled.h1`
