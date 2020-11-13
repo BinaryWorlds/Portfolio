@@ -11,8 +11,19 @@ const growing = keyframes`
         transform: rotate(50deg) scale(1,1);
     }`;
 
-const growingEffect = css`
-  animation: ${growing} 2s ease-in-out;
+export const growingEffect = css`
+  animation: ${growing} 4s ease-in-out;
 `;
 
-export default growingEffect;
+const border = keyframes`
+    0%{
+        transform:  scaleY(0);
+    }
+    100%{
+        transform:  scaleY(1);
+    }`;
+
+export const borderEffect = css`
+  content: '';
+  animation: ${border} 1.5s ease-out both;
+`;

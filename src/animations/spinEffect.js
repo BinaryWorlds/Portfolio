@@ -3,14 +3,14 @@ import { keyframes, css } from 'styled-components';
 const spin = keyframes` 
   0% {
     opacity:0;
-    transform: rotate(-45deg) scale(0.25,0.25);        
+    transform: rotate3d(0.25,0.25,0.25,-90deg) ;        
   }
   100% {
-    transform: rotate(0) scale(1,1);
+    transform: rotate3d(0);
   }`;
 
-const spinEffect = css`
-  animation: ${spin} 0.75s ease-out;
+const spinEffect = (order = 1) => css`
+  animation: ${spin} 1.25s ${0.3 * order}s ease-out both;
 `;
 
 export default spinEffect;

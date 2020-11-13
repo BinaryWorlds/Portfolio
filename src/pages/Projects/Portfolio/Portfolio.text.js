@@ -1,4 +1,4 @@
-export const title = { pl: 'To  portfolio', en: 'This portfolio' };
+export const title = { pl: 'To  portfolio', en: 'This  portfolio' };
 export const description = {
   pl: [
     `Lubię widzieć celowość swoich działań. ` +

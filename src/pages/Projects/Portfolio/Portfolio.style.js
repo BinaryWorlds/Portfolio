@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import fadeIn from '../../../animations/fadeIn';
 import fadeOut from '../../../animations/fadeOut';
-import growingEffect from './Portfolio.animations';
+import { growingEffect, borderEffect } from './Portfolio.animations';
 
 export const StyledWrapper = styled.div`
   overflow: hidden;
@@ -11,7 +11,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  ${({ isUnmounted }) => !isUnmounted && fadeOut}
+  ${({ isUnmounted }) => (isUnmounted ? fadeIn : fadeOut)}
 `;
 
 export const StyledImageWrapper = styled.div`
@@ -41,6 +41,8 @@ export const StyledImageWrapper = styled.div`
     left: 0;
     height: 25rem;
     border-left: 1px solid rgba(112, 112, 112);
+    transform-origin: top left;
+    ${({ isUnmounted }) => isUnmounted && borderEffect}
   }
 `;
 
@@ -55,6 +57,12 @@ export const StyledTitle = styled.h1`
   position: absolute;
   left: -1.2rem;
   bottom: -23rem;
+  ${({ isEn }) =>
+    isEn &&
+    css`
+      left: -3rem;
+      bottom: -25rem;
+    `}
   transform-origin: bottom left;
   transform: rotate(-50deg) translate3d(0, 0, 0);
   font-size: ${({ theme }) => theme.fonts.size.l};
@@ -63,11 +71,13 @@ export const StyledTitle = styled.h1`
   letter-spacing: 0.5px;
 
   :after {
-    content: '';
     position: absolute;
     bottom: 0;
     height: 15rem;
     border-right: 1px solid rgba(112, 112, 112);
+    transform-origin: bottom right;
+    ${({ isWritten }) => isWritten && borderEffect}
+    animation-delay: 0.25s;
   }
 `;
 
@@ -122,5 +132,4 @@ export const StyledDescription = styled.div`
     font-size: ${({ theme }) => theme.fonts.size.s};
     padding-top: 2rem;
   }
-  ${({ isUnmounted }) => isUnmounted && fadeIn}
 `;

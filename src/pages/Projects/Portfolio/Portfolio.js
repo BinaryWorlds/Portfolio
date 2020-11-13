@@ -1,9 +1,9 @@
 import React from 'react';
 import useUnmountAnimations from '../../../hooks/useHandleAnimations';
 import image from '../../../assets/images/mockup.webp';
-import { title, description } from './Portfolio.text';
+import { description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
-
+import usePortfolioLogic from './Portfolio.logic';
 import {
   StyledWrapper,
   StyledImageWrapper,
@@ -15,16 +15,18 @@ import {
 
 function Portfolio() {
   const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
-  const isPl = lang === 'pl';
+  const { isWritten, titleRef } = usePortfolioLogic(lang);
+
+  const isEn = lang === 'en';
 
   return (
     <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
-      <StyledImageWrapper>
+      <StyledImageWrapper isUnmounted={isPageUnmounted}>
         <StyledImage
           src={image}
-          alt={isPl ? 'Mockup w AdobeXd' : 'Mockup from AdobeXd'}
+          alt={isEn ? 'Mockup w AdobeXd' : 'Mockup from AdobeXd'}
         />
-        <StyledTitle>{title[lang]}</StyledTitle>
+        <StyledTitle isEn={isEn} ref={titleRef} isWritten={isWritten} />
       </StyledImageWrapper>
       <StyledDescription isUnmounted={isPageUnmounted}>
         {generateList(description[lang])}

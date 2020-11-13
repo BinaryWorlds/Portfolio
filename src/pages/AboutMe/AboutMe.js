@@ -21,12 +21,18 @@ function AboutMe() {
 
   return (
     <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
-      <StyledTitle>{title[lang]}</StyledTitle>
-      <StyledText>{description[lang]}</StyledText>
+      <StyledTitle isUnmounted={isPageUnmounted}>{title[lang]}</StyledTitle>
+      <StyledText isUnmounted={isPageUnmounted}>{description[lang]}</StyledText>
       <StyledTable>
-        <StyledColumn val={1}>{generateList(frontendTxt)}</StyledColumn>
-        <StyledColumn val={2}>{generateList(backendTxt)}</StyledColumn>
-        <StyledColumn val={3}>{generateList(designTxt)}</StyledColumn>
+        <StyledColumn val={1} isUnmounted={isPageUnmounted}>
+          {generateList(frontendTxt)}
+        </StyledColumn>
+        <StyledColumn val={2} isUnmounted={isPageUnmounted}>
+          {generateList(backendTxt)}
+        </StyledColumn>
+        <StyledColumn val={3} isUnmounted={isPageUnmounted}>
+          {generateList(designTxt)}
+        </StyledColumn>
       </StyledTable>
     </StyledWrapper>
   );
