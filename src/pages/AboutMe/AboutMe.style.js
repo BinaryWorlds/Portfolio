@@ -7,7 +7,8 @@ export const StyledWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 10%;
-  ${({ isUnmounted }) => !isUnmounted && fadeOut};
+
+  ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
 `;
 
 export const StyledTitle = styled.h1`
@@ -26,7 +27,7 @@ export const StyledTitle = styled.h1`
     background: ${({ theme }) => theme.colors.pinkB};
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   }
-  ${({ isUnmounted }) => isUnmounted && spinEffect(1)};
+  ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(1)};
 `;
 
 export const StyledText = styled.div`
@@ -48,7 +49,7 @@ export const StyledText = styled.div`
     background: ${({ theme }) => theme.colors.pinkB};
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   }
-  ${({ isUnmounted }) => isUnmounted && spinEffect(2)};
+  ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(2)};
 `;
 
 export const StyledTable = styled.ul`
@@ -68,7 +69,7 @@ export const StyledColumn = styled.li`
   flex-direction: column;
   align-items: center;
   position: relative;
-  ${({ isUnmounted, val }) => isUnmounted && spinEffect(2 + val)};
+  ${({ theme: { isUnmounted }, val }) => isUnmounted && spinEffect(2 + val)};
 
   span {
     font-size: ${({ theme }) => theme.fonts.size.m};

@@ -11,7 +11,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  ${({ isUnmounted }) => (isUnmounted ? fadeIn : fadeOut)}
+  ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)}
 `;
 
 export const StyledImageWrapper = styled.div`
@@ -42,7 +42,7 @@ export const StyledImageWrapper = styled.div`
     height: 25rem;
     border-left: 1px solid rgba(112, 112, 112);
     transform-origin: top left;
-    ${({ isUnmounted }) => isUnmounted && borderEffect}
+    ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect}
   }
 `;
 
@@ -116,7 +116,7 @@ export const StyledBackground = styled.div`
     height: 24vw;
     right: -1px;
   }
-  ${({ isUnmounted }) => isUnmounted && growingEffect}
+  ${({ theme: { isUnmounted } }) => isUnmounted && growingEffect}
 `;
 
 export const StyledDescription = styled.div`

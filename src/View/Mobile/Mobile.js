@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../../layout/layout';
 import pageStructure from '../../pages/pageStructure';
 import { StyledWrapper } from './Mobile.style';
 
@@ -8,7 +9,7 @@ const pages = pageStructure.map((item, index) => {
 });
 
 function Mobile() {
-  return <>{pages}</>;
+  return <Layout>{pages}</Layout>;
 }
 
 export default Mobile;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './layout/layout';
 import Desktop from './View/Desktop/Desktop';
 import Mobile from './View/Mobile/Mobile';
 
@@ -19,7 +18,7 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return <Layout>{isMobile ? <Mobile /> : <Desktop />}</Layout>;
+  return <>{isMobile ? <Mobile /> : <Desktop />}</>;
 }
 
 export default App;

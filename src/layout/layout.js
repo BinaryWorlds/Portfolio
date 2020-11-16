@@ -28,8 +28,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
+const Layout = ({ children, extend }) => (
+  <ThemeProvider theme={{ ...theme, ...extend }}>
     <>
       <SEO />
       <GlobalStyle />

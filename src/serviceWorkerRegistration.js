@@ -45,10 +45,10 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              console.log(
-                'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://cra.link/PWA.',
-              );
+              console.log('New wersion downloaded!');
+              registration &&
+                registration.waiting.postMessage({ type: 'SKIP_WAITING' }); //force downloading new version
+              window.location.reload();
 
               if (config && config.onUpdate) {
                 config.onUpdate(registration);

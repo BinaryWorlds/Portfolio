@@ -1,5 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import fadeOut from '../../../animations/fadeOut';
+
+import {
+  triangleEffect,
+  borderEffect,
+  fadeInOrderEffect,
+} from './MyProduct.animations';
 
 export const StyledWrapper = styled.div`
   height: 100%;
@@ -8,7 +14,28 @@ export const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${({ isUnmounted }) => !isUnmounted && fadeOut};
+
+  ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
+`;
+
+export const StyledBorder = styled.svg`
+  z-index: -6;
+  position: absolute;
+  bottom: 0;
+  right: 24%;
+  width: calc(76% - 20.5rem);
+  height: calc(100% - 1.8rem);
+  fill: transparent;
+
+  rect {
+    width: 100%;
+    height: 100%;
+    stroke: rgb(112, 112, 112);
+    stroke-width: 12;
+    stroke-dasharray: 320%;
+
+    ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect};
+  }
 `;
 
 export const StyledWrapper2 = styled.div`
@@ -16,17 +43,6 @@ export const StyledWrapper2 = styled.div`
   justify-content: space-between;
   width: calc(48% + 45rem);
   position: relative;
-
-  :before {
-    content: '';
-    z-index: -4;
-    position: absolute;
-    bottom: 0;
-    right: 24%;
-    width: calc(76% - 20.5rem);
-    height: calc(100% - 1.8rem);
-    border: 6px solid rgb(112, 112, 112);
-  }
 `;
 
 export const StyledSection = styled.div`
@@ -38,6 +54,7 @@ export const StyledSection = styled.div`
   a {
     margin-top: auto;
     margin-bottom: auto;
+    ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(7.5)}
   }
 
   :before {
@@ -54,6 +71,7 @@ export const StyledTitle = styled.h1`
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   margin-bottom: 4rem;
+  ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(1.5)}
 `;
 
 export const StyledDescription = styled.div`
@@ -61,6 +79,7 @@ export const StyledDescription = styled.div`
   flex-direction: column;
   padding-left: 2rem;
   position: relative;
+  ${({ theme: { isUnmounted } }) => isUnmounted && triangleEffect};
 
   :before {
     z-index: -1;
@@ -89,9 +108,15 @@ export const StyledDescription = styled.div`
     margin-bottom: 2rem;
   }
 
-  span :last-of-type {
-    margin-bottom: 0;
-  }
+  ${({ theme: { isUnmounted }, children }) =>
+    isUnmounted &&
+    children.map(
+      (item, index) => css`
+        span:nth-of-type(${index + 1}) {
+          ${fadeInOrderEffect(index + 2)}
+        }
+      `,
+    )}
 `;
 
 export const StyledImageWrapper = styled.div`
@@ -99,9 +124,11 @@ export const StyledImageWrapper = styled.div`
   padding-bottom: 36.36%;
   width: 48%;
   margin: 10% 0 4.5% 0;
+  background-color: white;
 `;
 
 export const StyledImage = styled.img`
   position: absolute;
   width: 100%;
+  ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(3)}
 `;

@@ -7,6 +7,7 @@ import {
   StyledWrapper,
   StyledImageWrapper,
   StyledImage,
+  StyledTitleWrapper,
   StyledTitle,
   StyledWrapper2,
   StyledVisitButton,
@@ -20,26 +21,26 @@ import Button2 from '../../../components/Button2/Button2';
 
 function Course() {
   const { dispatch } = useStore();
-  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
+  const { setUnmounted, lang } = useUnmountAnimations();
   const isPl = lang === 'pl';
   const handleClickMore = () => dispatch({ type: SET_PAGE, payload: 5 });
   const courseLink = 'https://coderscamp.edu.pl/';
 
   return (
-    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
+    <StyledWrapper onAnimationEnd={setUnmounted}>
       <StyledImageWrapper>
         <StyledImage
           src={image}
           alt={isPl ? 'CodersCamp banner' : 'CodersCamp baner'}
         />
       </StyledImageWrapper>
-      <StyledTitle>
-        {title[lang]}
+      <StyledTitleWrapper>
+        <StyledTitle>{title[lang]}</StyledTitle>
         <Button1
           onClick={handleClickMore}
           text={isPl ? 'Więcej' : 'See more'}
         />
-      </StyledTitle>
+      </StyledTitleWrapper>
       <StyledWrapper2>
         <StyledVisitButton>
           <Button2 text={isPl ? 'Odwiedź' : 'Visit'} link={courseLink} />

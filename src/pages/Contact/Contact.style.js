@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div`
   form {
     margin-top: auto;
   }
-  ${({ isUnmounted }) => !isUnmounted && fadeOut};
+  ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
 `;
 
 const eyeStyle = css`

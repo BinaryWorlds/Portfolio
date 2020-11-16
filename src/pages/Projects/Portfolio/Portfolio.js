@@ -14,24 +14,22 @@ import {
 } from './Portfolio.style';
 
 function Portfolio() {
-  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
+  const { setUnmounted, lang } = useUnmountAnimations();
   const { isWritten, titleRef } = usePortfolioLogic(lang);
 
   const isEn = lang === 'en';
 
   return (
-    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
-      <StyledImageWrapper isUnmounted={isPageUnmounted}>
+    <StyledWrapper onAnimationEnd={setUnmounted}>
+      <StyledImageWrapper>
         <StyledImage
           src={image}
           alt={isEn ? 'Mockup w AdobeXd' : 'Mockup from AdobeXd'}
         />
         <StyledTitle isEn={isEn} ref={titleRef} isWritten={isWritten} />
       </StyledImageWrapper>
-      <StyledDescription isUnmounted={isPageUnmounted}>
-        {generateList(description[lang])}
-      </StyledDescription>
-      <StyledBackground isUnmounted={isPageUnmounted} />
+      <StyledDescription>{generateList(description[lang])}</StyledDescription>
+      <StyledBackground />
     </StyledWrapper>
   );
 }

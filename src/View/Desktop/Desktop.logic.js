@@ -61,5 +61,5 @@ export default function useDesktopLogic() {
     setTimerIdWheel(timerIdTask);
   };
 
-  return { pageId: lastPageId, handleWheel };
+  return { pageId: lastPageId, handleWheel, isPageUnmounted };
 }

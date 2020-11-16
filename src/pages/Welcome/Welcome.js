@@ -22,10 +22,10 @@ function Welcome() {
 
   const handleClick = () => dispatch({ type: SET_PAGE, payload: 1 });
 
-  const { isPageUnmounted, setUnmounted } = useUnmountAnimations();
+  const { setUnmounted } = useUnmountAnimations();
 
   return (
-    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
+    <StyledWrapper onAnimationEnd={setUnmounted}>
       <StyledHello>
         <StyledImage />
         <StyledText>

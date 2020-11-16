@@ -3,6 +3,7 @@ import useUnmountAnimations from '../../../hooks/useHandleAnimations';
 import {
   StyledWrapper,
   StyledWrapper2,
+  StyledBorder,
   StyledSection,
   StyledTitle,
   StyledDescription,
@@ -15,14 +16,17 @@ import Button2 from '../../../components/Button2/Button2';
 import image from '../../../assets/images/myProduct.webp';
 
 function MyProduct() {
-  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
+  const { setUnmounted, lang } = useUnmountAnimations();
 
   const isPl = lang === 'pl';
   const myProductLink = 'https://climbingtimers.com/';
 
   return (
-    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
+    <StyledWrapper onAnimationEnd={setUnmounted}>
       <StyledWrapper2>
+        <StyledBorder>
+          <rect />
+        </StyledBorder>
         <StyledSection>
           <StyledTitle>{title[lang]}</StyledTitle>
           <StyledDescription>

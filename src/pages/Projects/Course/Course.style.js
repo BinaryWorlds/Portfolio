@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import fadeOut from '../../../animations/fadeOut';
+import fadeIn from '../../../animations/fadeIn';
+import slideXEffect from '../../../animations/slideXEffect';
+import slideYEffect from '../../../animations/slideYEffect';
+
+import { borderEffect } from './Course.animations';
 
 export const StyledWrapper = styled.div`
   padding: 0 10%;
@@ -9,7 +14,7 @@ export const StyledWrapper = styled.div`
   align-content: center;
   flex-wrap: wrap;
   position: relative;
-  ${({ isUnmounted }) => !isUnmounted && fadeOut};
+  ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)};
 
   :before,
   :after {
@@ -48,11 +53,10 @@ export const StyledImageWrapper = styled.div`
 export const StyledImage = styled.img`
   position: absolute;
   width: 100%;
+  ${({ theme: { isUnmounted } }) => isUnmounted && slideYEffect};
 `;
 
-export const StyledTitle = styled.div`
-  font-size: ${({ theme }) => theme.fonts.size.l};
-  font-weight: ${({ theme }) => theme.fonts.weight.bold};
+export const StyledTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +66,15 @@ export const StyledTitle = styled.div`
   button {
     margin-top: 4rem;
     margin-left: 4rem;
+    ${({ theme: { isUnmounted } }) => isUnmounted && slideXEffect};
   }
+`;
+
+export const StyledTitle = styled.h1`
+  font-size: ${({ theme }) => theme.fonts.size.l};
+  font-weight: ${({ theme }) => theme.fonts.weight.bold};
+
+  ${({ theme: { isUnmounted } }) => isUnmounted && slideXEffect};
 `;
 
 export const StyledWrapper2 = styled.div`
@@ -79,12 +91,31 @@ export const StyledVisitButton = styled.div`
 export const StyledDescription = styled.div`
   display: flex;
   flex-direction: column;
-  border-left: 6px solid rgb(112, 112, 112);
   max-width: 70%;
   position: relative;
   left: -3px;
+  ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect};
+  overflow: hidden;
+
+  :before,
+  :after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-origin: center left;
+  }
+
+  :before {
+    border-left: 6px solid rgb(112, 112, 112);
+  }
+
+  :after {
+    z-index: -2;
+  }
 
   span {
+    z-index: -3;
     margin-left: 4rem;
     margin-bottom: 2rem;
     font-size: ${({ theme }) => theme.fonts.size.s};

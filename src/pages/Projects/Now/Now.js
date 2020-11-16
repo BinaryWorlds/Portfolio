@@ -12,11 +12,11 @@ import {
 } from './Now.style';
 
 function Now() {
-  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
+  const { setUnmounted, lang } = useUnmountAnimations();
   const isPl = lang === 'pl';
 
   return (
-    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
+    <StyledWrapper onAnimationEnd={setUnmounted}>
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledImageContainer>
         <StyledImage

@@ -22,7 +22,7 @@ export const StyledHello = styled.div`
 `;
 
 export const StyledWrapper = styled.div`
-  ${({ isUnmounted }) => (isUnmounted ? fadeIn : fadeOut)};
+  ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)};
   width: 100%;
   padding: 0 10%;
   display: flex;

@@ -10,7 +10,7 @@ import emailIcon from '../../assets/icons/email.webp';
 import githubIcon from '../../assets/icons/github.webp';
 
 function Contact() {
-  const { isPageUnmounted, setUnmounted, lang } = useUnmountAnimations();
+  const { setUnmounted, lang } = useUnmountAnimations();
 
   const handleSubmit = (e) => e.preventDefault();
   const fbProfile = 'https://m.me/dawid.szymkowiak.10';
@@ -34,7 +34,7 @@ function Contact() {
   });
 
   return (
-    <StyledWrapper isUnmounted={isPageUnmounted} onAnimationEnd={setUnmounted}>
+    <StyledWrapper onAnimationEnd={setUnmounted}>
       <StyledSection>
         {questionsList}
         <StyledButtons>
