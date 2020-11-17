@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
 import fadeOut from '../../animations/fadeOut';
+import fadeIn from '../../animations/fadeIn';
+
+import { spin3dEffect, formEffect } from './Contact.animations';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -9,17 +12,9 @@ export const StyledWrapper = styled.div`
   form {
     margin-top: auto;
   }
-  ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
-`;
 
-const eyeStyle = css`
-  z-index: -1;
-  content: '';
-  position: absolute;
-  background-color: white;
-  width: 7.3rem;
-  height: 3.1rem;
-  border-radius: 50%;
+  ${({ theme: { isUnmounted } }) =>
+    isUnmounted ? fadeIn && formEffect : fadeOut};
 `;
 
 export const StyledSection = styled.div`
@@ -41,31 +36,42 @@ export const StyledSection = styled.div`
     margin-bottom: 2rem;
     font-size: ${({ theme }) => theme.fonts.size.xl};
     font-weight: ${({ theme }) => theme.fonts.weight.bold};
-
-    :before {
-      ${eyeStyle}
-      top: calc(10% + 1.5rem);
-      left: 80%;
-      transform: rotate(-29deg);
-    }
-
-    :after {
-      ${eyeStyle}
-      top: 10%;
-      left: calc(80% + 9.7rem);
-      transform: rotate(7deg);
-    }
   }
 
+  ${({ theme: { isUnmounted } }) => isUnmounted && spin3dEffect};
+`;
+
+const eyeStyle = css`
+  z-index: -1;
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: 7.3rem;
+  height: 3.1rem;
+  border-radius: 50%;
+`;
+
+export const StyledBackground = styled.div`
+  z-index: -2;
+  position: absolute;
+  top: -8%;
+  left: 50%;
+  background-color: ${({ theme }) => theme.colors.pink};
+  width: 100%;
+  height: 116%;
+
   :before {
-    z-index: -2;
-    content: '';
-    position: absolute;
-    background-color: ${({ theme }) => theme.colors.pink};
-    width: 100%;
-    height: 116%;
-    top: -8%;
-    left: 50%;
+    ${eyeStyle}
+    top: calc(15.55% + 1.5rem);
+    left: 30%;
+    transform: rotate(-29deg);
+  }
+
+  :after {
+    ${eyeStyle}
+    top: 15.55%;
+    left: calc(30% + 9.7rem);
+    transform: rotate(7deg);
   }
 `;
 

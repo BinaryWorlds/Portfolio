@@ -2,7 +2,12 @@ import React from 'react';
 import useUnmountAnimations from '../../hooks/useHandleAnimations';
 
 import { questions } from './Contact.text';
-import { StyledWrapper, StyledSection, StyledButtons } from './Contact.style';
+import {
+  StyledWrapper,
+  StyledSection,
+  StyledButtons,
+  StyledBackground,
+} from './Contact.style';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ButtonIcon from '../../components/ButtonIcon/ButtonIcon';
 import messengerIcon from '../../assets/icons/messenger.webp';
@@ -36,6 +41,7 @@ function Contact() {
   return (
     <StyledWrapper onAnimationEnd={setUnmounted}>
       <StyledSection>
+        <StyledBackground />
         {questionsList}
         <StyledButtons>
           <ButtonIcon
