@@ -5,11 +5,15 @@ const center = `rotate3d(1, 1, 1, 120deg)`;
 const right = `translateX(-75%) rotate3d(1, 1, 1, 120deg)`;
 
 const spin = (property) => keyframes`
-    0%{
-        transform: ${property};
-    }
-    100%{
-    }`;
+  0%{
+      transform: ${property};
+      opacity:0;
+  }
+  50%{
+      opacity:1;
+  }
+  100%{
+  }`;
 
 export const spin3dEffect = css`
   span,

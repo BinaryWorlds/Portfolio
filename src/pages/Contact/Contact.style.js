@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import fadeOut from '../../animations/fadeOut';
-import fadeIn from '../../animations/fadeIn';
 
 import { spin3dEffect, formEffect } from './Contact.animations';
 
@@ -13,8 +12,7 @@ export const StyledWrapper = styled.div`
     margin-top: auto;
   }
 
-  ${({ theme: { isUnmounted } }) =>
-    isUnmounted ? fadeIn && formEffect : fadeOut};
+  ${({ theme: { isUnmounted } }) => (isUnmounted ? formEffect : fadeOut)};
 `;
 
 export const StyledSection = styled.div`

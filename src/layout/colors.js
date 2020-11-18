@@ -6,6 +6,7 @@ const colors = {
   pinkB: 'rgb(247, 219, 200)',
   orange: 'rgb(243, 222, 176)',
   sand: 'rgba(240, 211, 150, 0.75)',
+  red: 'rgb(231, 67, 21)',
   text: 'rgb(112, 112, 112)',
 };
 
