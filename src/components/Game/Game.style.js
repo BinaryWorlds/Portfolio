@@ -32,7 +32,8 @@ export const StyledButton = styled.button`
     transition: all 0.4s;
   }
 
-  :hover:before {
+  :hover:before,
+  :focus-visible:before {
     transform: scale(0.5, 0.5) translate(-60px, -40px);
   }
 `;

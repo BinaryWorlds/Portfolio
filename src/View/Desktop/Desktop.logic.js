@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useStore } from '../../globalState/store';
 import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
 import { lastPage } from '../../pages/pageStructure';
@@ -15,7 +15,7 @@ export default function useDesktopLogic() {
     if (lastPageId === pageId) return;
     if (isPageUnmounted === true) setLastPageId(pageId);
   }
-  useLayoutEffect(updatePage, [isPageUnmounted, pageId]);
+  useLayoutEffect(updatePage, [isPageUnmounted, pageId, lastPageId]);
 
   const timerIdWheel = useRef();
 
@@ -31,11 +31,11 @@ export default function useDesktopLogic() {
     }
 
     let newPageId = +pageId;
-    if (deltaY > 0) {
+    if (+deltaY > 0) {
       if (pageId !== 4) newPageId += 1;
       else newPageId = 8;
     }
-    if (deltaY < 0) {
+    if (+deltaY < 0) {
       if (pageId !== 8) newPageId -= 1;
       else newPageId = 4;
     }
@@ -60,6 +60,16 @@ export default function useDesktopLogic() {
 
     setTimerIdWheel(timerIdTask);
   };
+
+  const handleKey = ({ key }) => {
+    if (key === 'ArrowUp' && pageId !== 0) changePage(-100);
+    if (key === 'ArrowDown' && pageId !== lastPage) changePage(+100);
+  };
+
+  useEffect(() => {
+    window.addEventListener('keyup', handleKey);
+    return () => window.removeEventListener('keyup', handleKey);
+  }, [pageId]);
 
   return { pageId: lastPageId, handleWheel, isPageUnmounted };
 }

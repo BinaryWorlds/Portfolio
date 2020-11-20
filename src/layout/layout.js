@@ -26,6 +26,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.family.notoSans};
     min-width:320px;
   }
+  button, a{
+    :focus-visible {
+    outline: 2px solid black;
+  }
+  
+  }
 `;
 
 const Layout = ({ children, extend }) => (

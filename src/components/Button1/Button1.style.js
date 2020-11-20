@@ -15,7 +15,8 @@ export const StyledButton = styled.button`
   width: 20rem;
   height: auto;
 
-  &:hover {
+  :hover,
+  :focus-visible {
     .button1-circle {
       width: 100%;
     }

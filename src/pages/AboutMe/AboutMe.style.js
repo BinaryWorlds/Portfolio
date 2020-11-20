@@ -58,7 +58,6 @@ export const StyledTable = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: stretch;
   list-style: none;
 `;
 

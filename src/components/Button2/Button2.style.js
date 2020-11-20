@@ -25,7 +25,8 @@ export const StyledButton = styled.a`
     height: 0;
   }
 
-  :hover:before {
+  :hover:before,
+  :focus-visible:before {
     left: 0%;
     top: 0%;
     width: 100%;

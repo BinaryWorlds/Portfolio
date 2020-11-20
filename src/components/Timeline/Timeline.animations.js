@@ -30,7 +30,7 @@ const lineIn = keyframes`
 
   }
   100% {
-      transform: scaleX(2.5);
+      transform: scaleX(3);
   }`;
 
 export const lineInEffect = css`
@@ -40,8 +40,7 @@ export const lineInEffect = css`
 
 const lineOut = keyframes` 
 0% {
-  transform: scaleX(2.5);
-
+  transform: scaleX(3);
 }
 100% {
     transform: scaleX(1);

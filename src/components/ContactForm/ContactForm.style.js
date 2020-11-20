@@ -46,7 +46,8 @@ export const StyledButton = styled.button`
   background-color: white;
   transition: all 0.15s linear;
 
-  :hover {
+  :hover,
+  :focus-visible {
     background-color: black;
     color: white;
   }
