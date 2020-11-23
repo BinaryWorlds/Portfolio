@@ -10,13 +10,11 @@ function Desktop() {
   const { pageId, handleWheel, isPageUnmounted } = useDesktopLogic();
   const { page, section } = pageStructure[pageId];
 
-  const showTimeline = section === 2 && (pageId < 5 || pageId === 8);
-
   return (
     <Layout extend={{ isUnmounted: isPageUnmounted }}>
       <StyledWrapper onWheel={handleWheel}>
         <Header section={section} />
-        <Timeline pageId={pageId} showTimeline={showTimeline} />
+        <Timeline pageId={pageId} section={section} />
         {page}
       </StyledWrapper>
     </Layout>

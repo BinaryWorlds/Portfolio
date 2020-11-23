@@ -14,10 +14,17 @@ export const StyledMenu = styled.div`
   height: 0px;
   border-left: ${opposite}px solid transparent;
   border-bottom: ${heightTrapeze}px solid ${({ theme }) => theme.colors.blue};
-  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+  clip-path: polygon(
+    ${opposite}px 0px,
+    215px 0px,
+    215px ${heightTrapeze + 15}px,
+    -15px ${heightTrapeze + 15}px
+  );
   cursor: pointer;
   display: flex;
   justify-content: center;
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 `;
 
 export const StyledElement = styled.li`
@@ -38,7 +45,7 @@ export const StyledElement = styled.li`
   ${({ active, last }) =>
     active &&
     css`
-      ::before {
+      :before {
         content: '';
         position: absolute;
         right: 0px;
@@ -50,7 +57,7 @@ export const StyledElement = styled.li`
       }
     `};
 
-  ::after {
+  :after {
     content: '${({ text }) => text}';
     position: absolute;
     width: 100%;

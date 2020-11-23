@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '../../globalState/store';
 import { StyledWrapper, StyledLine } from './Timeline.style';
 
-function Timeline({ pageId, showTimeline }) {
+function Timeline({ pageId, section }) {
   const {
     state: { lang },
   } = useStore();
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  const showTimeline = section === 2 && (pageId < 5 || pageId === 8);
+  useEffect(() => {
+    if (!isVisible && showTimeline) setIsVisible(true);
+  }, [pageId, section]);
 
   const nowText = lang === 'pl' ? 'Teraz' : 'Now';
   const dateList = [
@@ -18,7 +25,11 @@ function Timeline({ pageId, showTimeline }) {
     <StyledLine key={text} text={text} active={pageId === id} />
   ));
 
-  return <StyledWrapper showTimeline={showTimeline}>{list}</StyledWrapper>;
+  return (
+    <StyledWrapper isVisible={isVisible} showTimeline={showTimeline}>
+      {list}
+    </StyledWrapper>
+  );
 }
 
 export default Timeline;

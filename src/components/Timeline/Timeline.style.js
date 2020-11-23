@@ -14,6 +14,11 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   ${({ showTimeline }) => (showTimeline ? showEffect : hideEffect)}
+  ${({ isVisible }) =>
+    !isVisible &&
+    css`
+      visibility: hidden;
+    `}
 `;
 
 export const StyledLine = styled.div`
