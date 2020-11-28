@@ -4,6 +4,7 @@ import {
   SET_PAGE_UNMOUNTED,
   SET_LANG,
   TOGGLE_MENU,
+  SET_VIEW,
 } from './actionTypes';
 
 const reducer = (state = [], action) => {
@@ -23,6 +24,8 @@ const reducer = (state = [], action) => {
       return { ...state, lang: action.payload };
     case TOGGLE_MENU:
       return { ...state, isMenuOpen: !state.isMenuOpen };
+    case SET_VIEW:
+      return { ...state, isMobile: action.payload };
     default:
       return state;
   }

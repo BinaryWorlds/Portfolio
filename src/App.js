@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import Desktop from './View/Desktop/Desktop';
 import Mobile from './View/Mobile/Mobile';
+import useView from './hooks/useView';
 
 const mobileTreshold = 768;
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile, setIsMobile } = useView();
 
   const handleResize = () => {
     const check = !!(window.innerWidth < mobileTreshold);
     setIsMobile(check);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

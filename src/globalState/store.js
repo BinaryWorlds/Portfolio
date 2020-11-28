@@ -7,6 +7,7 @@ const initialState = {
   lang: 'pl',
   isPageUnmounted: true,
   isMenuOpen: false,
+  isMobile: null,
 };
 const StoreContext = createContext();
 

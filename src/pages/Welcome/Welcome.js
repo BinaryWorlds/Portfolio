@@ -13,7 +13,7 @@ import useUnmountAnimations from '../../hooks/useHandleAnimations';
 
 function Welcome() {
   const {
-    state: { animateMeetMe, lang },
+    state: { animateMeetMe, lang, isMobile },
     dispatch,
   } = useStore();
 
@@ -38,7 +38,7 @@ function Welcome() {
           text={lang === 'pl' ? 'Poznaj mnie' : 'Meet me'}
         />
       </StyledHello>
-      <Game />
+      {!isMobile && <Game />}
     </StyledWrapper>
   );
 }

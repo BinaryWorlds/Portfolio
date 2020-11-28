@@ -3,3 +3,4 @@ export const SET_PAGE = 'SET_PAGE';
 export const SET_PAGE_UNMOUNTED = 'SET_PAGE_UNMOUNTED';
 export const SET_LANG = 'SET_LANG';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const SET_VIEW = 'SET_VIEW';

@@ -5,11 +5,15 @@ import { StyledWrapper } from './Mobile.style';
 
 const pages = pageStructure.map((item, index) => {
   if (index > 4 && index < 8) return null;
-  return <StyledWrapper key={item.key}>{item.page}</StyledWrapper>;
+  return <React.Fragment key={item.key}>{item.page}</React.Fragment>;
 });
 
 function Mobile() {
-  return <Layout>{pages}</Layout>;
+  return (
+    <Layout extend={{ isUnmounted: true, isMobile: true }}>
+      <StyledWrapper>{pages}</StyledWrapper>
+    </Layout>
+  );
 }
 
 export default Mobile;

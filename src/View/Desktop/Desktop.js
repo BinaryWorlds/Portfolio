@@ -11,7 +11,7 @@ function Desktop() {
   const { page, section } = pageStructure[pageId];
 
   return (
-    <Layout extend={{ isUnmounted: isPageUnmounted }}>
+    <Layout extend={{ isUnmounted: isPageUnmounted, isDesktop: true }}>
       <StyledWrapper onWheel={handleWheel}>
         <Header section={section} />
         <Timeline pageId={pageId} section={section} />

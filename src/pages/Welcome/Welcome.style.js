@@ -19,17 +19,24 @@ export const StyledHello = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  ${({ theme }) => theme.mq.phone} {
+    height: 100%;
+    padding-bottom: 10%;
+  }
 `;
 
 export const StyledWrapper = styled.div`
   ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)};
+  height: 100%;
   width: 100%;
   padding: 0 10%;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: relative;
 
-  ::after {
+  :after {
     position: absolute;
     bottom: 0;
     content: '';
@@ -37,5 +44,9 @@ export const StyledWrapper = styled.div`
     z-index: -1;
     width: 100%;
     height: 37%;
+  }
+  ${({ theme }) => theme.mq.phone} {
+    padding: 5% 5%;
+    height: 100vh;
   }
 `;
