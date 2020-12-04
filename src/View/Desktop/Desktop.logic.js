@@ -62,8 +62,10 @@ export default function useDesktopLogic() {
   };
 
   const handleKey = ({ key }) => {
-    if (key === 'ArrowUp' && pageId !== 0) changePage(-100);
-    if (key === 'ArrowDown' && pageId !== lastPage) changePage(+100);
+    if ((key === 'ArrowUp' || key === 'PageUp') && pageId !== 0)
+      changePage(-100);
+    if ((key === 'ArrowDown' || key === 'PageDown') && pageId !== lastPage)
+      changePage(+100);
   };
 
   useEffect(() => {

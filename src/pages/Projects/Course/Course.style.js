@@ -47,7 +47,7 @@ export const StyledImageWrapper = styled.div`
   width: 55%;
   padding-bottom: 28.875%;
   margin-left: 3%;
-  margin-bottom: 2vw;
+  margin-bottom: 5vh;
 `;
 
 export const StyledImage = styled.img`

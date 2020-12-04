@@ -16,26 +16,43 @@ export const StyledTitle = styled.h1`
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
 
+  top: 5%;
+  margin: 15% 0;
+
   :before {
     content: '';
     z-index: -1;
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 16px;
-    left: 32px;
+    top: 42%;
+    left: 32%;
     background: ${({ theme }) => theme.colors.pinkB};
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   }
   ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(1)};
+
+  ${({ theme }) => theme.mq.middle} {
+    top: 2%;
+    margin: 1% 0;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    top: 0;
+    margin: 0;
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    font-size: ${({ theme }) => theme.fonts.size.xxl};
+  }
 `;
 
 export const StyledText = styled.div`
   position: relative;
   z-index: 2;
   width: 40%;
-  min-width: 600px;
-  margin: 8% 0;
+  min-width: 500px;
+  margin: 10% 0;
   font-size: ${({ theme }) => theme.fonts.size.s};
 
   ::before {
@@ -50,6 +67,14 @@ export const StyledText = styled.div`
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   }
   ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(2)};
+
+  ${({ theme }) => theme.mq.middle} {
+    min-width: 600px;
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+  }
 `;
 
 export const StyledTable = styled.ul`
@@ -92,16 +117,24 @@ export const StyledColumn = styled.li`
       let top = 0;
       let left = 0;
       if (val === 1) {
-        top = '1.5rem';
-        left = '-7rem';
+        top = '6%';
+        left = '-29%';
       }
-      if (val === 2) top = '4rem';
-      if (val === 3) top = '-9rem';
+      if (val === 2) top = '15%';
+      if (val === 3) top = '-35%';
 
       return css`
         top: ${top};
         left: ${left};
       `;
     }}
+  }
+  ${({ theme }) => theme.mq.huge} {
+    width: 30rem;
+    height: 33rem;
+
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.l};
+    }
   }
 `;

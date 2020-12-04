@@ -3,7 +3,7 @@ import Desktop from './View/Desktop/Desktop';
 import Mobile from './View/Mobile/Mobile';
 import useView from './hooks/useView';
 
-const mobileTreshold = 768;
+const mobileTreshold = 599;
 
 function App() {
   const { isMobile, setIsMobile } = useView();

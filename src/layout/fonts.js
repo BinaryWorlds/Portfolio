@@ -7,7 +7,7 @@ const fonts = {
     m: '2.2rem',
     l: '2.8rem',
     xl: '3.4rem',
-    xxl: '7.2rem',
+    xxl: '4.8rem',
   },
   weight: {
     light: '300',

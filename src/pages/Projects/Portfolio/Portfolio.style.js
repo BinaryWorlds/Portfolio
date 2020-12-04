@@ -17,10 +17,10 @@ export const StyledWrapper = styled.div`
 export const StyledImageWrapper = styled.div`
   z-index: -1;
   position: absolute;
-  top: -2%;
-  right: -10%;
+  top: 6%;
+  right: -25%;
   transform: rotate(50deg);
-  width: 48%;
+  width: 60%;
   padding-top: 30.5%;
 
   :before {
@@ -37,12 +37,32 @@ export const StyledImageWrapper = styled.div`
   :after {
     content: '';
     position: absolute;
-    bottom: -22.5rem;
+    bottom: -27.5rem;
     left: 0;
     height: 25rem;
     border-left: 1px solid rgba(112, 112, 112);
     transform-origin: top left;
     ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect}
+  }
+
+  ${({ theme }) => theme.mq.middle} {
+    top: -2%;
+    right: -15%;
+    width: 48%;
+
+    :after {
+      bottom: -22.5rem;
+    }
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    right: -10%;
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    :before {
+      font-size: ${({ theme }) => theme.fonts.size.m};
+    }
   }
 `;
 
@@ -56,12 +76,13 @@ export const StyledImage = styled.img`
 export const StyledTitle = styled.h1`
   position: absolute;
   left: -1.2rem;
-  bottom: -23rem;
+  bottom: -28rem;
+
   ${({ isEn }) =>
     isEn &&
     css`
       left: -3rem;
-      bottom: -25rem;
+      bottom: -30rem;
     `}
   transform-origin: bottom left;
   transform: rotate(-50deg) translate3d(0, 0, 0);
@@ -79,18 +100,27 @@ export const StyledTitle = styled.h1`
     ${({ isWritten }) => isWritten && borderEffect}
     animation-delay: 0.25s;
   }
+
+  ${({ theme }) => theme.mq.middle} {
+    bottom: -23rem;
+    ${({ isEn }) =>
+      isEn &&
+      css`
+        bottom: -25rem;
+      `}
+  }
 `;
 
 export const StyledBackground = styled.div`
   position: absolute;
   z-index: -3;
   bottom: 0;
-  right: 60%;
+  right: 42%;
   transform: rotate(50deg);
   transform-origin: right bottom;
 
-  width: 54vw;
-  height: 27vw;
+  width: 80vw;
+  height: 40vw;
   border-color: rgba(112, 112, 112);
   border-bottom: 1px solid;
   border-right: 1px solid;
@@ -106,30 +136,64 @@ export const StyledBackground = styled.div`
   }
 
   :before {
-    width: 24vw;
-    height: 14.85vw;
-    left: 3vw;
+    width: 44.4%;
+    height: 55%;
+    left: 5.5%;
   }
 
   :after {
-    width: 14.85vw;
-    height: 24vw;
+    width: 27.5%;
+    height: 89%;
     right: -1px;
   }
   ${({ theme: { isUnmounted } }) => isUnmounted && growingEffect}
+
+  ${({ theme }) => theme.mq.middle} {
+    right: 55%;
+    width: 60vw;
+    height: 30vw;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    right: 60%;
+    width: 54vw;
+    height: 27vw;
+  }
 `;
 
 export const StyledDescription = styled.div`
   position: relative;
-  top: 30%;
-  left: -12vw;
-  width: 40vw;
-  max-width: 450px;
+  top: 29%;
+  width: 50vw;
   display: flex;
   flex-direction: column;
 
   & span {
     font-size: ${({ theme }) => theme.fonts.size.s};
     padding-top: 2rem;
+  }
+
+  ${({ theme }) => theme.mq.middle} {
+    left: 2vw;
+    top: 27%;
+    width: 45vw;
+    max-width: 45rem;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    left: -5vw;
+  }
+
+  ${({ theme }) => theme.mq.hd} {
+    left: -12vw;
+    top: 30%;
+    width: 40vw;
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    max-width: 65rem;
+    & span {
+      font-size: ${({ theme }) => theme.fonts.size.m};
+    }
   }
 `;
