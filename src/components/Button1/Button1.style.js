@@ -5,7 +5,13 @@ const black = '#282936';
 const transitionRules = 'transition: all 0.45s cubic-bezier(0.65, 0, .076, 1)';
 
 export const StyledButton = styled.button`
-  ${({ animate }) => animate && shakeEffect};
+  ${({ animate }) => animate && shakeEffect()};
+
+  ${({ theme }) => theme.mq.huge} {
+    transform: scale(1.5);
+    ${({ animate }) => animate && shakeEffect(1.5)};
+  }
+
   position: relative;
   display: inline-block;
   background: transparent;

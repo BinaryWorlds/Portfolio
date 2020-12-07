@@ -9,7 +9,8 @@ import {
   StyledImage,
   StyledTitleWrapper,
   StyledTitle,
-  StyledWrapper2,
+  StyledButtonMore,
+  StyledSection,
   StyledVisitButton,
   StyledDescription,
 } from './Course.style';
@@ -36,17 +37,19 @@ function Course() {
       </StyledImageWrapper>
       <StyledTitleWrapper>
         <StyledTitle>{title[lang]}</StyledTitle>
-        <Button1
-          onClick={handleClickMore}
-          text={isPl ? 'Więcej' : 'See more'}
-        />
+        <StyledButtonMore>
+          <Button1
+            onClick={handleClickMore}
+            text={isPl ? 'Więcej' : 'See more'}
+          />
+        </StyledButtonMore>
       </StyledTitleWrapper>
-      <StyledWrapper2>
+      <StyledSection>
         <StyledVisitButton>
           <Button2 text={isPl ? 'Odwiedź' : 'Visit'} link={courseLink} />
         </StyledVisitButton>
         <StyledDescription>{generateList(description[lang])}</StyledDescription>
-      </StyledWrapper2>
+      </StyledSection>
     </StyledWrapper>
   );
 }

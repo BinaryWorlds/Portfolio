@@ -63,6 +63,11 @@ export const StyledImageWrapper = styled.div`
     :before {
       font-size: ${({ theme }) => theme.fonts.size.m};
     }
+
+    :after {
+      bottom: -34rem;
+      height: 35rem;
+    }
   }
 `;
 
@@ -107,6 +112,22 @@ export const StyledTitle = styled.h1`
       isEn &&
       css`
         bottom: -25rem;
+      `}
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    font-size: ${({ theme }) => theme.fonts.size.xxl};
+    left: -2.1rem;
+    bottom: -36rem;
+
+    :after {
+      height: 24rem;
+    }
+    ${({ isEn }) =>
+      isEn &&
+      css`
+        left: -5.2rem;
+        bottom: -40rem;
       `}
   }
 `;

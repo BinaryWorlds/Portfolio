@@ -2,7 +2,7 @@ import { keyframes, css } from 'styled-components';
 
 const text = keyframes`
     0%{
-        transform:  scaleX(1);
+        transform: scaleX(1);
     }
     100%{
         transform: scaleX(0);

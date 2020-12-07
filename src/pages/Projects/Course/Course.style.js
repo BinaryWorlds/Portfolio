@@ -12,6 +12,7 @@ export const StyledWrapper = styled.div`
   width: 100%;
   display: flex;
   align-content: center;
+  justify-content: center;
   flex-wrap: wrap;
   position: relative;
   ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)};
@@ -27,7 +28,7 @@ export const StyledWrapper = styled.div`
     top: 0;
     left: 10%;
     height: 100%;
-    width: 17%;
+    width: 22%;
     border: 1px solid rgba(112, 112, 112, 0.5);
     background-color: ${({ theme }) => theme.colors.orange};
   }
@@ -37,17 +38,31 @@ export const StyledWrapper = styled.div`
     right: 0;
     width: 0;
     height: 0;
-    border-left: 11.5vw solid transparent;
-    border-bottom: 11.5vw solid rgba(0, 0, 0, 0.5);
+    border-left: 17vw solid transparent;
+    border-bottom: 17vw solid rgba(0, 0, 0, 0.5);
+  }
+
+  ${({ theme }) => theme.mq.middle} {
+    :before {
+      width: 17%;
+    }
+
+    :after {
+      border-width: 11.5vw;
+    }
   }
 `;
 
 export const StyledImageWrapper = styled.div`
   position: relative;
-  width: 55%;
+  width: 75%;
   padding-bottom: 28.875%;
-  margin-left: 3%;
-  margin-bottom: 5vh;
+  margin: 15% 0 5vh 3%;
+
+  ${({ theme }) => theme.mq.middle} {
+    width: 55%;
+    margin-top: 0;
+  }
 `;
 
 export const StyledImage = styled.img`
@@ -61,12 +76,12 @@ export const StyledTitleWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 42%;
+  width: 50%;
+  margin: 10% 0 10% 20%;
 
-  button {
-    margin-top: 4rem;
-    margin-left: 4rem;
-    ${({ theme: { isUnmounted } }) => isUnmounted && slideXEffect};
+  ${({ theme }) => theme.mq.middle} {
+    width: 42%;
+    margin-left: 0;
   }
 `;
 
@@ -74,10 +89,25 @@ export const StyledTitle = styled.h1`
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
 
+  ${({ theme }) => theme.mq.huge} {
+    font-size: ${({ theme }) => theme.fonts.size.xxl};
+  }
+
   ${({ theme: { isUnmounted } }) => isUnmounted && slideXEffect};
 `;
 
-export const StyledWrapper2 = styled.div`
+export const StyledButtonMore = styled.div`
+  margin-top: 4rem;
+  margin-left: 4rem;
+
+  ${({ theme }) => theme.mq.huge} {
+    margin-top: 5rem;
+  }
+
+  ${({ theme: { isUnmounted } }) => isUnmounted && slideXEffect};
+`;
+
+export const StyledSection = styled.div`
   display: flex;
 `;
 
@@ -85,7 +115,11 @@ export const StyledVisitButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 17vw;
+  width: 22vw;
+
+  ${({ theme }) => theme.mq.middle} {
+    width: 17vw;
+  }
 `;
 
 export const StyledDescription = styled.div`
@@ -107,6 +141,7 @@ export const StyledDescription = styled.div`
   }
 
   :before {
+    z-index: -1;
     border-left: 6px solid rgb(112, 112, 112);
   }
 
@@ -123,5 +158,12 @@ export const StyledDescription = styled.div`
 
   span :last-of-type {
     margin-bottom: 0;
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    max-width: 50%;
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.m};
+    }
   }
 `;

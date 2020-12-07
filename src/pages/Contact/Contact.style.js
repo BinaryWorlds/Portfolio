@@ -12,6 +12,10 @@ export const StyledWrapper = styled.div`
     margin-top: auto;
   }
 
+  ${({ theme }) => theme.mq.huge} {
+    transform: scale(1.5);
+  }
+
   ${({ theme: { isUnmounted } }) => (isUnmounted ? formEffect : fadeOut)};
 `;
 

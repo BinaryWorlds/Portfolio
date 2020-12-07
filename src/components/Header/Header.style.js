@@ -9,6 +9,11 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: flex-start;
   width: 440px;
+
+  ${({ theme }) => theme.mq.huge} {
+    transform-origin: top right;
+    transform: scale(1.5);
+  }
 `;
 
 export const StyledSection = styled.div`

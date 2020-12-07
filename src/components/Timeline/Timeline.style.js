@@ -13,7 +13,9 @@ export const StyledWrapper = styled.div`
   z-index: 100;
   display: flex;
   flex-direction: column;
+
   ${({ showTimeline }) => (showTimeline ? showEffect : hideEffect)}
+
   ${({ isVisible }) =>
     !isVisible &&
     css`
@@ -56,5 +58,20 @@ export const StyledLine = styled.div`
     padding-left: 5.3rem;
     color: ${({ theme }) => theme.colors.red};
     font-weight: ${({ theme }) => theme.fonts.weight.bold};
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    height: 6rem;
+    width: 18rem;
+
+    :before {
+      width: 3rem;
+      height: 0.3rem;
+    }
+
+    :after {
+      padding-left: 8rem;
+      font-size: ${({ theme }) => theme.fonts.size.m};
+    }
   }
 `;

@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  ${({ animate }) => animate && shakeEffect}
+  ${({ animate }) => animate && shakeEffect(1)}
   background: transparent;
   position: relative;
   cursor: pointer;
@@ -26,14 +26,14 @@ export const StyledButton = styled.button`
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 40%;
+    left: 33%;
     background: ${({ theme }) => theme.colors.blue};
     transition: all 0.4s;
   }
 
   :hover:before,
   :focus-visible:before {
-    transform: scale(0.5, 0.5) translate(-60px, -40px);
+    transform: scale(0.5) translate(-60px, -40px);
   }
 `;

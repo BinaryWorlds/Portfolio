@@ -20,6 +20,7 @@ export const StyledHello = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
   ${({ theme }) => theme.mq.phone} {
     height: 100%;
     padding-bottom: 10%;
