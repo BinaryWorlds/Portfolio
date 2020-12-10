@@ -34,6 +34,10 @@ export const StyledButton = styled.button`
 
     .button1-text {
       color: white;
+      ::selection {
+        color: white;
+        background-color: transparent;
+      }
     }
   }
 `;

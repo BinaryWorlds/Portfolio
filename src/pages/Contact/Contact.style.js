@@ -10,6 +10,13 @@ export const StyledWrapper = styled.div`
 
   form {
     margin-top: auto;
+    width: 45%;
+  }
+
+  ${({ theme }) => theme.mq.middle} {
+    form {
+      width: auto;
+    }
   }
 
   ${({ theme }) => theme.mq.huge} {
@@ -20,7 +27,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledSection = styled.div`
-  margin-right: 12rem;
+  margin-right: 2rem;
   height: 52rem;
   display: grid;
   grid-column: 1;
@@ -28,7 +35,7 @@ export const StyledSection = styled.div`
 
   span {
     margin-top: 2rem;
-    font-size: ${({ theme }) => theme.fonts.size.m};
+    font-size: ${({ theme }) => theme.fonts.size.s};
     text-align: center;
     white-space: pre-wrap;
   }
@@ -41,6 +48,18 @@ export const StyledSection = styled.div`
   }
 
   ${({ theme: { isUnmounted } }) => isUnmounted && spin3dEffect};
+
+  ${({ theme }) => theme.mq.middle} {
+    margin-right: 12rem;
+
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.m};
+    }
+
+    span:first-of-type {
+      font-size: ${({ theme }) => theme.fonts.size.xl};
+    }
+  }
 `;
 
 const eyeStyle = css`
@@ -64,16 +83,26 @@ export const StyledBackground = styled.div`
 
   :before {
     ${eyeStyle}
-    top: calc(15.55% + 1.5rem);
+    top: calc(10% + 1.5rem);
     left: 30%;
     transform: rotate(-29deg);
   }
 
   :after {
     ${eyeStyle}
-    top: 15.55%;
+    top: 10%;
     left: calc(30% + 9.7rem);
     transform: rotate(7deg);
+  }
+
+  ${({ theme }) => theme.mq.middle} {
+    :before {
+      top: calc(15.55% + 1.5rem);
+    }
+
+    :after {
+      top: 15.55%;
+    }
   }
 `;
 

@@ -21,11 +21,17 @@ const GlobalStyle = createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
+
+  *::selection {
+    color: black;
+    background-color: rgba(0,0,0,0.07);
+  }
   
   body {
     font-family: ${theme.fonts.family.notoSans};
     min-width:320px;
   }
+  
   button, a{
     :focus-visible {
     outline: 2px solid black;

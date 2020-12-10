@@ -10,7 +10,7 @@ const theme = {
     middle: `@media (min-width:900px)`,
     desktop: `@media (min-width:1200px)`,
     hd: `@media (min-width:1800px)`,
-    huge: `@media (min-width:2000px)`,
+    huge: `@media (min-width:2100px)`,
   },
 };
 

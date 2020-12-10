@@ -17,12 +17,19 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledTitle = styled.div`
-  font-size: ${({ theme }) => theme.fonts.size.m};
+  font-size: ${({ theme }) => theme.fonts.size.s};
   align-self: center;
 
   span {
-    font-size: ${({ theme }) => theme.fonts.size.m};
+    font-size: ${({ theme }) => theme.fonts.size.s};
     border-bottom: 2px solid ${({ theme }) => theme.colors.text};
+  }
+
+  ${({ theme }) => theme.mq.middle} {
+    &,
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.m};
+    }
   }
 `;
 

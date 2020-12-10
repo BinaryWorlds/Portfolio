@@ -37,8 +37,4 @@ export const StyledButton = styled.a`
     transition: 0.75s ease;
     transform: all;
   }
-
-  ${({ theme }) => theme.mq.huge} {
-    transform: scale(1.5);
-  }
 `;

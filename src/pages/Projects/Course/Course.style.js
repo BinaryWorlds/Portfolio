@@ -120,6 +120,9 @@ export const StyledVisitButton = styled.div`
   ${({ theme }) => theme.mq.middle} {
     width: 17vw;
   }
+  ${({ theme }) => theme.mq.huge} {
+    transform: scale(1.5);
+  }
 `;
 
 export const StyledDescription = styled.div`

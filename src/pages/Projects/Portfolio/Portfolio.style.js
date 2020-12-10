@@ -123,6 +123,7 @@ export const StyledTitle = styled.h1`
     :after {
       height: 24rem;
     }
+
     ${({ isEn }) =>
       isEn &&
       css`
