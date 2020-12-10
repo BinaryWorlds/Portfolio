@@ -10,22 +10,24 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
-
-  ${({ theme }) => theme.mq.middle} {
-    align-items: center;
-  }
+  align-items: center;
 
   ${({ theme: { isUnmounted } }) => (isUnmounted ? slideXEffect : fadeOut)}
 `;
 
 export const StyledTitle = styled.h1`
-  position: absolute;
-  top: 13.5%;
+  position: relative;
+  top: 6%;
+
   display: flex;
   justify-content: center;
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
+
+  ${({ theme }) => theme.mq.middle} {
+    position: absolute;
+    top: 13.5%;
+  }
 
   ${({ theme }) => theme.mq.desktop} {
     top: 12.5%;
@@ -41,19 +43,19 @@ const backgroundStyle = css`
   position: absolute;
   left: 0;
   width: 125vh;
-  height: 84%;
+  height: 50%;
   background-color: ${({ theme }) => theme.colors.orange};
   border: 1px solid rgb(112, 112, 112, 0.5);
 `;
 
 export const StyledImageContainer = styled.div`
-  width: 80%;
   position: relative;
-  padding-bottom: 31.44%;
+  width: 80%;
+  padding-bottom: 59%;
 
   :before {
     z-index: -1;
-    top: 32%;
+    top: 25%;
     transform: rotate(-45deg);
     transform-origin: top left;
     ${backgroundStyle}
@@ -61,7 +63,7 @@ export const StyledImageContainer = styled.div`
 
   :after {
     z-index: -2;
-    top: -32%;
+    top: -25%;
     transform: rotate(45deg);
     transform-origin: bottom left;
     ${backgroundStyle};
@@ -69,18 +71,24 @@ export const StyledImageContainer = styled.div`
 
   ${({ theme }) => theme.mq.middle} {
     width: 58%;
-    :before,
+    padding-bottom: 42.6%;
+    margin-top: 10%;
+
+    :before {
+      height: 55%;
+      top: 27.5%;
+    }
+
     :after {
-      height: 74%;
+      height: 55%;
+      top: -27.5%;
     }
   }
 
   ${({ theme }) => theme.mq.desktop} {
     width: 50%;
-    :before,
-    :after {
-      height: 64%;
-    }
+    padding-bottom: 36.7%;
+    margin-top: 5.25%;
   }
 `;
 
@@ -97,18 +105,15 @@ export const StyledText = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
+  bottom: 5%;
 
   & span {
     padding-top: 2rem;
     font-size: ${({ theme }) => theme.fonts.size.s};
   }
 
-  ${({ theme }) => theme.mq.tablet} {
-    bottom: 5%;
-
-    span:first-of-type {
-      padding-top: 0;
-    }
+  span:first-of-type {
+    padding-top: 0;
   }
 
   ${({ theme }) => theme.mq.middle} {
