@@ -44,12 +44,8 @@ export default function useDesktopLogic() {
     dispatch({ type: SET_PAGE, payload: newPageId });
   };
 
-  const handleWheel = ({ ctrlKey, deltaY }) => {
-    if (
-      ctrlKey ||
-      (deltaY <= 0 && pageId === 0) ||
-      (deltaY >= 0 && pageId === lastPage)
-    )
+  const debounceChange = (deltaY) => {
+    if ((deltaY < 0 && pageId === 0) || (deltaY > 0 && pageId === lastPage))
       return;
 
     const timerIdTask = setTimeout(() => {
@@ -61,16 +57,51 @@ export default function useDesktopLogic() {
     setTimerIdWheel(timerIdTask);
   };
 
+  const handleWheel = ({ ctrlKey, deltaY }) => {
+    if (!ctrlKey) debounceChange(deltaY);
+  };
+
   const handleKey = ({ key }) => {
-    if ((key === 'ArrowUp' || key === 'PageUp') && pageId !== 0)
-      changePage(-100);
-    if ((key === 'ArrowDown' || key === 'PageDown') && pageId !== lastPage)
-      changePage(+100);
+    if (key === 'ArrowUp' || key === 'PageUp') debounceChange(-100);
+    if (key === 'ArrowDown' || key === 'PageDown') debounceChange(+100);
+  };
+
+  const readXy = ({
+    touches: {
+      0: { clientX, clientY },
+    },
+  }) => ({ clientX, clientY });
+
+  const firstTouch = useRef(null);
+  const handleTouchStart = (e) => (firstTouch.current = readXy(e));
+
+  const handleTouchMove = (e) => {
+    if (!firstTouch.current) return;
+    const { clientX, clientY } = readXy(e);
+
+    const xDiff = firstTouch.current.clientX - clientX;
+    const yDiff = firstTouch.current.clientY - clientY;
+
+    const direction = Math.abs(xDiff) > Math.abs(yDiff); // true:left/right; false up/down
+
+    const deltaY =
+      (direction && xDiff > 0) || (!direction && yDiff > 0) ? +100 : -100;
+
+    debounceChange(deltaY);
+
+    firstTouch.current = null;
   };
 
   useEffect(() => {
     window.addEventListener('keyup', handleKey);
-    return () => window.removeEventListener('keyup', handleKey);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchmove', handleTouchMove);
+
+    return () => {
+      window.removeEventListener('keyup', handleKey);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, [pageId]);
 
   return { pageId: lastPageId, handleWheel, isPageUnmounted };

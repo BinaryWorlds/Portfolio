@@ -57,5 +57,9 @@ export const StyledButton = styled.button`
   :focus-visible {
     background-color: black;
     color: white;
+    ::selection {
+      background-color: transparent;
+      color: white;
+    }
   }
 `;
