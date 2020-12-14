@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import fadeIn from '../../animations/fadeIn';
 import fadeOut from '../../animations/fadeOut';
 
-export const StyledImage = styled.div`
+import Image from '../../components/Image/Image';
+
+export const StyledImage = styled(Image)`
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
   margin-top: 10%;
   width: 347px;
   height: 430px;
+  flex-basis: 100%;
 `;
 
 export const StyledText = styled.h1`
@@ -17,7 +20,7 @@ export const StyledText = styled.h1`
 export const StyledHello = styled.div`
   font-size: ${({ theme }) => theme.fonts.size.l};
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: space-around;
 
@@ -33,6 +36,7 @@ export const StyledWrapper = styled.div`
   width: 100%;
   padding: 0 10%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   position: relative;
@@ -46,8 +50,12 @@ export const StyledWrapper = styled.div`
     width: 100%;
     height: 37%;
   }
+
   ${({ theme }) => theme.mq.phone} {
     padding: 5% 5%;
     height: 100vh;
+  }
+  ${({ theme }) => theme.mq.middle} {
+    flex-direction: row;
   }
 `;

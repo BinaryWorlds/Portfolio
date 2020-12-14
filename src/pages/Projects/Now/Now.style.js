@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import fadeOut from '../../../animations/fadeOut';
 import slideXEffect from '../../../animations/slideXEffect';
+import Image from '../../../components/Image/Image';
 
 export const StyledWrapper = styled.div`
   position: relative;
@@ -48,10 +49,8 @@ const backgroundStyle = css`
   border: 1px solid rgb(112, 112, 112, 0.5);
 `;
 
-export const StyledImageContainer = styled.div`
-  position: relative;
+export const StyledImage = styled(Image)`
   width: 80%;
-  padding-bottom: 59%;
 
   :before {
     z-index: -1;
@@ -71,7 +70,6 @@ export const StyledImageContainer = styled.div`
 
   ${({ theme }) => theme.mq.middle} {
     width: 58%;
-    padding-bottom: 42.6%;
     margin-top: 10%;
 
     :before {
@@ -87,14 +85,8 @@ export const StyledImageContainer = styled.div`
 
   ${({ theme }) => theme.mq.desktop} {
     width: 50%;
-    padding-bottom: 36.7%;
     margin-top: 5.25%;
   }
-`;
-
-export const StyledImage = styled.img`
-  position: absolute;
-  width: 100%;
 `;
 
 export const StyledText = styled.div`

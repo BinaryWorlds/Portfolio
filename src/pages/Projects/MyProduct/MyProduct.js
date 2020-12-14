@@ -7,7 +7,6 @@ import {
   StyledSection,
   StyledTitle,
   StyledDescription,
-  StyledImageWrapper,
   StyledImage,
 } from './MyProduct.style';
 import { title, description } from './MyProduct.text';
@@ -34,12 +33,12 @@ function MyProduct() {
           </StyledDescription>
           <Button2 text="Live" link={myProductLink} />
         </StyledSection>
-        <StyledImageWrapper>
-          <StyledImage
-            src={image}
-            alt={isPl ? 'Zegary Wspinaczkowe' : 'Climbing Timers'}
-          />
-        </StyledImageWrapper>
+        <StyledImage
+          src={image}
+          alt={isPl ? 'Zegary Wspinaczkowe' : 'Climbing Timers'}
+          width={1072}
+          height={812}
+        />
       </StyledWrapper2>
     </StyledWrapper>
   );

@@ -6,7 +6,6 @@ import generateList from '../../../utils/generateSpanList';
 import usePortfolioLogic from './Portfolio.logic';
 import {
   StyledWrapper,
-  StyledImageWrapper,
   StyledImage,
   StyledTitle,
   StyledDescription,
@@ -21,13 +20,15 @@ function Portfolio() {
 
   return (
     <StyledWrapper onAnimationEnd={setUnmounted}>
-      <StyledImageWrapper>
-        <StyledImage
-          src={image}
-          alt={isEn ? 'Mockup w AdobeXd' : 'Mockup from AdobeXd'}
-        />
+      <StyledImage
+        src={image}
+        alt={isEn ? 'Mockup from AdobeXd' : 'Mockup w AdobeXd'}
+        width={1460}
+        height={918}
+      >
         <StyledTitle isEn={isEn} ref={titleRef} isWritten={isWritten} />
-      </StyledImageWrapper>
+      </StyledImage>
+
       <StyledDescription>{generateList(description[lang])}</StyledDescription>
       <StyledBackground />
     </StyledWrapper>

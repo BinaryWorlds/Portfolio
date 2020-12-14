@@ -5,6 +5,7 @@ import slideXEffect from '../../../animations/slideXEffect';
 import slideYEffect from '../../../animations/slideYEffect';
 
 import { borderEffect } from './Course.animations';
+import Image from '../../../components/Image/Image';
 
 export const StyledWrapper = styled.div`
   padding: 0 10%;
@@ -53,22 +54,18 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledImageWrapper = styled.div`
-  position: relative;
+export const StyledImage = styled(Image)`
   width: 75%;
-  padding-bottom: 28.875%;
   margin: 15% 0 5vh 3%;
 
   ${({ theme }) => theme.mq.middle} {
     width: 55%;
     margin-top: 0;
   }
-`;
 
-export const StyledImage = styled.img`
-  position: absolute;
-  width: 100%;
-  ${({ theme: { isUnmounted } }) => isUnmounted && slideYEffect};
+  img {
+    ${({ theme: { isUnmounted } }) => isUnmounted && slideYEffect};
+  }
 `;
 
 export const StyledTitleWrapper = styled.div`
@@ -77,11 +74,11 @@ export const StyledTitleWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
-  margin: 10% 0 10% 20%;
+  margin: 0 0 10% 20%;
 
   ${({ theme }) => theme.mq.middle} {
     width: 42%;
-    margin-left: 0;
+    margin: 10% 0 10% 0;
   }
 `;
 

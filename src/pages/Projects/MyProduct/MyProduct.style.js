@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import fadeOut from '../../../animations/fadeOut';
+import Image from '../../../components/Image/Image';
 
 import {
   triangleEffect,
@@ -158,18 +159,15 @@ export const StyledDescription = styled.div`
   }
 `;
 
-export const StyledImageWrapper = styled.div`
-  position: relative;
+export const StyledImage = styled(Image)`
   top: 7rem;
   width: 80%;
-  padding-bottom: 60.6%;
   background-color: white;
   margin: auto 0;
 
   ${({ theme }) => theme.mq.middle} {
     top: 0;
     width: 48%;
-    padding-bottom: 36.4%;
   }
 
   ${({ theme }) => theme.mq.desktop} {
@@ -179,10 +177,8 @@ export const StyledImageWrapper = styled.div`
   ${({ theme }) => theme.mq.hd} {
     margin: 10% 0 4.5% 0;
   }
-`;
 
-export const StyledImage = styled.img`
-  position: absolute;
-  width: 100%;
-  ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(3)}
+  img {
+    ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(3)}
+  }
 `;

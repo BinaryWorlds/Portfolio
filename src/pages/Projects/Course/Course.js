@@ -5,7 +5,6 @@ import useUnmountAnimations from '../../../hooks/useHandleAnimations';
 
 import {
   StyledWrapper,
-  StyledImageWrapper,
   StyledImage,
   StyledTitleWrapper,
   StyledTitle,
@@ -29,12 +28,12 @@ function Course() {
 
   return (
     <StyledWrapper onAnimationEnd={setUnmounted}>
-      <StyledImageWrapper>
-        <StyledImage
-          src={image}
-          alt={isPl ? 'CodersCamp banner' : 'CodersCamp baner'}
-        />
-      </StyledImageWrapper>
+      <StyledImage
+        src={image}
+        alt={isPl ? 'CodersCamp banner' : 'CodersCamp baner'}
+        width={1200}
+        height={630}
+      />
       <StyledTitleWrapper>
         <StyledTitle>{title[lang]}</StyledTitle>
         <StyledButtonMore>

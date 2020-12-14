@@ -3,6 +3,8 @@ import fadeIn from '../../../animations/fadeIn';
 import fadeOut from '../../../animations/fadeOut';
 import { growingEffect, borderEffect } from './Portfolio.animations';
 
+import Image from '../../../components/Image/Image';
+
 export const StyledWrapper = styled.div`
   overflow: hidden;
   padding: 0 10%;
@@ -14,20 +16,19 @@ export const StyledWrapper = styled.div`
   ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)}
 `;
 
-export const StyledImageWrapper = styled.div`
-  z-index: -1;
+export const StyledImage = styled(Image)`
   position: absolute;
+  z-index: -1;
   top: 6%;
   right: -25%;
   transform: rotate(50deg);
   width: 60%;
-  padding-top: 30.5%;
 
   :before {
     content: 'Mockup Adobe Xd';
     transform: translate3d(0, 0, 0);
     position: absolute;
-    bottom: -3rem;
+    bottom: -3.5rem;
     right: 15%;
     left: 0;
     text-align: center;
@@ -37,10 +38,10 @@ export const StyledImageWrapper = styled.div`
   :after {
     content: '';
     position: absolute;
-    bottom: -27.5rem;
     left: 0;
-    height: 25rem;
+    height: 22.5rem;
     border-left: 1px solid rgba(112, 112, 112);
+
     transform-origin: top left;
     ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect}
   }
@@ -49,10 +50,6 @@ export const StyledImageWrapper = styled.div`
     top: -2%;
     right: -15%;
     width: 48%;
-
-    :after {
-      bottom: -22.5rem;
-    }
   }
 
   ${({ theme }) => theme.mq.desktop} {
@@ -65,29 +62,21 @@ export const StyledImageWrapper = styled.div`
     }
 
     :after {
-      bottom: -34rem;
-      height: 35rem;
+      height: 37rem;
     }
   }
-`;
-
-export const StyledImage = styled.img`
-  width: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
 `;
 
 export const StyledTitle = styled.h1`
   position: absolute;
   left: -1.2rem;
-  bottom: -28rem;
+  bottom: -23rem;
 
   ${({ isEn }) =>
     isEn &&
     css`
       left: -3rem;
-      bottom: -30rem;
+      bottom: -25rem;
     `}
   transform-origin: bottom left;
   transform: rotate(-50deg) translate3d(0, 0, 0);
@@ -118,7 +107,7 @@ export const StyledTitle = styled.h1`
   ${({ theme }) => theme.mq.huge} {
     font-size: ${({ theme }) => theme.fonts.size.xxl};
     left: -2.1rem;
-    bottom: -36rem;
+    bottom: -39rem;
 
     :after {
       height: 24rem;
@@ -128,7 +117,7 @@ export const StyledTitle = styled.h1`
       isEn &&
       css`
         left: -5.2rem;
-        bottom: -40rem;
+        bottom: -43rem;
       `}
   }
 `;

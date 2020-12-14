@@ -5,7 +5,6 @@ import { title, description } from './Now.text';
 import generateList from '../../../utils/generateSpanList';
 import {
   StyledImage,
-  StyledImageContainer,
   StyledText,
   StyledTitle,
   StyledWrapper,
@@ -18,12 +17,12 @@ function Now() {
   return (
     <StyledWrapper onAnimationEnd={setUnmounted}>
       <StyledTitle>{title[lang]}</StyledTitle>
-      <StyledImageContainer>
-        <StyledImage
-          src={image}
-          alt={isPl ? 'Zrzut ekranu z panelu HMI' : 'Screenshot from HMI panel'}
-        />
-      </StyledImageContainer>
+      <StyledImage
+        src={image}
+        alt={isPl ? 'Zrzut ekranu z panelu HMI' : 'Screenshot from HMI panel'}
+        width={1200}
+        height={881}
+      />
       <StyledText>{generateList(description[lang])}</StyledText>
     </StyledWrapper>
   );
