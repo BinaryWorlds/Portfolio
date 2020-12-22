@@ -18,9 +18,10 @@ function Game() {
   } = useStore();
 
   const initGame = () => {
-    const check = !!(window.innerWidth > 2000);
-    if (check) newGame(9, 12, 5, 60);
-    else newGame(9, 12, 5, 40);
+    const width = window.innerWidth;
+    if (width > 2000) return newGame(12, 15, 5, 60);
+    if (width > 1300) return newGame(12, 15, 5, 40);
+    return newGame(9, 12, 5, 40);
   };
 
   useEffect(() => {
