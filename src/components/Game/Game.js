@@ -17,15 +17,24 @@ function Game() {
     state: { lang },
   } = useStore();
 
+  const initGame = () => {
+    const check = !!(window.innerWidth > 2000);
+    if (check) newGame(9, 12, 5, 60);
+    else newGame(9, 12, 5, 40);
+  };
+
   useEffect(() => {
     changeLang(lang);
   }, [lang]);
 
   useEffect(() => {
-    newGame(9, 12, 5, 40);
+    initGame();
     startSymulate();
+    window.addEventListener('resize', initGame);
+
     return () => {
       stopSymulate();
+      window.removeEventListener('resize', initGame);
     };
   }, []);
 

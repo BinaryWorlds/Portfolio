@@ -3,6 +3,7 @@ import {
   StyledWrapper,
   StyledHello,
   StyledImage,
+  StyledMeetMe,
   StyledText,
 } from './Welcome.style';
 import Button1 from '../../components/Button1/Button1';
@@ -35,15 +36,17 @@ function Welcome() {
           width={1080}
           height={1350}
         />
-        <StyledText>
-          Szymkowiak Dawid <br /> Junior Frontend Developer
-        </StyledText>
-        <Button1
-          onClick={handleClick}
-          onAnimationEnd={onAnimationEnd}
-          animate={animateMeetMe}
-          text={lang === 'pl' ? 'Poznaj mnie' : 'Meet me'}
-        />
+        <StyledMeetMe>
+          <StyledText>
+            Szymkowiak Dawid <br /> Junior Frontend Developer
+          </StyledText>
+          <Button1
+            onClick={handleClick}
+            onAnimationEnd={onAnimationEnd}
+            animate={animateMeetMe}
+            text={isEn ? 'Meet me' : 'Poznaj mnie'}
+          />
+        </StyledMeetMe>
       </StyledHello>
       {!isMobile && <Game />}
     </StyledWrapper>

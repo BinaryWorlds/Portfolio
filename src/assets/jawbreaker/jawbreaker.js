@@ -53,8 +53,10 @@ export function newGame(rows, columns, colors, ballSize = 60) {
   g.ballSize = ballSize;
   generateBoard();
   initCanvas();
-  document.removeEventListener('mousedown', resetGame);
-  document.addEventListener('mousedown', mouseHandler);
+  if (!g.symulateMode) {
+    document.removeEventListener('mousedown', resetGame);
+    document.addEventListener('mousedown', mouseHandler);
+  }
 }
 
 function generateBoard() {
@@ -309,8 +311,12 @@ function loadBalls() {
 }
 
 function mouseHandler(e) {
-  const mouseX = e.clientX - g.canvas.offsetLeft;
-  const mouseY = e.clientY - g.canvas.offsetTop;
+  let mouseX = e.clientX - g.canvas.offsetLeft;
+  let mouseY = e.clientY - g.canvas.offsetTop;
+  if (g.canvas.offsetParent) {
+    mouseX -= g.canvas.offsetParent.offsetLeft;
+    mouseY -= g.canvas.offsetParent.offsetTop;
+  }
   if (mouseX < 0 || mouseY < 0 || mouseX > g.width || mouseY > g.height) return;
   let x = g.width / g.columnsInit;
   x = Math.floor(mouseX / x);

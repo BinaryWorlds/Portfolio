@@ -4,41 +4,16 @@ import fadeOut from '../../animations/fadeOut';
 
 import Image from '../../components/Image/Image';
 
-export const StyledImage = styled(Image)`
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
-  margin-top: 10%;
-  width: 347px;
-  height: 430px;
-  flex-basis: 100%;
-`;
-
-export const StyledText = styled.h1`
-  padding: 3% 0;
-  font: inherit;
-`;
-
-export const StyledHello = styled.div`
-  font-size: ${({ theme }) => theme.fonts.size.l};
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: space-around;
-
-  ${({ theme }) => theme.mq.phone} {
-    height: 100%;
-    padding-bottom: 10%;
-  }
-`;
-
 export const StyledWrapper = styled.div`
   ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)};
   height: 100%;
   width: 100%;
-  padding: 0 10%;
+  padding: 0 7%;
+  padding-top: 10%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
   position: relative;
 
   :after {
@@ -48,14 +23,97 @@ export const StyledWrapper = styled.div`
     background: ${({ theme }) => theme.colors.blue};
     z-index: -1;
     width: 100%;
-    height: 37%;
+    height: 25%;
   }
 
   ${({ theme }) => theme.mq.phone} {
     padding: 5% 5%;
     height: 100vh;
   }
+
   ${({ theme }) => theme.mq.middle} {
     flex-direction: row;
+    justify-content: space-around;
+    padding: 0 10%;
+    padding-top: 0;
+
+    :after {
+      height: 37%;
+    }
+  }
+`;
+
+export const StyledHello = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: auto 0;
+  width: 100%;
+  padding-top: 2%;
+
+  ${({ theme }) => theme.mq.phone} {
+    height: 100%;
+    padding-bottom: 10%;
+  }
+
+  ${({ theme }) => theme.mq.middle} {
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+  }
+`;
+
+export const StyledImage = styled(Image)`
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  width: 60%;
+  margin-right: 5%;
+
+  ${({ theme }) => theme.mq.middle} {
+    margin-top: 10%;
+    margin-right: 0;
+    width: 100%;
+  }
+`;
+
+export const StyledMeetMe = styled.div`
+  font-size: ${({ theme }) => theme.fonts.size.l};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const StyledText = styled.h1`
+  position: relative;
+
+  :after {
+    position: absolute;
+    content: '';
+    background: ${({ theme }) => theme.colors.blue};
+    z-index: -1;
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+  }
+
+  order: 1;
+  margin: 10% 0;
+  padding: 3% 0;
+  font: inherit;
+
+  ${({ theme }) => theme.mq.middle} {
+    order: 0;
+    margin: 0;
+    white-space: nowrap;
+
+    :after {
+      content: none;
+    }
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    font-size: ${({ theme }) => theme.fonts.size.xxl};
   }
 `;

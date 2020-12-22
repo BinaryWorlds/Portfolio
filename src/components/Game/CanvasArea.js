@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { g } from '../../assets/jawbreaker/jawbreaker';
-import { StyledWrapper, StyledCanvas } from './CanvasArea.style';
+import { StyledCanvas } from './CanvasArea.style';
 
 function CanvasArea({ handleAnimateButton }) {
   const canvasRef = useRef();
@@ -10,11 +10,7 @@ function CanvasArea({ handleAnimateButton }) {
     g.ctx = g.canvas.getContext('2d');
   }, []);
 
-  return (
-    <StyledWrapper>
-      <StyledCanvas ref={canvasRef} onClick={handleAnimateButton} />
-    </StyledWrapper>
-  );
+  return <StyledCanvas ref={canvasRef} onClick={handleAnimateButton} />;
 }
 
 export default CanvasArea;
