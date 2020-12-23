@@ -12,16 +12,25 @@ import {
 
 function Game() {
   const [gameMode, setGameMode] = useState(false);
+  const [gameSize, setGameSize] = useState(null);
   const [animateButton, setAnimateButton] = useState(false);
+
   const {
     state: { lang },
   } = useStore();
 
-  const initGame = () => {
+  const checkGameSize = () => {
     const width = window.innerWidth;
-    if (width > 2000) return newGame(12, 15, 5, 60);
-    if (width > 1300) return newGame(12, 15, 5, 40);
-    return newGame(9, 12, 5, 40);
+    if (width > 2000) setGameSize(2);
+    else if (width > 1300) setGameSize(1);
+    else setGameSize(0);
+  };
+
+  const initGame = (size) => {
+    stopSymulate();
+    if (size === 2) newGame(12, 15, 5, 60);
+    else if (size === 1) newGame(12, 15, 5, 40);
+    else newGame(9, 12, 5, 40);
   };
 
   useEffect(() => {
@@ -29,15 +38,17 @@ function Game() {
   }, [lang]);
 
   useEffect(() => {
-    initGame();
-    startSymulate();
-    window.addEventListener('resize', initGame);
-
-    return () => {
-      stopSymulate();
-      window.removeEventListener('resize', initGame);
-    };
+    window.addEventListener('resize', checkGameSize);
+    return () => window.removeEventListener('resize', checkGameSize);
   }, []);
+
+  useEffect(() => {
+    checkGameSize();
+    initGame(gameSize);
+    if (!gameMode) startSymulate();
+
+    return () => stopSymulate();
+  }, [gameSize]);
 
   const onButtonClick = () => {
     if (gameMode === false) stopSymulate();

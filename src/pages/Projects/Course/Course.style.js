@@ -43,6 +43,11 @@ export const StyledWrapper = styled.div`
     border-bottom: 17vw solid rgba(0, 0, 0, 0.5);
   }
 
+  ${({ theme }) => theme.mq.phone} {
+    padding: 5%;
+    margin: 10% 0;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     :before {
       width: 17%;
@@ -57,6 +62,11 @@ export const StyledWrapper = styled.div`
 export const StyledImage = styled(Image)`
   width: 75%;
   margin: 15% 0 5vh 3%;
+
+  ${({ theme }) => theme.mq.phone} {
+    width: 100%;
+    margin: 0;
+  }
 
   ${({ theme }) => theme.mq.middle} {
     width: 55%;
@@ -85,6 +95,10 @@ export const StyledTitleWrapper = styled.div`
 export const StyledTitle = styled.h1`
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+  }
 
   ${({ theme }) => theme.mq.huge} {
     font-size: ${({ theme }) => theme.fonts.size.xxl};
@@ -158,6 +172,12 @@ export const StyledDescription = styled.div`
 
   span :last-of-type {
     margin-bottom: 0;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.xs};
+    }
   }
 
   ${({ theme }) => theme.mq.huge} {

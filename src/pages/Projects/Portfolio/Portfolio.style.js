@@ -13,6 +13,12 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+
+  ${({ theme }) => theme.mq.phone} {
+    padding: 5%;
+    margin: 10% 0;
+  }
+
   ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)}
 `;
 
@@ -46,6 +52,16 @@ export const StyledImage = styled(Image)`
     ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect}
   }
 
+  ${({ theme }) => theme.mq.phone} {
+    :before {
+      left: unset;
+      font-size: ${({ theme }) => theme.fonts.size.xs};
+    }
+
+    :after {
+      height: 18rem;
+    }
+  }
   ${({ theme }) => theme.mq.middle} {
     top: -2%;
     right: -15%;
@@ -93,6 +109,22 @@ export const StyledTitle = styled.h1`
     transform-origin: bottom right;
     ${({ isWritten }) => isWritten && borderEffect}
     animation-delay: 0.25s;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+    bottom: -19rem;
+
+    :after {
+      height: 12.5rem;
+    }
+
+    ${({ isEn }) =>
+      isEn &&
+      css`
+        left: -2.5rem;
+        bottom: -20.5rem;
+      `}
   }
 
   ${({ theme }) => theme.mq.middle} {
@@ -159,6 +191,12 @@ export const StyledBackground = styled.div`
   }
   ${({ theme: { isUnmounted } }) => isUnmounted && growingEffect}
 
+  ${({ theme }) => theme.mq.phone} {
+    width: 90vw;
+    height: 45vw;
+    opacity: 0.8;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     right: 55%;
     width: 60vw;
@@ -182,6 +220,16 @@ export const StyledDescription = styled.div`
   & span {
     font-size: ${({ theme }) => theme.fonts.size.s};
     padding-top: 2rem;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    width: 100%;
+    bottom: 0;
+    margin-top: 32vh;
+
+    & span {
+      font-size: ${({ theme }) => theme.fonts.size.xs};
+    }
   }
 
   ${({ theme }) => theme.mq.middle} {

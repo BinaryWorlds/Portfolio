@@ -13,6 +13,11 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  ${({ theme }) => theme.mq.phone} {
+    padding: 5%;
+    margin: 10% 0;
+  }
+
   ${({ theme: { isUnmounted } }) => (isUnmounted ? slideXEffect : fadeOut)}
 `;
 
@@ -24,6 +29,11 @@ export const StyledTitle = styled.h1`
   justify-content: center;
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+    text-align: center;
+  }
 
   ${({ theme }) => theme.mq.middle} {
     position: absolute;
@@ -68,6 +78,11 @@ export const StyledImage = styled(Image)`
     ${backgroundStyle};
   }
 
+  ${({ theme }) => theme.mq.phone} {
+    width: 100%;
+    margin: 10% 0;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     width: 58%;
     margin-top: 10%;
@@ -106,6 +121,14 @@ export const StyledText = styled.div`
 
   span:first-of-type {
     padding-top: 0;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    width: 100%;
+
+    & span {
+      font-size: ${({ theme }) => theme.fonts.size.xs};
+    }
   }
 
   ${({ theme }) => theme.mq.middle} {

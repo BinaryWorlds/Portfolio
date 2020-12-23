@@ -27,8 +27,14 @@ export const StyledWrapper = styled.div`
   }
 
   ${({ theme }) => theme.mq.phone} {
-    padding: 5% 5%;
+    padding: 5%;
+    margin-bottom: 10%;
+
     height: 100vh;
+
+    :after {
+      content: none;
+    }
   }
 
   ${({ theme }) => theme.mq.middle} {
@@ -53,7 +59,10 @@ export const StyledHello = styled.div`
 
   ${({ theme }) => theme.mq.phone} {
     height: 100%;
-    padding-bottom: 10%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
   }
 
   ${({ theme }) => theme.mq.middle} {
@@ -70,9 +79,22 @@ export const StyledImage = styled(Image)`
   width: 60%;
   margin-right: 5%;
 
+  ${({ theme }) => theme.mq.phone} {
+    width: 80%;
+    margin: 0;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     margin-top: 10%;
     margin-right: 0;
+    width: 100%;
+  }
+
+  ${({ theme }) => theme.mq.hd} {
+    width: 120%;
+  }
+
+  ${({ theme }) => theme.mq.huge} {
     width: 100%;
   }
 `;
@@ -82,6 +104,12 @@ export const StyledMeetMe = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${({ theme }) => theme.mq.phone} {
+    button {
+      margin: 6% 0;
+    }
+  }
 `;
 
 export const StyledText = styled.h1`
@@ -102,6 +130,15 @@ export const StyledText = styled.h1`
   margin: 10% 0;
   padding: 3% 0;
   font: inherit;
+
+  ${({ theme }) => theme.mq.phone} {
+    margin: 0;
+    text-align: center;
+
+    after {
+      content: '';
+    }
+  }
 
   ${({ theme }) => theme.mq.middle} {
     order: 0;

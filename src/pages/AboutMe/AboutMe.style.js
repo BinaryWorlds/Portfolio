@@ -32,6 +32,10 @@ export const StyledTitle = styled.h1`
   }
   ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(1)};
 
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+  }
+
   ${({ theme }) => theme.mq.middle} {
     top: 2%;
     margin: 1% 0;
@@ -68,6 +72,19 @@ export const StyledText = styled.div`
   }
   ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(2)};
 
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.fonts.size.xs};
+    min-width: unset;
+    width: 90%;
+
+    :before {
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+    }
+  }
+
   ${({ theme }) => theme.mq.middle} {
     min-width: 600px;
   }
@@ -84,6 +101,10 @@ export const StyledTable = styled.ul`
   flex-wrap: wrap;
   justify-content: space-around;
   list-style: none;
+
+  ${({ theme }) => theme.mq.phone} {
+    margin: 5% 0;
+  }
 `;
 
 export const StyledColumn = styled.li`
@@ -129,6 +150,28 @@ export const StyledColumn = styled.li`
       `;
     }}
   }
+
+  ${({ theme }) => theme.mq.phone} {
+    margin: 3% 0;
+    width: 18rem;
+    height: 20rem;
+
+    ${({ val }) =>
+      val === 3 &&
+      css`
+        margin-top: 18%;
+        height: 12rem;
+
+        :before {
+          top: -15%;
+        }
+      `}
+
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.xs};
+    }
+  }
+
   ${({ theme }) => theme.mq.huge} {
     width: 30rem;
     height: 33rem;
