@@ -7,6 +7,11 @@ const transitionRules = 'transition: all 0.45s cubic-bezier(0.65, 0, .076, 1)';
 export const StyledButton = styled.button`
   ${({ animate }) => animate && shakeEffect()};
 
+  ${({ theme }) => theme.mq.phone} {
+    transform: scale(0.9);
+    ${({ animate }) => animate && shakeEffect(1.5)};
+  }
+
   ${({ theme }) => theme.mq.huge} {
     transform: scale(1.5);
     ${({ animate }) => animate && shakeEffect(1.5)};

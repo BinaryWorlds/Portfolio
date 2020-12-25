@@ -17,6 +17,12 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
 
+  ${({ theme }) => theme.mq.phone} {
+    padding: 5%;
+    margin: 10% 0;
+    overflow: hidden;
+  }
+
   ${({ theme }) => theme.mq.huge} {
     transform: scale(1.5);
   }
@@ -84,6 +90,10 @@ export const StyledSection = styled.div`
     background-color: white;
   }
 
+  ${({ theme }) => theme.mq.phone} {
+    width: 85%;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     width: 41rem;
 
@@ -104,6 +114,12 @@ export const StyledTitle = styled.h1`
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   margin-bottom: 4rem;
   ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(1.5)}
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.fonts.size.m};
+    text-align: center;
+    margin-top: 4rem;
+  }
 `;
 
 export const StyledDescription = styled.div`
@@ -150,6 +166,20 @@ export const StyledDescription = styled.div`
       `,
     )}
 
+  ${({ theme }) => theme.mq.phone} {
+    padding: 0;
+
+    :before,
+    :after {
+      bottom: -9rem;
+      left: -10%;
+    }
+
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.xs};
+    }
+  }
+
   ${({ theme }) => theme.mq.middle} {
     :before,
     :after {
@@ -164,6 +194,12 @@ export const StyledImage = styled(Image)`
   width: 80%;
   background-color: white;
   margin: auto 0;
+
+  ${({ theme }) => theme.mq.phone} {
+    width: 100%;
+    top: 0;
+    margin-top: 7rem;
+  }
 
   ${({ theme }) => theme.mq.middle} {
     top: 0;

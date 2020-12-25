@@ -38,12 +38,12 @@ function Game() {
   }, [lang]);
 
   useEffect(() => {
+    checkGameSize();
     window.addEventListener('resize', checkGameSize);
     return () => window.removeEventListener('resize', checkGameSize);
   }, []);
 
   useEffect(() => {
-    checkGameSize();
     initGame(gameSize);
     if (!gameMode) startSymulate();
 

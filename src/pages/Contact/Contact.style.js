@@ -13,6 +13,23 @@ export const StyledWrapper = styled.div`
     width: 45%;
   }
 
+  ${({ theme }) => theme.mq.phone} {
+    padding: 5%;
+    margin: 10% 0;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    form {
+      width: 95%;
+      max-width: 35rem;
+
+      div {
+        display: none;
+      }
+    }
+  }
+
   ${({ theme }) => theme.mq.middle} {
     form {
       width: auto;
@@ -48,6 +65,20 @@ export const StyledSection = styled.div`
   }
 
   ${({ theme: { isUnmounted } }) => isUnmounted && spin3dEffect};
+
+  ${({ theme }) => theme.mq.phone} {
+    margin: 0;
+    height: unset;
+
+    span {
+      font-size: ${({ theme }) => theme.fonts.size.xs};
+      margin-bottom: 2rem;
+    }
+
+    span:first-of-type {
+      font-size: ${({ theme }) => theme.fonts.size.l};
+    }
+  }
 
   ${({ theme }) => theme.mq.middle} {
     margin-right: 12rem;
@@ -93,6 +124,10 @@ export const StyledBackground = styled.div`
     top: 10%;
     left: calc(30% + 9.7rem);
     transform: rotate(7deg);
+  }
+  ${({ theme }) => theme.mq.phone} {
+    height: 300%;
+    left: -50%;
   }
 
   ${({ theme }) => theme.mq.middle} {

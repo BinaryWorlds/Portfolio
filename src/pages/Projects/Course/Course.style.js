@@ -46,6 +46,10 @@ export const StyledWrapper = styled.div`
   ${({ theme }) => theme.mq.phone} {
     padding: 5%;
     margin: 10% 0;
+
+    :before {
+      left: 0%;
+    }
   }
 
   ${({ theme }) => theme.mq.middle} {
@@ -65,7 +69,7 @@ export const StyledImage = styled(Image)`
 
   ${({ theme }) => theme.mq.phone} {
     width: 100%;
-    margin: 0;
+    margin-left: 0;
   }
 
   ${({ theme }) => theme.mq.middle} {
@@ -120,6 +124,10 @@ export const StyledButtonMore = styled.div`
 
 export const StyledSection = styled.div`
   display: flex;
+
+  ${({ theme }) => theme.mq.phone} {
+    flex-direction: column;
+  }
 `;
 
 export const StyledVisitButton = styled.div`
@@ -128,9 +136,18 @@ export const StyledVisitButton = styled.div`
   justify-content: center;
   width: 22vw;
 
+  ${({ theme }) => theme.mq.phone} {
+    width: unset;
+    transform: scale(0.9);
+    padding-left: 17vw;
+    padding-bottom: 5%;
+    margin: 0 auto;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     width: 17vw;
   }
+
   ${({ theme }) => theme.mq.huge} {
     transform: scale(1.5);
   }
@@ -175,8 +192,12 @@ export const StyledDescription = styled.div`
   }
 
   ${({ theme }) => theme.mq.phone} {
+    margin-left: 17vw;
+    max-width: 100%;
+
     span {
       font-size: ${({ theme }) => theme.fonts.size.xs};
+      margin-left: 7%;
     }
   }
 
