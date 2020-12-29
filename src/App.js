@@ -1,7 +1,9 @@
 import React, { useLayoutEffect } from 'react';
-import Desktop from './View/Desktop/Desktop';
 import Mobile from './View/Mobile/Mobile';
 import useView from './hooks/useView';
+import Suspense from './components/Suspense/Suspense';
+
+const Desktop = React.lazy(() => import('./View/Desktop/Desktop'));
 
 const mobileTreshold = 600;
 
@@ -9,7 +11,9 @@ function App() {
   const { isMobile, setIsMobile } = useView();
 
   const handleResize = () => {
-    const check = !!(window.innerWidth < mobileTreshold);
+    const check = !!(
+      window.innerWidth < mobileTreshold || window.innerHeight < mobileTreshold
+    );
     setIsMobile(check);
   };
 
@@ -19,7 +23,7 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return <>{isMobile ? <Mobile /> : <Desktop />}</>;
+  return <Suspense>{isMobile ? <Mobile /> : <Desktop />}</Suspense>;
 }
 
 export default App;

@@ -20,10 +20,16 @@ import Button1 from '../../../components/Button1/Button1';
 import Button2 from '../../../components/Button2/Button2';
 
 function Course() {
-  const { dispatch } = useStore();
+  const {
+    state: { isMobile },
+    dispatch,
+  } = useStore();
   const { setUnmounted, lang } = useUnmountAnimations();
   const isPl = lang === 'pl';
-  const handleClickMore = () => dispatch({ type: SET_PAGE, payload: 5 });
+
+  const handleClickMore = () => {
+    if (!isMobile) dispatch({ type: SET_PAGE, payload: 5 });
+  };
   const courseLink = 'https://coderscamp.edu.pl/';
 
   return (

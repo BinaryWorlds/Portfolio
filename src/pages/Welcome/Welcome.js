@@ -22,7 +22,10 @@ function Welcome() {
   const onAnimationEnd = () =>
     dispatch({ type: ANIMATE_MEET_ME, payload: false });
 
-  const handleClick = () => dispatch({ type: SET_PAGE, payload: 1 });
+  const handleClick = () => {
+    if (isMobile) window.scrollBy(0, window.innerHeight);
+    else dispatch({ type: SET_PAGE, payload: 1 });
+  };
 
   const { setUnmounted } = useUnmountAnimations();
   const isEn = lang === 'en';
@@ -38,7 +41,7 @@ function Welcome() {
         />
         <StyledMeetMe>
           <StyledText>
-            Szymkowiak Dawid <br /> Junior Frontend Developer
+            Szymkowiak Dawid <br /> Junior Front-end Developer
           </StyledText>
           <Button1
             onClick={handleClick}
