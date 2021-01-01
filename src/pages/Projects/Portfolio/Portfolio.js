@@ -19,7 +19,7 @@ function Portfolio() {
   const isEn = lang === 'en';
 
   return (
-    <StyledWrapper onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="3" onAnimationEnd={setUnmounted}>
       <StyledImage
         src={image}
         alt={isEn ? 'Mockup from AdobeXd' : 'Mockup w AdobeXd'}

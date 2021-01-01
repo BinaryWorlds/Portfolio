@@ -15,7 +15,7 @@ function Now() {
   const isPl = lang === 'pl';
 
   return (
-    <StyledWrapper onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="2" onAnimationEnd={setUnmounted}>
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledImage
         src={image}

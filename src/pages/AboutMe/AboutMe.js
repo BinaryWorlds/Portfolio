@@ -20,7 +20,7 @@ function AboutMe() {
   const { setUnmounted, lang } = useUnmountAnimations();
 
   return (
-    <StyledWrapper onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="1" onAnimationEnd={setUnmounted}>
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledText>{description[lang]}</StyledText>
       <StyledTable>

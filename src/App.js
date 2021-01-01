@@ -23,7 +23,12 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return <Suspense>{isMobile ? <Mobile /> : <Desktop />}</Suspense>;
+  const getApp = (view) => {
+    if (view === null) return null;
+    return view ? <Mobile /> : <Desktop />;
+  };
+
+  return <Suspense>{getApp(isMobile)}</Suspense>;
 }
 
 export default App;

@@ -23,7 +23,7 @@ function Welcome() {
     dispatch({ type: ANIMATE_MEET_ME, payload: false });
 
   const handleClick = () => {
-    if (isMobile) window.scrollBy(0, window.innerHeight);
+    if (isMobile) window.scrollTo(0, window.innerHeight - 1);
     else dispatch({ type: SET_PAGE, payload: 1 });
   };
 
@@ -31,7 +31,7 @@ function Welcome() {
   const isEn = lang === 'en';
 
   return (
-    <StyledWrapper onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="0" onAnimationEnd={setUnmounted}>
       <StyledHello>
         <StyledImage
           src={image}

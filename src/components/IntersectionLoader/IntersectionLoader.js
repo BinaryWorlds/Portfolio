@@ -21,7 +21,7 @@ function IntersectionLoader({ loadMore }) {
     return () => observer.current.disconnect();
   }, []);
 
-  return <StyledWrapper ref={loaderRef} />;
+  return <StyledWrapper id="loader" ref={loaderRef} />;
 }
 
 export default IntersectionLoader;

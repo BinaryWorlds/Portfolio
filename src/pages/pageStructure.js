@@ -15,18 +15,19 @@ const MyProduct = React.lazy(() => import('./Projects/MyProduct/MyProduct'));
 const Contact = React.lazy(() => import('./Contact/Contact'));
 
 const pageStructure = [
-  { key: 0, section: 0, page: <Welcome /> },
-  { key: 1, section: 1, page: <AboutMe /> },
-  { key: 2, section: 2, page: <Now /> },
-  { key: 3, section: 2, page: <Portfolio /> },
-  { key: 4, section: 2, page: <Course /> },
-  { key: 5, section: 2, page: <LandingPage /> },
-  { key: 6, section: 2, page: <WeatherApp /> },
-  { key: 7, section: 2, page: <BudgetApp /> },
-  { key: 8, section: 2, page: <MyProduct /> },
-  { key: 9, section: 3, page: <Contact /> },
-].map((item) => ({
+  { section: 0, page: <Welcome /> },
+  { section: 1, page: <AboutMe /> },
+  { section: 2, page: <Now /> },
+  { section: 2, page: <Portfolio /> },
+  { section: 2, page: <Course /> },
+  { section: 2, page: <LandingPage /> },
+  { section: 2, page: <WeatherApp /> },
+  { section: 2, page: <BudgetApp /> },
+  { section: 2, page: <MyProduct /> },
+  { section: 3, page: <Contact /> },
+].map((item, index) => ({
   ...item,
+  key: index,
   page: <Suspense>{item.page}</Suspense>,
 }));
 

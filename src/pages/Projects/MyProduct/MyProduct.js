@@ -21,7 +21,7 @@ function MyProduct() {
   const myProductLink = 'https://climbingtimers.com/';
 
   return (
-    <StyledWrapper onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="8" onAnimationEnd={setUnmounted}>
       <StyledWrapper2>
         <StyledBorder>
           <rect />

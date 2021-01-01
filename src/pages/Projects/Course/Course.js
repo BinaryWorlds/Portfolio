@@ -33,7 +33,7 @@ function Course() {
   const courseLink = 'https://coderscamp.edu.pl/';
 
   return (
-    <StyledWrapper onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="4" onAnimationEnd={setUnmounted}>
       <StyledImage
         src={image}
         alt={isPl ? 'CodersCamp banner' : 'CodersCamp baner'}

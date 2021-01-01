@@ -34,9 +34,16 @@ const GlobalStyle = createGlobalStyle`
   
   button, a{
     :focus-visible {
-    outline: 2px solid black;
+      outline: 2px solid black;
+    }
   }
-  
+
+  a,
+  input,
+  textarea,
+  button,
+  select{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 `;
 
