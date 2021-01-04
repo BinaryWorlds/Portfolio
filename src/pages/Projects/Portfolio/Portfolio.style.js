@@ -62,6 +62,7 @@ export const StyledImage = styled(Image)`
       height: 18rem;
     }
   }
+
   ${({ theme }) => theme.mq.middle} {
     top: -2%;
     right: -15%;

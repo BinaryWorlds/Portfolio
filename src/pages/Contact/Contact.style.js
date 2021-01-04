@@ -147,6 +147,6 @@ export const StyledButtons = styled.div`
   align-items: flex-end;
 
   a {
-    padding: 0.75rem 2rem;
+    margin: 0.75rem 2rem;
   }
 `;

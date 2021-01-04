@@ -62,5 +62,6 @@ export default function useMobileMenuLogic(goToPage) {
   ));
 
   const list = <ul>{menuItems}</ul>;
+
   return { isOpen, toggleMenu, list };
 }

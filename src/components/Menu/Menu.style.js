@@ -24,6 +24,10 @@ export const StyledMenu = styled.div`
   display: flex;
   justify-content: center;
 
+  button {
+    top: 1.4rem;
+  }
+
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 `;
 

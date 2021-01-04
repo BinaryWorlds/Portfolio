@@ -214,7 +214,7 @@ export const StyledImage = styled(Image)`
     margin: 10% 0 4.5% 0;
   }
 
-  img {
+  & > div:not(img) {
     ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(3)}
   }
 `;

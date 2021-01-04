@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyledHamburger, InnerHamburger } from './Hamburger.style';
 
-function Hamburger({ isOpen }) {
+function Hamburger({ isOpen, onClick }) {
   return (
-    <StyledHamburger aria-label="menu">
+    <StyledHamburger onClick={onClick} aria-label="menu">
       <InnerHamburger isOpen={isOpen} />
     </StyledHamburger>
   );

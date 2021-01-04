@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const StyledWrapper = styled.div``;
-
 export const StyledButton = styled.button`
   position: relative;
   background: transparent;

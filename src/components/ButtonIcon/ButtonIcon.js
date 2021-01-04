@@ -8,8 +8,9 @@ function ButtonIcon({ iconSrc, link, size, ariaLabel }) {
       target="_blank"
       rel="noreferrer"
       aria-label={ariaLabel}
+      size={size}
     >
-      <StyledIcon size={size} iconSrc={iconSrc} />
+      <StyledIcon iconSrc={iconSrc} />
     </StyledButton>
   );
 }

@@ -8,7 +8,7 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 440px;
+  width: 44rem;
 
   ${({ theme }) => theme.mq.huge} {
     transform-origin: top right;
@@ -18,9 +18,9 @@ export const StyledHeader = styled.header`
 
 export const StyledSection = styled.div`
   position: relative;
-  top: 10px;
+  top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 170px;
+  width: 17rem;
 `;
