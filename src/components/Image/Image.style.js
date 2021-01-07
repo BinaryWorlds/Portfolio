@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
   position: relative;
+  user-select: none;
 `;
 
 export const StyledContainer = styled.div`

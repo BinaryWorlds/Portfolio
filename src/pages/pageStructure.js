@@ -25,11 +25,18 @@ const pageStructure = [
   { section: 2, page: <BudgetApp /> },
   { section: 2, page: <MyProduct /> },
   { section: 3, page: <Contact /> },
-].map((item, index) => ({
-  ...item,
-  key: index,
-  page: <Suspense>{item.page}</Suspense>,
-}));
+].map((item, index) => {
+  if (index === 0)
+    return {
+      ...item,
+      key: index,
+    };
+  return {
+    ...item,
+    key: index,
+    page: <Suspense>{item.page}</Suspense>,
+  };
+});
 
 export default pageStructure;
 

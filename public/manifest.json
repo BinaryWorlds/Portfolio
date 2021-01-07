@@ -3,7 +3,7 @@
   "name": "Dev-is.me",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#c1ced3",
+  "theme_color": "#7db6fd",
   "background_color": "#ffffff",
   "icons": [
     {

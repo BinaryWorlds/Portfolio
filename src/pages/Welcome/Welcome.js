@@ -23,7 +23,7 @@ function Welcome() {
     dispatch({ type: ANIMATE_MEET_ME, payload: false });
 
   const handleClick = () => {
-    if (isMobile) window.scrollTo(0, window.innerHeight - 1);
+    if (isMobile) window.scrollTo(0, window.innerHeight);
     else dispatch({ type: SET_PAGE, payload: 1 });
   };
 

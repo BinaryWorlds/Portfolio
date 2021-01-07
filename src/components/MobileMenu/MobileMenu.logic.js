@@ -46,7 +46,7 @@ export default function useMobileMenuLogic(goToPage) {
 
   const handleClick = (e) => {
     toggleMenu();
-    goToPage(e.target.value);
+    goToPage(+e.target.value);
   };
 
   const menuItems = menuSections.map((item) => (

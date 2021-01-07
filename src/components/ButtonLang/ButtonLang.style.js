@@ -4,6 +4,7 @@ export const StyledButton = styled.button`
   position: relative;
   background: transparent;
   cursor: pointer;
+  user-select: none;
   outline: none;
   border: 0;
   font-size: ${({ theme }) => theme.fonts.size.s};
