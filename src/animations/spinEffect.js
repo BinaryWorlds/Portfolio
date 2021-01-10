@@ -6,6 +6,7 @@ const spin = keyframes`
     transform: rotate3d(0.25,0.25,0.25,-90deg);
   }
   100% {
+    opacity:1;
     transform: rotate3d(0);
   }`;
 

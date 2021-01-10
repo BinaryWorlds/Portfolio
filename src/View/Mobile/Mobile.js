@@ -8,7 +8,7 @@ function Mobile() {
   const { loadCounter, loadPages, goToPage, displayLoader } = useMobileLogic();
 
   return (
-    <Layout extend={{ isUnmounted: true, isMobile: true }}>
+    <Layout>
       <StyledWrapper>
         <MobileMenu goToPage={goToPage} />
         {loadPages(loadCounter)}

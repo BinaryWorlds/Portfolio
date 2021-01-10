@@ -8,7 +8,6 @@ export const StyledWrapper = styled.div`
 export const StyledContainer = styled.div`
   width: 100%;
   padding-bottom: ${({ ratio }) => ratio}%;
-  transform: translate3d(0, 0, 0);
 `;
 
 export const StyledImage = styled.img`

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStore } from '../../../globalState/store';
 import { SET_PAGE } from '../../../globalState/actionTypes';
-import useUnmountAnimations from '../../../hooks/useHandleAnimations';
 
 import {
   StyledWrapper,
@@ -21,10 +20,9 @@ import Button2 from '../../../components/Button2/Button2';
 
 function Course() {
   const {
-    state: { isMobile },
+    state: { isMobile, lang },
     dispatch,
   } = useStore();
-  const { setUnmounted, lang } = useUnmountAnimations();
   const isPl = lang === 'pl';
 
   const handleClickMore = () => {
@@ -33,7 +31,7 @@ function Course() {
   const courseLink = 'https://coderscamp.edu.pl/';
 
   return (
-    <StyledWrapper id="4" onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="4">
       <StyledImage
         src={image}
         alt={isPl ? 'CodersCamp banner' : 'CodersCamp baner'}

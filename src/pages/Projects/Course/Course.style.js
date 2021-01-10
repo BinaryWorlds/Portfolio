@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import fadeOut from '../../../animations/fadeOut';
 import fadeIn from '../../../animations/fadeIn';
 import slideXEffect from '../../../animations/slideXEffect';
 import slideYEffect from '../../../animations/slideYEffect';
@@ -16,7 +15,6 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   position: relative;
-  ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)};
 
   :before,
   :after {
@@ -61,6 +59,8 @@ export const StyledWrapper = styled.div`
       border-width: 11.5vw;
     }
   }
+
+  ${fadeIn}
 `;
 
 export const StyledImage = styled(Image)`
@@ -77,9 +77,7 @@ export const StyledImage = styled(Image)`
     margin-top: 0;
   }
 
-  img {
-    ${({ theme: { isUnmounted } }) => isUnmounted && slideYEffect};
-  }
+  ${slideYEffect};
 `;
 
 export const StyledTitleWrapper = styled.div`
@@ -94,6 +92,8 @@ export const StyledTitleWrapper = styled.div`
     width: 42%;
     margin: 10% 0 10% 0;
   }
+
+  ${slideXEffect};
 `;
 
 export const StyledTitle = styled.h1`
@@ -107,8 +107,6 @@ export const StyledTitle = styled.h1`
   ${({ theme }) => theme.mq.huge} {
     font-size: ${({ theme }) => theme.fonts.size.xxl};
   }
-
-  ${({ theme: { isUnmounted } }) => isUnmounted && slideXEffect};
 `;
 
 export const StyledButtonMore = styled.div`
@@ -118,8 +116,6 @@ export const StyledButtonMore = styled.div`
   ${({ theme }) => theme.mq.huge} {
     margin-top: 5rem;
   }
-
-  ${({ theme: { isUnmounted } }) => isUnmounted && slideXEffect};
 `;
 
 export const StyledSection = styled.div`
@@ -159,7 +155,6 @@ export const StyledDescription = styled.div`
   max-width: 70%;
   position: relative;
   left: -3px;
-  ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect};
   overflow: hidden;
 
   :before,
@@ -207,4 +202,6 @@ export const StyledDescription = styled.div`
       font-size: ${({ theme }) => theme.fonts.size.m};
     }
   }
+
+  ${borderEffect};
 `;

@@ -2,8 +2,8 @@ import { keyframes, css } from 'styled-components';
 
 const slideX = keyframes` 
   0% { 
-    opacity:0.75;
-    transform: translateX(200%);     
+    opacity:0.5;
+    transform: translateX(100%);     
   }
   100% {
     opacity:1;

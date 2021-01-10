@@ -52,12 +52,13 @@ export const StyledLine = styled.div`
       css`
         content: '${text}';
       `}
-    ${({ active }) => active && timeInEffect}
-    ${({ theme: { isUnmounted } }) => !isUnmounted && timeOutEffect}
 
     padding-left: 5.3rem;
     color: ${({ theme }) => theme.colors.red};
     font-weight: ${({ theme }) => theme.fonts.weight.bold};
+
+    ${({ active }) => active && timeInEffect}
+    ${({ theme: { isUnmounted } }) => !isUnmounted && timeOutEffect}
   }
 
   ${({ theme }) => theme.mq.huge} {

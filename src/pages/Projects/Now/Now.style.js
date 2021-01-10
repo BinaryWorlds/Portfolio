@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import fadeOut from '../../../animations/fadeOut';
 import slideXEffect from '../../../animations/slideXEffect';
 import Image from '../../../components/Image/Image';
 
@@ -18,7 +17,7 @@ export const StyledWrapper = styled.div`
     margin: 10% 0;
   }
 
-  ${({ theme: { isUnmounted } }) => (isUnmounted ? slideXEffect : fadeOut)}
+  ${slideXEffect}
 `;
 
 export const StyledTitle = styled.h1`
@@ -65,17 +64,17 @@ export const StyledImage = styled(Image)`
   :before {
     z-index: -1;
     top: 25%;
-    transform: rotate(-45deg);
-    transform-origin: top left;
     ${backgroundStyle}
+    transform-origin: top left;
+    transform: rotate(-45deg);
   }
 
   :after {
     z-index: -2;
     top: -25%;
-    transform: rotate(45deg);
-    transform-origin: bottom left;
     ${backgroundStyle};
+    transform-origin: bottom left;
+    transform: rotate(45deg);
   }
 
   ${({ theme }) => theme.mq.phone} {

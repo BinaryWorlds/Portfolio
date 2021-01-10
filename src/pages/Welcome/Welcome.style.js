@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import fadeIn from '../../animations/fadeIn';
-import fadeOut from '../../animations/fadeOut';
 
 import Image from '../../components/Image/Image';
 
 export const StyledWrapper = styled.div`
-  ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)};
   height: 100%;
   width: 100%;
   padding: 0 7%;
@@ -47,6 +45,8 @@ export const StyledWrapper = styled.div`
       height: 37%;
     }
   }
+
+  ${fadeIn};
 `;
 
 export const StyledHello = styled.div`
@@ -75,7 +75,6 @@ export const StyledHello = styled.div`
 `;
 
 export const StyledImage = styled(Image)`
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
   width: 60%;
   margin-right: 5%;
 
@@ -97,6 +96,7 @@ export const StyledImage = styled(Image)`
   ${({ theme }) => theme.mq.huge} {
     width: 100%;
   }
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
 `;
 
 export const StyledMeetMe = styled.div`

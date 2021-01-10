@@ -2,18 +2,18 @@ import { keyframes, css } from 'styled-components';
 
 const loadWidth1 = keyframes` 
   0% {
-    transform: rotate(30deg) scale(0,1);        
+    transform: rotate(30deg) scaleX(0);        
   }
   100% {
-    transform: rotate(30deg) scale(1,1);
+    transform: rotate(30deg) scaleX(1);
   }`;
 
 const loadWidth2 = keyframes` 
   0% {
-    transform: rotate(-30deg) skewX(-30deg) scale(0,1) translateZ(-1px);
+    transform: rotate(-30deg) skewX(-30deg) scaleX(0) translateZ(-1px);
   }
   100% {
-    transform: rotate(-30deg) skewX(-30deg) scale(1,1) translateZ(-1px);
+    transform: rotate(-30deg) skewX(-30deg) scaleX(1) translateZ(-1px);
   }`;
 
 const loadOpacity = keyframes` 

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import fadeOut from '../../animations/fadeOut';
 
-import { spin3dEffect, formEffect } from './Contact.animations';
+import { spin3dEffect } from './Contact.animations';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -40,15 +39,24 @@ export const StyledWrapper = styled.div`
     transform: scale(1.5);
   }
 
-  ${({ theme: { isUnmounted } }) => (isUnmounted ? formEffect : fadeOut)};
+  form {
+    ${spin3dEffect('right')};
+  }
 `;
 
 export const StyledSection = styled.div`
+  position: relative;
   margin-right: 2rem;
+
+  ${({ theme }) => theme.mq.middle} {
+    margin-right: 12rem;
+  }
+`;
+
+export const StyledLeft = styled.div`
   height: 52rem;
   display: grid;
   grid-column: 1;
-  position: relative;
 
   span {
     margin-top: 2rem;
@@ -63,8 +71,6 @@ export const StyledSection = styled.div`
     font-size: ${({ theme }) => theme.fonts.size.xl};
     font-weight: ${({ theme }) => theme.fonts.weight.bold};
   }
-
-  ${({ theme: { isUnmounted } }) => isUnmounted && spin3dEffect};
 
   ${({ theme }) => theme.mq.phone} {
     margin: 0;
@@ -81,8 +87,6 @@ export const StyledSection = styled.div`
   }
 
   ${({ theme }) => theme.mq.middle} {
-    margin-right: 12rem;
-
     span {
       font-size: ${({ theme }) => theme.fonts.size.m};
     }
@@ -91,6 +95,8 @@ export const StyledSection = styled.div`
       font-size: ${({ theme }) => theme.fonts.size.xl};
     }
   }
+
+  ${spin3dEffect('left')};
 `;
 
 const eyeStyle = css`
@@ -125,6 +131,7 @@ export const StyledBackground = styled.div`
     left: calc(30% + 9.7rem);
     transform: rotate(7deg);
   }
+
   ${({ theme }) => theme.mq.phone} {
     height: 300%;
     left: -50%;
@@ -139,6 +146,7 @@ export const StyledBackground = styled.div`
       top: 15.55%;
     }
   }
+  ${spin3dEffect('center')};
 `;
 
 export const StyledButtons = styled.div`

@@ -12,7 +12,7 @@ const growing = keyframes`
     }`;
 
 export const growingEffect = css`
-  animation: ${growing} 4s ease-in-out;
+  animation: ${growing} 4s ease-in-out both;
 `;
 
 const border = keyframes`

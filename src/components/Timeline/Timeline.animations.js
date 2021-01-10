@@ -74,6 +74,7 @@ const hide = keyframes`
     transform: translateX(-100%);     
      
   }`;
+
 export const hideEffect = css`
   animation: ${hide} 0.5s ease-in both;
 `;

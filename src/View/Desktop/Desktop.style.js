@@ -1,13 +1,18 @@
 import styled from 'styled-components';
+import fadeOut from '../../animations/fadeOut';
 
-export const StyledWrapper = styled.div`
+export const StyledSiteWrapper = styled.div`
+  overflow: hidden;
   position: relative;
   margin: 0 auto;
   height: 100vh;
+  width: 100vw;
   max-width: 2560px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+`;
+
+export const StyledPageWrapper = styled(StyledSiteWrapper)`
+  ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
 `;

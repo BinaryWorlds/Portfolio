@@ -1,14 +1,11 @@
 import styled, { css } from 'styled-components';
 import spinEffect from '../../animations/spinEffect';
-import fadeOut from '../../animations/fadeOut';
 
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 10%;
-
-  ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
 `;
 
 export const StyledTitle = styled.h1`
@@ -30,7 +27,6 @@ export const StyledTitle = styled.h1`
     background: ${({ theme }) => theme.colors.pinkB};
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   }
-  ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(1)};
 
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.fonts.size.m};
@@ -49,6 +45,8 @@ export const StyledTitle = styled.h1`
   ${({ theme }) => theme.mq.huge} {
     font-size: ${({ theme }) => theme.fonts.size.xxl};
   }
+
+  ${spinEffect(1)};
 `;
 
 export const StyledText = styled.div`
@@ -70,7 +68,6 @@ export const StyledText = styled.div`
     background: ${({ theme }) => theme.colors.pinkB};
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   }
-  ${({ theme: { isUnmounted } }) => isUnmounted && spinEffect(2)};
 
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.fonts.size.xs};
@@ -92,6 +89,8 @@ export const StyledText = styled.div`
   ${({ theme }) => theme.mq.huge} {
     font-size: ${({ theme }) => theme.fonts.size.m};
   }
+
+  ${spinEffect(2)};
 `;
 
 export const StyledTable = styled.ul`
@@ -114,7 +113,6 @@ export const StyledColumn = styled.li`
   flex-direction: column;
   align-items: center;
   position: relative;
-  ${({ theme: { isUnmounted }, val }) => isUnmounted && spinEffect(2 + val)};
 
   span {
     font-size: ${({ theme }) => theme.fonts.size.m};
@@ -125,7 +123,7 @@ export const StyledColumn = styled.li`
     padding-bottom: 2rem;
   }
 
-  ::before {
+  :before {
     content: '';
     z-index: -1;
     position: absolute;
@@ -180,4 +178,6 @@ export const StyledColumn = styled.li`
       font-size: ${({ theme }) => theme.fonts.size.l};
     }
   }
+
+  ${({ val }) => spinEffect(2 + val)};
 `;

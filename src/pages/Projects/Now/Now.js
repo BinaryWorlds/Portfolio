@@ -1,5 +1,5 @@
 import React from 'react';
-import useUnmountAnimations from '../../../hooks/useHandleAnimations';
+import useLang from '../../../hooks/useLang';
 import image from '../../../assets/images/now.webp';
 import { title, description } from './Now.text';
 import generateList from '../../../utils/generateSpanList';
@@ -11,11 +11,11 @@ import {
 } from './Now.style';
 
 function Now() {
-  const { setUnmounted, lang } = useUnmountAnimations();
+  const { lang } = useLang();
   const isPl = lang === 'pl';
 
   return (
-    <StyledWrapper id="2" onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="2">
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledImage
         src={image}

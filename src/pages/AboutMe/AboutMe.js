@@ -1,5 +1,5 @@
 import React from 'react';
-import useUnmountAnimations from '../../hooks/useHandleAnimations';
+import useLang from '../../hooks/useLang';
 import generateList from '../../utils/generateSpanList';
 import {
   StyledWrapper,
@@ -17,10 +17,10 @@ import {
 } from './AboutMe.text';
 
 function AboutMe() {
-  const { setUnmounted, lang } = useUnmountAnimations();
+  const { lang } = useLang();
 
   return (
-    <StyledWrapper id="1" onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="1">
       <StyledTitle>{title[lang]}</StyledTitle>
       <StyledText>{description[lang]}</StyledText>
       <StyledTable>

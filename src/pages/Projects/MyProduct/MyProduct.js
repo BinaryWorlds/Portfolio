@@ -1,5 +1,5 @@
 import React from 'react';
-import useUnmountAnimations from '../../../hooks/useHandleAnimations';
+import useLang from '../../../hooks/useLang';
 import {
   StyledWrapper,
   StyledWrapper2,
@@ -15,13 +15,13 @@ import Button2 from '../../../components/Button2/Button2';
 import image from '../../../assets/images/myProduct.webp';
 
 function MyProduct() {
-  const { setUnmounted, lang } = useUnmountAnimations();
+  const { lang } = useLang();
 
   const isPl = lang === 'pl';
   const myProductLink = 'https://climbingtimers.com/';
 
   return (
-    <StyledWrapper id="8" onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="8">
       <StyledWrapper2>
         <StyledBorder>
           <rect />

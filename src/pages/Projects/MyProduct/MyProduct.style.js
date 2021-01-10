@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import fadeOut from '../../../animations/fadeOut';
 import Image from '../../../components/Image/Image';
 
 import {
@@ -15,7 +14,6 @@ export const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
 
   ${({ theme }) => theme.mq.phone} {
     padding: 5%;
@@ -46,7 +44,7 @@ export const StyledBorder = styled.svg`
       stroke-width: 12;
       stroke-dasharray: 320%;
 
-      ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect};
+      ${borderEffect};
     }
   }
 `;
@@ -78,7 +76,7 @@ export const StyledSection = styled.div`
 
   a {
     margin: 1rem 0;
-    ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(7.5)}
+    ${fadeInOrderEffect(7.5)}
   }
 
   :before {
@@ -113,13 +111,14 @@ export const StyledTitle = styled.h1`
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   margin-bottom: 4rem;
-  ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(1.5)}
 
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.fonts.size.m};
     text-align: center;
     margin-top: 4rem;
   }
+
+  ${fadeInOrderEffect(1.5)}
 `;
 
 export const StyledDescription = styled.div`
@@ -127,7 +126,6 @@ export const StyledDescription = styled.div`
   flex-direction: column;
   padding-left: 2rem;
   position: relative;
-  ${({ theme: { isUnmounted } }) => isUnmounted && triangleEffect};
 
   :before,
   :after {
@@ -156,16 +154,6 @@ export const StyledDescription = styled.div`
     margin-bottom: 2rem;
   }
 
-  ${({ theme: { isUnmounted }, children }) =>
-    isUnmounted &&
-    children.map(
-      (item, index) => css`
-        span:nth-of-type(${index + 1}) {
-          ${fadeInOrderEffect(index + 2)}
-        }
-      `,
-    )}
-
   ${({ theme }) => theme.mq.phone} {
     padding: 0;
 
@@ -187,6 +175,17 @@ export const StyledDescription = styled.div`
       left: -3.5rem;
     }
   }
+
+  ${({ children }) =>
+    children.map(
+      (item, index) => css`
+        span:nth-of-type(${index + 1}) {
+          ${fadeInOrderEffect(index + 2)}
+        }
+      `,
+    )}
+
+  ${triangleEffect};
 `;
 
 export const StyledImage = styled(Image)`
@@ -214,7 +213,7 @@ export const StyledImage = styled(Image)`
     margin: 10% 0 4.5% 0;
   }
 
-  & > div:not(img) {
-    ${({ theme: { isUnmounted } }) => isUnmounted && fadeInOrderEffect(3)}
+  & > div {
+    ${fadeInOrderEffect(3)}
   }
 `;

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import fadeIn from '../../../animations/fadeIn';
-import fadeOut from '../../../animations/fadeOut';
 import { growingEffect, borderEffect } from './Portfolio.animations';
 
 import Image from '../../../components/Image/Image';
@@ -19,7 +18,7 @@ export const StyledWrapper = styled.div`
     margin: 10% 0;
   }
 
-  ${({ theme: { isUnmounted } }) => (isUnmounted ? fadeIn : fadeOut)}
+  ${fadeIn}
 `;
 
 export const StyledImage = styled(Image)`
@@ -27,12 +26,10 @@ export const StyledImage = styled(Image)`
   z-index: -1;
   top: 6%;
   right: -25%;
-  transform: rotate(50deg);
   width: 60%;
 
   :before {
     content: 'Mockup Adobe Xd';
-    transform: translate3d(0, 0, 0);
     position: absolute;
     bottom: -3.5rem;
     right: 15%;
@@ -47,9 +44,6 @@ export const StyledImage = styled(Image)`
     left: 0;
     height: 22.5rem;
     border-left: 1px solid rgba(112, 112, 112);
-
-    transform-origin: top left;
-    ${({ theme: { isUnmounted } }) => isUnmounted && borderEffect}
   }
 
   ${({ theme }) => theme.mq.phone} {
@@ -82,6 +76,13 @@ export const StyledImage = styled(Image)`
       height: 37rem;
     }
   }
+
+  transform: rotate3d(0, 0, 1, 50deg);
+
+  :after {
+    transform-origin: top left;
+    ${borderEffect}
+  }
 `;
 
 export const StyledTitle = styled.h1`
@@ -95,8 +96,7 @@ export const StyledTitle = styled.h1`
       left: -3rem;
       bottom: -25rem;
     `}
-  transform-origin: bottom left;
-  transform: rotate(-50deg) translate3d(0, 0, 0);
+
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   white-space: pre-wrap;
@@ -108,8 +108,6 @@ export const StyledTitle = styled.h1`
     height: 15rem;
     border-right: 1px solid rgba(112, 112, 112);
     transform-origin: bottom right;
-    ${({ isWritten }) => isWritten && borderEffect}
-    animation-delay: 0.25s;
   }
 
   ${({ theme }) => theme.mq.phone} {
@@ -153,6 +151,14 @@ export const StyledTitle = styled.h1`
         bottom: -43rem;
       `}
   }
+
+  transform-origin: bottom left;
+  transform: rotate3d(0, 0, 1, -50deg);
+
+  :after {
+    animation-delay: 0.25s;
+    ${({ isWritten }) => isWritten && borderEffect}
+  }
 `;
 
 export const StyledBackground = styled.div`
@@ -160,8 +166,6 @@ export const StyledBackground = styled.div`
   z-index: -3;
   bottom: 0;
   right: 42%;
-  transform: rotate(50deg);
-  transform-origin: right bottom;
 
   width: 80vw;
   height: 40vw;
@@ -190,7 +194,6 @@ export const StyledBackground = styled.div`
     height: 89%;
     right: -1px;
   }
-  ${({ theme: { isUnmounted } }) => isUnmounted && growingEffect}
 
   ${({ theme }) => theme.mq.phone} {
     width: 90vw;
@@ -209,6 +212,9 @@ export const StyledBackground = styled.div`
     width: 54vw;
     height: 27vw;
   }
+
+  transform-origin: right bottom;
+  ${growingEffect}
 `;
 
 export const StyledDescription = styled.div`

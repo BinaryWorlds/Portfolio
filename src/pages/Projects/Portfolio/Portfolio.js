@@ -1,5 +1,5 @@
 import React from 'react';
-import useUnmountAnimations from '../../../hooks/useHandleAnimations';
+import useLang from '../../../hooks/useLang';
 import image from '../../../assets/images/mockup.webp';
 import { description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
@@ -13,13 +13,13 @@ import {
 } from './Portfolio.style';
 
 function Portfolio() {
-  const { setUnmounted, lang } = useUnmountAnimations();
+  const { lang } = useLang();
   const { isWritten, titleRef } = usePortfolioLogic(lang);
 
   const isEn = lang === 'en';
 
   return (
-    <StyledWrapper id="3" onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="3">
       <StyledImage
         src={image}
         alt={isEn ? 'Mockup from AdobeXd' : 'Mockup w AdobeXd'}

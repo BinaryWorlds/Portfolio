@@ -70,14 +70,14 @@ export const StyledElement = styled.li`
     align-items: center;
     justify-content: end;
     padding: 30px 0 0 95px;
-    transform: rotate(-30deg) translate3d(0, 0, 0);
+    transform: rotate3d(0, 0, 1, -30deg);
   }
 
   ${({ isOpen, orderNr }) => isOpen && loadEffect(orderNr)};
   ${({ isOpen }) =>
     !isOpen &&
     css`
-      transform: rotate(30deg);
+      transform: rotate3d(0, 0, 1, 30deg);
     `};
 `;
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import useUnmountAnimations from '../../hooks/useHandleAnimations';
+import useLang from '../../hooks/useLang';
 
 import { questions } from './Contact.text';
 import {
   StyledWrapper,
   StyledSection,
+  StyledLeft,
   StyledButtons,
   StyledBackground,
 } from './Contact.style';
@@ -15,7 +16,7 @@ import emailIcon from '../../assets/icons/email.webp';
 import githubIcon from '../../assets/icons/github.webp';
 
 function Contact() {
-  const { setUnmounted, lang } = useUnmountAnimations();
+  const { lang } = useLang();
 
   const handleSubmit = (e) => e.preventDefault();
   const fbProfile = 'https://m.me/dawid.szymkowiak.10';
@@ -39,30 +40,32 @@ function Contact() {
   });
 
   return (
-    <StyledWrapper id="9" onAnimationEnd={setUnmounted}>
+    <StyledWrapper id="9">
       <StyledSection>
         <StyledBackground />
-        {questionsList}
-        <StyledButtons>
-          <ButtonIcon
-            size={41}
-            link={fbProfile}
-            iconSrc={messengerIcon}
-            ariaLabel="facebook"
-          />
-          <ButtonIcon
-            size={41}
-            link={mailToMe}
-            iconSrc={emailIcon}
-            ariaLabel="email"
-          />
-          <ButtonIcon
-            size={41}
-            link={ghProfile}
-            iconSrc={githubIcon}
-            ariaLabel="github"
-          />
-        </StyledButtons>
+        <StyledLeft>
+          {questionsList}
+          <StyledButtons>
+            <ButtonIcon
+              size={41}
+              link={fbProfile}
+              iconSrc={messengerIcon}
+              ariaLabel="facebook"
+            />
+            <ButtonIcon
+              size={41}
+              link={mailToMe}
+              iconSrc={emailIcon}
+              ariaLabel="email"
+            />
+            <ButtonIcon
+              size={41}
+              link={ghProfile}
+              iconSrc={githubIcon}
+              ariaLabel="github"
+            />
+          </StyledButtons>
+        </StyledLeft>
       </StyledSection>
       <ContactForm onSubmit={handleSubmit} addressTitle={addressTitle} />
     </StyledWrapper>

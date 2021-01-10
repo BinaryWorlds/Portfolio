@@ -1,8 +1,14 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useStore } from '../../globalState/store';
-import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
+import {
+  ANIMATE_MEET_ME,
+  SET_PAGE,
+  SET_PAGE_UNMOUNTED,
+} from '../../globalState/actionTypes';
 import { lastPage } from '../../pages/pageStructure';
 import constrainVal from '../../utils/constrainVal';
+
+const lockTime = 550;
 
 export default function useDesktopLogic() {
   const {
@@ -50,7 +56,7 @@ export default function useDesktopLogic() {
 
     const timerIdTask = setTimeout(() => {
       setTimerIdWheel(null);
-    }, 250);
+    }, lockTime);
 
     if (!timerIdWheel.current) changePage(deltaY);
 
@@ -104,5 +110,9 @@ export default function useDesktopLogic() {
     };
   }, [pageId]);
 
-  return { pageId: lastPageId, handleWheel, isPageUnmounted };
+  const setUnmounted = () => {
+    if (!isPageUnmounted) dispatch({ type: SET_PAGE_UNMOUNTED });
+  };
+
+  return { pageId: lastPageId, handleWheel, isPageUnmounted, setUnmounted };
 }
