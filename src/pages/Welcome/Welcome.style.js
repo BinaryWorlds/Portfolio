@@ -16,6 +16,7 @@ export const StyledWrapper = styled.div`
 
   :after {
     position: absolute;
+    left: 0;
     bottom: 0;
     content: '';
     background: ${({ theme }) => theme.colors.blue};
@@ -27,7 +28,6 @@ export const StyledWrapper = styled.div`
   ${({ theme }) => theme.mq.phone} {
     padding: 5%;
     margin-bottom: 10%;
-
     height: 100vh;
 
     :after {

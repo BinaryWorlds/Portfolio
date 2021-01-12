@@ -6,9 +6,10 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  width: 100%;
 
   form {
-    margin-top: auto;
+    align-self: flex-end;
     width: 45%;
   }
 
@@ -22,6 +23,7 @@ export const StyledWrapper = styled.div`
     form {
       width: 95%;
       max-width: 35rem;
+      align-self: unset;
 
       div {
         display: none;
@@ -55,19 +57,17 @@ export const StyledSection = styled.div`
 
 export const StyledLeft = styled.div`
   height: 52rem;
-  display: grid;
-  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   span {
-    margin-top: 2rem;
     font-size: ${({ theme }) => theme.fonts.size.s};
     text-align: center;
     white-space: pre-wrap;
   }
 
   span:first-of-type {
-    margin-top: 0;
-    margin-bottom: 2rem;
     font-size: ${({ theme }) => theme.fonts.size.xl};
     font-weight: ${({ theme }) => theme.fonts.weight.bold};
   }
@@ -78,10 +78,11 @@ export const StyledLeft = styled.div`
 
     span {
       font-size: ${({ theme }) => theme.fonts.size.xs};
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
 
     span:first-of-type {
+      margin-top: 0;
       font-size: ${({ theme }) => theme.fonts.size.l};
     }
   }

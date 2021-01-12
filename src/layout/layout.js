@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent;
   }
   * {
     padding: 0;
@@ -17,8 +18,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *,
-  *::before,
-  *::after {
+  *:before,
+  *:after {
     box-sizing: border-box;
   }
 

@@ -12,7 +12,7 @@ import {
 import { title, description } from './MyProduct.text';
 import generateList from '../../../utils/generateSpanList';
 import Button2 from '../../../components/Button2/Button2';
-import image from '../../../assets/images/myProduct.webp';
+import image from '../../../assets/images/myProduct.png';
 
 function MyProduct() {
   const { lang } = useLang();

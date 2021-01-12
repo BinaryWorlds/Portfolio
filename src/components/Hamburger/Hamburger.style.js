@@ -16,8 +16,8 @@ export const InnerHamburger = styled.div`
   background-color: ${({ isOpen }) => (isOpen ? 'transparent' : 'black')};
   transition: background-color 0.25s ease-in;
 
-  ::before,
-  ::after {
+  :before,
+  :after {
     position: absolute;
     content: '';
     left: 0;
@@ -27,13 +27,13 @@ export const InnerHamburger = styled.div`
     transition: transform 0.25s ease-in-out;
   }
 
-  ::before {
+  :before {
     top: -10px;
     transform: translateY(${({ isOpen }) => (isOpen ? '10px' : '0px')})
       rotate(${({ isOpen }) => (isOpen ? '45deg' : '0')});
   }
 
-  ::after {
+  :after {
     top: 10px;
     transform: translateY(${({ isOpen }) => (isOpen ? '-10px' : '0px')})
       rotate(${({ isOpen }) => (isOpen ? '-45deg' : '0')});

@@ -1,6 +1,6 @@
 import React from 'react';
 import useLang from '../../../hooks/useLang';
-import image from '../../../assets/images/now.webp';
+import image from '../../../assets/images/now.png';
 import { title, description } from './Now.text';
 import generateList from '../../../utils/generateSpanList';
 import {

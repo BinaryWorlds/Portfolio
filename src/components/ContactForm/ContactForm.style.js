@@ -43,6 +43,7 @@ export const StyledArea = styled.textarea`
   height: 18rem;
   padding-left: 1.8rem;
   padding-top: 1.8rem;
+  overflow: auto;
 `;
 
 export const StyledButton = styled.button`

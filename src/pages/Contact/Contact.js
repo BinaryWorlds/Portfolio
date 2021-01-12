@@ -11,9 +11,9 @@ import {
 } from './Contact.style';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ButtonIcon from '../../components/ButtonIcon/ButtonIcon';
-import messengerIcon from '../../assets/icons/messenger.webp';
-import emailIcon from '../../assets/icons/email.webp';
-import githubIcon from '../../assets/icons/github.webp';
+import messengerIcon from '../../assets/icons/messenger.png';
+import emailIcon from '../../assets/icons/email.png';
+import githubIcon from '../../assets/icons/github.png';
 
 function Contact() {
   const { lang } = useLang();

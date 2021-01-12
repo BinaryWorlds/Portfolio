@@ -43,7 +43,7 @@ export const StyledImage = styled(Image)`
     position: absolute;
     left: 0;
     height: 22.5rem;
-    border-left: 1px solid rgba(112, 112, 112);
+    border-left: 1px solid rgb(112, 112, 112);
   }
 
   ${({ theme }) => theme.mq.phone} {
@@ -106,7 +106,7 @@ export const StyledTitle = styled.h1`
     position: absolute;
     bottom: 0;
     height: 15rem;
-    border-right: 1px solid rgba(112, 112, 112);
+    border-right: 1px solid rgb(112, 112, 112);
     transform-origin: bottom right;
   }
 
@@ -169,7 +169,7 @@ export const StyledBackground = styled.div`
 
   width: 80vw;
   height: 40vw;
-  border-color: rgba(112, 112, 112);
+  border-color: rgb(112, 112, 112);
   border-bottom: 1px solid;
   border-right: 1px solid;
 

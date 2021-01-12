@@ -1,6 +1,6 @@
 import React from 'react';
 import useLang from '../../../hooks/useLang';
-import image from '../../../assets/images/mockup.webp';
+import image from '../../../assets/images/mockup.png';
 import { description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
 import usePortfolioLogic from './Portfolio.logic';

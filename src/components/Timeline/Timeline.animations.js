@@ -6,6 +6,7 @@ const timeIn = keyframes`
     transform: translateY(-120%);
   }
   100% {
+    
   }`;
 
 export const timeInEffect = css`
@@ -54,11 +55,11 @@ export const lineOutEffect = css`
 const show = keyframes` 
   0% { 
     opacity:0.75;
-    transform: translateX(-100%);     
+    transform: translate(-100%, -50%);     
   }
   100% {
     opacity:1;
-    transform: translateX(0);         
+    transform: translate(0, -50%);         
   }`;
 
 export const showEffect = css`
@@ -67,11 +68,11 @@ export const showEffect = css`
 
 const hide = keyframes` 
   0% { 
-  
+    transform: translate(0, -50%);    
     }
   100% {
     opacity:0;
-    transform: translateX(-100%);     
+    transform: translate(-100%, -50%);     
      
   }`;
 

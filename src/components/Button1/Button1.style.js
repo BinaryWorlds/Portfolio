@@ -68,7 +68,7 @@ export const StyledIcon = styled.span`
   background: none;
   margin: auto;
 
-  &::before {
+  &:before {
     position: absolute;
     content: '';
     top: -0.4rem;

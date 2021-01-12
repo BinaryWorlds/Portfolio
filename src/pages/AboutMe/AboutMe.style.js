@@ -5,7 +5,10 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 0 10%;
+  width: 100%;
+  height: 100%;
 `;
 
 export const StyledTitle = styled.h1`
@@ -57,7 +60,7 @@ export const StyledText = styled.div`
   margin: 10% 0;
   font-size: ${({ theme }) => theme.fonts.size.s};
 
-  ::before {
+  :before {
     content: '';
     z-index: -1;
     position: absolute;
@@ -95,6 +98,7 @@ export const StyledText = styled.div`
 
 export const StyledTable = styled.ul`
   width: 100vw;
+  max-width: 2560px;
   padding: 0 5%;
   display: flex;
   flex-wrap: wrap;

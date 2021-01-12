@@ -3,16 +3,16 @@ import fadeOut from '../../animations/fadeOut';
 
 export const StyledSiteWrapper = styled.div`
   overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  margin: auto;
+  height: 100%;
+  width: 100%;
   max-width: 2560px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 `;
 
 export const StyledPageWrapper = styled(StyledSiteWrapper)`
   ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
+  position: relative;
 `;

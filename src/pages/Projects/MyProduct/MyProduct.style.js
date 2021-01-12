@@ -26,6 +26,25 @@ export const StyledWrapper = styled.div`
   }
 `;
 
+export const StyledWrapper2 = styled.div`
+  display: flex;
+  position: relative;
+
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+
+  ${({ theme }) => theme.mq.middle} {
+    justify-content: space-between;
+    width: calc(48% + 45rem);
+    flex-wrap: nowrap;
+  }
+
+  ${({ theme }) => theme.mq.huge} {
+    width: 1187px;
+  }
+`;
+
 export const StyledBorder = styled.svg`
   position: absolute;
 
@@ -49,32 +68,15 @@ export const StyledBorder = styled.svg`
   }
 `;
 
-export const StyledWrapper2 = styled.div`
-  display: flex;
-  position: relative;
-
-  justify-content: center;
-  width: 100%;
-  flex-wrap: wrap;
-
-  ${({ theme }) => theme.mq.middle} {
-    justify-content: space-between;
-    width: calc(48% + 45rem);
-    flex-wrap: nowrap;
-  }
-
-  ${({ theme }) => theme.mq.huge} {
-    width: 1187px;
-  }
-`;
-
 export const StyledSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80%;
+  position: relative;
 
   a {
+    transform: scale(0.9);
     margin: 1rem 0;
     ${fadeInOrderEffect(7.5)}
   }
@@ -83,6 +85,7 @@ export const StyledSection = styled.div`
     content: '';
     z-index: -3;
     position: absolute;
+    left: 0;
     height: 90%;
     width: 45rem;
     background-color: white;
@@ -126,6 +129,7 @@ export const StyledDescription = styled.div`
   flex-direction: column;
   padding-left: 2rem;
   position: relative;
+  max-width: 100%;
 
   :before,
   :after {
@@ -213,7 +217,7 @@ export const StyledImage = styled(Image)`
     margin: 10% 0 4.5% 0;
   }
 
-  & > div {
+  img {
     ${fadeInOrderEffect(3)}
   }
 `;

@@ -9,8 +9,10 @@ import {
 } from './Timeline.animations';
 
 export const StyledWrapper = styled.div`
-  position: fixed;
   z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 0;
   display: flex;
   flex-direction: column;
 
@@ -32,7 +34,7 @@ export const StyledLine = styled.div`
   overflow: hidden;
 
   :before {
-    position: absolute;
+    display: block;
     content: '';
     width: 2rem;
     height: 0.2rem;
@@ -46,14 +48,14 @@ export const StyledLine = styled.div`
   }
 
   :after {
-    position: absolute;
+    display: block;
     ${({ active, text }) =>
       active &&
       css`
         content: '${text}';
       `}
 
-    padding-left: 5.3rem;
+    padding-left: 3.3rem;
     color: ${({ theme }) => theme.colors.red};
     font-weight: ${({ theme }) => theme.fonts.weight.bold};
 

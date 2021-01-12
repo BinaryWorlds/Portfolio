@@ -12,7 +12,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  ${({ animate }) => animate && shakeEffect(1)}
+  ${({ animate }) => animate && shakeEffect(1)};
   background: transparent;
   z-index: 2;
   position: absolute;

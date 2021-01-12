@@ -8,7 +8,7 @@ import {
 } from './Welcome.style';
 import Button1 from '../../components/Button1/Button1';
 import Game from '../../components/Game/Game';
-import image from '../../assets/images/avatar_demo.webp';
+import image from '../../assets/images/avatar_demo.png';
 import { useStore } from '../../globalState/store';
 import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
 

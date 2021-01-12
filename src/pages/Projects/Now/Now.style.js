@@ -7,6 +7,7 @@ export const StyledWrapper = styled.div`
   overflow: hidden;
   padding: 0 10%;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -22,7 +23,9 @@ export const StyledWrapper = styled.div`
 
 export const StyledTitle = styled.h1`
   position: relative;
+  width: 100%;
   top: 6%;
+  left: 0;
 
   display: flex;
   justify-content: center;
@@ -55,7 +58,7 @@ const backgroundStyle = css`
   width: 125vh;
   height: 50%;
   background-color: ${({ theme }) => theme.colors.orange};
-  border: 1px solid rgb(112, 112, 112, 0.5);
+  border: 1px solid rgba(112, 112, 112, 0.5);
 `;
 
 export const StyledImage = styled(Image)`

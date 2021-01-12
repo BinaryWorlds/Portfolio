@@ -35,14 +35,14 @@ const loadEffect = (orderNr) => {
     animation-delay: ${BASE_TIME * order}s;
     animation-fill-mode: both;
 
-    ::before {
+    :before {
       animation: ${loadWidth2} ${BASE_TIME}s ease-in-out;
       animation-delay: ${BASE_TIME * orderBefore}s;
       transform-origin: top right;
       animation-fill-mode: both;
     }
 
-    ::after {
+    :after {
       animation: ${loadOpacity} ${BASE_TIME}s ease-in-out;
       animation-delay: ${BASE_TIME * orderBefore}s;
       animation-fill-mode: both;

@@ -120,6 +120,7 @@ export const StyledButtonMore = styled.div`
 
 export const StyledSection = styled.div`
   display: flex;
+  width: 100%;
 
   ${({ theme }) => theme.mq.phone} {
     flex-direction: column;
@@ -130,7 +131,7 @@ export const StyledVisitButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22vw;
+  width: 27.5%;
 
   ${({ theme }) => theme.mq.phone} {
     width: unset;
@@ -141,7 +142,7 @@ export const StyledVisitButton = styled.div`
   }
 
   ${({ theme }) => theme.mq.middle} {
-    width: 17vw;
+    width: 21.25%;
   }
 
   ${({ theme }) => theme.mq.huge} {
@@ -161,6 +162,8 @@ export const StyledDescription = styled.div`
   :after {
     content: '';
     position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     transform-origin: center left;
@@ -172,6 +175,7 @@ export const StyledDescription = styled.div`
   }
 
   :after {
+    background: #fff;
     z-index: -2;
   }
 
@@ -180,10 +184,6 @@ export const StyledDescription = styled.div`
     margin-left: 4rem;
     margin-bottom: 2rem;
     font-size: ${({ theme }) => theme.fonts.size.s};
-  }
-
-  span :last-of-type {
-    margin-bottom: 0;
   }
 
   ${({ theme }) => theme.mq.phone} {

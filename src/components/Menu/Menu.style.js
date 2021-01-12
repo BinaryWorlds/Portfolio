@@ -35,6 +35,7 @@ export const StyledElement = styled.li`
   list-style: none;
   position: relative;
   top: -${hypotenuse}px;
+  left: 0;
   margin-bottom: 27px;
   width: 192px;
   height: ${hypotenuse}px;
@@ -42,18 +43,18 @@ export const StyledElement = styled.li`
   transform-origin: bottom left;
   background: ${({ theme }) => theme.colors.pink};
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  z-index: 98;
 
   ${({ active, last }) =>
     active &&
     css`
       :before {
+        z-index: -1;
+
         content: '';
         position: absolute;
-        right: 0px;
-        bottom: 9px;
+        right: 0;
+        top: 0;
         height: ${heightTrapeze}px;
         width: ${last ? 180 : 200 - opposite}px;
         background: ${({ theme }) => theme.colors.blue};
@@ -63,13 +64,11 @@ export const StyledElement = styled.li`
 
   :after {
     content: '${({ text }) => text}';
+    z-index: 97;
+
     position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding: 30px 0 0 95px;
+    left: 50%;
+    bottom: 35%;
     transform: rotate3d(0, 0, 1, -30deg);
   }
 
@@ -83,13 +82,14 @@ export const StyledElement = styled.li`
 
 export const StyledMenuButton = styled.button`
   background: transparent;
+  z-index: 100;
   cursor: pointer;
   outline: none;
   border: none;
   position: relative;
-  right: 10px;
-  bottom: 5px;
-  height: 70%;
+  left: 40%;
+  top: 20%;
+  height: 60%;
   width: 50%;
-  transform: rotate(-30deg) translateZ(1px);
+  transform: rotate(-30deg) translateZ(10px);
 `;

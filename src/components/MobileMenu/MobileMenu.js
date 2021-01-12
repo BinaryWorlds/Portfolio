@@ -7,7 +7,7 @@ import {
 } from './MobileMenu.style';
 import Hamburger from '../Hamburger/Hamburger';
 import ButtonLang from '../ButtonLang/ButtonLang';
-import logo from '../../assets/icons/logo.webp';
+import logo from '../../assets/icons/logo.png';
 import useMobileMenuLogic from './MobileMenu.logic';
 
 function MobileMenu({ goToPage }) {

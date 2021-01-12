@@ -1,9 +1,9 @@
 /* eslint-disable */
-import ball0 from './0.webp';
-import ball1 from './1.webp';
-import ball2 from './2.webp';
-import ball3 from './3.webp';
-import ball4 from './4.webp';
+import ball0 from './0.png';
+import ball1 from './1.png';
+import ball2 from './2.png';
+import ball3 from './3.png';
+import ball4 from './4.png';
 
 const ballList = [ball0, ball1, ball2, ball3, ball4];
 export const g = {
