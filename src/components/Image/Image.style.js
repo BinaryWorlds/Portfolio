@@ -10,7 +10,12 @@ export const StyledContainer = styled.div`
   padding-bottom: ${({ ratio }) => ratio}%;
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled.picture`
   width: 100%;
   position: absolute;
+
+  img {
+    width: 100%;
+    position: absolute;
+  }
 `;

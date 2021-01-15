@@ -8,7 +8,7 @@ import {
 } from './Welcome.style';
 import Button1 from '../../components/Button1/Button1';
 import Game from '../../components/Game/Game';
-import image from '../../assets/images/avatar_demo.png';
+import image from '../../assets/images/avatar_demo';
 import { useStore } from '../../globalState/store';
 import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
 
@@ -32,10 +32,8 @@ function Welcome() {
     <StyledWrapper id="0">
       <StyledHello>
         <StyledImage
-          src={image}
+          image={image}
           alt={isEn ? 'A picture of me. Hi!' : 'Cześć! To ja!'}
-          width={1080}
-          height={1350}
         />
         <StyledMeetMe>
           <StyledText>

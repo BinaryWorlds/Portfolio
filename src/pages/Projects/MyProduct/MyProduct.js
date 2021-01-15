@@ -12,7 +12,7 @@ import {
 import { title, description } from './MyProduct.text';
 import generateList from '../../../utils/generateSpanList';
 import Button2 from '../../../components/Button2/Button2';
-import image from '../../../assets/images/myProduct.png';
+import image from '../../../assets/images/myProduct';
 
 function MyProduct() {
   const { lang } = useLang();
@@ -34,10 +34,8 @@ function MyProduct() {
           <Button2 text="Live" link={myProductLink} />
         </StyledSection>
         <StyledImage
-          src={image}
+          image={image}
           alt={isPl ? 'Zegary Wspinaczkowe' : 'Climbing Timers'}
-          width={1072}
-          height={812}
         />
       </StyledWrapper2>
     </StyledWrapper>

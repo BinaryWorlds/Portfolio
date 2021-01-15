@@ -1,6 +1,6 @@
 import React from 'react';
 import useLang from '../../../hooks/useLang';
-import image from '../../../assets/images/mockup.png';
+import image from '../../../assets/images/mockup';
 import { description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
 import usePortfolioLogic from './Portfolio.logic';
@@ -21,10 +21,8 @@ function Portfolio() {
   return (
     <StyledWrapper id="3">
       <StyledImage
-        src={image}
+        image={image}
         alt={isEn ? 'Mockup from AdobeXd' : 'Mockup w AdobeXd'}
-        width={1460}
-        height={918}
       >
         <StyledTitle isEn={isEn} ref={titleRef} isWritten={isWritten} />
       </StyledImage>

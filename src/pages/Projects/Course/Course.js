@@ -14,7 +14,7 @@ import {
 } from './Course.style';
 import { title, description } from './Course.text';
 import generateList from '../../../utils/generateSpanList';
-import image from '../../../assets/images/coderscamp.png';
+import image from '../../../assets/images/coderscamp';
 import Button1 from '../../../components/Button1/Button1';
 import Button2 from '../../../components/Button2/Button2';
 
@@ -33,10 +33,8 @@ function Course() {
   return (
     <StyledWrapper id="4">
       <StyledImage
-        src={image}
+        image={image}
         alt={isPl ? 'CodersCamp banner' : 'CodersCamp baner'}
-        width={1200}
-        height={630}
       />
       <StyledTitleWrapper>
         <StyledTitle>{title[lang]}</StyledTitle>

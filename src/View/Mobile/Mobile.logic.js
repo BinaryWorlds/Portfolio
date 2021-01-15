@@ -33,7 +33,11 @@ export default function useMobileLogic() {
     hiddenNrs.current = { from: null, to: null };
   };
 
-  const loadMore = () => {
+  const loadMore = (loadAll) => {
+    if (loadAll) {
+      setLoadCounter(lastPage);
+      return;
+    }
     let newVal = passCounter.current + 1;
     if (newVal === 5) newVal = 8;
     setLoadCounter(newVal);

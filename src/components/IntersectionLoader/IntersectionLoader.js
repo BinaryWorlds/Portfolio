@@ -33,11 +33,16 @@ function IntersectionLoader({ loadMore }) {
   }
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(onChange, config);
-    observer.current.observe(loaderRef.current);
+    if ('IntersectionObserver' in window) {
+      observer.current = new IntersectionObserver(onChange, config);
+      observer.current.observe(loaderRef.current);
+    } else loadMore(true);
+
     return () => {
-      observer.current.disconnect();
-      clearTimeout(timerHide.current);
+      if ('IntersectionObserver' in window) {
+        observer.current.disconnect();
+        clearTimeout(timerHide.current);
+      }
     };
   }, []);
 

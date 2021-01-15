@@ -1,6 +1,6 @@
-import 'core-js';
-import 'raf/polyfill';
-import 'regenerator-runtime/runtime';
+import 'core-js'; // legacy
+import 'raf/polyfill'; // legacy
+import 'regenerator-runtime/runtime'; // legacy
 
 import React from 'react';
 import ReactDOM from 'react-dom';
