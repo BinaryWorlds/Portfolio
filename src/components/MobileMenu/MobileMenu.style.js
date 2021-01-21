@@ -1,16 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Image from '../Image/Image';
-
-const fadeIn = css`
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s linear 0s, opacity 500ms;
-`;
-const fadeOut = css`
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 500ms, opacity 500ms;
-`;
+import { visibleIn, visibleOut } from '../../animations/visible';
 
 export const StyledWrapper = styled.nav``;
 
@@ -25,7 +15,7 @@ export const StyledHamburger = styled.div`
   align-items: center;
 
   & > :not(:nth-child(3)) {
-    ${({ isOpen }) => (isOpen ? fadeIn : fadeOut)};
+    ${({ isOpen }) => (isOpen ? visibleIn : visibleOut)};
   }
 
   & :nth-child(2) {
@@ -71,7 +61,7 @@ export const StyledMenu = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${({ isOpen }) => (isOpen ? fadeIn : fadeOut)};
+  ${({ isOpen }) => (isOpen ? visibleIn : visibleOut)};
 `;
 
 export const StyledElement = styled.li`

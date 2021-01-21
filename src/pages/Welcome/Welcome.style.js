@@ -53,7 +53,6 @@ export const StyledHello = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin: auto 0;
   width: 100%;
   padding-top: 2%;
 

@@ -88,6 +88,6 @@
 
 5. Cut `service.worker files` and `modern`(old "static") folder from `App/modernApp` and paste it to `App/legacyApp`.
 6. Delete `App/modernApp` folder.
-7. Uglify `index.html` and all other edited files.
+7. Minify `index.html` and all other edited files.
 8. You can rename `legacyApp` to `build`, replace with orginal `build` folder and run localhost!
    **_Done!_**

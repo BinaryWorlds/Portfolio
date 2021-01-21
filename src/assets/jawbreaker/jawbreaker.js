@@ -311,12 +311,10 @@ function loadBalls() {
 }
 
 function mouseHandler(e) {
-  let mouseX = e.clientX - g.canvas.offsetLeft;
-  let mouseY = e.clientY - g.canvas.offsetTop;
-  if (g.canvas.offsetParent) {
-    mouseX -= g.canvas.offsetParent.offsetLeft;
-    mouseY -= g.canvas.offsetParent.offsetTop;
-  }
+  const { left, top } = g.canvas.getBoundingClientRect();
+  const mouseX = e.clientX - left;
+  const mouseY = e.clientY - top;
+
   if (mouseX < 0 || mouseY < 0 || mouseX > g.width || mouseY > g.height) return;
   let x = g.width / g.columnsInit;
   x = Math.floor(mouseX / x);
