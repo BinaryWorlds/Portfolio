@@ -13,10 +13,8 @@ import {
 } from './Portfolio.style';
 
 function Portfolio() {
-  const { lang } = useLang();
+  const { lang, isEn } = useLang();
   const { isWritten, titleRef } = usePortfolioLogic(lang);
-
-  const isEn = lang === 'en';
 
   return (
     <StyledWrapper id="3">

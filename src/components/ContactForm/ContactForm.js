@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStore } from '../../globalState/store';
+import useLang from '../../hooks/useLang';
 import {
   StyledForm,
   StyledTitle,
@@ -9,10 +9,7 @@ import {
 } from './ContactForm.style';
 
 function ContactForm({ addressTitle, onSubmit }) {
-  const {
-    state: { lang },
-  } = useStore();
-  const isPl = lang === 'pl';
+  const { isPl } = useLang();
 
   return (
     <StyledForm onSubmit={onSubmit}>

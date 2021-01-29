@@ -45,7 +45,9 @@ export function changeLang(lang) {
   g.lang = lang;
   if (g.ctx) ctxDraw();
 }
+
 export function newGame(rows, columns, colors, ballSize = 60) {
+  g.lastSelectedChain = [];
   g.score = 0;
   g.rowsInit = g.rows = rows;
   g.columnsInit = g.columns = columns;
@@ -251,6 +253,15 @@ export function calcBoardSize() {
   g.height = g.space + g.rows * (g.ballSize + g.space) + g.scoreHeight;
 }
 
+export function updateBallSize(size) {
+  if (size === g.ballSize) return;
+  g.ballSize = size;
+  calcBoardSize();
+  g.canvas.width = g.width;
+  g.canvas.height = g.height;
+  ctxDraw();
+}
+
 function initCanvas() {
   calcBoardSize();
   // g.canvas = document.getElementById("gameArea");
@@ -428,6 +439,5 @@ function checkItIsOver() {
 }
 
 export function resetGame() {
-  g.lastSelectedChain = [];
   newGame(g.rowsInit, g.columnsInit, g.colorsInit, g.ballSize);
 }

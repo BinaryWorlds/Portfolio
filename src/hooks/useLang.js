@@ -5,7 +5,10 @@ function useLang() {
     state: { lang },
   } = useStore();
 
-  return { lang };
+  const isPl = lang === 'pl';
+  const isEn = lang === 'en';
+
+  return { lang, isPl, isEn };
 }
 
 export default useLang;

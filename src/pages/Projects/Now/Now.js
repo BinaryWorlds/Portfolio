@@ -11,8 +11,7 @@ import {
 } from './Now.style';
 
 function Now() {
-  const { lang } = useLang();
-  const isPl = lang === 'pl';
+  const { lang, isPl } = useLang();
 
   return (
     <StyledWrapper id="2">

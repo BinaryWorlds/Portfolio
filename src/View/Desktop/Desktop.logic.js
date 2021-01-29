@@ -99,6 +99,10 @@ export default function useDesktopLogic() {
   };
 
   useEffect(() => {
+    const root = document.getElementById('root');
+    root.style.display = 'flex';
+    root.style.justifyContent = 'center';
+
     window.addEventListener('keyup', handleKey);
     window.addEventListener('touchstart', handleTouchStart);
     window.addEventListener('touchmove', handleTouchMove);
@@ -107,6 +111,7 @@ export default function useDesktopLogic() {
       window.removeEventListener('keyup', handleKey);
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
+      root.style.display = 'unset';
     };
   }, [pageId]);
 

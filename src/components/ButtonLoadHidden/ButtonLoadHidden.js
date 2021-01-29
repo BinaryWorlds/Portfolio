@@ -1,13 +1,9 @@
 import React from 'react';
 import { StyledButton } from './ButtonLoadHidden.style.';
-import { useStore } from '../../globalState/store';
+import useLang from '../../hooks/useLang';
 
 function ButtonLoadHidden({ onClick }) {
-  const {
-    state: { lang },
-  } = useStore();
-
-  const isPl = lang === 'pl';
+  const { isPl } = useLang();
 
   return (
     <StyledButton id="buttonLoadMore" onClick={onClick}>

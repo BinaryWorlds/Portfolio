@@ -1,108 +1,80 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useStore } from '../../globalState/store';
+import useLang from '../../hooks/useLang';
 import CanvasArea from './CanvasArea';
-import ButtonFullScreen from '../ButtonFullScreen/ButtonFullScreen';
-import {
-  StyledWrapper,
-  StyledSection,
-  StyledButtonSettings,
-  StyledButtonPlay,
-  StyledSettings,
-} from './Game.style';
+import Settings from './Settings';
+import ButtonsSection from './ButtonsSection';
+
+import { StyledWrapper } from './Game.style';
+
 import {
   changeLang,
   newGame,
   resetGame,
   startSymulate,
   stopSymulate,
+  updateBallSize,
+  g,
 } from '../../assets/jawbreaker/jawbreaker';
+
 import { openFullScreen, closeFullScreen } from '../../utils/fullScreen';
 
 function Game() {
+  const { lang, isPl } = useLang();
+
   const [gameMode, setGameMode] = useState(false);
-  const [gameSize, setGameSize] = useState(null);
-  const [animateButton, setAnimateButton] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isSettingsActive, setIsSettingsActive] = useState(false);
-
-  const [sectionPosition, setSectionPosition] = useState({
-    goTop: null,
-    goRight: null,
-  });
-
-  const [canvasPosition, setCanvasPosition] = useState({
-    goTop: null,
-    goLeft: null,
-  });
-
-  const {
-    state: { lang },
-  } = useStore();
-
-  const isPl = lang === 'pl';
-
-  const sectionRef = useRef();
-  const canvasRef = useRef(null);
-
-  const getRef = (ref) => (canvasRef.current = ref.current);
-
-  const calcSectionPosition = () => {
-    if (!sectionRef.current) return;
-    const { offsetTop, offsetLeft, clientWidth } = sectionRef.current;
-    const { innerWidth } = window;
-
-    const goTop = (offsetTop - 20) * -1;
-    const goRight = innerWidth - offsetLeft - clientWidth - 20;
-    setSectionPosition({ goTop, goRight });
-  };
-
-  const calcCanvasPosition = () => {
-    if (!canvasRef.current) return;
-    const {
-      offsetTop,
-      offsetLeft,
-      clientWidth,
-      clientHeight,
-    } = canvasRef.current;
-    const { innerWidth, innerHeight } = window;
-
-    const goTop = (innerHeight - clientHeight) / 2 - offsetTop;
-    const goLeft = (innerWidth - clientWidth) / 2 - offsetLeft;
-    setCanvasPosition({ goTop, goLeft });
-  };
+  const [animateButton, setAnimateButton] = useState(false);
 
   const checkGameSize = () => {
     const width = window.innerWidth;
-    if (width > 2000) setGameSize(2);
-    else if (width > 1300) setGameSize(1);
-    else setGameSize(0);
+    if (width > 2000) return 2;
+    if (width > 1300) return 1;
+    return 0;
   };
 
-  const initGame = (size) => {
+  const [gameSize, setGameSize] = useState(checkGameSize);
+  const updateGameSize = () => setGameSize(checkGameSize);
+
+  const handleAnimate = () => {
+    if (animateButton || gameMode) return;
+    setAnimateButton(true);
+  };
+
+  const canvasSetPositionRef = useRef(null);
+  const sectionSetPositionRef = useRef(null);
+
+  const getRefC = (ref) => (canvasSetPositionRef.current = ref);
+  const getRefS = (ref) => (sectionSetPositionRef.current = ref);
+
+  const setPositions = () => {
+    if (canvasSetPositionRef.current) canvasSetPositionRef.current();
+    if (sectionSetPositionRef.current) sectionSetPositionRef.current();
+  };
+
+  const getParams = (size) => {
+    const ball = size === 2 ? 60 : 40;
+    const r = size !== 0 ? 12 : 9;
+    const c = size !== 0 ? 15 : 12;
+    return [r, c, 5, ball];
+  };
+
+  const checkIsDifferent = (r, c, k) =>
+    r !== g.rowsInit || c !== g.columnsInit || k !== g.colorsInit;
+
+  const initGame = (size = 0, mode = false) => {
+    const [r, c, k, s] = getParams(size);
+    const check = checkIsDifferent(r, c, k);
+    if (!check) {
+      updateBallSize(s);
+      return;
+    }
     stopSymulate();
-    if (size === 2) newGame(12, 15, 5, 60);
-    else if (size === 1) newGame(12, 15, 5, 40);
-    else newGame(9, 12, 5, 40);
+    newGame(r, c, k, s);
+    if (!mode) startSymulate();
   };
 
-  useEffect(() => {
-    changeLang(lang);
-  }, [lang]);
-
-  useEffect(() => {
-    checkGameSize();
-    window.addEventListener('resize', checkGameSize);
-    return () => window.removeEventListener('resize', checkGameSize);
-  }, []);
-
-  useEffect(() => {
-    initGame(gameSize);
-    if (!gameMode) startSymulate();
-    calcCanvasPosition();
-    calcSectionPosition();
-
-    return () => stopSymulate();
-  }, [gameSize]);
+  const onSettingsClick = () => setIsSettingsActive(!isSettingsActive);
 
   const onPlayClick = () => {
     if (gameMode === false) stopSymulate();
@@ -110,67 +82,62 @@ function Game() {
     setGameMode(true);
   };
 
-  const handleAnimateButton = () => {
-    if (animateButton || gameMode) return;
-    setAnimateButton(true);
-  };
-
   const onFullScreenClick = () => {
     setIsFullScreen(!isFullScreen);
     if (isFullScreen) {
-      closeFullScreen();
       setIsSettingsActive(false);
-      return;
-    }
-    openFullScreen();
-    calcCanvasPosition();
-    calcSectionPosition();
+      initGame(gameSize, gameMode);
+      closeFullScreen();
+    } else openFullScreen();
   };
 
   useEffect(() => {
-    window.addEventListener('resize', calcCanvasPosition);
-    window.addEventListener('resize', calcSectionPosition);
+    changeLang(lang);
+  }, [lang]);
+
+  useEffect(() => {
+    if (isFullScreen) return;
+    initGame(gameSize, gameMode);
+  }, [gameSize]);
+
+  useEffect(() => {
+    window.addEventListener('resize', updateGameSize);
+    window.addEventListener('resize', setPositions);
     return () => {
-      window.removeEventListener('resize', calcCanvasPosition);
-      window.removeEventListener('resize', calcSectionPosition);
+      window.removeEventListener('resize', updateGameSize);
+      window.removeEventListener('resize', setPositions);
+      stopSymulate();
+      g.columnsInit = 0;
     };
   }, []);
 
-  const onSettingsClick = () => setIsSettingsActive(!isSettingsActive);
-
-  const playTxt = isPl ? 'Zagraj!' : 'Play!';
-
   return (
     <StyledWrapper isFullScreen={isFullScreen}>
-      <StyledSettings isActive={isSettingsActive} />
-      <StyledSection
-        ref={sectionRef}
-        position={sectionPosition}
-        isFullScreen={isFullScreen}
-      >
-        <StyledButtonSettings
-          onClick={onSettingsClick}
-          isFullScreen={isFullScreen}
-        >
-          {isPl ? 'Ustawienia' : 'Settings'}
-        </StyledButtonSettings>
-        <StyledButtonPlay
-          onClick={onPlayClick}
-          animate={animateButton}
-          onAnimationEnd={() => setAnimateButton(false)}
-        >
-          {gameMode ? 'Reset!' : playTxt}
-        </StyledButtonPlay>
-        <ButtonFullScreen
-          onClick={onFullScreenClick}
-          isFullScreen={isFullScreen}
+      {isFullScreen && (
+        <Settings
+          isActive={isSettingsActive}
+          isPl={isPl}
+          gameMode={gameMode}
+          gameSize={gameSize}
+          getParams={getParams}
+          setPositions={setPositions}
         />
-      </StyledSection>
-      <CanvasArea
-        handleAnimateButton={handleAnimateButton}
-        getRef={getRef}
-        position={canvasPosition}
+      )}
+      <ButtonsSection
+        gameMode={gameMode}
+        isPl={isPl}
+        animateButton={animateButton}
         isFullScreen={isFullScreen}
+        setAnimateButton={setAnimateButton}
+        onFullScreenClick={onFullScreenClick}
+        onSettingsClick={onSettingsClick}
+        onPlayClick={onPlayClick}
+        getRefS={getRefS}
+      />
+      <CanvasArea
+        handleAnimate={handleAnimate}
+        isFullScreen={isFullScreen}
+        getRefC={getRefC}
       />
     </StyledWrapper>
   );

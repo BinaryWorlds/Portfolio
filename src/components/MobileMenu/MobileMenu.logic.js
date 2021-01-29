@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useStore } from '../../globalState/store';
+import useLang from '../../hooks/useLang';
 import { StyledElement, StyledMenuButton } from './MobileMenu.style';
 
 const menuSections = [
@@ -13,9 +13,7 @@ const menuSections = [
 ];
 
 export default function useMobileMenuLogic(goToPage) {
-  const {
-    state: { lang },
-  } = useStore();
+  const { lang } = useLang();
 
   const [isOpen, isMenuOpen] = useState(false);
 

@@ -1,8 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const boxSize = 3.6;
-const fragmentSize = Math.floor(boxSize * 3.7) / 10;
-const borderWidth = Math.floor(fragmentSize * 3.2) / 10;
+const sizeNormal = 3.6;
+const sizeHuge = 5;
+
+const calcElement = (boxSize) => {
+  const fragmentSize = Math.floor(boxSize * 3.7) / 10;
+  const borderWidth = Math.floor(fragmentSize * 3.2) / 10;
+
+  return css`
+    width: ${fragmentSize}rem;
+    height: ${fragmentSize}rem;
+    border-left: ${borderWidth}rem solid rgb(112, 112, 112);
+    border-top: ${borderWidth}rem solid rgb(112, 112, 112);
+  `;
+};
 
 export const StyledButton = styled.button`
   position: relative;
@@ -10,8 +21,14 @@ export const StyledButton = styled.button`
   cursor: pointer;
   outline: none;
   border: none;
-  width: ${boxSize}rem;
-  height: ${boxSize}rem;
+  width: ${sizeNormal}rem;
+  height: ${sizeNormal}rem;
+
+  ${({ theme }) => theme.mq.huge} {
+    width: ${sizeHuge}rem;
+    height: ${sizeHuge}rem;
+  }
+
   :hover,
   :focus-visible {
     transform: scale(0.9);
@@ -20,10 +37,12 @@ export const StyledButton = styled.button`
 
 export const StyledFragment = styled.div`
   position: absolute;
-  width: ${fragmentSize}rem;
-  height: ${fragmentSize}rem;
-  border-left: ${borderWidth}rem solid rgb(112, 112, 112);
-  border-top: ${borderWidth}rem solid rgb(112, 112, 112);
+  ${calcElement(sizeNormal)}
+
+  ${({ theme }) => theme.mq.huge} {
+    ${calcElement(sizeHuge)}
+  }
+
   transition: transform 0.5s ease-in-out;
   transition-delay: 0.55s;
   ${({ index }) => (index < 2 ? `top: 0;` : `bottom: 0;`)};

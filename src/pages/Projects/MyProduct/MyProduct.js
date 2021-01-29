@@ -15,9 +15,8 @@ import Button2 from '../../../components/Button2/Button2';
 import image from '../../../assets/images/myProduct';
 
 function MyProduct() {
-  const { lang } = useLang();
+  const { lang, isPl } = useLang();
 
-  const isPl = lang === 'pl';
   const myProductLink = 'https://climbingtimers.com/';
 
   return (
