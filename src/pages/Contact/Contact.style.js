@@ -46,7 +46,7 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledSection = styled.div`
+export const StyledSection = styled.main`
   position: relative;
   margin-right: 2rem;
 

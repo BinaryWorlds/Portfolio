@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from '../../../globalState/store';
-import { SET_PAGE } from '../../../globalState/actionTypes';
+// import { SET_PAGE } from '../../../globalState/actionTypes';
 
 import {
   StyledWrapper,
@@ -20,13 +20,12 @@ import Button2 from '../../../components/Button2/Button2';
 
 function Course() {
   const {
-    state: { isMobile, lang },
-    dispatch,
+    state: { lang },
   } = useStore();
   const isPl = lang === 'pl';
 
   const handleClickMore = () => {
-    if (!isMobile) dispatch({ type: SET_PAGE, payload: 5 });
+    // if (!isMobile) dispatch({ type: SET_PAGE, payload: 5 });
   };
   const courseLink = 'https://coderscamp.edu.pl/';
 

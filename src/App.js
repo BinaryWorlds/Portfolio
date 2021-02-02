@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useEffect } from 'react';
 import Mobile from './View/Mobile/Mobile';
 import useView from './hooks/useView';
 import Suspense from './components/Suspense/Suspense';
@@ -21,6 +21,14 @@ function App() {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    alert(
+      'Page in build! \nStrona w budowie!' +
+        '\n\nI use cookies and other tracking technologies to improve your browsing experience on my site!' +
+        '\nUżywam plików cookies i innych technologii śledzących.',
+    );
   }, []);
 
   const getApp = (view) => {

@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "core-js": "^3.8.2",
+    "formik": "^2.2.6",
     "raf": "^3.4.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -26,7 +27,8 @@
     "workbox-range-requests": "^5.1.4",
     "workbox-routing": "^5.1.4",
     "workbox-strategies": "^5.1.4",
-    "workbox-streams": "^5.1.4"
+    "workbox-streams": "^5.1.4",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,7 +41,7 @@
   },
   "browserslist": {
     "production": [ "Chrome >= 60", "Safari >= 10.1", "iOS >= 10.3", "Firefox >= 54", "Edge >= 15" ],
-    "development": [
+        "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version",

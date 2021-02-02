@@ -18,7 +18,6 @@ import githubIcon from '../../assets/icons/github.png';
 function Contact() {
   const { lang } = useLang();
 
-  const handleSubmit = (e) => e.preventDefault();
   const fbProfile = 'https://m.me/dawid.szymkowiak.10';
   const mailToMe = 'mailto:szymkowiak.dawid93@gmail.com';
   const ghProfile = 'https://github.com/BinaryWorlds';
@@ -67,7 +66,7 @@ function Contact() {
           </StyledButtons>
         </StyledLeft>
       </StyledSection>
-      <ContactForm onSubmit={handleSubmit} addressTitle={addressTitle} />
+      <ContactForm addressTitle={addressTitle} />
     </StyledWrapper>
   );
 }

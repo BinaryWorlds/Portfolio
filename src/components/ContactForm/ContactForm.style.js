@@ -8,6 +8,13 @@ const commonStyles = css`
   outline: none;
   resize: none;
   margin-top: 2.3rem;
+  width: 100%;
+
+  ${({ error }) =>
+    error &&
+    css`
+      border-color: red;
+    `}
 `;
 
 export const StyledForm = styled.form`
@@ -33,9 +40,33 @@ export const StyledTitle = styled.div`
   }
 `;
 
+export const StyledLabel = styled.label`
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  #label {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+`;
+
 export const StyledInput = styled.input`
   ${commonStyles};
   padding-left: 1.8rem;
+`;
+
+export const StyledError = styled.span`
+  position: absolute;
+  bottom: 0;
+  left: 22%;
+  transform: translateY(100%);
+  color: red;
 `;
 
 export const StyledArea = styled.textarea`

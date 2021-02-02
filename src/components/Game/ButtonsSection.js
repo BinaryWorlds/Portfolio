@@ -32,7 +32,10 @@ function ButtonsSection({
     const { innerWidth } = window;
 
     const goTop = (offsetTop - 20) * -1;
-    const goRight = innerWidth - offsetLeft - clientWidth - 20;
+    let goRight = innerWidth - offsetLeft - clientWidth - 20;
+    const leftMargin = Math.floor((innerWidth - 2560) / 2);
+    if (leftMargin > 0) goRight -= leftMargin;
+
     setSectionPosition({ goTop, goRight });
   };
 

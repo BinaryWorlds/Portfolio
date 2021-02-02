@@ -19,11 +19,11 @@
 # Combine both app without ejecting:
 
 1. Add `/App/` to `.eslintignore`
-2. Search in `App/legacyApp/build` and replace all:
+2. Search(with match case) in `App/legacyApp/build` and replace all:
    `static/` to `legacy/`
    `service-worker` to `legacy-worker`
 
-   Rename `build` folder to `legacy` and `service-worker` to `legacy-worker` (both js and map.js)
+   Rename `static` folder to `legacy` and `service-worker` to `legacy-worker` (both js and map.js)
 
 3. Repeat point "2" for `modern` app.
 
