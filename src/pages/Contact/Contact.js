@@ -23,7 +23,7 @@ function Contact() {
   const ghProfile = 'https://github.com/BinaryWorlds';
   const addressTitle = (
     <>
-      To: <span>szymkowiak.dawid93[at]gmail.com</span>
+      To: <span>contact [at] dev - is.me</span>
     </>
   );
 

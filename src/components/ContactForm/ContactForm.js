@@ -1,31 +1,80 @@
-import React from 'react';
+/* eslint no-use-before-define: ["error", { "variables": false }] */
+import React, { useState, createRef } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import useLang from '../../hooks/useLang';
+import fetch from 'node-fetch';
+import ReCAPTCHA from 'react-google-recaptcha';
 
+import useLang from '../../hooks/useLang';
 import { StyledForm, StyledTitle, StyledButton } from './ContactForm.style';
 import Label from './Label';
-import { errors } from './ContactForm.text';
+import { errors, texts } from './ContactForm.text';
+
+const SITE_KEY = process.env.REACT_APP_SITE_KEY;
+const apiUrl = process.env.REACT_APP_API_URL;
+
+const steps = ['send', 'sending', 'ok', 'error'];
 
 function ContactForm({ addressTitle }) {
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const [token, setToken] = useState(null);
+  const [step, setStep] = useState(0);
+
   const { lang, isPl } = useLang();
+
+  const recaptchaRef = createRef();
 
   const requiredTxt = errors.required[lang];
   const mailTxt = errors.mail[lang];
+  const tooLongTxt = errors.tooLong[lang];
 
   const initialValues = {
     name: '',
     email: '',
-    content: '',
+    message: '',
   };
 
   const validationSchema = yup.object().shape({
-    name: yup.string().required(requiredTxt),
-    email: yup.string().email(mailTxt).required(requiredTxt),
-    content: yup.string().required(requiredTxt),
+    name: yup.string().required(requiredTxt).max(16, tooLongTxt),
+    email: yup
+      .string()
+      .email(mailTxt)
+      .required(requiredTxt)
+      .max(254, tooLongTxt),
+    message: yup.string().required(requiredTxt).max(1024, tooLongTxt),
   });
 
-  const onSubmit = (values) => alert(JSON.stringify(values, null, 2));
+  const onSubmit = (values) => {
+    if (step === 1) return;
+    if (!token) {
+      setShowCaptcha(true);
+      return;
+    }
+    setToken(null);
+    setStep(1);
+
+    const data = {
+      service_id: 'devisme',
+      template_id: 'devisme',
+      user_id: process.env.REACT_APP_USER_ID,
+      template_params: { ...values, 'g-recaptcha-response': token },
+    };
+
+    fetch(apiUrl, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (res.ok) {
+          setStep(2);
+          formik.resetForm();
+        } else setStep(3);
+      })
+      .catch(() => setStep(3));
+  };
 
   const formik = useFormik({
     initialValues,
@@ -33,9 +82,17 @@ function ContactForm({ addressTitle }) {
     onSubmit,
   });
 
+  const updateToken = (value) => {
+    if (value) {
+      formik.handleSubmit();
+      setShowCaptcha(false);
+    }
+    setToken(value);
+  };
+
   return (
-    <StyledForm onSubmit={formik.handleSubmit}>
-      <StyledTitle>{addressTitle}</StyledTitle>
+    <StyledForm onSubmit={formik.handleSubmit} show={showCaptcha}>
+      <StyledTitle id="title">{addressTitle}</StyledTitle>
       <Label
         tag="input"
         type="text"
@@ -53,11 +110,22 @@ function ContactForm({ addressTitle }) {
       <Label
         tag="textarea"
         type="textarea"
-        name="content"
+        name="message"
         placeholder={isPl ? 'Wiadomość' : 'Messange'}
         formik={formik}
       />
-      <StyledButton type="submit">{isPl ? 'Wyślij' : 'Send'}</StyledButton>
+      <StyledButton show={!showCaptcha} type="submit">
+        {texts[steps[step]][lang]}
+      </StyledButton>
+      {showCaptcha && (
+        <ReCAPTCHA
+          id="captcha"
+          ref={recaptchaRef}
+          sitekey={SITE_KEY}
+          onChange={updateToken}
+          size="normal"
+        />
+      )}
     </StyledForm>
   );
 }

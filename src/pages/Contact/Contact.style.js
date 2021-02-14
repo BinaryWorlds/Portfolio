@@ -10,7 +10,7 @@ export const StyledWrapper = styled.div`
 
   form {
     align-self: flex-end;
-    width: 45%;
+    width: 32rem;
   }
 
   ${({ theme }) => theme.mq.phone} {
@@ -25,7 +25,7 @@ export const StyledWrapper = styled.div`
       max-width: 35rem;
       align-self: unset;
 
-      div {
+      #title {
         display: none;
       }
     }
@@ -33,7 +33,7 @@ export const StyledWrapper = styled.div`
 
   ${({ theme }) => theme.mq.middle} {
     form {
-      width: auto;
+      width: 40rem;
     }
   }
 

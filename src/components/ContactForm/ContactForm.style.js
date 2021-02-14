@@ -21,6 +21,16 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 50.6rem;
+  position: relative;
+
+  #captcha {
+    display: ${({ show }) => (show ? 'unset' : 'none')};
+    padding-top: 2rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 1rem);
+  }
 `;
 
 export const StyledTitle = styled.div`
@@ -62,11 +72,14 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledError = styled.span`
+  color: red;
   position: absolute;
   bottom: 0;
   left: 22%;
   transform: translateY(100%);
-  color: red;
+  ${({ theme }) => theme.mq.phone} {
+    left: 10%;
+  }
 `;
 
 export const StyledArea = styled.textarea`
@@ -78,6 +91,7 @@ export const StyledArea = styled.textarea`
 `;
 
 export const StyledButton = styled.button`
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
   ${commonStyles};
   height: 5.6rem;
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
