@@ -31,6 +31,9 @@ export const StyledForm = styled.form`
     bottom: 0;
     transform: translate(-50%, 1rem);
   }
+  ${({ theme }) => theme.mq.phone} {
+    margin-bottom: 7rem;
+  }
 `;
 
 export const StyledTitle = styled.div`
@@ -55,15 +58,18 @@ export const StyledLabel = styled.label`
   position: relative;
   top: 0;
   left: 0;
-
-  #label {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-  }
+  ${({ showLabel }) =>
+    !showLabel &&
+    css`
+      #label {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+      }
+    `}
 `;
 
 export const StyledInput = styled.input`
@@ -108,4 +114,19 @@ export const StyledButton = styled.button`
       color: white;
     }
   }
+`;
+
+export const StyledConfirm = styled.label`
+  width: 100%;
+  position: absolute;
+  bottom: -6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StyledCheckbox = styled.input`
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 1rem;
 `;

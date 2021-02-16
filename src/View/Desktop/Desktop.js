@@ -5,6 +5,7 @@ import Timeline from '../../components/Timeline/Timeline';
 import { StyledSiteWrapper, StyledPageWrapper } from './Desktop.style';
 import pageStructure from '../../pages/pageStructure';
 import useDesktopLogic from './Desktop.logic';
+import CookiesInfo from '../../components/CookiesInfo/CookiesInfo';
 
 function Desktop() {
   const {
@@ -22,6 +23,7 @@ function Desktop() {
         <Timeline pageId={pageId} section={section} />
         <StyledPageWrapper onWheel={handleWheel} onAnimationEnd={setUnmounted}>
           {page}
+          <CookiesInfo />
         </StyledPageWrapper>
       </StyledSiteWrapper>
     </Layout>

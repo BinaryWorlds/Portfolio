@@ -30,4 +30,11 @@ export const texts = {
     pl: `Wystąpił błąd`,
     en: 'An error occured',
   },
+  confirm: {
+    pl: ['Przeczytałem i akceptuję ', 'politykę prywatności'],
+    en: [
+      'By checking this box, you confirm that you have read and accept the ',
+      'Privacy Policy',
+    ],
+  },
 };

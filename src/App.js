@@ -24,11 +24,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    alert(
-      'Page in build! \nStrona w budowie!' +
-        '\n\nI use cookies and other tracking technologies to improve your browsing experience on my site!' +
-        '\nUżywam plików cookies i innych technologii śledzących.',
-    );
+    alert('Page in build! \nStrona w budowie!');
   }, []);
 
   const getApp = (view) => {

@@ -8,6 +8,8 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import useLang from '../../hooks/useLang';
 import { StyledForm, StyledTitle, StyledButton } from './ContactForm.style';
 import Label from './Label';
+import Checkbox from './Checkbox';
+
 import { errors, texts } from './ContactForm.text';
 
 const SITE_KEY = process.env.REACT_APP_SITE_KEY;
@@ -32,6 +34,7 @@ function ContactForm({ addressTitle }) {
     name: '',
     email: '',
     message: '',
+    acceptTerms: false,
   };
 
   const validationSchema = yup.object().shape({
@@ -42,6 +45,7 @@ function ContactForm({ addressTitle }) {
       .required(requiredTxt)
       .max(254, tooLongTxt),
     message: yup.string().required(requiredTxt).max(1024, tooLongTxt),
+    acceptTerms: yup.boolean().required(requiredTxt).oneOf([true], requiredTxt),
   });
 
   const onSubmit = (values) => {
@@ -126,6 +130,7 @@ function ContactForm({ addressTitle }) {
           size="normal"
         />
       )}
+      <Checkbox name="acceptTerms" formik={formik} text={texts.confirm[lang]} />
     </StyledForm>
   );
 }
