@@ -13,8 +13,11 @@ import { title, description } from './MyProduct.text';
 import generateList from '../../../utils/generateSpanList';
 import Button2 from '../../../components/Button2/Button2';
 import image from '../../../assets/images/myProduct';
+import useGA from '../../../hooks/useGA';
 
 function MyProduct() {
+  useGA('MyProduct');
+
   const { lang, isPl } = useLang();
 
   const myProductLink = 'https://climbingtimers.com/';

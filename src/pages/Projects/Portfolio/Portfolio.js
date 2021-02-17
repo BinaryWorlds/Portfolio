@@ -11,8 +11,11 @@ import {
   StyledDescription,
   StyledBackground,
 } from './Portfolio.style';
+import useGA from '../../../hooks/useGA';
 
 function Portfolio() {
+  useGA('Portfolio');
+
   const { lang, isEn } = useLang();
   const { isWritten, titleRef } = usePortfolioLogic(lang);
 

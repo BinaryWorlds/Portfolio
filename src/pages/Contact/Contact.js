@@ -14,8 +14,11 @@ import ButtonIcon from '../../components/ButtonIcon/ButtonIcon';
 import messengerIcon from '../../assets/icons/messenger.png';
 import emailIcon from '../../assets/icons/email.png';
 import githubIcon from '../../assets/icons/github.png';
+import useGA from '../../hooks/useGA';
 
 function Contact() {
+  useGA('Contact');
+
   const { lang } = useLang();
 
   const fbProfile = 'https://m.me/dawid.szymkowiak.10';

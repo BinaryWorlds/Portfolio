@@ -15,8 +15,11 @@ import {
   backendTxt,
   designTxt,
 } from './AboutMe.text';
+import useGA from '../../hooks/useGA';
 
 function AboutMe() {
+  useGA('AboutMe');
+
   const { lang } = useLang();
 
   return (

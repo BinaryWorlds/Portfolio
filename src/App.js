@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useEffect } from 'react';
+import ReactGA from 'react-ga';
 import Mobile from './View/Mobile/Mobile';
 import useView from './hooks/useView';
 import Suspense from './components/Suspense/Suspense';
@@ -20,6 +21,7 @@ function App() {
   useLayoutEffect(() => {
     handleResize();
     window.addEventListener('resize', handleResize);
+    ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

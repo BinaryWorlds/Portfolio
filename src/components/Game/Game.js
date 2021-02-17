@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import ReactGA from 'react-ga';
 import useLang from '../../hooks/useLang';
 import CanvasArea from './CanvasArea';
 import Settings from './Settings';
@@ -77,7 +78,13 @@ function Game() {
   const onSettingsClick = () => setIsSettingsActive(!isSettingsActive);
 
   const onPlayClick = () => {
-    if (gameMode === false) stopSymulate();
+    if (gameMode === false) {
+      stopSymulate();
+      ReactGA.event({
+        category: 'Game',
+        action: 'Start game!',
+      });
+    }
     resetGame();
     setGameMode(true);
   };

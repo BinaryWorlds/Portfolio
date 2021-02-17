@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import fetch from 'node-fetch';
 import ReCAPTCHA from 'react-google-recaptcha';
+import ReactGA from 'react-ga';
 
 import useLang from '../../hooks/useLang';
 import { StyledForm, StyledTitle, StyledButton } from './ContactForm.style';
@@ -56,6 +57,11 @@ function ContactForm({ addressTitle }) {
     }
     setToken(null);
     setStep(1);
+
+    ReactGA.event({
+      category: 'contact',
+      action: 'Mail request',
+    });
 
     const data = {
       service_id: 'devisme',

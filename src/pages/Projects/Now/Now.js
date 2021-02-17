@@ -9,8 +9,11 @@ import {
   StyledTitle,
   StyledWrapper,
 } from './Now.style';
+import useGA from '../../../hooks/useGA';
 
 function Now() {
+  useGA('Now');
+
   const { lang, isPl } = useLang();
 
   return (

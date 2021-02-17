@@ -11,8 +11,10 @@ import Game from '../../components/Game/Game';
 import image from '../../assets/images/avatar_demo';
 import { useStore } from '../../globalState/store';
 import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
+import useGA from '../../hooks/useGA';
 
 function Welcome() {
+  useGA('Welcome');
   const {
     state: { animateMeetMe, lang, isMobile },
     dispatch,
