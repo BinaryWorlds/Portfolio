@@ -2,12 +2,18 @@
 import React, { useState, createRef } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import fetch from 'node-fetch';
+import fetch from 'cross-fetch';
 import ReCAPTCHA from 'react-google-recaptcha';
 import ReactGA from 'react-ga';
 
+import useHint from '../../hooks/useHint';
 import useLang from '../../hooks/useLang';
-import { StyledForm, StyledTitle, StyledButton } from './ContactForm.style';
+import {
+  StyledForm,
+  StyledTitle,
+  StyledButton,
+  StyledHint,
+} from './ContactForm.style';
 import Label from './Label';
 import Checkbox from './Checkbox';
 
@@ -19,6 +25,8 @@ const apiUrl = process.env.REACT_APP_API_URL;
 const steps = ['send', 'sending', 'ok', 'error'];
 
 function ContactForm({ addressTitle }) {
+  const { isHintShow, handleHint } = useHint(1);
+
   const [showCaptcha, setShowCaptcha] = useState(false);
   const [token, setToken] = useState(null);
   const [step, setStep] = useState(0);
@@ -48,6 +56,11 @@ function ContactForm({ addressTitle }) {
     message: yup.string().required(requiredTxt).max(1024, tooLongTxt),
     acceptTerms: yup.boolean().required(requiredTxt).oneOf([true], requiredTxt),
   });
+
+  const handleError = () => {
+    setStep(3);
+    handleHint();
+  };
 
   const onSubmit = (values) => {
     if (step === 1) return;
@@ -81,9 +94,9 @@ function ContactForm({ addressTitle }) {
         if (res.ok) {
           setStep(2);
           formik.resetForm();
-        } else setStep(3);
+        } else handleError();
       })
-      .catch(() => setStep(3));
+      .catch(() => handleError());
   };
 
   const formik = useFormik({
@@ -137,6 +150,7 @@ function ContactForm({ addressTitle }) {
         />
       )}
       <Checkbox name="acceptTerms" formik={formik} text={texts.confirm[lang]} />
+      <StyledHint isHintShow={isHintShow}>{texts.hint[lang]}</StyledHint>
     </StyledForm>
   );
 }

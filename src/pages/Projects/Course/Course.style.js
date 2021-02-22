@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import fadeIn from '../../../animations/fadeIn';
 import slideXEffect from '../../../animations/slideXEffect';
 import slideYEffect from '../../../animations/slideYEffect';
+import { StyledHint as Hint } from '../../../hooks/useHint';
 
 import { borderEffect } from './Course.animations';
 import Image from '../../../components/Image/Image';
@@ -112,6 +113,7 @@ export const StyledTitle = styled.h1`
 export const StyledButtonMore = styled.div`
   margin-top: 4rem;
   margin-left: 4rem;
+  position: relative;
 
   ${({ theme }) => theme.mq.huge} {
     margin-top: 5rem;
@@ -204,4 +206,11 @@ export const StyledDescription = styled.div`
   }
 
   ${borderEffect};
+`;
+
+export const StyledHint = styled(Hint)`
+  left: 50%;
+  bottom: 0;
+  padding: 5%;
+  transform: translate(-50%, 100%);
 `;

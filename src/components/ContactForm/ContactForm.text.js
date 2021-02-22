@@ -15,19 +15,19 @@ export const errors = {
 
 export const texts = {
   send: {
-    pl: `Wyślij`,
+    pl: 'Wyślij',
     en: 'Send',
   },
   sending: {
-    pl: `Wysyłam...`,
+    pl: 'Wysyłam...',
     en: 'Sending...',
   },
   ok: {
-    pl: `Dziękuję !`,
+    pl: 'Dziękuję !',
     en: 'Thank you !',
   },
   error: {
-    pl: `Wystąpił błąd`,
+    pl: 'Wystąpił błąd',
     en: 'An error occured',
   },
   confirm: {
@@ -36,5 +36,9 @@ export const texts = {
       'By checking this box, you confirm that you have read and accept the ',
       'Privacy Policy',
     ],
+  },
+  hint: {
+    pl: 'Wybierz proszę inną formę kontaktu!',
+    en: 'Please, choose another contact method!',
   },
 };

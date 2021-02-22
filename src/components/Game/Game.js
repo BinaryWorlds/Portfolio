@@ -4,6 +4,7 @@ import useLang from '../../hooks/useLang';
 import CanvasArea from './CanvasArea';
 import Settings from './Settings';
 import ButtonsSection from './ButtonsSection';
+import useHint from '../../hooks/useHint';
 
 import { StyledWrapper } from './Game.style';
 
@@ -21,6 +22,7 @@ import { openFullScreen, closeFullScreen } from '../../utils/fullScreen';
 
 function Game() {
   const { lang, isPl } = useLang();
+  const { isHintShow, handleHint, hideHint } = useHint(3);
 
   const [gameMode, setGameMode] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -38,6 +40,7 @@ function Game() {
   const updateGameSize = () => setGameSize(checkGameSize);
 
   const handleAnimate = () => {
+    handleHint();
     if (animateButton || gameMode) return;
     setAnimateButton(true);
   };
@@ -87,6 +90,7 @@ function Game() {
     }
     resetGame();
     setGameMode(true);
+    hideHint();
   };
 
   const onFullScreenClick = () => {
@@ -135,6 +139,7 @@ function Game() {
         isPl={isPl}
         animateButton={animateButton}
         isFullScreen={isFullScreen}
+        isHintShow={isHintShow}
         setAnimateButton={setAnimateButton}
         onFullScreenClick={onFullScreenClick}
         onSettingsClick={onSettingsClick}

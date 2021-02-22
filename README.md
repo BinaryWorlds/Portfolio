@@ -74,7 +74,7 @@
          }
       }
 
-      $loadjs(modernToLoad, legacyToLoad);
+      $loadjs(modernToLoad, legacyToLoad); // must be at the last line of whole script
       ```
 
    3. Replace `legacyToLoad` links with src from end of `legacyApp/index.html` **<scripts>** tags.
@@ -88,6 +88,13 @@
 
 5. Cut `service.worker files` and `modern`(old "static") folder from `App/modernApp` and paste it to `App/legacyApp`.
 6. Delete `App/modernApp` folder.
-7. Minify `index.html` and all other edited files.
+7. Minify `index.html` and all other edited files. For working legacy app you shuld use good minifier:
+   Script minifier (cut code from <**<script>**>):
+   [https://javascript-minifier.com/](https://javascript-minifier.com/)
+   Html minifier:
+   [https://www.willpeavy.com/tools/minifier/](https://www.willpeavy.com/tools/minifier/)
+
+   Then combine code.
+
 8. You can rename `legacyApp` to `build`, replace with orginal `build` folder and run localhost!
    **_Done!_**

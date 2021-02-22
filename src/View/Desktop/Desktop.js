@@ -21,9 +21,9 @@ function Desktop() {
       <StyledSiteWrapper>
         <Header section={section} />
         <Timeline pageId={pageId} section={section} />
+        <CookiesInfo />
         <StyledPageWrapper onWheel={handleWheel} onAnimationEnd={setUnmounted}>
           {page}
-          <CookiesInfo />
         </StyledPageWrapper>
       </StyledSiteWrapper>
     </Layout>

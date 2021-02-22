@@ -5,6 +5,7 @@ import {
   StyledImage,
   StyledMeetMe,
   StyledText,
+  StyledHint,
 } from './Welcome.style';
 import Button1 from '../../components/Button1/Button1';
 import Game from '../../components/Game/Game';
@@ -12,16 +13,21 @@ import image from '../../assets/images/avatar_demo';
 import { useStore } from '../../globalState/store';
 import { ANIMATE_MEET_ME, SET_PAGE } from '../../globalState/actionTypes';
 import useGA from '../../hooks/useGA';
+import useHint from '../../hooks/useHint';
 
 function Welcome() {
   useGA('Welcome');
+  const { isHintShow, handleHint } = useHint(2);
+
   const {
     state: { animateMeetMe, lang, isMobile },
     dispatch,
   } = useStore();
 
-  const onAnimationEnd = () =>
+  const onAnimationEnd = () => {
     dispatch({ type: ANIMATE_MEET_ME, payload: false });
+    handleHint();
+  };
 
   const handleClick = () => {
     if (isMobile) window.scrollTo(0, window.innerHeight);
@@ -47,6 +53,9 @@ function Welcome() {
             animate={animateMeetMe}
             text={isEn ? 'Meet me' : 'Poznaj mnie'}
           />
+          <StyledHint isHintShow={isHintShow}>
+            {isEn ? 'Click here!' : 'Kliknij tu!'}
+          </StyledHint>
         </StyledMeetMe>
       </StyledHello>
       {!isMobile && <Game />}

@@ -11,6 +11,7 @@ import {
   StyledSection,
   StyledVisitButton,
   StyledDescription,
+  StyledHint,
 } from './Course.style';
 import { title, description } from './Course.text';
 import generateList from '../../../utils/generateSpanList';
@@ -18,9 +19,11 @@ import image from '../../../assets/images/coderscamp';
 import Button1 from '../../../components/Button1/Button1';
 import Button2 from '../../../components/Button2/Button2';
 import useGA from '../../../hooks/useGA';
+import useHint from '../../../hooks/useHint';
 
 function Course() {
   useGA('Course');
+  const { isHintShow, handleHint } = useHint(1);
 
   const {
     state: { lang },
@@ -28,6 +31,7 @@ function Course() {
   const isPl = lang === 'pl';
 
   const handleClickMore = () => {
+    handleHint();
     // if (!isMobile) dispatch({ type: SET_PAGE, payload: 5 });
   };
   const courseLink = 'https://coderscamp.edu.pl/';
@@ -45,6 +49,9 @@ function Course() {
             onClick={handleClickMore}
             text={isPl ? 'Więcej' : 'See more'}
           />
+          <StyledHint isHintShow={isHintShow}>
+            {isPl ? 'Dostępne wkrótce!' : 'Cooming soon!'}
+          </StyledHint>
         </StyledButtonMore>
       </StyledTitleWrapper>
       <StyledSection>

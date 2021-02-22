@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { StyledHint as Hint } from '../../hooks/useHint';
 
 const commonStyles = css`
   font-size: ${({ theme }) => theme.fonts.size.xs};
@@ -129,4 +130,11 @@ export const StyledCheckbox = styled.input`
   width: 2.5rem;
   height: 2.5rem;
   margin: 1rem;
+`;
+
+export const StyledHint = styled(Hint)`
+  left: 50%;
+  bottom: 0;
+  padding: 4%;
+  transform: translate(-50%, -100%);
 `;

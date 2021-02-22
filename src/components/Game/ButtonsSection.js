@@ -7,11 +7,14 @@ import {
   StyledButtonPlay,
 } from './ButtonsSection.style';
 
+import { StyledHint } from '../../hooks/useHint';
+
 function ButtonsSection({
   getRefS,
   isPl,
   gameMode,
   isFullScreen,
+  isHintShow,
   onFullScreenClick,
   onSettingsClick,
   onPlayClick,
@@ -69,6 +72,9 @@ function ButtonsSection({
         onClick={onFullScreenClick}
         isFullScreen={isFullScreen}
       />
+      <StyledHint isHintShow={isHintShow}>
+        {isPl ? 'Kliknij Zagraj' : 'Click Play'}
+      </StyledHint>
     </StyledSection>
   );
 }

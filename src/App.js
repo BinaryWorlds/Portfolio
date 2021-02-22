@@ -22,6 +22,7 @@ function App() {
     handleResize();
     window.addEventListener('resize', handleResize);
     ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
+    ReactGA.set({ anonymizeIp: true });
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

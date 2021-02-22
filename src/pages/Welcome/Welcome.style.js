@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import fadeIn from '../../animations/fadeIn';
+import { StyledHint as Hint } from '../../hooks/useHint';
 
 import Image from '../../components/Image/Image';
 
@@ -103,6 +104,7 @@ export const StyledMeetMe = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
   ${({ theme }) => theme.mq.phone} {
     button {
@@ -151,5 +153,19 @@ export const StyledText = styled.h1`
 
   ${({ theme }) => theme.mq.huge} {
     font-size: ${({ theme }) => theme.fonts.size.xxl};
+  }
+`;
+
+export const StyledHint = styled(Hint)`
+  left: 50%;
+  top: 0;
+  bottom: unset;
+  padding: 5%;
+  transform: translate(-50%, -100%);
+
+  ${({ theme }) => theme.mq.middle} {
+    top: unset;
+    bottom: 0;
+    transform: translate(75%, 10%);
   }
 `;
