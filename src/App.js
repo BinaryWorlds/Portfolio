@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import ReactGA from 'react-ga';
 import Mobile from './View/Mobile/Mobile';
 import useView from './hooks/useView';
@@ -24,10 +24,6 @@ function App() {
     ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
     ReactGA.set({ anonymizeIp: true });
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    alert('Page in build! \nStrona w budowie!');
   }, []);
 
   const getApp = (view) => {

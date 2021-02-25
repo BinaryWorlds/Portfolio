@@ -7,5 +7,12 @@ export const questions = {
     `Znalazłeś błąd, masz dla mnie radę`,
     ` - jestem otwarty na rzeczową krytykę.`,
   ],
-  en: [''],
+  en: [
+    `Looking for a dev? `,
+    `Give me a chance!`,
+    `Any ideas for a catchy or interesting app? `,
+    `Let’s do it together!`,
+    `Found a mistake or have an advice `,
+    `– I’m open on argumentative criticism.`,
+  ],
 };
