@@ -135,10 +135,6 @@ export const StyledText = styled.h1`
   ${({ theme }) => theme.mq.phone} {
     margin: 0;
     text-align: center;
-
-    after {
-      content: '';
-    }
   }
 
   ${({ theme }) => theme.mq.middle} {
@@ -159,13 +155,10 @@ export const StyledText = styled.h1`
 export const StyledHint = styled(Hint)`
   left: 50%;
   top: 0;
-  bottom: unset;
-  padding: 5%;
   transform: translate(-50%, -100%);
 
   ${({ theme }) => theme.mq.middle} {
-    top: unset;
-    bottom: 0;
-    transform: translate(75%, 10%);
+    top: 100%;
+    transform: translate(75%, -100%);
   }
 `;

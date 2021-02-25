@@ -36,13 +36,11 @@ function useHint(tresholdOn = 1) {
 export default useHint;
 
 export const StyledHint = styled.div`
-  z-index: 201;
+  z-index: 100;
   position: absolute;
-  bottom: -150%;
-  left: 0;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 7%;
+  padding: 1rem;
   white-space: nowrap;
 
   font-size: ${({ theme }) => theme.fonts.size.s};

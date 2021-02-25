@@ -135,6 +135,5 @@ export const StyledCheckbox = styled.input`
 export const StyledHint = styled(Hint)`
   left: 50%;
   bottom: 0;
-  padding: 4%;
   transform: translate(-50%, -100%);
 `;

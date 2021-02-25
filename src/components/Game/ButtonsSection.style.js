@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import shakeEffect from '../../animations/shakeEffect';
 import { visibleIn, visibleOut } from '../../animations/visible';
 import ButtonSettings from '../ButtonSettings/ButtonSettings';
+import { StyledHint as Hint } from '../../hooks/useHint';
 
 export const StyledSection = styled.div`
   z-index: 201;
@@ -11,7 +12,7 @@ export const StyledSection = styled.div`
   margin-bottom: 2.5vh;
   min-width: 15rem;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   transition: transform 0.5s ease-in-out;
 
@@ -75,4 +76,9 @@ export const StyledButtonPlay = styled.button`
   }
 
   ${({ animate }) => animate && shakeEffect(1)};
+`;
+
+export const StyledHint = styled(Hint)`
+  bottom: -150%;
+  left: 0;
 `;

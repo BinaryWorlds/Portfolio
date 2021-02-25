@@ -5,9 +5,8 @@ import {
   StyledSection,
   StyledButtonSettings,
   StyledButtonPlay,
+  StyledHint,
 } from './ButtonsSection.style';
-
-import { StyledHint } from '../../hooks/useHint';
 
 function ButtonsSection({
   getRefS,

@@ -7,10 +7,14 @@ import {
 } from '../../globalState/actionTypes';
 import { lastPage } from '../../pages/pageStructure';
 import constrainVal from '../../utils/constrainVal';
+import useHint from '../../hooks/useHint';
 
 const lockTime = 550;
+const hintTime = 500;
 
 export default function useDesktopLogic() {
+  const { isHintShow, handleHint, hideHint } = useHint(1);
+
   const {
     state: { pageId, isPageUnmounted },
     dispatch,
@@ -24,6 +28,7 @@ export default function useDesktopLogic() {
   useLayoutEffect(updatePage, [isPageUnmounted, pageId, lastPageId]);
 
   const timerIdWheel = useRef();
+  const startEventTime = useRef();
 
   const setTimerIdWheel = (id) => {
     clearTimeout(timerIdWheel.current);
@@ -58,7 +63,13 @@ export default function useDesktopLogic() {
       setTimerIdWheel(null);
     }, lockTime);
 
-    if (!timerIdWheel.current) changePage(deltaY);
+    if (!timerIdWheel.current) {
+      startEventTime.current = Date.now();
+      changePage(deltaY);
+    }
+
+    const isLongTask = startEventTime.current + hintTime < Date.now();
+    if (isLongTask) handleHint();
 
     setTimerIdWheel(timerIdTask);
   };
@@ -69,7 +80,9 @@ export default function useDesktopLogic() {
 
   const handleKey = ({ key }) => {
     if (key === 'ArrowUp' || key === 'PageUp') debounceChange(-100);
-    if (key === 'ArrowDown' || key === 'PageDown') debounceChange(+100);
+    else if (key === 'ArrowDown' || key === 'PageDown') debounceChange(+100);
+    else return;
+    hideHint();
   };
 
   const readXy = ({
@@ -114,5 +127,11 @@ export default function useDesktopLogic() {
     if (!isPageUnmounted) dispatch({ type: SET_PAGE_UNMOUNTED });
   };
 
-  return { pageId: lastPageId, handleWheel, isPageUnmounted, setUnmounted };
+  return {
+    pageId: lastPageId,
+    handleWheel,
+    isPageUnmounted,
+    setUnmounted,
+    isHintShow,
+  };
 }
