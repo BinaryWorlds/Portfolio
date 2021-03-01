@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   text-align: center;
   width: 90%;
 `;
@@ -26,7 +26,7 @@ const track = css`
   background: white;
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   -webkit-appearance: none;
   background: transparent;
   width: 100%;
@@ -77,7 +77,7 @@ export const StyledInput = styled.input`
   }
 `;
 
-export const StyledOutput = styled.output`
+export const Output = styled.output`
   position: relative;
   top: 2rem;
   left: 0;

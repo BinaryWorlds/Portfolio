@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   width: 100vw;
   display: flex;

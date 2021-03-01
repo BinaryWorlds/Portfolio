@@ -35,7 +35,7 @@ function useHint(tresholdOn = 1) {
 
 export default useHint;
 
-export const StyledHint = styled.div`
+export const BasicHint = styled.div`
   z-index: 100;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);

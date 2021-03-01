@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import fadeIn from '../../animations/fadeIn';
-import { StyledHint as Hint } from '../../hooks/useHint';
+import { BasicHint } from '../../hooks/useHint';
 
-import Image from '../../components/Image/Image';
+import Img from '../../components/Image/Image';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 0 7%;
@@ -50,7 +50,7 @@ export const StyledWrapper = styled.div`
   ${fadeIn};
 `;
 
-export const StyledHello = styled.div`
+export const Hello = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -74,7 +74,7 @@ export const StyledHello = styled.div`
   }
 `;
 
-export const StyledImage = styled(Image)`
+export const Image = styled(Img)`
   width: 60%;
   margin-right: 5%;
 
@@ -99,7 +99,7 @@ export const StyledImage = styled(Image)`
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
 `;
 
-export const StyledMeetMe = styled.div`
+export const MeetMe = styled.div`
   font-size: ${({ theme }) => theme.fonts.size.l};
   display: flex;
   flex-direction: column;
@@ -113,7 +113,7 @@ export const StyledMeetMe = styled.div`
   }
 `;
 
-export const StyledText = styled.h1`
+export const Text = styled.h1`
   position: relative;
 
   :after {
@@ -152,7 +152,7 @@ export const StyledText = styled.h1`
   }
 `;
 
-export const StyledHint = styled(Hint)`
+export const Hint = styled(BasicHint)`
   left: 50%;
   top: 0;
   transform: translate(-50%, -100%);

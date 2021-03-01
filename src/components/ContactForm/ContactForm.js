@@ -8,12 +8,7 @@ import ReactGA from 'react-ga';
 
 import useHint from '../../hooks/useHint';
 import useLang from '../../hooks/useLang';
-import {
-  StyledForm,
-  StyledTitle,
-  StyledButton,
-  StyledHint,
-} from './ContactForm.style';
+import * as S from './ContactForm.style';
 import Label from './Label';
 import Checkbox from './Checkbox';
 
@@ -114,8 +109,8 @@ function ContactForm({ addressTitle }) {
   };
 
   return (
-    <StyledForm onSubmit={formik.handleSubmit} show={showCaptcha}>
-      <StyledTitle id="title">{addressTitle}</StyledTitle>
+    <S.Form onSubmit={formik.handleSubmit} show={showCaptcha}>
+      <S.Title id="title">{addressTitle}</S.Title>
       <Label
         tag="input"
         type="text"
@@ -137,9 +132,9 @@ function ContactForm({ addressTitle }) {
         placeholder={isPl ? 'Wiadomość' : 'Messange'}
         formik={formik}
       />
-      <StyledButton show={!showCaptcha} type="submit">
+      <S.Button show={!showCaptcha} type="submit">
         {texts[steps[step]][lang]}
-      </StyledButton>
+      </S.Button>
       {showCaptcha && (
         <ReCAPTCHA
           id="captcha"
@@ -150,8 +145,8 @@ function ContactForm({ addressTitle }) {
         />
       )}
       <Checkbox name="acceptTerms" formik={formik} text={texts.confirm[lang]} />
-      <StyledHint isHintShow={isHintShow}>{texts.hint[lang]}</StyledHint>
-    </StyledForm>
+      <S.Hint isHintShow={isHintShow}>{texts.hint[lang]}</S.Hint>
+    </S.Form>
   );
 }
 

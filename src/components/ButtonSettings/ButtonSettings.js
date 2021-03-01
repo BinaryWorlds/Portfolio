@@ -1,16 +1,16 @@
 import React from 'react';
-import { StyledButton } from './ButtonSettings.style';
+import * as S from './ButtonSettings.style';
 
 function ButtonSettings({ className, children, onClick, isOpen }) {
   return (
-    <StyledButton
+    <S.Button
       className={className}
       aria-label="Settings"
       onClick={onClick}
       isOpen={isOpen}
     >
       {children}
-    </StyledButton>
+    </S.Button>
   );
 }
 

@@ -2,17 +2,7 @@ import React from 'react';
 import { useStore } from '../../../globalState/store';
 // import { SET_PAGE } from '../../../globalState/actionTypes';
 
-import {
-  StyledWrapper,
-  StyledImage,
-  StyledTitleWrapper,
-  StyledTitle,
-  StyledButtonMore,
-  StyledSection,
-  StyledVisitButton,
-  StyledDescription,
-  StyledHint,
-} from './Course.style';
+import * as S from './Course.style';
 import { title, description } from './Course.text';
 import generateList from '../../../utils/generateSpanList';
 import image from '../../../assets/images/coderscamp';
@@ -37,30 +27,30 @@ function Course() {
   const courseLink = 'https://coderscamp.edu.pl/';
 
   return (
-    <StyledWrapper id="4">
-      <StyledImage
+    <S.Wrapper id="4">
+      <S.Image
         image={image}
         alt={isPl ? 'CodersCamp banner' : 'CodersCamp baner'}
       />
-      <StyledTitleWrapper>
-        <StyledTitle>{title[lang]}</StyledTitle>
-        <StyledButtonMore>
+      <S.TitleWrapper>
+        <S.Title>{title[lang]}</S.Title>
+        <S.ButtonMore>
           <Button1
             onClick={handleClickMore}
             text={isPl ? 'Więcej' : 'See more'}
           />
-          <StyledHint isHintShow={isHintShow}>
+          <S.Hint isHintShow={isHintShow}>
             {isPl ? 'Dostępne wkrótce!' : 'Cooming soon!'}
-          </StyledHint>
-        </StyledButtonMore>
-      </StyledTitleWrapper>
-      <StyledSection>
-        <StyledVisitButton>
+          </S.Hint>
+        </S.ButtonMore>
+      </S.TitleWrapper>
+      <S.Section>
+        <S.VisitButton>
           <Button2 text={isPl ? 'Odwiedź' : 'Visit'} link={courseLink} />
-        </StyledVisitButton>
-        <StyledDescription>{generateList(description[lang])}</StyledDescription>
-      </StyledSection>
-    </StyledWrapper>
+        </S.VisitButton>
+        <S.Description>{generateList(description[lang])}</S.Description>
+      </S.Section>
+    </S.Wrapper>
   );
 }
 

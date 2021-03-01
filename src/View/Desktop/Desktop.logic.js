@@ -9,8 +9,8 @@ import { lastPage } from '../../pages/pageStructure';
 import constrainVal from '../../utils/constrainVal';
 import useHint from '../../hooks/useHint';
 
-const lockTime = 550;
-const hintTime = 500;
+const lockTime = 900;
+const hintTime = 900;
 
 export default function useDesktopLogic() {
   const { isHintShow, handleHint, hideHint } = useHint(1);
@@ -59,19 +59,25 @@ export default function useDesktopLogic() {
     if ((deltaY < 0 && pageId === 0) || (deltaY > 0 && pageId === lastPage))
       return;
 
-    const timerIdTask = setTimeout(() => {
+    if (deltaY === 0 && startEventTime.current + lockTime < Date.now()) {
+      // end of touch - touchpad
       setTimerIdWheel(null);
-    }, lockTime);
+      return;
+    }
 
     if (!timerIdWheel.current) {
       startEventTime.current = Date.now();
       changePage(deltaY);
     }
 
-    const isLongTask = startEventTime.current + hintTime < Date.now();
-    if (isLongTask) handleHint();
+    const timerIdTask = setTimeout(() => {
+      setTimerIdWheel(null);
+    }, lockTime);
 
     setTimerIdWheel(timerIdTask);
+
+    const isLongTask = startEventTime.current + hintTime < Date.now();
+    if (isLongTask) handleHint();
   };
 
   const handleWheel = ({ ctrlKey, deltaY }) => {
@@ -101,7 +107,13 @@ export default function useDesktopLogic() {
     const xDiff = firstTouch.current.clientX - clientX;
     const yDiff = firstTouch.current.clientY - clientY;
 
-    const direction = Math.abs(xDiff) > Math.abs(yDiff); // true:left/right; false up/down
+    const xDiffAbs = Math.abs(xDiff);
+    const yDiffAbs = Math.abs(yDiff);
+
+    const minGesture = window.devicePixelRatio * 38 || 38; // ~1cm
+    if (xDiffAbs < minGesture && yDiffAbs < minGesture) return;
+
+    const direction = xDiffAbs > yDiffAbs; // true:left/right; false up/down
 
     const deltaY =
       (direction && xDiff > 0) || (!direction && yDiff > 0) ? +100 : -100;

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import slideXEffect from '../../../animations/slideXEffect';
-import Image from '../../../components/Image/Image';
+import Img from '../../../components/Image/Image';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   padding: 0 10%;
@@ -21,7 +21,7 @@ export const StyledWrapper = styled.div`
   ${slideXEffect}
 `;
 
-export const StyledTitle = styled.h1`
+export const Title = styled.h1`
   position: relative;
   width: 100%;
   top: 6%;
@@ -61,7 +61,7 @@ const backgroundStyle = css`
   border: 1px solid rgba(112, 112, 112, 0.5);
 `;
 
-export const StyledImage = styled(Image)`
+export const Image = styled(Img)`
   width: 80%;
 
   :before {
@@ -106,7 +106,7 @@ export const StyledImage = styled(Image)`
   }
 `;
 
-export const StyledText = styled.div`
+export const Text = styled.div`
   width: 80%;
   max-width: 48rem;
 

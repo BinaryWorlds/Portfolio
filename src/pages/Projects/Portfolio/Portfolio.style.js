@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 import fadeIn from '../../../animations/fadeIn';
 import { growingEffect, borderEffect } from './Portfolio.animations';
 
-import Image from '../../../components/Image/Image';
+import Img from '../../../components/Image/Image';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   overflow: hidden;
   padding: 0 10%;
   height: 100%;
@@ -21,7 +21,7 @@ export const StyledWrapper = styled.div`
   ${fadeIn}
 `;
 
-export const StyledImage = styled(Image)`
+export const Image = styled(Img)`
   position: absolute;
   z-index: -1;
   top: 6%;
@@ -85,7 +85,7 @@ export const StyledImage = styled(Image)`
   }
 `;
 
-export const StyledTitle = styled.h1`
+export const Title = styled.h1`
   position: absolute;
   left: -1.2rem;
   bottom: -23rem;
@@ -161,7 +161,7 @@ export const StyledTitle = styled.h1`
   }
 `;
 
-export const StyledBackground = styled.div`
+export const Background = styled.div`
   position: absolute;
   z-index: -3;
   bottom: 0;
@@ -217,7 +217,7 @@ export const StyledBackground = styled.div`
   ${growingEffect}
 `;
 
-export const StyledDescription = styled.div`
+export const Description = styled.div`
   position: relative;
   top: 29%;
   width: 50vw;

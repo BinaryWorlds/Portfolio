@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledButton = styled.a`
+export const Button = styled.a`
   color: inherit;
   text-decoration: inherit;
   width: ${({ size }) => size}px;
@@ -8,7 +8,7 @@ export const StyledButton = styled.a`
   position: relative;
 `;
 
-export const StyledIcon = styled.i`
+export const Icon = styled.i`
   position: absolute;
   top: 0;
   left: 0;

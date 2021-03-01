@@ -4,7 +4,7 @@ import shakeEffect from '../../animations/shakeEffect';
 const black = '#282936';
 const transitionRules = 'transition: all 0.45s cubic-bezier(0.65, 0, .076, 1)';
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   ${({ animate }) => animate && shakeEffect()};
 
   ${({ theme }) => theme.mq.phone} {
@@ -47,7 +47,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledCircle = styled.span`
+export const Circle = styled.span`
   ${transitionRules};
   position: relative;
   display: block;
@@ -57,7 +57,7 @@ export const StyledCircle = styled.span`
   border-radius: 2.4rem;
 `;
 
-export const StyledIcon = styled.span`
+export const Icon = styled.span`
   ${transitionRules};
   position: absolute;
   top: 0;
@@ -81,7 +81,7 @@ export const StyledIcon = styled.span`
   }
 `;
 
-export const StyledText = styled.span`
+export const Text = styled.span`
   ${transitionRules};
   position: absolute;
   top: 0;

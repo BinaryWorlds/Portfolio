@@ -1,18 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import {
-  StyledError,
-  StyledCheckbox,
-  StyledConfirm,
-} from './ContactForm.style';
+import * as S from './ContactForm.style';
 
 function Checkbox({ name, formik, text }) {
   const { getFieldProps, touched, errors } = formik;
   const error = touched[name] && errors[name];
 
   return (
-    <StyledConfirm>
-      <StyledCheckbox type="checkbox" name={name} {...getFieldProps(name)} />
+    <S.Confirm>
+      <S.Checkbox type="checkbox" name={name} {...getFieldProps(name)} />
       <span>
         {text[0]}
         <a
@@ -23,8 +19,8 @@ function Checkbox({ name, formik, text }) {
           {text[1]}
         </a>
       </span>
-      <StyledError>{error}</StyledError>
-    </StyledConfirm>
+      <S.Error>{error}</S.Error>
+    </S.Confirm>
   );
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
+export const Header = styled.header`
   position: absolute;
   z-index: 100;
   top: 4vh;
@@ -16,7 +16,7 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const StyledSection = styled.div`
+export const Section = styled.div`
   position: relative;
   top: 1rem;
   display: flex;

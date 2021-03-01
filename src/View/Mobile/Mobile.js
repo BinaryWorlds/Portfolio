@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../layout/layout';
-import { StyledWrapper } from './Mobile.style';
+import * as S from './Mobile.style';
 import MobileMenu from '../../components/MobileMenu/MobileMenu';
 import useMobileLogic from './Mobile.logic';
 import CookiesInfo from '../../components/CookiesInfo/CookiesInfo';
@@ -10,11 +10,11 @@ function Mobile() {
 
   return (
     <Layout>
-      <StyledWrapper>
+      <S.Wrapper>
         <MobileMenu goToPage={goToPage} />
         {loadPages(loadCounter)}
         {displayLoader}
-      </StyledWrapper>
+      </S.Wrapper>
       <CookiesInfo />
     </Layout>
   );

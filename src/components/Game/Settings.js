@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyledSettings, StyledButton } from './Settings.style';
+import * as S from './Settings.style';
 import RangeSlider from '../RangeSlider/RangeSlider';
 
 import {
@@ -83,7 +83,7 @@ function Settings({
   }, [ballSize]);
 
   return (
-    <StyledSettings isActive={isActive}>
+    <S.Settings isActive={isActive}>
       <RangeSlider
         name={isPl ? 'Rozmiar: ' : 'Size: '}
         value={ballSize}
@@ -91,9 +91,7 @@ function Settings({
         min={40}
         max={calcMaxBallSize()}
       />
-      <StyledButton onClick={fillScreen}>
-        {isPl ? 'Wypełnij' : 'Fill'}
-      </StyledButton>
+      <S.Button onClick={fillScreen}>{isPl ? 'Wypełnij' : 'Fill'}</S.Button>
       <RangeSlider
         name={isPl ? 'Rzędy: ' : 'Rows: '}
         value={rows}
@@ -115,8 +113,8 @@ function Settings({
         min={1}
         max={5}
       />
-      <StyledButton onClick={resetSettings}>Reset</StyledButton>
-    </StyledSettings>
+      <S.Button onClick={resetSettings}>Reset</S.Button>
+    </S.Settings>
   );
 }
 

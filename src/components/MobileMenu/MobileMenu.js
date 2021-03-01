@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  StyledWrapper,
-  StyledHamburger,
-  StyledMenu,
-  StyledLogo,
-} from './MobileMenu.style';
+import * as S from './MobileMenu.style';
 import Hamburger from '../Hamburger/Hamburger';
 import ButtonLang from '../ButtonLang/ButtonLang';
 import logo from '../../assets/images/logo';
@@ -14,14 +9,14 @@ function MobileMenu({ goToPage }) {
   const { isOpen, toggleMenu, list } = useMobileMenuLogic(goToPage);
 
   return (
-    <StyledWrapper>
-      <StyledHamburger isOpen={isOpen}>
-        <StyledLogo image={logo} alt="logo" />
+    <S.Wrapper>
+      <S.Hamburger isOpen={isOpen}>
+        <S.Logo image={logo} alt="logo" />
         <ButtonLang />
         <Hamburger isOpen={isOpen} onClick={toggleMenu} />
-      </StyledHamburger>
-      <StyledMenu isOpen={isOpen}>{list}</StyledMenu>
-    </StyledWrapper>
+      </S.Hamburger>
+      <S.Menu isOpen={isOpen}>{list}</S.Menu>
+    </S.Wrapper>
   );
 }
 

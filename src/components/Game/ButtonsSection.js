@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ButtonFullScreen from '../ButtonFullScreen/ButtonFullScreen';
 
-import {
-  StyledSection,
-  StyledButtonSettings,
-  StyledButtonPlay,
-  StyledHint,
-} from './ButtonsSection.style';
+import * as S from './ButtonsSection.style';
 
 function ButtonsSection({
   getRefS,
@@ -49,32 +44,29 @@ function ButtonsSection({
   const playTxt = isPl ? 'Zagraj!' : 'Play!';
 
   return (
-    <StyledSection
+    <S.Section
       ref={sectionRef}
       position={sectionPosition}
       isFullScreen={isFullScreen}
     >
-      <StyledButtonSettings
-        onClick={onSettingsClick}
-        isFullScreen={isFullScreen}
-      >
+      <S.ButtonSettings onClick={onSettingsClick} isFullScreen={isFullScreen}>
         {isPl ? 'Ustawienia' : 'Settings'}
-      </StyledButtonSettings>
-      <StyledButtonPlay
+      </S.ButtonSettings>
+      <S.ButtonPlay
         onClick={onPlayClick}
         animate={animateButton}
         onAnimationEnd={() => setAnimateButton(false)}
       >
         {gameMode ? 'Reset!' : playTxt}
-      </StyledButtonPlay>
+      </S.ButtonPlay>
       <ButtonFullScreen
         onClick={onFullScreenClick}
         isFullScreen={isFullScreen}
       />
-      <StyledHint isHintShow={isHintShow}>
+      <S.Hint isHintShow={isHintShow}>
         {isPl ? 'Kliknij Zagraj' : 'Click Play'}
-      </StyledHint>
-    </StyledSection>
+      </S.Hint>
+    </S.Section>
   );
 }
 

@@ -8,7 +8,7 @@ import {
   hideEffect,
 } from './Timeline.animations';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   z-index: 100;
   position: absolute;
   top: 50%;
@@ -25,7 +25,7 @@ export const StyledWrapper = styled.div`
     `}
 `;
 
-export const StyledLine = styled.div`
+export const Line = styled.div`
   position: relative;
   height: 4rem;
   width: 12rem;

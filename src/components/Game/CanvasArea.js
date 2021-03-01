@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { g } from '../../assets/jawbreaker/jawbreaker';
-import { StyledCanvas } from './CanvasArea.style';
+import * as S from './CanvasArea.style';
 
 function CanvasArea({ getRefC, isFullScreen, handleAnimate }) {
   const canvasRef = useRef();
@@ -35,7 +35,7 @@ function CanvasArea({ getRefC, isFullScreen, handleAnimate }) {
   }, []);
 
   return (
-    <StyledCanvas
+    <S.Canvas
       ref={canvasRef}
       onClick={handleAnimate}
       position={canvasPosition}

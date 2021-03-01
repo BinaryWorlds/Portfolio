@@ -6,7 +6,7 @@ import Settings from './Settings';
 import ButtonsSection from './ButtonsSection';
 import useHint from '../../hooks/useHint';
 
-import { StyledWrapper } from './Game.style';
+import * as S from './Game.style';
 
 import {
   changeLang,
@@ -123,7 +123,7 @@ function Game() {
   }, []);
 
   return (
-    <StyledWrapper isFullScreen={isFullScreen}>
+    <S.Wrapper isFullScreen={isFullScreen}>
       {isFullScreen && (
         <Settings
           isActive={isSettingsActive}
@@ -151,7 +151,7 @@ function Game() {
         isFullScreen={isFullScreen}
         getRefC={getRefC}
       />
-    </StyledWrapper>
+    </S.Wrapper>
   );
 }
 

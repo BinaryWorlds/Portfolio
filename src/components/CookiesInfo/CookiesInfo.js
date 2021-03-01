@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyledInfo, StyledButton, StyledPolicy } from './CookiesInfo.style';
+import * as S from './CookiesInfo.style';
 import useLang from '../../hooks/useLang';
 import { infoTxt } from './CookiesInfo.text';
 
@@ -28,20 +28,20 @@ function CookiesInfo() {
   };
 
   return (
-    <StyledInfo show={isShow}>
+    <S.Info show={isShow}>
       <p>
         {infoTxt[lang][0]}
-        <StyledPolicy
+        <S.Policy
           href={`${process.env.PUBLIC_URL}/privacyPolicy.html`}
           target="_blank"
           rel="noreferrer"
         >
           {infoTxt[lang][1]}
-        </StyledPolicy>
+        </S.Policy>
         {infoTxt[lang][2]}
       </p>
-      <StyledButton onClick={handleClick}>OK</StyledButton>
-    </StyledInfo>
+      <S.Button onClick={handleClick}>OK</S.Button>
+    </S.Info>
   );
 }
 

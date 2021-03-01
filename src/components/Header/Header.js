@@ -2,14 +2,14 @@ import React from 'react';
 import ButtonIcon from '../ButtonIcon/ButtonIcon';
 import ButtonLang from '../ButtonLang/ButtonLang';
 import Menu from '../Menu/Menu';
-import { StyledHeader, StyledSection } from './Header.style';
+import * as S from './Header.style';
 import githubIcon from '../../assets/icons/github.png';
 
 function Header({ section }) {
   const ghProfile = 'https://github.com/BinaryWorlds';
   return (
-    <StyledHeader>
-      <StyledSection>
+    <S.Header>
+      <S.Section>
         <ButtonIcon
           size={41}
           link={ghProfile}
@@ -17,9 +17,9 @@ function Header({ section }) {
           ariaLabel="github"
         />
         <ButtonLang />
-      </StyledSection>
+      </S.Section>
       <Menu section={section} />
-    </StyledHeader>
+    </S.Header>
   );
 }
 

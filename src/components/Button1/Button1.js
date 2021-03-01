@@ -1,23 +1,18 @@
 import React from 'react';
-import {
-  StyledButton,
-  StyledCircle,
-  StyledIcon,
-  StyledText,
-} from './Button1.style';
+import * as S from './Button1.style';
 
 function Button1({ onClick, onAnimationEnd, animate, text }) {
   return (
-    <StyledButton
+    <S.Button
       onClick={onClick}
       animate={animate}
       onAnimationEnd={onAnimationEnd}
     >
-      <StyledCircle className="button1-circle">
-        <StyledIcon className="button1-icon" />
-      </StyledCircle>
-      <StyledText className="button1-text">{text}</StyledText>
-    </StyledButton>
+      <S.Circle className="button1-circle">
+        <S.Icon className="button1-icon" />
+      </S.Circle>
+      <S.Text className="button1-text">{text}</S.Text>
+    </S.Button>
   );
 }
 

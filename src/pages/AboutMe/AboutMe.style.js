@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import spinEffect from '../../animations/spinEffect';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@ export const StyledWrapper = styled.div`
   height: 100%;
 `;
 
-export const StyledTitle = styled.h1`
+export const Title = styled.h1`
   position: relative;
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
@@ -52,7 +52,7 @@ export const StyledTitle = styled.h1`
   ${spinEffect(1)};
 `;
 
-export const StyledText = styled.div`
+export const Text = styled.div`
   position: relative;
   z-index: 2;
   width: 40%;
@@ -96,7 +96,7 @@ export const StyledText = styled.div`
   ${spinEffect(2)};
 `;
 
-export const StyledTable = styled.ul`
+export const Table = styled.ul`
   width: 100vw;
   max-width: 2560px;
   padding: 0 5%;
@@ -110,7 +110,7 @@ export const StyledTable = styled.ul`
   }
 `;
 
-export const StyledColumn = styled.li`
+export const Column = styled.li`
   width: 24rem;
   height: 26rem;
   display: flex;

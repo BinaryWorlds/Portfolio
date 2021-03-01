@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useLang from '../../hooks/useLang';
-import { StyledWrapper, StyledLine } from './Timeline.style';
+import * as S from './Timeline.style';
 
 function Timeline({ pageId, section }) {
   const { isPl } = useLang();
@@ -21,13 +21,13 @@ function Timeline({ pageId, section }) {
     { text: '2019.09', id: 8 },
   ];
   const list = dateList.map(({ text, id }) => (
-    <StyledLine key={text} text={text} active={pageId === id} />
+    <S.Line key={text} text={text} active={pageId === id} />
   ));
 
   return (
-    <StyledWrapper isVisible={isVisible} showTimeline={showTimeline}>
+    <S.Wrapper isVisible={isVisible} showTimeline={showTimeline}>
       {list}
-    </StyledWrapper>
+    </S.Wrapper>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledWrapper, StyledMenu } from './Menu.style';
+import * as S from './Menu.style';
 import Hamburger from '../Hamburger/Hamburger';
 import useMenuLogic from './Menu.logic';
 
@@ -7,12 +7,12 @@ function Menu({ section }) {
   const { isMenuOpen, toggleMenu, list } = useMenuLogic(section);
 
   return (
-    <StyledWrapper>
-      <StyledMenu onClick={toggleMenu}>
+    <S.Wrapper>
+      <S.Menu onClick={toggleMenu}>
         <Hamburger isOpen={isMenuOpen} />
-      </StyledMenu>
+      </S.Menu>
       {list}
-    </StyledWrapper>
+    </S.Wrapper>
   );
 }
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { StyledLabel, StyledError } from './ContactForm.style';
+import * as S from './ContactForm.style';
 import GetInput from './GetInput';
 
 function Label({ tag, name, type, placeholder, formik }) {
@@ -8,7 +8,7 @@ function Label({ tag, name, type, placeholder, formik }) {
   const error = touched[name] && errors[name];
 
   return (
-    <StyledLabel>
+    <S.Label>
       <span id="label">{name}</span>
       <GetInput
         tag={tag}
@@ -18,8 +18,8 @@ function Label({ tag, name, type, placeholder, formik }) {
         {...getFieldProps(name)}
         error={error}
       />
-      <StyledError>{error}</StyledError>
-    </StyledLabel>
+      <S.Error>{error}</S.Error>
+    </S.Label>
   );
 }
 

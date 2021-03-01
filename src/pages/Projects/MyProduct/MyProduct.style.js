@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Image from '../../../components/Image/Image';
+import Img from '../../../components/Image/Image';
 
 import {
   triangleEffect,
@@ -7,7 +7,7 @@ import {
   fadeInOrderEffect,
 } from './MyProduct.animations';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 0 10%;
@@ -26,7 +26,7 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledWrapper2 = styled.div`
+export const Wrapper2 = styled.div`
   display: flex;
   position: relative;
 
@@ -45,7 +45,7 @@ export const StyledWrapper2 = styled.div`
   }
 `;
 
-export const StyledBorder = styled.svg`
+export const Border = styled.svg`
   position: absolute;
 
   ${({ theme }) => theme.mq.middle} {
@@ -68,7 +68,7 @@ export const StyledBorder = styled.svg`
   }
 `;
 
-export const StyledSection = styled.div`
+export const Section = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,7 +110,7 @@ export const StyledSection = styled.div`
   }
 `;
 
-export const StyledTitle = styled.h1`
+export const Title = styled.h1`
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   margin-bottom: 4rem;
@@ -124,7 +124,7 @@ export const StyledTitle = styled.h1`
   ${fadeInOrderEffect(1.5)}
 `;
 
-export const StyledDescription = styled.div`
+export const Description = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 2rem;
@@ -192,7 +192,7 @@ export const StyledDescription = styled.div`
   ${triangleEffect};
 `;
 
-export const StyledImage = styled(Image)`
+export const Image = styled(Img)`
   top: 7rem;
   width: 80%;
   background-color: white;

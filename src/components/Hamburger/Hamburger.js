@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledHamburger, InnerHamburger } from './Hamburger.style';
+import * as S from './Hamburger.style';
 
 function Hamburger({ isOpen, onClick }) {
   return (
-    <StyledHamburger onClick={onClick} aria-label="menu">
-      <InnerHamburger isOpen={isOpen} />
-    </StyledHamburger>
+    <S.Hamburger onClick={onClick} aria-label="menu">
+      <S.InnerHamburger isOpen={isOpen} />
+    </S.Hamburger>
   );
 }
 

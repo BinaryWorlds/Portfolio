@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHamburger = styled.button`
+export const Hamburger = styled.button`
   position: relative;
   padding: 15px;
   border: none;

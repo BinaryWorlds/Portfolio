@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 
-import { StyledButton, StyledIcon } from './ButtonIcon.style';
+import * as S from './ButtonIcon.style';
 
 function ButtonIcon({ iconSrc, link, size, ariaLabel }) {
   const handleClick = () => {
@@ -11,7 +11,7 @@ function ButtonIcon({ iconSrc, link, size, ariaLabel }) {
     });
   };
   return (
-    <StyledButton
+    <S.Button
       href={link}
       target="_blank"
       rel="noreferrer"
@@ -19,8 +19,8 @@ function ButtonIcon({ iconSrc, link, size, ariaLabel }) {
       size={size}
       onClick={handleClick}
     >
-      <StyledIcon iconSrc={iconSrc} />
-    </StyledButton>
+      <S.Icon iconSrc={iconSrc} />
+    </S.Button>
   );
 }
 

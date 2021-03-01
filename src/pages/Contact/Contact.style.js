@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { spin3dEffect } from './Contact.animations';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
@@ -46,7 +46,7 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledSection = styled.main`
+export const Section = styled.main`
   position: relative;
   margin-right: 2rem;
 
@@ -55,7 +55,7 @@ export const StyledSection = styled.main`
   }
 `;
 
-export const StyledLeft = styled.div`
+export const Left = styled.div`
   height: 52rem;
   display: flex;
   flex-direction: column;
@@ -110,7 +110,7 @@ const eyeStyle = css`
   border-radius: 50%;
 `;
 
-export const StyledBackground = styled.div`
+export const Background = styled.div`
   z-index: -2;
   position: absolute;
   top: -8%;
@@ -150,7 +150,7 @@ export const StyledBackground = styled.div`
   ${spin3dEffect('center')};
 `;
 
-export const StyledButtons = styled.div`
+export const Buttons = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;

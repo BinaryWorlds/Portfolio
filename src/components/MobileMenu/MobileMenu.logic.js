@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useLang from '../../hooks/useLang';
-import { StyledElement, StyledMenuButton } from './MobileMenu.style';
+import * as S from './MobileMenu.style';
 
 const menuSections = [
   { pl: 'Start', en: 'Start', val: 0 },
@@ -48,15 +48,15 @@ export default function useMobileMenuLogic(goToPage) {
   };
 
   const menuItems = menuSections.map((item) => (
-    <StyledElement key={item.val}>
-      <StyledMenuButton
+    <S.Element key={item.val}>
+      <S.MenuButton
         aria-label={item[lang]}
         value={item.val}
         onClick={handleClick}
       >
         {item[lang]}
-      </StyledMenuButton>
-    </StyledElement>
+      </S.MenuButton>
+    </S.Element>
   ));
 
   const list = <ul>{menuItems}</ul>;

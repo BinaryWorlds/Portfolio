@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyledWrapper } from './IntersectionLoader.style';
+import * as S from './IntersectionLoader.style';
 
 const hideLoaderTime = 250;
 
@@ -47,11 +47,7 @@ function IntersectionLoader({ loadMore }) {
   }, []);
 
   return (
-    <StyledWrapper
-      id="intersectionLoader"
-      ref={loaderRef}
-      visible={isVisible}
-    />
+    <S.Wrapper id="intersectionLoader" ref={loaderRef} visible={isVisible} />
   );
 }
 

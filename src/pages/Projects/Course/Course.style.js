@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import fadeIn from '../../../animations/fadeIn';
 import slideXEffect from '../../../animations/slideXEffect';
 import slideYEffect from '../../../animations/slideYEffect';
-import { StyledHint as Hint } from '../../../hooks/useHint';
+import { BasicHint } from '../../../hooks/useHint';
 
 import { borderEffect } from './Course.animations';
-import Image from '../../../components/Image/Image';
+import Img from '../../../components/Image/Image';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   padding: 0 10%;
   height: 100%;
   width: 100%;
@@ -64,7 +64,7 @@ export const StyledWrapper = styled.div`
   ${fadeIn}
 `;
 
-export const StyledImage = styled(Image)`
+export const Image = styled(Img)`
   width: 75%;
   margin: 15% 0 5vh 3%;
 
@@ -81,7 +81,7 @@ export const StyledImage = styled(Image)`
   ${slideYEffect};
 `;
 
-export const StyledTitleWrapper = styled.div`
+export const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,7 +97,7 @@ export const StyledTitleWrapper = styled.div`
   ${slideXEffect};
 `;
 
-export const StyledTitle = styled.h1`
+export const Title = styled.h1`
   font-size: ${({ theme }) => theme.fonts.size.l};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
 
@@ -110,7 +110,7 @@ export const StyledTitle = styled.h1`
   }
 `;
 
-export const StyledButtonMore = styled.div`
+export const ButtonMore = styled.div`
   margin-top: 4rem;
   margin-left: 4rem;
   position: relative;
@@ -120,7 +120,7 @@ export const StyledButtonMore = styled.div`
   }
 `;
 
-export const StyledSection = styled.div`
+export const Section = styled.div`
   display: flex;
   width: 100%;
 
@@ -129,7 +129,7 @@ export const StyledSection = styled.div`
   }
 `;
 
-export const StyledVisitButton = styled.div`
+export const VisitButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +152,7 @@ export const StyledVisitButton = styled.div`
   }
 `;
 
-export const StyledDescription = styled.div`
+export const Description = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 70%;
@@ -208,7 +208,7 @@ export const StyledDescription = styled.div`
   ${borderEffect};
 `;
 
-export const StyledHint = styled(Hint)`
+export const Hint = styled(BasicHint)`
   left: 50%;
   bottom: 0;
   padding: 5%;

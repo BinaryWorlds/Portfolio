@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { StyledHint as Hint } from '../../hooks/useHint';
+import { BasicHint } from '../../hooks/useHint';
 
 const commonStyles = css`
   font-size: ${({ theme }) => theme.fonts.size.xs};
@@ -18,7 +18,7 @@ const commonStyles = css`
     `}
 `;
 
-export const StyledForm = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 50.6rem;
@@ -37,7 +37,7 @@ export const StyledForm = styled.form`
   }
 `;
 
-export const StyledTitle = styled.div`
+export const Title = styled.div`
   font-size: ${({ theme }) => theme.fonts.size.s};
   align-self: center;
 
@@ -54,7 +54,7 @@ export const StyledTitle = styled.div`
   }
 `;
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
   display: flex;
   position: relative;
   top: 0;
@@ -73,12 +73,12 @@ export const StyledLabel = styled.label`
     `}
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   ${commonStyles};
   padding-left: 1.8rem;
 `;
 
-export const StyledError = styled.span`
+export const Error = styled.span`
   color: red;
   position: absolute;
   bottom: 0;
@@ -89,7 +89,7 @@ export const StyledError = styled.span`
   }
 `;
 
-export const StyledArea = styled.textarea`
+export const Area = styled.textarea`
   ${commonStyles};
   height: 18rem;
   padding-left: 1.8rem;
@@ -97,7 +97,7 @@ export const StyledArea = styled.textarea`
   overflow: auto;
 `;
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
   ${commonStyles};
   height: 5.6rem;
@@ -117,7 +117,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledConfirm = styled.label`
+export const Confirm = styled.label`
   width: 100%;
   position: absolute;
   bottom: -6rem;
@@ -126,13 +126,13 @@ export const StyledConfirm = styled.label`
   justify-content: center;
 `;
 
-export const StyledCheckbox = styled.input`
+export const Checkbox = styled.input`
   width: 2.5rem;
   height: 2.5rem;
   margin: 1rem;
 `;
 
-export const StyledHint = styled(Hint)`
+export const Hint = styled(BasicHint)`
   left: 50%;
   bottom: 0;
   transform: translate(-50%, -100%);

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import Image from '../Image/Image';
 import { visibleIn, visibleOut } from '../../animations/visible';
 
-export const StyledWrapper = styled.nav``;
+export const Wrapper = styled.nav``;
 
-export const StyledHamburger = styled.div`
+export const Hamburger = styled.div`
   z-index: 100;
   position: fixed;
   top: 5%;
@@ -42,12 +42,12 @@ export const StyledHamburger = styled.div`
   }
 `;
 
-export const StyledLogo = styled(Image)`
+export const Logo = styled(Image)`
   width: 15%;
   margin-left: 5%;
 `;
 
-export const StyledMenu = styled.div`
+export const Menu = styled.div`
   z-index: 98;
   position: fixed;
   top: 0px;
@@ -64,13 +64,13 @@ export const StyledMenu = styled.div`
   ${({ isOpen }) => (isOpen ? visibleIn : visibleOut)};
 `;
 
-export const StyledElement = styled.li`
+export const Element = styled.li`
   list-style: none;
   text-align: center;
   margin: 1vh 0;
 `;
 
-export const StyledMenuButton = styled.button`
+export const MenuButton = styled.button`
   background: transparent;
   cursor: pointer;
   outline: none;

@@ -15,7 +15,7 @@ const calcElement = (boxSize) => {
   `;
 };
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   position: relative;
   background: transparent;
   cursor: pointer;
@@ -35,7 +35,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledFragment = styled.div`
+export const Fragment = styled.div`
   position: absolute;
   ${calcElement(sizeNormal)}
 

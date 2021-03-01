@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledButton = styled.a`
+export const Button = styled.a`
   background-color: transparent;
   cursor: pointer;
   text-decoration: inherit;

@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyledWrapper,
-  StyledHello,
-  StyledImage,
-  StyledMeetMe,
-  StyledText,
-  StyledHint,
-} from './Welcome.style';
+import * as S from './Welcome.style';
 import Button1 from '../../components/Button1/Button1';
 import Game from '../../components/Game/Game';
 import image from '../../assets/images/avatar_demo';
@@ -37,29 +30,29 @@ function Welcome() {
   const isEn = lang === 'en';
 
   return (
-    <StyledWrapper id="0">
-      <StyledHello>
-        <StyledImage
+    <S.Wrapper id="0">
+      <S.Hello>
+        <S.Image
           image={image}
           alt={isEn ? 'A picture of me. Hi!' : 'Cześć! To ja!'}
         />
-        <StyledMeetMe>
-          <StyledText>
+        <S.MeetMe>
+          <S.Text>
             Szymkowiak Dawid <br /> Junior Front-end Developer
-          </StyledText>
+          </S.Text>
           <Button1
             onClick={handleClick}
             onAnimationEnd={onAnimationEnd}
             animate={animateMeetMe}
             text={isEn ? 'Meet me' : 'Poznaj mnie'}
           />
-          <StyledHint isHintShow={isHintShow}>
+          <S.Hint isHintShow={isHintShow}>
             {isEn ? 'Click here!' : 'Kliknij tu!'}
-          </StyledHint>
-        </StyledMeetMe>
-      </StyledHello>
+          </S.Hint>
+        </S.MeetMe>
+      </S.Hello>
       {!isMobile && <Game />}
-    </StyledWrapper>
+    </S.Wrapper>
   );
 }
 

@@ -5,9 +5,9 @@ const heightTrapeze = 60;
 const opposite = Math.floor(heightTrapeze / Math.sqrt(3));
 const hypotenuse = Math.floor((heightTrapeze / Math.sqrt(3)) * 2);
 
-export const StyledWrapper = styled.nav``;
+export const Wrapper = styled.nav``;
 
-export const StyledMenu = styled.div`
+export const Menu = styled.div`
   z-index: 99;
   position: relative;
   width: 200px;
@@ -31,7 +31,7 @@ export const StyledMenu = styled.div`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 `;
 
-export const StyledElement = styled.li`
+export const Element = styled.li`
   list-style: none;
   position: relative;
   top: -${hypotenuse}px;
@@ -80,7 +80,7 @@ export const StyledElement = styled.li`
     `};
 `;
 
-export const StyledMenuButton = styled.button`
+export const MenuButton = styled.button`
   background: transparent;
   z-index: 100;
   cursor: pointer;

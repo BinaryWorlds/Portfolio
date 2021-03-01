@@ -2,7 +2,7 @@ import React from 'react';
 import { useStore } from '../../globalState/store';
 import { SET_PAGE, TOGGLE_MENU } from '../../globalState/actionTypes';
 
-import { StyledElement, StyledMenuButton } from './Menu.style';
+import * as S from './Menu.style';
 
 const menuSections = [
   { pl: 'start', en: 'start', val: 0 },
@@ -22,9 +22,7 @@ function useMenuLogic(section) {
   const handleClick = (e) =>
     dispatch({ type: SET_PAGE, payload: e.target.value });
 
-  const currentPage = (
-    <StyledElement as="div" text={menuSections[section][lang]} />
-  );
+  const currentPage = <S.Element as="div" text={menuSections[section][lang]} />;
 
   let counter = 1;
   const menuItems = menuSections.map((item, i, arr) => {
@@ -33,7 +31,7 @@ function useMenuLogic(section) {
       i === arr.length - 1 || (i + 1 === section && section === arr.length - 1);
 
     return (
-      <StyledElement
+      <S.Element
         isOpen={isMenuOpen}
         active
         last={isLast}
@@ -41,12 +39,12 @@ function useMenuLogic(section) {
         key={item.val}
         orderNr={counter++}
       >
-        <StyledMenuButton
+        <S.MenuButton
           aria-label={item[lang]}
           value={item.val}
           onClick={handleClick}
         />
-      </StyledElement>
+      </S.Element>
     );
   });
 

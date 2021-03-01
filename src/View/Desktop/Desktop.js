@@ -2,12 +2,7 @@ import React from 'react';
 import Layout from '../../layout/layout';
 import Header from '../../components/Header/Header';
 import Timeline from '../../components/Timeline/Timeline';
-import {
-  StyledSiteWrapper,
-  StyledPageWrapper,
-  StyledHint,
-  StyledKey,
-} from './Desktop.style';
+import * as S from './Desktop.style';
 import pageStructure from '../../pages/pageStructure';
 import useDesktopLogic from './Desktop.logic';
 import CookiesInfo from '../../components/CookiesInfo/CookiesInfo';
@@ -24,17 +19,17 @@ function Desktop() {
 
   return (
     <Layout extend={{ isUnmounted: isPageUnmounted }}>
-      <StyledSiteWrapper>
+      <S.SiteWrapper>
         <Header section={section} />
-        <StyledPageWrapper onWheel={handleWheel} onAnimationEnd={setUnmounted}>
+        <S.PageWrapper onWheel={handleWheel} onAnimationEnd={setUnmounted}>
           {page}
-        </StyledPageWrapper>
+        </S.PageWrapper>
         <Timeline pageId={pageId} section={section} />
         <CookiesInfo />
-        <StyledHint isHintShow={isHintShow}>
-          <StyledKey>Up</StyledKey>/<StyledKey>Down</StyledKey>
-        </StyledHint>
-      </StyledSiteWrapper>
+        <S.Hint isHintShow={isHintShow}>
+          <S.Key>Up</S.Key>/<S.Key>Down</S.Key>
+        </S.Hint>
+      </S.SiteWrapper>
     </Layout>
   );
 }

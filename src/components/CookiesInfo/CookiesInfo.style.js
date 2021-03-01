@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledInfo = styled.div`
+export const Info = styled.div`
   z-index: 9999;
   position: fixed;
   bottom: 0;
@@ -21,7 +21,7 @@ export const StyledInfo = styled.div`
   ${({ show }) => show && `transform: translateY(0);`}
 `;
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   background: black;
   color: white;
   cursor: pointer;
@@ -38,6 +38,6 @@ export const StyledButton = styled.button`
   margin-top: 1rem;
 `;
 
-export const StyledPolicy = styled.a`
+export const Policy = styled.a`
   color: black;
 `;

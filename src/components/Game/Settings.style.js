@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { visibleIn, visibleOut } from '../../animations/visible';
 
-export const StyledSettings = styled.div`
+export const Settings = styled.div`
   z-index: 201;
   position: absolute;
   top: 10rem;
@@ -16,7 +16,7 @@ export const StyledSettings = styled.div`
   ${({ isActive }) => (isActive ? visibleIn : visibleOut)}
 `;
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   cursor: pointer;
   outline: none;
   border: 0;

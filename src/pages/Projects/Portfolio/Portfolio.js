@@ -4,13 +4,7 @@ import image from '../../../assets/images/mockup';
 import { description } from './Portfolio.text';
 import generateList from '../../../utils/generateSpanList';
 import usePortfolioLogic from './Portfolio.logic';
-import {
-  StyledWrapper,
-  StyledImage,
-  StyledTitle,
-  StyledDescription,
-  StyledBackground,
-} from './Portfolio.style';
+import * as S from './Portfolio.style';
 import useGA from '../../../hooks/useGA';
 
 function Portfolio() {
@@ -20,17 +14,17 @@ function Portfolio() {
   const { isWritten, titleRef } = usePortfolioLogic(lang);
 
   return (
-    <StyledWrapper id="3">
-      <StyledImage
+    <S.Wrapper id="3">
+      <S.Image
         image={image}
         alt={isEn ? 'Mockup from AdobeXd' : 'Mockup w AdobeXd'}
       >
-        <StyledTitle isEn={isEn} ref={titleRef} isWritten={isWritten} />
-      </StyledImage>
+        <S.Title isEn={isEn} ref={titleRef} isWritten={isWritten} />
+      </S.Image>
 
-      <StyledDescription>{generateList(description[lang])}</StyledDescription>
-      <StyledBackground />
-    </StyledWrapper>
+      <S.Description>{generateList(description[lang])}</S.Description>
+      <S.Background />
+    </S.Wrapper>
   );
 }
 

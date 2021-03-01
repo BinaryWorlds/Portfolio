@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import fadeOut from '../../animations/fadeOut';
-import { StyledHint as Hint } from '../../hooks/useHint';
+import { BasicHint } from '../../hooks/useHint';
 
-export const StyledSiteWrapper = styled.div`
+export const SiteWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 50%;
@@ -12,7 +12,7 @@ export const StyledSiteWrapper = styled.div`
   transform: translateX(-50%);
 `;
 
-export const StyledPageWrapper = styled.div`
+export const PageWrapper = styled.div`
   position: relative;
   top: 0;
   left: 0;
@@ -24,14 +24,14 @@ export const StyledPageWrapper = styled.div`
   ${({ theme: { isUnmounted } }) => !isUnmounted && fadeOut};
 `;
 
-export const StyledHint = styled(Hint)`
+export const Hint = styled(BasicHint)`
   top: 50%;
   right: 0;
   text-align: center;
   transform: translate(-50%, -50%);
 `;
 
-export const StyledKey = styled.div`
+export const Key = styled.div`
   margin: 0.4rem;
   width: 6rem;
   height: 6rem;

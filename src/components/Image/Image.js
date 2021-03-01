@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyledWrapper, StyledContainer, StyledImage } from './Image.style';
+import * as S from './Image.style';
 
 function Image({ image, alt, className, children }) {
   const { width, height, src, sizes, altFormat } = image;
@@ -16,10 +16,10 @@ function Image({ image, alt, className, children }) {
   const srcSet = (format) => sizes.map((size) => path(size, format)).join(',');
 
   return (
-    <StyledWrapper ref={componentRef} className={className}>
-      <StyledContainer ratio={ratio}>
+    <S.Wrapper ref={componentRef} className={className}>
+      <S.Container ratio={ratio}>
         {componentWidth && (
-          <StyledImage>
+          <S.Image>
             <source
               type="image/webp"
               sizes={`${componentWidth}px`}
@@ -31,11 +31,11 @@ function Image({ image, alt, className, children }) {
               srcSet={srcSet(altFormat)}
             />
             <img src={`${src}.${altFormat}`} alt={alt} />
-          </StyledImage>
+          </S.Image>
         )}
-      </StyledContainer>
+      </S.Container>
       {children}
-    </StyledWrapper>
+    </S.Wrapper>
   );
 }
 

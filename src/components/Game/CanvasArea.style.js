@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StyledCanvas = styled.canvas`
+export const Canvas = styled.canvas`
   z-index: 200;
   touch-action: manipulation;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));

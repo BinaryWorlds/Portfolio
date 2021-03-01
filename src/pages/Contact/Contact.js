@@ -2,13 +2,7 @@ import React from 'react';
 import useLang from '../../hooks/useLang';
 
 import { questions } from './Contact.text';
-import {
-  StyledWrapper,
-  StyledSection,
-  StyledLeft,
-  StyledButtons,
-  StyledBackground,
-} from './Contact.style';
+import * as S from './Contact.style';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ButtonIcon from '../../components/ButtonIcon/ButtonIcon';
 import messengerIcon from '../../assets/icons/messenger.png';
@@ -42,12 +36,12 @@ function Contact() {
   });
 
   return (
-    <StyledWrapper id="9">
-      <StyledSection>
-        <StyledBackground />
-        <StyledLeft>
+    <S.Wrapper id="9">
+      <S.Section>
+        <S.Background />
+        <S.Left>
           {questionsList}
-          <StyledButtons>
+          <S.Buttons>
             <ButtonIcon
               size={41}
               link={fbProfile}
@@ -66,11 +60,11 @@ function Contact() {
               iconSrc={githubIcon}
               ariaLabel="github"
             />
-          </StyledButtons>
-        </StyledLeft>
-      </StyledSection>
+          </S.Buttons>
+        </S.Left>
+      </S.Section>
       <ContactForm addressTitle={addressTitle} />
-    </StyledWrapper>
+    </S.Wrapper>
   );
 }
 

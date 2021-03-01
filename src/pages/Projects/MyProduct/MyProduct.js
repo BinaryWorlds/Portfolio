@@ -1,14 +1,6 @@
 import React from 'react';
 import useLang from '../../../hooks/useLang';
-import {
-  StyledWrapper,
-  StyledWrapper2,
-  StyledBorder,
-  StyledSection,
-  StyledTitle,
-  StyledDescription,
-  StyledImage,
-} from './MyProduct.style';
+import * as S from './MyProduct.style';
 import { title, description } from './MyProduct.text';
 import generateList from '../../../utils/generateSpanList';
 import Button2 from '../../../components/Button2/Button2';
@@ -23,24 +15,22 @@ function MyProduct() {
   const myProductLink = 'https://climbingtimers.com/';
 
   return (
-    <StyledWrapper id="8">
-      <StyledWrapper2>
-        <StyledBorder>
+    <S.Wrapper id="8">
+      <S.Wrapper2>
+        <S.Border>
           <rect />
-        </StyledBorder>
-        <StyledSection>
-          <StyledTitle>{title[lang]}</StyledTitle>
-          <StyledDescription>
-            {generateList(description[lang])}
-          </StyledDescription>
+        </S.Border>
+        <S.Section>
+          <S.Title>{title[lang]}</S.Title>
+          <S.Description>{generateList(description[lang])}</S.Description>
           <Button2 text="Live" link={myProductLink} />
-        </StyledSection>
-        <StyledImage
+        </S.Section>
+        <S.Image
           image={image}
           alt={isPl ? 'Zegary Wspinaczkowe' : 'Climbing Timers'}
         />
-      </StyledWrapper2>
-    </StyledWrapper>
+      </S.Wrapper2>
+    </S.Wrapper>
   );
 }
 

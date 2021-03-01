@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import shakeEffect from '../../animations/shakeEffect';
 import { visibleIn, visibleOut } from '../../animations/visible';
-import ButtonSettings from '../ButtonSettings/ButtonSettings';
-import { StyledHint as Hint } from '../../hooks/useHint';
+import Button from '../ButtonSettings/ButtonSettings';
+import { BasicHint } from '../../hooks/useHint';
 
-export const StyledSection = styled.div`
+export const Section = styled.div`
   z-index: 201;
   position: relative;
   top: 0;
@@ -28,7 +28,7 @@ export const StyledSection = styled.div`
     `}
 `;
 
-export const StyledButtonSettings = styled(ButtonSettings)`
+export const ButtonSettings = styled(Button)`
   position: absolute;
   top: 0;
   left: -100%;
@@ -41,7 +41,7 @@ export const StyledButtonSettings = styled(ButtonSettings)`
   ${({ isFullScreen }) => (isFullScreen ? visibleIn : visibleOut)}
 `;
 
-export const StyledButtonPlay = styled.button`
+export const ButtonPlay = styled.button`
   z-index: 2;
   position: relative;
   background: transparent;
@@ -78,7 +78,7 @@ export const StyledButtonPlay = styled.button`
   ${({ animate }) => animate && shakeEffect(1)};
 `;
 
-export const StyledHint = styled(Hint)`
+export const Hint = styled(BasicHint)`
   bottom: -150%;
   left: 0;
 `;

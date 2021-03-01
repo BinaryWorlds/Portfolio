@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   user-select: none;
 `;
 
-export const StyledContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   padding-bottom: ${({ ratio }) => ratio}%;
 `;
 
-export const StyledImage = styled.picture`
+export const Image = styled.picture`
   width: 100%;
   position: absolute;
 
