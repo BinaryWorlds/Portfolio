@@ -47,14 +47,15 @@ export const BasicHint = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
 
   opacity: 0;
-  visibility: 'hidden';
+  visibility: hidden;
 
   transition: visibility 0s linear 500ms, opacity 500ms;
 
   ${({ isHintShow }) =>
     isHintShow &&
     css`
+      transition: visibility 0s linear, opacity 500ms;
       opacity: 1;
-      visibility: 'visible';
+      visibility: visible;
     `}
 `;
