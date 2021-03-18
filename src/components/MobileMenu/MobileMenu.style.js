@@ -40,6 +40,15 @@ export const Hamburger = styled.div`
     height: 40%;
     background-color: ${({ theme }) => theme.colors.blue};
   }
+
+  ${({ theme }) => theme.mq.phoneL} {
+    & :nth-child(2) {
+      left: 12.5%;
+      right: unset;
+      top: 15vw;
+      transform: translate(-50%, 50%);
+    }
+  }
 `;
 
 export const Logo = styled(Image)`

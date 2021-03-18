@@ -85,6 +85,10 @@ export const Text = styled.div`
     }
   }
 
+  ${({ theme }) => theme.mq.phoneL} {
+    margin: 0;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     min-width: 600px;
   }

@@ -1,10 +1,12 @@
 /* eslint-disable */
 
 export const isFullScreen = () =>
-  document.fullscreenElement ||
-  document.webkitFullscreenElement ||
-  document.mozFullScreenElement ||
-  document.msFullscreenElement;
+  !!(
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement
+  );
 
 export const openFullScreen = () => {
   if (isFullScreen()) return;
@@ -44,7 +46,7 @@ export const closeFullScreen = () => {
     el.webkitCancelFullscreen ||
     el.webkitCancelFullScreen;
 
-  if (requestMethod && isFullScreen) requestMethod.call(el);
+  if (requestMethod) requestMethod.call(el);
   else if (typeof window.ActiveXObject !== 'undefined') {
     const wscript = new ActiveXObject('WScript.Shell');
     if (wscript) wscript.SendKeys('{F11}');

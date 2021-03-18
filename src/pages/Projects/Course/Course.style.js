@@ -73,6 +73,11 @@ export const Image = styled(Img)`
     margin-left: 0;
   }
 
+  ${({ theme }) => theme.mq.phoneL} {
+    width: 90%;
+    margin-top: 0;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     width: 55%;
     margin-top: 0;
@@ -88,6 +93,10 @@ export const TitleWrapper = styled.div`
   align-items: center;
   width: 50%;
   margin: 0 0 10% 20%;
+
+  ${({ theme }) => theme.mq.phoneL} {
+    margin: 5% 0 5% 20%;
+  }
 
   ${({ theme }) => theme.mq.middle} {
     width: 42%;
@@ -196,6 +205,9 @@ export const Description = styled.div`
       font-size: ${({ theme }) => theme.fonts.size.xs};
       margin-left: 7%;
     }
+  }
+  ${({ theme }) => theme.mq.phoneL} {
+    margin-bottom: 5%;
   }
 
   ${({ theme }) => theme.mq.huge} {

@@ -124,6 +124,10 @@ export const Confirm = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${({ theme }) => theme.mq.phone} {
+    bottom: ${({ isPl }) => (isPl ? -6 : -8)}rem;
+  }
 `;
 
 export const Checkbox = styled.input`

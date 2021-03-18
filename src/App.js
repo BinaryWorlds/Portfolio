@@ -9,7 +9,7 @@ const Desktop = React.lazy(() => import('./View/Desktop/Desktop'));
 const mobileTreshold = 600;
 
 function App() {
-  const { isMobile, setIsMobile } = useView();
+  const { isMobile, setIsMobile } = useView(null);
 
   const handleResize = () => {
     const check = !!(

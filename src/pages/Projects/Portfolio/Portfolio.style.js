@@ -13,9 +13,15 @@ export const Wrapper = styled.div`
   justify-content: center;
   position: relative;
 
-  ${({ theme }) => theme.mq.phone} {
+  ${({ theme }) => theme.mq.phoneP} {
     padding: 5%;
     margin: 10% 0;
+  }
+
+  ${({ theme }) => theme.mq.phoneL} {
+    padding: 0;
+    margin: 5% 0;
+    justify-content: unset;
   }
 
   ${fadeIn}
@@ -201,6 +207,13 @@ export const Background = styled.div`
     opacity: 0.8;
   }
 
+  ${({ theme }) => theme.mq.phoneL} {
+    width: 70vw;
+    height: 35vw;
+    opacity: 0.8;
+    right: 55%;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     right: 55%;
     width: 60vw;
@@ -237,6 +250,12 @@ export const Description = styled.div`
     & span {
       font-size: ${({ theme }) => theme.fonts.size.xs};
     }
+  }
+
+  ${({ theme }) => theme.mq.phoneL} {
+    width: 65%;
+    margin: 35vh 0 5% 10%;
+    padding-top: 15%;
   }
 
   ${({ theme }) => theme.mq.middle} {

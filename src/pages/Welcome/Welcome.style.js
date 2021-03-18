@@ -28,12 +28,19 @@ export const Wrapper = styled.div`
 
   ${({ theme }) => theme.mq.phone} {
     padding: 5%;
-    margin-bottom: 10%;
-    height: 100vh;
 
     :after {
       content: none;
     }
+  }
+
+  ${({ theme }) => theme.mq.phoneP} {
+    margin-bottom: 10%;
+    height: 100vh;
+  }
+
+  ${({ theme }) => theme.mq.phoneL} {
+    height: 100vh;
   }
 
   ${({ theme }) => theme.mq.middle} {
@@ -57,11 +64,15 @@ export const Hello = styled.div`
   width: 100%;
   padding-top: 2%;
 
-  ${({ theme }) => theme.mq.phone} {
+  ${({ theme }) => theme.mq.phoneP} {
     height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
+  }
+
+  ${({ theme }) => theme.mq.phoneL} {
     padding: 0;
   }
 
@@ -78,9 +89,13 @@ export const Image = styled(Img)`
   width: 60%;
   margin-right: 5%;
 
-  ${({ theme }) => theme.mq.phone} {
+  ${({ theme }) => theme.mq.phoneP} {
     width: 80%;
     margin: 0;
+  }
+
+  ${({ theme }) => theme.mq.phoneL} {
+    width: 50%;
   }
 
   ${({ theme }) => theme.mq.middle} {

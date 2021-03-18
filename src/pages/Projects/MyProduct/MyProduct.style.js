@@ -204,6 +204,10 @@ export const Image = styled(Img)`
     margin-top: 7rem;
   }
 
+  ${({ theme }) => theme.mq.phoneL} {
+    width: 90%;
+  }
+
   ${({ theme }) => theme.mq.middle} {
     top: 0;
     width: 48%;

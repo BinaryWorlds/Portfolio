@@ -55,7 +55,7 @@ const backgroundStyle = css`
   content: '';
   position: absolute;
   left: 0;
-  width: 125vh;
+  width: 250vh;
   height: 50%;
   background-color: ${({ theme }) => theme.colors.orange};
   border: 1px solid rgba(112, 112, 112, 0.5);
@@ -83,6 +83,10 @@ export const Image = styled(Img)`
   ${({ theme }) => theme.mq.phone} {
     width: 100%;
     margin: 10% 0;
+  }
+
+  ${({ theme }) => theme.mq.phoneL} {
+    max-width: 60rem;
   }
 
   ${({ theme }) => theme.mq.middle} {

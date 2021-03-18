@@ -1,13 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import * as S from './ContactForm.style';
+import useLang from '../../hooks/useLang';
 
 function Checkbox({ name, formik, text }) {
   const { getFieldProps, touched, errors } = formik;
   const error = touched[name] && errors[name];
+  const { isPl } = useLang();
 
   return (
-    <S.Confirm>
+    <S.Confirm isPl={isPl}>
       <S.Checkbox type="checkbox" name={name} {...getFieldProps(name)} />
       <span>
         {text[0]}
