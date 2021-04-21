@@ -12,8 +12,9 @@ function App() {
   const { isMobile, setIsMobile } = useView(null);
 
   const handleResize = () => {
+    const { clientWidth, clientHeight } = document.documentElement;
     const check = !!(
-      window.innerWidth < mobileTreshold || window.innerHeight < mobileTreshold
+      clientWidth < mobileTreshold || clientHeight < mobileTreshold
     );
     setIsMobile(check);
   };

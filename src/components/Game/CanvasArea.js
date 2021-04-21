@@ -18,11 +18,15 @@ function CanvasArea({ getRefC, isFullScreen, handleAnimate }) {
       clientWidth,
       clientHeight,
     } = canvasRef.current;
-    const { innerWidth, innerHeight } = window;
 
-    const goTop = (innerHeight - clientHeight) / 2 - offsetTop;
-    const leftMargin = Math.floor((innerWidth - 2560) / 2);
-    let goLeft = (innerWidth - clientWidth) / 2 - offsetLeft;
+    const {
+      clientWidth: docWidth,
+      clientHeight: docHeight,
+    } = document.documentElement;
+
+    const goTop = (docHeight - clientHeight) / 2 - offsetTop;
+    const leftMargin = Math.floor((docWidth - 2560) / 2);
+    let goLeft = (docWidth - clientWidth) / 2 - offsetLeft;
     if (leftMargin > 0) goLeft -= leftMargin;
     setCanvasPosition({ goTop, goLeft });
   };

@@ -46,13 +46,13 @@ function registerValidSW(swUrl, config) {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               console.log('New wersion downloaded!');
-              registration &&
-                registration.waiting.postMessage({ type: 'SKIP_WAITING' }); //force downloading new version
-              window.location.reload();
 
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
+              registration &&
+                registration.waiting.postMessage({ type: 'SKIP_WAITING' }); //force downloading new version
+              window.location.reload();
             } else {
               console.log('Content is cached for offline use.');
 

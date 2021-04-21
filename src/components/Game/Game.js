@@ -30,9 +30,9 @@ function Game() {
   const [animateButton, setAnimateButton] = useState(false);
 
   const checkGameSize = () => {
-    const width = window.innerWidth;
-    if (width > 2000) return 2;
-    if (width > 1300) return 1;
+    const { clientWidth } = document.documentElement;
+    if (clientWidth > 2000) return 2;
+    if (clientWidth > 1300) return 1;
     return 0;
   };
 

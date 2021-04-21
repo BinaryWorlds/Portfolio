@@ -23,7 +23,7 @@ function Welcome() {
   };
 
   const handleClick = () => {
-    if (isMobile) window.scrollTo(0, window.innerHeight);
+    if (isMobile) window.scrollTo(0, document.documentElement.clientHeight);
     else dispatch({ type: SET_PAGE, payload: 1 });
   };
 

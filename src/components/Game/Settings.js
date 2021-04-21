@@ -24,27 +24,33 @@ function Settings({
   const [colors, setColors] = useState(g.colorsInit);
 
   const calcMaxBallSize = () => {
-    const { innerWidth, innerHeight } = window;
-    const margin = ballSize * 0.15;
-    const maxSizeColumn = (innerWidth - margin) / (columns * 1.15);
-    const maxSizeRows = (innerHeight - margin - g.scoreHeight) / (rows * 1.15);
+    if (!columns || !rows) return 0;
+    const { clientWidth, clientHeight } = document.documentElement;
 
-    const maxSize = maxSizeColumn < maxSizeRows ? maxSizeColumn : maxSizeRows;
+    const spaceColumn = clientWidth / columns;
+    const spaceRows = (clientHeight - g.scoreHeight) / rows;
+
+    let maxSize = spaceColumn < spaceRows ? spaceColumn : spaceRows;
+    maxSize -= Math.floor(maxSize * 0.15);
+
+    if (maxSize > 60) return 60;
     return Math.floor(maxSize);
   };
 
   const calcMaxRows = () => {
-    const margin = ballSize * 0.15;
-    const ballSpace = ballSize * 1.15;
-    const maxRows = (window.innerHeight - margin - g.scoreHeight) / ballSpace;
+    const { clientHeight } = document.documentElement;
+    const margin = Math.floor(ballSize * 0.15);
+    const ballSpace = ballSize + margin;
+    const maxRows = (clientHeight - margin - g.scoreHeight) / ballSpace;
 
     return Math.floor(maxRows);
   };
 
   const calcMaxColumns = () => {
-    const margin = ballSize * 0.15;
-    const ballSpace = ballSize * 1.15;
-    const maxColumns = (window.innerWidth - margin) / ballSpace;
+    const { clientWidth } = document.documentElement;
+    const margin = Math.floor(ballSize * 0.15);
+    const ballSpace = ballSize + margin;
+    const maxColumns = (clientWidth - margin) / ballSpace;
 
     return Math.floor(maxColumns);
   };
@@ -88,7 +94,7 @@ function Settings({
         name={isPl ? 'Rozmiar: ' : 'Size: '}
         value={ballSize}
         setValue={setBallSize}
-        min={40}
+        min={30}
         max={calcMaxBallSize()}
       />
       <S.Button onClick={fillScreen}>{isPl ? 'Wypełnij' : 'Fill'}</S.Button>

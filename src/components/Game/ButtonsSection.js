@@ -26,11 +26,11 @@ function ButtonsSection({
     if (!sectionRef.current) return;
 
     const { offsetTop, offsetLeft, clientWidth } = sectionRef.current;
-    const { innerWidth } = window;
+    const docWidth = document.documentElement.clientWidth;
 
     const goTop = (offsetTop - 20) * -1;
-    let goRight = innerWidth - offsetLeft - clientWidth - 20;
-    const leftMargin = Math.floor((innerWidth - 2560) / 2);
+    let goRight = docWidth - offsetLeft - clientWidth - 20;
+    const leftMargin = Math.floor((docWidth - 2560) / 2);
     if (leftMargin > 0) goRight -= leftMargin;
 
     setSectionPosition({ goTop, goRight });
