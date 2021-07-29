@@ -26,6 +26,7 @@ const theme = {
     4: { sm: '3.6rem', md: '4.5rem', lg: '5.4rem' },
   },
   fontWeight: {
+    regular: '400',
     medium: '500',
     semiBold: '600',
     bold: '700',
@@ -33,8 +34,8 @@ const theme = {
     black: '900',
   },
   fontFamily: {
-    default: 'Montserrat, sans-serif',
-    decoration: 'Nunito, sans-serif',
+    default: 'Lekton, sans-serif',
+    decoration: 'DM Sans, sans-serif',
   },
 };
 
