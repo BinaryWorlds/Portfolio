@@ -8,9 +8,13 @@ function Welcome() {
     <S.Wrapper>
       <S.Card>
         <S.Text>Front-end Developer</S.Text>
-        <S.Name>Szymkowiak Dawid</S.Name>
+        <S.Name>
+          Szymkowiak
+          <br /> Dawid
+        </S.Name>
         <S.Text>Pozwól się zaskoczyć</S.Text>
       </S.Card>
+      <S.Button>Projekty</S.Button>
       <S.Background imageL={imageL} imageP={imageP} alt="Frontend-developer-portfolio-background" />
     </S.Wrapper>
   );

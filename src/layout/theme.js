@@ -24,6 +24,7 @@ const theme = {
     2: { sm: '1.8rem', md: '2.3rem', lg: '2.7rem' },
     3: { sm: '3.2rem', md: '4rem', lg: '4.8rem' },
     4: { sm: '3.6rem', md: '4.5rem', lg: '5.4rem' },
+    5: { sm: '4.2rem', md: '5.2rem', lg: '6.3rem' },
   },
   fontWeight: {
     regular: '400',
@@ -34,8 +35,8 @@ const theme = {
     black: '900',
   },
   fontFamily: {
-    default: 'Lekton, sans-serif',
-    decoration: 'DM Sans, sans-serif',
+    default: 'Dosis, sans-serif',
+    decoration: 'Exo, sans-serif',
   },
 };
 
