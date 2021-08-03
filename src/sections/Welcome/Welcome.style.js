@@ -26,8 +26,8 @@ export const Background = styled(Img)`
 `;
 
 export const Text = styled.p`
-  font-size: 1.8rem;
   letter-spacing: 0.04em;
+  font-family: ${({ theme }) => theme.fontFamily.decoration};
   font-size: ${({ theme }) => theme.fontSize[2].sm};
 
   ${({ theme }) => theme.mq.md} {
@@ -40,10 +40,11 @@ export const Text = styled.p`
 `;
 
 export const Name = styled.p`
+  letter-spacing: 0.04em;
+  line-height: 135%;
+  font-family: ${({ theme }) => theme.fontFamily.decoration};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   font-size: ${({ theme }) => theme.fontSize[5].sm};
-  line-height: 135%;
-  letter-spacing: 0.04em;
 
   ${({ theme }) => theme.mq.sm} {
     margin: 1rem 0;
@@ -60,7 +61,7 @@ export const Name = styled.p`
 
 export const Card = styled.div`
   width: 32rem;
-  height: 23.5rem;
+  height: 22rem;
   padding: 2rem;
   padding-right: 3.5rem;
   background-color: ${({ theme }) => theme.colors.glass};
@@ -81,8 +82,8 @@ export const Card = styled.div`
   }
 
   ${({ theme }) => theme.mq.sm} {
-    width: 42rem;
-    height: 20rem;
+    width: 46rem;
+    height: 23rem;
 
     br {
       display: none;
@@ -90,12 +91,12 @@ export const Card = styled.div`
   }
 
   ${({ theme }) => theme.mq.md} {
-    width: 50rem;
-    height: 24rem;
+    width: 56rem;
+    height: 28rem;
   }
 
   ${({ theme }) => theme.mq.lg} {
-    width: 65rem;
-    height: 32rem;
+    width: 66rem;
+    height: 33rem;
   }
 `;

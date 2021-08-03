@@ -4,6 +4,8 @@ import imageL from '../../assets/images/startLandscape';
 import imageP from '../../assets/images/startPortrait';
 
 function Welcome() {
+  const handleClick = () => {};
+
   return (
     <S.Wrapper>
       <S.Card>
@@ -14,7 +16,7 @@ function Welcome() {
         </S.Name>
         <S.Text>Pozwól się zaskoczyć</S.Text>
       </S.Card>
-      <S.Button>Projekty</S.Button>
+      <S.Button onClick={handleClick}>Projekty</S.Button>
       <S.Background imageL={imageL} imageP={imageP} alt="Frontend-developer-portfolio-background" />
     </S.Wrapper>
   );

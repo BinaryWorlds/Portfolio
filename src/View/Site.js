@@ -2,9 +2,12 @@ import React from 'react';
 import * as S from './Site.style';
 import Welcome from '../sections/Welcome/Welcome';
 
+import Header from '../components/Header/Header';
+
 function Site() {
   return (
     <S.Wrapper>
+      <Header />
       <Welcome />
     </S.Wrapper>
   );
