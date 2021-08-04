@@ -6,3 +6,7 @@ export const Text = styled.text`
   alignment-baseline: middle;
   text-anchor: middle;
 `;
+
+export const FilterSvg = styled.svg`
+  position: absolute;
+`;

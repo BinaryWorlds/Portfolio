@@ -65,7 +65,7 @@ export const Card = styled.div`
   padding: 2rem;
   padding-right: 3.5rem;
   background-color: ${({ theme }) => theme.colors.glass};
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0.5rem);
   border-radius: 1.5rem;
 
   display: flex;

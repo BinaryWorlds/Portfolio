@@ -21,7 +21,7 @@ export const List = styled.ul`
   border-bottom-right-radius: 5rem;
   border-top: none;
 
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(0.3rem);
   background: ${({ theme }) => theme.colors.glass};
 
   box-shadow: inset 0 -0.4rem 0.4rem ${({ theme }) => theme.colors.shadow15},
