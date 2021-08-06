@@ -9,4 +9,7 @@ export const colors = {
   stroke25: 'rgba(255, 255, 255, 0.25)',
   shadow10: 'rgba(255, 255, 255, 0.1)',
   shadow15: 'rgba(255, 255, 255, 0.15)',
+  bg25: 'rgba(0, 0, 0, 0.25)',
+  borderA: 'rgba(24, 21, 21, 1)',
+  borderB: '#817C7C',
 };
