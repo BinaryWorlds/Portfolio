@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
   ${({ theme }) => theme.mq.lg} {
     width: 22.2rem;
-    height: 7.6rem;
+    height: 7rem;
   }
 `;
 

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as S from './Background.style';
 
-function Background({ imageL, imageP, alt, className }) {
+function Background({ images, alt, className }) {
   const [imageUrl, setImageUrl] = useState(null);
   const componentRef = useRef();
 
@@ -11,30 +11,28 @@ function Background({ imageL, imageP, alt, className }) {
     setImageUrl(url);
   };
 
-  const getSource = (image, isPortrait = false) => {
+  const genSource = ({ image, media }, i) => {
     const { src, sizes, altFormat } = image;
-
     const path = (size, format) => `${src}_${size}w.${format} ${size}w`;
     const srcSet = (format) => sizes.map((size) => path(size, format)).join(',');
-    const media = isPortrait ? '(orientation: portrait)' : '(orientation: landscape)';
 
     return (
-      <>
+      <React.Fragment key={src + media + i}>
         <source type="image/webp" srcSet={srcSet('webp')} media={media} />
         <source type={`image/${altFormat}`} srcSet={srcSet(altFormat)} media={media} />
-      </>
+      </React.Fragment>
     );
   };
 
-  const { src, altFormat } = imageL;
-  const imgSrc = `${src}.${altFormat}`;
+  const sources = images.map((el, i) => genSource(el, i));
+
+  const { src, altFormat } = images[0].image;
+  const imgSrc = src ? `${src}.${altFormat}` : '';
 
   return (
     <S.Container url={imageUrl} className={className}>
       <S.Image>
-        {getSource(imageL)}
-        {imageP && getSource(imageP, true)}
-
+        {sources}
         <img onLoad={copyUrl} ref={componentRef} src={imgSrc} alt={alt} />
       </S.Image>
     </S.Container>
@@ -49,13 +47,13 @@ const imageProps = PropTypes.shape({
 
 Background.propTypes = {
   className: PropTypes.string.isRequired,
-  imageL: imageProps.isRequired,
-  imageP: imageProps,
   alt: PropTypes.string.isRequired,
-};
-
-Background.defaultProps = {
-  imageP: null,
+  images: PropTypes.arrayOf(
+    PropTypes.exact({
+      image: imageProps,
+      media: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 export default Background;

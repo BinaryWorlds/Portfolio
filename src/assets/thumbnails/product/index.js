@@ -3,7 +3,7 @@ const props = {
   height: 500,
   sizes: [200, 300, 500],
   altFormat: 'jpg',
-  src: `${process.env.PUBLIC_URL}/images/thumbnails/product`,
+  src: `${process.env.PUBLIC_URL}/thumbnails/product`,
 };
 
 export default props;

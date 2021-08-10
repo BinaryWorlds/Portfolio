@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { header } from '../../ui/header';
 import img from '../../components/Image/Image';
+import { wrapper1 } from '../../ui/glass';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -11,7 +12,6 @@ export const Wrapper = styled.div`
 
 export const Title = styled(header)`
   text-align: center;
-  margin: 10rem 0;
 `;
 
 export const Container = styled.div`
@@ -25,7 +25,6 @@ export const Container = styled.div`
 
   ${({ theme }) => theme.mq.sm} {
     grid-gap: 2.5rem;
-
     width: 80%;
   }
 
@@ -38,13 +37,10 @@ export const Container = styled.div`
   }
 `;
 
-export const Box = styled.div`
+export const Box = styled(wrapper1)`
   width: 100%;
   padding-bottom: 100%;
   border-radius: 1.5rem;
-  background: ${({ theme }) => theme.colors.glass};
-  box-shadow: 0 0.4rem 0.4rem ${({ theme }) => theme.colors.bg25};
-  backdrop-filter: blur(2.5rem);
   position: relative;
 `;
 
@@ -73,7 +69,6 @@ export const BoxTitle = styled.div`
 
 export const Image = styled(img)`
   width: 50%;
-  filter: drop-shadow(0.4rem 0.4rem 2rem ${({ theme }) => theme.colors.shadow10});
 
   background: linear-gradient(
     to left,

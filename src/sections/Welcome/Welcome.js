@@ -4,6 +4,11 @@ import imageL from '../../assets/images/startLandscape';
 import imageP from '../../assets/images/startPortrait';
 
 function Welcome() {
+  const images = [
+    { image: imageL, media: '(orientation: landscape)' },
+    { image: imageP, media: '(orientation: portrait)' },
+  ];
+
   const handleClick = () => {};
 
   return (
@@ -17,7 +22,7 @@ function Welcome() {
         <S.Text>Pozwól się zaskoczyć</S.Text>
       </S.Card>
       <S.Button onClick={handleClick}>Projekty</S.Button>
-      <S.Background imageL={imageL} imageP={imageP} alt="Frontend-developer-portfolio-background" />
+      <S.Background images={images} alt="Frontend-developer-portfolio-background" />
     </S.Wrapper>
   );
 }

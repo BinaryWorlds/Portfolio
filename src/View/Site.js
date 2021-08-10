@@ -2,6 +2,8 @@ import React from 'react';
 import * as S from './Site.style';
 import Welcome from '../sections/Welcome/Welcome';
 import Projects from '../sections/Projects/Projects';
+import AboutMe from '../sections/AboutMe/AboutMe';
+import Contact from '../sections/Contact/Contact';
 
 import Header from '../components/Header/Header';
 
@@ -11,6 +13,8 @@ function Site() {
       <Header />
       <Welcome />
       <Projects />
+      <AboutMe />
+      <Contact />
     </S.Wrapper>
   );
 }
