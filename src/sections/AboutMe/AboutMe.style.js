@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 136rem;
   align-self: center;
-  margin: 6rem 0;
   position: relative;
   display: grid;
   justify-items: center;
@@ -44,8 +43,6 @@ export const Background = styled(Img)`
   background-position: 35% center;
   z-index: -1;
   grid-area: 2/1/5/3;
-  top: 20rem;
-  left: 0;
   width: 100%;
   opacity: 0.6;
 `;
