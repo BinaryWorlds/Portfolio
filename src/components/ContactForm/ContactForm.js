@@ -99,7 +99,7 @@ function ContactForm() {
   };
 
   return (
-    <S.Form onSubmit={formik.handleSubmit} show={showCaptcha}>
+    <S.Form onSubmit={formik.handleSubmit} show={showCaptcha} id="contactForm">
       <S.Title>
         <LockIcon />
         Szyfrowanie end to end (PGP)

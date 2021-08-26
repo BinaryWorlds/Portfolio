@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   z-index: 1;
   display: grid;
   justify-items: center;
-  grid-template: 1fr auto 2fr auto 2fr / auto;
+  grid-template: 2fr auto 3fr auto 2fr / auto;
 `;
 
 export const Background = styled(Img)`

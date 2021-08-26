@@ -6,7 +6,7 @@ import { unlockScroll } from '../../utils/scroll';
 import { menuSections } from '../../View/siteStructure';
 import SvgText from '../SvgText/SvgText';
 
-import { ReactComponent as Icon } from '../../assets/icons/close_icon.svg';
+import { ReactComponent as Icon } from '../../assets/icons/closeIcon.svg';
 
 function MobileMenu() {
   const dispatch = useDispatch();

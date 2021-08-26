@@ -4,6 +4,10 @@ const textOne = css`
   letter-spacing: 0.04em;
   font-size: ${({ theme }) => theme.fontSize[0].sm};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+
+  ${({ theme }) => theme.mq.lg} {
+    font-size: ${({ theme }) => theme.fontSize[0].md};
+  }
 `;
 
 const commonStyles = css`
@@ -20,6 +24,10 @@ const commonStyles = css`
     css`
       border-color: red;
     `}
+
+  ${({ theme }) => theme.mq.lg} {
+    height: 4.4rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -34,6 +42,12 @@ export const Title = styled.div`
     height: 3rem;
     justify-self: center;
     margin-right: 2rem;
+  }
+
+  ${({ theme }) => theme.mq.lg} {
+    svg {
+      height: 4.5rem;
+    }
   }
 `;
 
@@ -83,6 +97,10 @@ export const Area = styled.textarea`
   ${commonStyles};
   height: 18rem;
   padding: 1.8rem;
+
+  ${({ theme }) => theme.mq.lg} {
+    height: 25rem;
+  }
 `;
 
 export const Error = styled.span`
@@ -107,6 +125,10 @@ export const Button = styled.button`
   border: none;
   border-radius: 1.5rem;
   justify-self: center;
+
+  ${({ theme }) => theme.mq.lg} {
+    font-size: ${({ theme }) => theme.fontSize[1].md};
+  }
 `;
 
 export const Confirm = styled.label`
