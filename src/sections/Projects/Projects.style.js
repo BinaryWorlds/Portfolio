@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { header } from '../../ui/header';
 import img from '../../components/Image/Image';
 import { wrapper1 } from '../../ui/glass';
@@ -44,7 +45,8 @@ export const Box = styled(wrapper1)`
   position: relative;
 `;
 
-export const InnerBox = styled.div`
+export const InnerBox = styled(Link)`
+  text-decoration: none;
   position: absolute;
   width: 100%;
   height: 100%;

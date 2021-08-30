@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HashLink } from 'react-router-hash-link';
 import { Text } from '../SvgText/SvgText.style';
 
 export const Wrapper = styled.nav`
@@ -40,7 +41,7 @@ export const List = styled.ul`
   }
 `;
 
-export const MenuButton = styled.button`
+export const MenuButton = styled(HashLink)`
   ${Text} {
     font-size: ${({ theme }) => theme.fontSize[3].md};
     font-weight: ${({ theme }) => theme.fontWeight.bold};

@@ -29,17 +29,24 @@ export const Link = styled(linkComponent)`
   display: flex;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   font-size: ${({ theme }) => theme.fontSize[3].sm};
-  margin: 2rem;
+  margin: 4rem;
 
   grid-column: span 2;
 
   svg {
     width: 5.6rem;
-    margin: 4rem;
   }
 
-  &:first-of-type svg {
-    margin: 0;
+  &:first-of-type {
+    margin: 2rem;
+  }
+
+  ${({ theme }) => theme.mq.sm} {
+    margin: 6rem;
+
+    &:first-of-type {
+      margin: 2rem;
+    }
   }
 
   ${({ theme }) => theme.mq.lg} {

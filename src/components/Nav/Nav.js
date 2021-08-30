@@ -1,24 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import * as S from './Nav.style';
-import { menuSections, idToIndex } from '../../View/siteStructure';
+import { menuSections } from '../../View/siteStructure';
 import SvgText from '../SvgText/SvgText';
 
 function Nav() {
-  const { activeSection } = useSelector((state) => state.app);
-
-  const handleClick = () => {
-    // const nr = e.target.value;
-    // console.log(nr);
-  };
-
-  const menuItems = menuSections.map(({ name, id }, i) => (
+  const menuItems = menuSections.map(({ name, id }) => (
     <S.Element key={name}>
-      <S.MenuButton
-        active={i === idToIndex[activeSection]}
-        aria-label={name}
-        value={id}
-        onClick={handleClick}>
+      <S.MenuButton smooth to={`/#${id}`} aria-label={name} value={id}>
         <SvgText text={name} />
       </S.MenuButton>
     </S.Element>
@@ -26,7 +14,7 @@ function Nav() {
 
   return (
     <S.Wrapper>
-      <S.List addBackground={idToIndex[activeSection] !== 0}>{menuItems}</S.List>
+      <S.List>{menuItems}</S.List>
     </S.Wrapper>
   );
 }

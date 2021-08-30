@@ -128,6 +128,7 @@ export const Button = styled.button`
 
   ${({ theme }) => theme.mq.lg} {
     font-size: ${({ theme }) => theme.fontSize[1].md};
+    width: 22.5rem;
   }
 `;
 

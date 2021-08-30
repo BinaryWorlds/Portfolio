@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HashLink } from 'react-router-hash-link';
 import { Text } from '../SvgText/SvgText.style';
 
 export const Wrapper = styled.nav`
@@ -34,7 +35,8 @@ export const Element = styled.li`
   text-align: center;
 `;
 
-export const MenuButton = styled.button`
+export const MenuButton = styled(HashLink)`
+  display: inline-block;
   padding: 0.75rem 1rem;
   margin: 0.75rem 1.5rem;
 

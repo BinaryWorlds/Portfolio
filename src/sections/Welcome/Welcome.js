@@ -3,6 +3,8 @@ import * as S from './Welcome.style';
 import imageL from '../../assets/images/startLandscape';
 import imageP from '../../assets/images/startPortrait';
 
+import { sectionsId } from '../../View/siteStructure';
+
 function Welcome() {
   const images = [
     { image: imageL, media: '(orientation: landscape)' },
@@ -12,7 +14,7 @@ function Welcome() {
   const handleClick = () => {};
 
   return (
-    <S.Wrapper>
+    <S.Wrapper id={sectionsId.start}>
       <S.Card>
         <S.Text>Front-end Developer</S.Text>
         <S.Name>

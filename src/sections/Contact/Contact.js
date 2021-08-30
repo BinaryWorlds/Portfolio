@@ -6,6 +6,7 @@ import { ReactComponent as FbIcon } from '../../assets/icons/fbIcon.svg';
 import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedinIcon.svg';
 import { ReactComponent as GhIcon } from '../../assets/icons/ghIcon.svg';
 import publicKey from '../../assets/publicKey_contact@dev-is.me.pgp';
+import { sectionsId } from '../../View/siteStructure';
 
 const fbLink = 'https://m.me/dawid.szymkowiak.10';
 const ghLink = 'https://github.com/BinaryWorlds';
@@ -14,7 +15,7 @@ const mailTo = 'mailto:contact@dev-is.me';
 
 function Contact() {
   return (
-    <S.Wrapper>
+    <S.Wrapper id={sectionsId.contact}>
       <S.Title>Kontakt</S.Title>
       <ContactForm />
       <S.Container>

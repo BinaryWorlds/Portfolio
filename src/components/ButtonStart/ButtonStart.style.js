@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HashLink } from 'react-router-hash-link';
 
 export const Wrapper = styled.div`
   width: 14.9rem;
@@ -14,7 +15,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled(HashLink)`
   width: 100%;
   height: 100%;
   border-radius: 5rem;
@@ -25,6 +26,7 @@ export const Button = styled.button`
   font-family: ${({ theme }) => theme.fontFamily.decoration};
   font-size: 1.8rem;
   letter-spacing: 0.04em;
+  text-decoration: none;
 
   background: linear-gradient(
     90deg,

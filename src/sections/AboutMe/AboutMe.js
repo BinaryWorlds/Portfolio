@@ -3,11 +3,13 @@ import * as S from './AboutMe.style';
 import { text } from './AboutMe.text';
 import image from '../../assets/images/hedgehog';
 
+import { sectionsId } from '../../View/siteStructure';
+
 function AboutMe() {
   const images = [{ image }];
 
   return (
-    <S.Wrapper>
+    <S.Wrapper id={sectionsId.aboutMe}>
       <S.Title>O mnie</S.Title>
       <S.Card>
         <S.Text>{text}</S.Text>

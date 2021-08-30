@@ -1,16 +1,22 @@
-export const menuSections = [
-  { name: 'Start', id: 'start' },
-  { name: 'Projekty', id: 'projekty' },
-  { name: 'O mnie', id: 'oMnie' },
-  { name: 'Kontakt', id: 'kontakt' },
-];
-
-export const idToIndex = {
-  start: 0,
-  projekty: 1,
-  oMnie: 2,
-  kontakt: 3,
+export const sectionsId = {
+  start: 'start',
+  projects: 'projects',
+  aboutMe: 'aboutMe',
+  contact: 'contact',
 };
 
-// export const sectionIndex = new Map(menuSections.map((obj, i) => [obj.id, i]));
-// export const getSectionIndex = (id) => sectionIndex.get(id);
+export const menuSections = [
+  { name: 'Start', id: sectionsId.start },
+  { name: 'Projekty', id: sectionsId.projects },
+  { name: 'O mnie', id: sectionsId.aboutMe },
+  { name: 'Kontakt', id: sectionsId.contact },
+];
+
+export const projectsLinks = {
+  landingPage: '/projects/landingPage',
+  jawbreaker: '/projects/jawbreaker',
+  weather: '/projects/weather',
+  printer: '/projects/printer',
+  fbClear: '/projects/fbClear',
+  product: '/projects/product',
+};

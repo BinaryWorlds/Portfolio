@@ -9,4 +9,6 @@ export const Text = styled.text`
 
 export const FilterSvg = styled.svg`
   position: absolute;
+  width: 1px;
+  height: 1px;
 `;

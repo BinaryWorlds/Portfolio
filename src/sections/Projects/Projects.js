@@ -8,23 +8,25 @@ import printer from '../../assets/thumbnails/printer';
 import fbClear from '../../assets/thumbnails/fbClear';
 import product from '../../assets/thumbnails/product';
 
+import { projectsLinks, sectionsId } from '../../View/siteStructure';
+
 function Projects() {
   const cards = [
-    { name: 'Landing Page', img: landingPage },
-    { name: 'Gra Jawbreaker', img: jawbreaker },
-    { name: 'Pogoda', img: weather },
-    { name: 'Biblioteka drukarki', img: printer },
-    { name: 'Facebook Cleaner', img: fbClear },
-    { name: 'Wizytówka produktu', img: product },
+    { name: 'Landing Page', img: landingPage, link: projectsLinks.landingPage },
+    { name: 'Gra Jawbreaker', img: jawbreaker, link: projectsLinks.jawbreaker },
+    { name: 'Pogoda', img: weather, link: projectsLinks.weather },
+    { name: 'Biblioteka drukarki', img: printer, link: projectsLinks.printer },
+    { name: 'Facebook Cleaner', img: fbClear, link: projectsLinks.fbClear },
+    { name: 'Wizytówka produktu', img: product, link: projectsLinks.product },
   ];
 
   return (
-    <S.Wrapper>
+    <S.Wrapper id={sectionsId.projects}>
       <S.Title>Projekty</S.Title>
       <S.Container>
-        {cards.map(({ name, img }) => (
+        {cards.map(({ name, img, link }) => (
           <S.Box key={name}>
-            <S.InnerBox>
+            <S.InnerBox to={link}>
               <S.Image image={img} alt={name} />
               <S.BoxTitle>{name}</S.BoxTitle>
             </S.InnerBox>
