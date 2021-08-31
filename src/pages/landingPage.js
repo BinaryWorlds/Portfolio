@@ -1,9 +1,11 @@
 import React from 'react';
 import Project from './Project/Project';
+import landingPage from '../assets/images/landingPage';
 
 const data = {
   title: 'Landing Page',
-  image: ``,
+  image: landingPage,
+  alt: 'landing page',
   live: 'https://biuro-plus.com',
   description: [
     `Wizytówka biura rachunkowego.`,

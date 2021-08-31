@@ -25,7 +25,7 @@ function Link({ children, link, aria, isBlank, className, download }) {
 Link.propTypes = {
   children: PropTypes.node.isRequired,
   link: PropTypes.string.isRequired,
-  aria: PropTypes.string.isRequired,
+  aria: PropTypes.string,
   download: PropTypes.string,
   isBlank: PropTypes.bool,
   className: PropTypes.string.isRequired,
@@ -34,6 +34,7 @@ Link.propTypes = {
 Link.defaultProps = {
   isBlank: true,
   download: null,
+  aria: null,
 };
 
 export default Link;

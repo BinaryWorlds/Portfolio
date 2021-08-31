@@ -26,7 +26,7 @@ function Projects() {
       <S.Container>
         {cards.map(({ name, img, link }) => (
           <S.Box key={name}>
-            <S.InnerBox to={link}>
+            <S.InnerBox to={`${link}/#top`}>
               <S.Image image={img} alt={name} />
               <S.BoxTitle>{name}</S.BoxTitle>
             </S.InnerBox>

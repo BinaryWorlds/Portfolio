@@ -1,9 +1,11 @@
 import React from 'react';
 import Project from './Project/Project';
+import product from '../assets/images/product';
 
 const data = {
   title: `Wizytówka produktu`,
-  image: ``,
+  image: product,
+  alt: 'my product site',
   live: `https://climbingtimers.com/`,
   description: [
     `Prosta strona wykonana przy użyciu Wordpress i Elementora.`,

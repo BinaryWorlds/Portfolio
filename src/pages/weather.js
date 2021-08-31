@@ -1,12 +1,14 @@
 import React from 'react';
 import Project from './Project/Project';
+import weather from '../assets/images/weather';
 
 const data = {
   title: 'Mobilna aplikacja pogodowa',
-  image: ``,
+  image: weather,
+  alt: 'weather app',
   live: 'https://binaryworlds.github.io/WeatherApp/',
   github: 'https://github.com/BinaryWorlds/WeatherApp',
-  description: [
+  list: [
     `Moim celem było zapewnienie następującej funkcjonalności:`,
     `edycja listy miast`,
     `zapamiętywanie ww. listy podczas kolejnego uruchomienia`,

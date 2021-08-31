@@ -1,9 +1,11 @@
 import React from 'react';
 import Project from './Project/Project';
+import fbClear from '../assets/images/fbClear';
 
 const data = {
   title: `Skrypt oczyszczający historię facebook`,
-  image: ``,
+  image: fbClear,
+  alt: 'anonymous mask',
   github: `https://github.com/BinaryWorlds/FacebookClearActivityLog`,
   description: [
     `Umożliwia masowe usuwanie aktywności każdego typu.`,
