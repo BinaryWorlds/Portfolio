@@ -1,14 +1,22 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
+
 import { HashLink } from 'react-router-hash-link';
 import { Text } from '../SvgText/SvgText.style';
 
 export const Wrapper = styled.nav`
-  z-index: 100;
+  ${({ theme }) => theme.mq.md} {
+    display: none;
+  }
+`;
+
+export const Container = styled(animated.div)`
+  width: 90vw;
+  height: 90vh;
   position: fixed;
   top: 50%;
   right: 0;
-  width: 90vw;
-  height: 90vh;
+
   border-radius: 5rem 0 0 5rem;
   background: ${({ theme }) => theme.colors.glass};
   backdrop-filter: blur(0.3rem);
@@ -18,13 +26,6 @@ export const Wrapper = styled.nav`
 
   display: grid;
   grid-template-rows: 1fr auto 1fr;
-
-  ${({ theme }) => theme.mq.md} {
-    display: none;
-  }
-
-  transform: translateY(-50%) translateX(${({ isOpen }) => (isOpen ? '0%' : '100%')});
-  transition: transform 0.4s linear;
 `;
 
 export const Element = styled.li`
@@ -48,6 +49,7 @@ export const MenuButton = styled(HashLink)`
     padding: 1.2vh 0;
     letter-spacing: 0.04em;
   }
+  text-decoration: none;
 `;
 
 export const CloseButton = styled.button`

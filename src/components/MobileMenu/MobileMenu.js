@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSpring } from 'react-spring';
 import * as S from './MobileMenu.style';
 import { toggleMenu } from '../../store/app/actions';
 import { unlockScroll } from '../../utils/scroll';
@@ -13,10 +14,14 @@ function MobileMenu() {
   const dispatch = useDispatch();
   const { isMenuOpen } = useSelector((state) => state.app);
 
+  const props = useSpring({
+    transform: isMenuOpen ? 'translate(0%, -50%)' : 'translate(100%, -50%)',
+  });
+
   const closeMenu = () => {
     if (!isMenuOpen) return;
-    dispatch(toggleMenu());
     unlockScroll();
+    dispatch(toggleMenu());
   };
 
   const handleClick = () => {
@@ -32,11 +37,13 @@ function MobileMenu() {
   ));
 
   return (
-    <S.Wrapper isOpen={isMenuOpen}>
-      <S.List>{menuItems}</S.List>
-      <S.CloseButton onClick={closeMenu} aria-label="close menu">
-        <Icon />
-      </S.CloseButton>
+    <S.Wrapper>
+      <S.Container style={props}>
+        <S.List>{menuItems}</S.List>
+        <S.CloseButton onClick={closeMenu} aria-label="close menu">
+          <Icon />
+        </S.CloseButton>
+      </S.Container>
     </S.Wrapper>
   );
 }

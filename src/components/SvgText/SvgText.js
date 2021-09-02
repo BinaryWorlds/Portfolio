@@ -48,4 +48,4 @@ SvgText.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export default SvgText;
+export default React.memo(SvgText);

@@ -7,7 +7,10 @@ export const Wrapper = styled.nav`
   display: none;
 
   ${({ theme }) => theme.mq.md} {
-    display: inline;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
   }
 `;
 

@@ -1,9 +1,10 @@
 {
-  "homepage": ".",
+  "homepage": "https://dev-is.me/RbQpY4ukz7A3SkEEhfTl",
   "name": "dev-is.me",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^7.6.1",
     "@react-three/fiber": "^7.0.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
