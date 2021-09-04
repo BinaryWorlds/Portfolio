@@ -13,10 +13,10 @@ export const menuSections = [
 ];
 
 export const projectsLinks = {
-  landingPage: '/projects/landingPage',
-  jawbreaker: '/projects/jawbreaker',
-  weather: '/projects/weather',
-  printer: '/projects/printer',
-  fbClear: '/projects/fbClear',
-  product: '/projects/product',
+  landingPage: '/landingPage',
+  jawbreaker: '/jawbreaker',
+  weather: '/weather',
+  printer: '/printer',
+  fbClear: '/fbClear',
+  product: '/product',
 };

@@ -90,7 +90,7 @@ export const Container = styled.div`
   border-radius: 0 0 5rem 5rem;
   background: ${({ theme }) => theme.colors.glass};
   border: 0.1rem solid ${({ theme }) => theme.colors.stroke25};
-  backdrop-filter: blur(1.5rem);
+  backdrop-filter: blur(0.5rem);
 
   ${CloseButton} {
     margin: 6rem;

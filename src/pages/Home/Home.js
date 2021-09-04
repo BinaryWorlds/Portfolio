@@ -2,6 +2,7 @@ import React from 'react';
 
 import Welcome from '../../sections/Welcome/Welcome';
 import Suspense from '../../components/Suspense/Suspense';
+import Footer from '../../sections/Footer/Footer';
 
 const Projects = React.lazy(() => import('../../sections/Projects/Projects'));
 const AboutMe = React.lazy(() => import('../../sections/AboutMe/AboutMe'));
@@ -16,6 +17,7 @@ function Home() {
       {lazy(<Projects />)}
       {lazy(<AboutMe />)}
       {lazy(<Contact />)}
+      <Footer />
     </>
   );
 }

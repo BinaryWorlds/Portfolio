@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import * as S from './Site.style';
 
 import Header from '../components/Header/Header';
-import Footer from '../sections/Footer/Footer';
 import Home from '../pages/Home/Home';
 import Suspense from '../components/Suspense/Suspense';
 import { projectsLinks } from './siteStructure';
@@ -16,11 +15,12 @@ const Printer = React.lazy(() => import('../pages/printer'));
 const Product = React.lazy(() => import('../pages/product'));
 const Weather = React.lazy(() => import('../pages/weather'));
 
+const BgAnimation = React.lazy(() => import('../components/BgAnimation/BgAnimation'));
+
 function Site() {
   return (
     <S.Wrapper>
       <Router>
-        <Header />
         <Suspense>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -33,8 +33,11 @@ function Site() {
             <Redirect from="*" to="/" />
           </Switch>
         </Suspense>
+        <Header />
+        <Suspense>
+          <BgAnimation />
+        </Suspense>
       </Router>
-      <Footer />
     </S.Wrapper>
   );
 }

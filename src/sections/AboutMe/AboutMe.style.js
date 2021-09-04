@@ -33,17 +33,22 @@ export const Card = styled(wrapper1)`
   border-radius: 1.5rem;
   grid-area: 2/1/2/3;
   margin: 5rem 0;
+  z-index: 1;
 
   ${({ theme }) => theme.mq.md} {
     grid-area: 2/1/2/2;
   }
 `;
 
+export const Container = styled.div`
+  grid-area: 2/1/5/3;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.bg};
+`;
+
 export const Background = styled(Img)`
   background-position: 35% center;
   z-index: -1;
-  grid-area: 2/1/5/3;
-  width: 100%;
   opacity: 0.6;
 `;
 

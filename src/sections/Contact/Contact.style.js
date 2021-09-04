@@ -92,6 +92,7 @@ export const Container = styled.div`
     background: ${({ theme }) => theme.colors.glass};
     border: 0.1rem solid ${({ theme }) => theme.colors.stroke10};
     border-radius: 1.5rem;
+    backdrop-filter: blur(0.5rem);
 
     svg {
       width: 3.5rem;

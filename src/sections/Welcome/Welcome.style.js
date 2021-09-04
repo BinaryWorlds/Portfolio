@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
   display: grid;
   justify-items: center;
   grid-template: 2fr auto 3fr auto 2fr / auto;
+  background: ${({ theme }) => theme.colors.bg};
 `;
 
 export const Background = styled(Img)`

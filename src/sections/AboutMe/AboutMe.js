@@ -14,7 +14,9 @@ function AboutMe() {
       <S.Card>
         <S.Text>{text}</S.Text>
       </S.Card>
-      <S.Background images={images} alt="Frontend-developer-portfolio-hedgehog" />
+      <S.Container>
+        <S.Background images={images} alt="Frontend-developer-portfolio-hedgehog" />
+      </S.Container>
     </S.Wrapper>
   );
 }

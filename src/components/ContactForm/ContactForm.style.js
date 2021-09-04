@@ -59,7 +59,7 @@ export const Form = styled.form`
   background: ${({ theme }) => theme.colors.glass};
   box-shadow: inset -0.1rem 0 0 ${({ theme }) => theme.colors.shadow10},
     inset 0 -0.1rem 0 ${({ theme }) => theme.colors.shadow10};
-  backdrop-filter: blur(2.5rem);
+  backdrop-filter: blur(1rem);
 
   #captcha {
     display: ${({ show }) => (show ? 'unset' : 'none')};
