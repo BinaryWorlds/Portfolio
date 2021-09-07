@@ -1,19 +1,28 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import * as S from './Project.style';
 import Footer from '../../sections/Footer/Footer';
 
 import { sectionsId } from '../../View/siteStructure';
 import { ReactComponent as Icon } from '../../assets/icons/closeIcon.svg';
+import { loadMore } from '../../store/app/actions';
 
 function Project({ data }) {
   const { title, image, alt, github, live, description, list, techs } = data;
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    dispatch(loadMore());
+  }, []);
 
   const close = (
     <S.CloseButton to={`/#${sectionsId.projects}`}>
       <Icon />
     </S.CloseButton>
   );
+
   return (
     <>
       <S.Wrapper>

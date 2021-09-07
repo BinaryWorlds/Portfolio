@@ -5,12 +5,13 @@ import * as S from './Header.style';
 
 import Hamburger from '../Hamburger/Hamburger';
 import Nav from '../Nav/Nav';
-import MobileMenu from '../MobileMenu/MobileMenu';
 
 import { strokeFilter } from '../SvgText/SvgText';
 
+const MobileMenu = React.lazy(() => import('../MobileMenu/MobileMenu'));
+
 function Header() {
-  const { isMobile } = useSelector((state) => state.app);
+  const { isMobile, loadMore } = useSelector((state) => state.app);
 
   const getHeader = () => {
     if (isMobile === null) return null;
@@ -18,7 +19,11 @@ function Header() {
       return (
         <>
           <Hamburger />
-          <MobileMenu />
+          {loadMore && (
+            <React.Suspense fallback={<div style={{ position: 'fixed' }} />}>
+              <MobileMenu />
+            </React.Suspense>
+          )}
         </>
       );
     return <Nav />;

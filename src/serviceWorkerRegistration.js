@@ -51,6 +51,8 @@ function registerValidSW(swUrl, config) {
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
+              registration && registration.waiting.postMessage({ type: 'SKIP_WAITING' }); //force downloading new version
+              window.location.reload();
             } else {
               console.log('Content is cached for offline use.');
 

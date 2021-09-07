@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as S from './Background.style';
 
-function Background({ images, alt, className }) {
+function Background({ images, alt, className, afterLoad }) {
   const [imageUrl, setImageUrl] = useState(null);
   const componentRef = useRef();
 
@@ -10,6 +10,11 @@ function Background({ images, alt, className }) {
     const url = componentRef.current.currentSrc;
     setImageUrl(url);
   };
+
+  useEffect(() => {
+    if (!imageUrl) return;
+    afterLoad();
+  }, [imageUrl]);
 
   const genSource = ({ image, media }, i) => {
     const { src, sizes, altFormat } = image;
@@ -33,7 +38,7 @@ function Background({ images, alt, className }) {
     <S.Container url={imageUrl} className={className}>
       <S.Image>
         {sources}
-        <img onLoad={copyUrl} ref={componentRef} src={imgSrc} alt={alt} />
+        <img onLoad={copyUrl} onError={afterLoad} ref={componentRef} src={imgSrc} alt={alt} />
       </S.Image>
     </S.Container>
   );
@@ -54,6 +59,11 @@ Background.propTypes = {
       media: PropTypes.string,
     }),
   ).isRequired,
+  afterLoad: PropTypes.func,
+};
+
+Background.defaultProps = {
+  afterLoad: () => {},
 };
 
 export default Background;

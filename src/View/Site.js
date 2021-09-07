@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import * as S from './Site.style';
 
@@ -18,6 +19,8 @@ const Weather = React.lazy(() => import('../pages/weather'));
 const BgAnimation = React.lazy(() => import('../components/BgAnimation/BgAnimation'));
 
 function Site() {
+  const { loadMore } = useSelector((state) => state.app);
+
   return (
     <S.Wrapper>
       <Router>
@@ -30,13 +33,15 @@ function Site() {
             <Route exact path={projectsLinks.printer} component={Printer} />
             <Route exact path={projectsLinks.product} component={Product} />
             <Route exact path={projectsLinks.weather} component={Weather} />
-            <Redirect from="*" to="/" />
+            <Redirect to="/" />
           </Switch>
         </Suspense>
         <Header />
-        <Suspense>
-          <BgAnimation />
-        </Suspense>
+        {loadMore && (
+          <React.Suspense fallback={<div style={{ position: 'fixed' }} />}>
+            <BgAnimation />
+          </React.Suspense>
+        )}
       </Router>
     </S.Wrapper>
   );

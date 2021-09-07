@@ -102,7 +102,7 @@ function ContactForm() {
     <S.Form onSubmit={formik.handleSubmit} show={showCaptcha} id="contactForm">
       <S.Title>
         <LockIcon />
-        Szyfrowanie end to end (PGP)
+        Szyfrowanie nieaktywne(PGP)
       </S.Title>
       <Label
         tag="input"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Welcome from '../../sections/Welcome/Welcome';
 import Suspense from '../../components/Suspense/Suspense';
@@ -9,14 +10,16 @@ const AboutMe = React.lazy(() => import('../../sections/AboutMe/AboutMe'));
 const Contact = React.lazy(() => import('../../sections/Contact/Contact'));
 
 function Home() {
+  const { loadMore } = useSelector((state) => state.app);
+
   const lazy = (children) => <Suspense>{children}</Suspense>;
 
   return (
     <>
       <Welcome />
-      {lazy(<Projects />)}
-      {lazy(<AboutMe />)}
-      {lazy(<Contact />)}
+      {loadMore && lazy(<Projects />)}
+      {loadMore && lazy(<AboutMe />)}
+      {loadMore && lazy(<Contact />)}
       <Footer />
     </>
   );

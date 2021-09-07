@@ -1,4 +1,4 @@
-import { TOGGLE_MENU, UPDATE_MOBILE } from './types';
+import { TOGGLE_MENU, UPDATE_MOBILE, LOAD_MORE } from './types';
 
 export const toggleMenu = () => ({
   type: TOGGLE_MENU,
@@ -7,4 +7,8 @@ export const toggleMenu = () => ({
 export const updateIsMobile = (isMobile) => ({
   type: UPDATE_MOBILE,
   payload: isMobile,
+});
+
+export const loadMore = () => ({
+  type: LOAD_MORE,
 });
