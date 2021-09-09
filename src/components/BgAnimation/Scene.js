@@ -12,19 +12,14 @@ const gradients = [
 const gradientsLength = gradients.length;
 
 function Scene() {
-  const ballsAmount = 30;
-  const randomBeetween = (min, max) => Math.random() * max + min;
+  const ballsAmount = 20;
 
   const balls = useMemo(
     () =>
       new Array(ballsAmount)
         .fill()
         .map((_, index) => (
-          <Ball
-            key={index}
-            gradient={gradients[index % gradientsLength]}
-            size={randomBeetween(0.5, 3.5)}
-          />
+          <Ball key={index} gradient={gradients[index % gradientsLength]} size={1} />
         )),
     [ballsAmount],
   );
@@ -37,4 +32,4 @@ function Scene() {
   );
 }
 
-export default React.memo(Scene);
+export default Scene;
