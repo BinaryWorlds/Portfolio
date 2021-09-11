@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 /* eslint no-use-before-define: ["error", { "variables": false }] */
-import React, { useState, createRef } from 'react';
+import React, { useEffect, useState, useRef, createRef } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import fetch from 'cross-fetch';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { encrypt, createMessage, readKey } from 'openpgp';
 
 import * as S from './ContactForm.style';
 import Label from './Label';
@@ -13,11 +13,13 @@ import Checkbox from './Checkbox';
 import { errors, texts } from './ContactForm.text';
 
 import { ReactComponent as LockIcon } from '../../assets/icons/lockIcon.svg';
+import publicKey from '../../assets/publicKey';
 
 const SITE_KEY = process.env.REACT_APP_SITE_KEY;
 const apiUrl = process.env.REACT_APP_API_URL;
 
 const steps = ['send', 'sending', 'ok', 'error'];
+const delayTime = 5000;
 
 const lang = 'pl';
 const isPl = true;
@@ -47,27 +49,24 @@ function ContactForm() {
     acceptTerms: yup.boolean().required(requiredTxt).oneOf([true], requiredTxt),
   });
 
-  const handleError = () => {
-    setStep(3);
-    // handleHint();
+  const genMessage = ({ name, email, message }) => `${name}\n${email}\n\n${message}`;
+
+  const encryptData = async (data) => {
+    const encrypted = await encrypt({
+      message: await createMessage({ text: data }),
+      encryptionKeys: await readKey({ armoredKey: publicKey }),
+    });
+    return encrypted;
   };
 
-  const onSubmit = (values) => {
-    if (step === 1) return;
-    if (!token) {
-      setShowCaptcha(true);
-      return;
-    }
-    setToken(null);
-    setStep(1);
+  const handleError = () => setStep(3);
 
-    const data = {
-      service_id: 'devisme',
-      template_id: 'devisme',
-      user_id: process.env.REACT_APP_USER_ID,
-      template_params: { ...values, 'g-recaptcha-response': token },
-    };
+  const handleSuccess = () => {
+    setStep(2);
+    formik.resetForm();
+  };
 
+  const sendMail = (data) => {
     fetch(apiUrl, {
       method: 'post',
       headers: {
@@ -76,12 +75,32 @@ function ContactForm() {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        if (res.ok) {
-          setStep(2);
-          formik.resetForm();
-        } else handleError();
+        if (res.ok) handleSuccess();
+        else handleError();
       })
-      .catch(() => handleError());
+      .catch(handleError);
+  };
+
+  const onSubmit = async (values) => {
+    if (step === 1) return;
+    if (!token) {
+      setShowCaptcha(true);
+      return;
+    }
+    setToken(null);
+    setStep(1);
+
+    const message = genMessage(values);
+    const encryptedMessage = await encryptData(message);
+
+    const data = {
+      service_id: 'devisme',
+      template_id: 'devisme',
+      user_id: process.env.REACT_APP_USER_ID,
+      template_params: { message: encryptedMessage, 'g-recaptcha-response': token },
+    };
+
+    sendMail(data);
   };
 
   const formik = useFormik({
@@ -98,11 +117,34 @@ function ContactForm() {
     setToken(value);
   };
 
+  const timerId = useRef();
+
+  const setTimerId = (id) => {
+    clearTimeout(timerId.current);
+    timerId.current = id;
+  };
+
+  const resetProcess = () => {
+    const timerIdTask = setTimeout(() => {
+      setStep(0);
+    }, delayTime);
+
+    setTimerId(timerIdTask);
+  };
+
+  useEffect(() => {
+    if (step > 1) resetProcess();
+    else setTimerId(null);
+    return () => setTimerId(null);
+  }, [step]);
+
   return (
     <S.Form onSubmit={formik.handleSubmit} show={showCaptcha} id="contactForm">
       <S.Title>
         <LockIcon />
-        Szyfrowanie nieaktywne(PGP)
+        Szyfrowanie end to end
+        <wbr />
+        (PGP)
       </S.Title>
       <Label
         tag="input"

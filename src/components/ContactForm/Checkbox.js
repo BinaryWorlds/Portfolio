@@ -1,6 +1,7 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import * as S from './ContactForm.style';
 
 function Checkbox({ name, formik, text }) {
@@ -20,5 +21,11 @@ function Checkbox({ name, formik, text }) {
     </S.Confirm>
   );
 }
+
+Checkbox.propTypes = {
+  text: PropTypes.arrayOf(PropTypes.string).isRequired,
+  name: PropTypes.string.isRequired,
+  formik: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default Checkbox;

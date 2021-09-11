@@ -38,6 +38,12 @@ export const Title = styled.div`
   ${textOne};
   font-family: ${({ theme }) => theme.fontFamily.decoration};
 
+  text-align: center;
+
+  ${({ theme }) => theme.mq.sm} {
+    text-align: left;
+  }
+
   svg {
     height: 3rem;
     justify-self: center;

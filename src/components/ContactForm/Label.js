@@ -1,6 +1,7 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import * as S from './ContactForm.style';
 import GetInput from './GetInput';
 
@@ -23,5 +24,13 @@ function Label({ tag, name, placeholder, type, formik }) {
     </S.Label>
   );
 }
+
+Label.propTypes = {
+  tag: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  formik: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default Label;
