@@ -1,35 +1,66 @@
-/* eslint-disable */
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { GradientTexture } from '@react-three/drei';
+import { Object3D, Color, VertexColors } from 'three';
 
-function Ball({ gradient, size }) {
-  const ref = useRef();
-  const offset = 0.2 + Math.random() * 1.6;
-  const factor = 2 + Math.random() * 8;
-  const xFactor = Math.floor(-25 + Math.random() * 50);
-  const yFactor = Math.floor(-25 + Math.random() * 50);
-  const zFactor = Math.floor(-8 + Math.random() * 16);
+const colors = ['#049DF0', '#FD4A5F', '#D672C5'];
+const colorsLength = colors.length;
+
+const ballsAmount = 20;
+
+const tempObject = new Object3D();
+const tempColor = new Color();
+
+function Balls() {
+  const meshRef = useRef();
+
+  const colorArray = useMemo(
+    () =>
+      Float32Array.from(
+        new Array(ballsAmount)
+          .fill()
+          .flatMap((_, i) => tempColor.set(colors[i % colorsLength]).toArray()),
+      ),
+    [],
+  );
+
+  const genParams = () => ({
+    offset: 0.2 + Math.random() * 1.6,
+    factor: 2 + Math.random() * 8,
+    xFactor: Math.floor(-25 + Math.random() * 50),
+    yFactor: Math.floor(-25 + Math.random() * 50),
+    zFactor: Math.floor(-12 + Math.random() * 24),
+  });
+
+  const ballsParams = useMemo(() => new Array(ballsAmount).fill().map(() => genParams()), []);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
-    const s = Math.cos(t + offset);
-    const posA = offset * -factor * Math.sin(t + factor);
-    const posB = offset * factor * Math.cos(t - factor);
 
-    ref.current.scale.set(s, s, s);
-    ref.current.rotation.set(s, s, s);
-    ref.current.position.set(xFactor + posA, yFactor + posB, zFactor + posB);
+    for (let id = 0; id < ballsAmount; id++) {
+      const { offset, factor, xFactor, yFactor, zFactor } = ballsParams[id];
+
+      const s = Math.abs(Math.cos(t + offset));
+      const posA = offset * -factor * Math.sin(t + factor);
+      const posB = offset * factor * Math.cos(t - factor);
+
+      tempObject.position.set(xFactor + posA, yFactor + posB, zFactor * s);
+      tempObject.scale.setScalar(s);
+
+      tempObject.updateMatrix();
+      meshRef.current.setMatrixAt(id, tempObject.matrix);
+    }
+
+    meshRef.current.instanceMatrix.needsUpdate = true;
   });
 
   return (
-    <mesh ref={ref}>
-      <sphereBufferGeometry args={[size, 64, 64]} />
-      <meshStandardMaterial>
-        <GradientTexture stops={gradient.stops} colors={gradient.colors} size={32} />
-      </meshStandardMaterial>
-    </mesh>
+    <instancedMesh ref={meshRef} args={[null, null, ballsAmount]}>
+      <sphereBufferGeometry args={[1, 32, 32]}>
+        <instancedBufferAttribute attachObject={['attributes', 'color']} args={[colorArray, 3]} />
+      </sphereBufferGeometry>
+      <meshStandardMaterial vertexColors={VertexColors} />
+    </instancedMesh>
   );
 }
 
-export default Ball;
+export default Balls;
