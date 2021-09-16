@@ -26,6 +26,11 @@ export const Container = styled(animated.div)`
 
   display: grid;
   grid-template-rows: 1fr auto 1fr;
+
+  ${({ theme }) => theme.mq.landscape} {
+    grid-template: auto / max(15vw) auto;
+    align-content: center;
+  }
 `;
 
 export const Element = styled.li`
@@ -36,6 +41,10 @@ export const Element = styled.li`
 
 export const List = styled.ul`
   grid-row-start: 2;
+
+  ${({ theme }) => theme.mq.landscape} {
+    grid-area: 1/1/1/3;
+  }
 
   ${Element}:first-of-type {
     margin-top: 0;
@@ -53,9 +62,13 @@ export const MenuButton = styled(HashLink)`
 `;
 
 export const CloseButton = styled.button`
-  grid-row-start: 3;
   justify-self: center;
   align-self: center;
+  grid-row-start: 3;
+
+  ${({ theme }) => theme.mq.landscape} {
+    grid-area: 1/1;
+  }
 
   svg {
     width: 6rem;
