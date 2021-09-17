@@ -6,6 +6,7 @@ const data = {
   title: `Skrypt oczyszczający historię facebook`,
   image: fbClear,
   alt: 'anonymous mask',
+  label: 'fb',
   github: `https://github.com/BinaryWorlds/FacebookClearActivityLog`,
   description: [
     `Umożliwia masowe usuwanie aktywności każdego typu.`,

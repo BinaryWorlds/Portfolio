@@ -6,6 +6,7 @@ import fetch from 'cross-fetch';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { encrypt, createMessage, readKey } from 'openpgp/dist/openpgp.min';
 
+import useEventGA from '../../hooks/useEventGA';
 import * as S from './ContactForm.style';
 import Label from './Label';
 import Checkbox from './Checkbox';
@@ -28,6 +29,10 @@ function ContactForm() {
   const [showCaptcha, setShowCaptcha] = useState(false);
   const [token, setToken] = useState(null);
   const [step, setStep] = useState(0);
+
+  const [handleEvent] = useEventGA();
+  const eventProps = { category: 'Contact', action: 'click Submit', label: `${steps[step]}` };
+  const registerEvent = () => handleEvent(eventProps);
 
   const recaptchaRef = createRef();
 
@@ -162,7 +167,7 @@ function ContactForm() {
         formik={formik}
       />
       <Checkbox name="acceptTerms" formik={formik} text={texts.confirm[lang]} />
-      <S.Button show={!showCaptcha} type="submit">
+      <S.Button show={!showCaptcha} type="submit" onClick={registerEvent}>
         {texts[steps[step]][lang]}
       </S.Button>
       {showCaptcha && (

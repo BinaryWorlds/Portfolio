@@ -6,6 +6,7 @@ const data = {
   title: 'Gra Jawbreaker',
   image: jawbreaker,
   alt: 'jawbreaker game',
+  label: 'jawbreaker',
   live: 'https://binaryworlds.github.io/jawbreaker-game/',
   github: 'https://github.com/BinaryWorlds/jawbreaker-game',
   description: [

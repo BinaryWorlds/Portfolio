@@ -1,6 +1,6 @@
-import { TOGGLE_MENU, UPDATE_MOBILE, LOAD_MORE } from './types';
+import { TOGGLE_MENU, UPDATE_MOBILE, LOAD_MORE, UDPATE_COOKIES_STATE } from './types';
 
-const initialState = { isMenuOpen: false, isMobile: null, loadMore: false };
+const initialState = { isMenuOpen: false, isMobile: null, loadMore: false, isCookiesAllowed: null };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
@@ -12,6 +12,9 @@ export default (state = initialState, { type, payload }) => {
 
     case LOAD_MORE:
       return { ...state, loadMore: true };
+
+    case UDPATE_COOKIES_STATE:
+      return { ...state, isCookiesAllowed: payload };
 
     default:
       return state;

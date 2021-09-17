@@ -25,6 +25,8 @@ export const Para = styled.p`
 `;
 
 export const Policy = styled.a`
+  color: ${({ theme }) => theme.colors.decoration900};
+  text-shadow: ${({ theme }) => theme.colors.decoration900} 0 0.025rem 0.025rem;
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize[1].sm};
   font-weight: ${({ theme }) => theme.fontWeight.medium};

@@ -6,6 +6,7 @@ const data = {
   title: 'Mobilna aplikacja pogodowa',
   image: weather,
   alt: 'weather app',
+  label: 'weather',
   live: 'https://binaryworlds.github.io/WeatherApp/',
   github: 'https://github.com/BinaryWorlds/WeatherApp',
   list: [

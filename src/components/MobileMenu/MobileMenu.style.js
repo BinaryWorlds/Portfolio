@@ -13,6 +13,7 @@ export const Wrapper = styled.nav`
 export const Container = styled(animated.div)`
   width: 90vw;
   height: 90vh;
+  z-index: 100;
   position: fixed;
   top: 50%;
   right: 0;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Layout from './layout/layout';
 import Site from './View/Site';
 
@@ -9,7 +10,9 @@ function App() {
 
   return (
     <Layout>
-      <Site />
+      <Router>
+        <Site />
+      </Router>
     </Layout>
   );
 }

@@ -6,6 +6,7 @@ const data = {
   title: 'Landing Page',
   image: landingPage,
   alt: 'landing page',
+  label: 'landingPage',
   live: 'https://biuro-plus.com',
   description: [
     `Wizytówka biura rachunkowego.`,

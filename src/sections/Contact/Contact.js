@@ -13,6 +13,8 @@ const ghLink = 'https://github.com/BinaryWorlds';
 const linkedinLink = 'https://www.linkedin.com/';
 const mailTo = 'mailto:contact@dev-is.me';
 
+const eventProps = { category: 'Contact' };
+
 function Contact() {
   return (
     <S.Wrapper id={sectionsId.contact}>
@@ -23,24 +25,25 @@ function Contact() {
           link={publicKey}
           aria="publicKey"
           isBlank={false}
-          download="publicKey_contact@dev-is.me.pgp">
+          download="publicKey_contact@dev-is.me.pgp"
+          eventProps={eventProps}>
           <KeyIcon />
           Pobierz mój
           <br />
           klucz publiczny
         </S.Link>
-        <S.Link link={mailTo} aria="email" isBlank={false}>
+        <S.Link link={mailTo} aria="email" isBlank={false} eventProps={eventProps}>
           contact@
           <br />
           dev-is.me
         </S.Link>
-        <S.Link link={fbLink} aria="facebook">
+        <S.Link link={fbLink} aria="facebook" eventProps={eventProps}>
           <FbIcon />
         </S.Link>
-        <S.Link link={linkedinLink} aria="linkedin">
+        <S.Link link={linkedinLink} aria="linkedin" eventProps={eventProps}>
           <LinkedinIcon />
         </S.Link>
-        <S.Link link={ghLink} aria="github">
+        <S.Link link={ghLink} aria="github" eventProps={eventProps}>
           <GhIcon />
         </S.Link>
       </S.Container>

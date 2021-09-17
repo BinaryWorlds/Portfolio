@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
 import React, { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import { PageWrapper } from '../../ui/PageWrapper';
 import * as S from './Project.style';
 import Footer from '../../sections/Footer/Footer';
 
@@ -10,12 +11,14 @@ import { ReactComponent as Icon } from '../../assets/icons/closeIcon.svg';
 import { loadMore } from '../../store/app/actions';
 
 function Project({ data }) {
-  const { title, image, alt, github, live, description, list, techs } = data;
+  const { title, image, alt, label, github, live, description, list, techs } = data;
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {
     dispatch(loadMore());
   }, []);
+
+  const eventProps = { category: 'Project', label };
 
   const close = (
     <S.CloseButton to={`/#${sectionsId.projects}`}>
@@ -24,18 +27,18 @@ function Project({ data }) {
   );
 
   return (
-    <>
+    <PageWrapper>
       <S.Wrapper>
         {close}
         <S.Image image={image} alt={alt} />
         <S.ButtonsContainer>
           {github && (
-            <S.Link github link={github}>
+            <S.Link github link={github} aria="github" eventProps={eventProps}>
               GitHub
             </S.Link>
           )}
           {live && (
-            <S.Link live link={live}>
+            <S.Link live link={live} aria="live" eventProps={eventProps}>
               LIVE
             </S.Link>
           )}
@@ -67,8 +70,11 @@ function Project({ data }) {
         </S.Container>
       </S.Wrapper>
       <Footer />
-    </>
+    </PageWrapper>
   );
 }
 
+Project.propTypes = {
+  data: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 export default Project;

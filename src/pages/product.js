@@ -6,6 +6,7 @@ const data = {
   title: `Wizytówka produktu`,
   image: product,
   alt: 'my product site',
+  label: 'myProduct',
   live: `https://climbingtimers.com/`,
   description: [
     `Prosta strona wykonana przy użyciu Wordpress i Elementora.`,

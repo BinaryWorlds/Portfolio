@@ -6,6 +6,7 @@ const data = {
   title: `Biblioteka dla drukarki termicznej`,
   image: printer,
   alt: 'printer',
+  label: 'printer',
   github: `https://github.com/BinaryWorlds/ThermalPrinter`,
   description: [
     `Język: C++`,
