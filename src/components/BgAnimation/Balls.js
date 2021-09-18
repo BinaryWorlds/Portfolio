@@ -58,7 +58,7 @@ function Balls() {
       <sphereBufferGeometry args={[1, 32, 32]}>
         <instancedBufferAttribute attachObject={['attributes', 'color']} args={[colorArray, 3]} />
       </sphereBufferGeometry>
-      <meshStandardMaterial vertexColors={VertexColors} />
+      <meshLambertMaterial vertexColors={VertexColors} />
     </instancedMesh>
   );
 }
