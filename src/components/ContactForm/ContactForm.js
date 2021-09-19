@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import fetch from 'cross-fetch';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { encrypt, createMessage, readKey } from 'openpgp/dist/openpgp.min';
+import { encrypt, createMessage, readKey } from 'openpgp/lightweight';
 
 import useEventGA from '../../hooks/useEventGA';
 import * as S from './ContactForm.style';
