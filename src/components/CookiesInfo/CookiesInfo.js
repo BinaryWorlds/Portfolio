@@ -47,7 +47,7 @@ function CookiesInfo() {
         {infoTxt[0]}
         <S.Policy
           onClick={handlePolicy}
-          href={`${process.env.PUBLIC_URL}/cookiesPolicy.html`}
+          href={`${process.env.PUBLIC_URL}/privacyPolicy.html`}
           target="_blank"
           rel="noreferrer">
           {infoTxt[1]}
