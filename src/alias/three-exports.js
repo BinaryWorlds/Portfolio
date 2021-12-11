@@ -160,6 +160,8 @@ export { ACESFilmicToneMapping, PCFSoftShadowMap, sRGBEncoding } from 'three/src
 export { SphereGeometry, SphereBufferGeometry } from 'three/src/geometries/SphereGeometry.js';
 export { MeshLambertMaterial } from 'three/src/materials/MeshLambertMaterial';
 export const VertexColors = 2;
+export const LinearEncoding = 3000;
+export const NoToneMapping = 0;
 
 if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
   /* eslint-disable no-undef */
