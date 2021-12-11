@@ -10,7 +10,7 @@ function GetInput(props) {
     input: <S.Input {...props} />,
     textarea: <S.Area {...props} />,
   };
-  return <>{inputs[tag]}</>;
+  return inputs[tag];
 }
 
 export default GetInput;

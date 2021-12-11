@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { TOGGLE_MENU, UPDATE_MOBILE, LOAD_MORE, UDPATE_COOKIES_STATE } from './types';
 
 const initialState = { isMenuOpen: false, isMobile: null, loadMore: false, isCookiesAllowed: null };
