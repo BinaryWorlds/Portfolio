@@ -40,6 +40,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "pretty": "prettier --write \"**/*.{js,jsx,json}\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "prodBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
